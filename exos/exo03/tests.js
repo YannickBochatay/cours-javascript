@@ -1,0 +1,1 @@
+assert( concat("toto"," ","est"," ","un"," ","gentil"," ","garçon") == "toto est un gentil garçon", "Concaténation de chaîne" );

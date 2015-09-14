@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="fr">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Cours javascript : valeurs et variables</title>
+
+		<meta name="description" content="cours de javascript">
+		<meta name="author" content="Yannick Bochatay">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+				
+		<link rel="stylesheet" href="css/custom.css">
+		
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				
+				<section>
+					<h1>Javascript</h1>
+					<h3>Valeurs et variables</h3>
+				</section>
+				
+				<section>
+					<h2>Définition</h2>
+					<p>Une variable est un symbole qui associe un nom (l'identifiant) à une valeur.</p>
+					<p>La valeur peut être une valeur primitive ou un objet.</p>
+					<br/>
+					<p>Pas de constante dans la 5ème édition d'ECMAScript.</p>
+				</section>
+				
+				<section>
+						<h2>
+							Valeurs primitives
+						</h2>
+						<ul>
+							<li>booléen</li>
+							<li>nombre</li>
+							<li>chaîne de caractère</li>
+							<li>undefined</li>
+							<li>null</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Booléen</h3>
+						<code>true</code> ou <code>false</code>
+					</section>
+					
+					<section>
+						<h3>Nombre</h3>
+						<p>
+						Nombres à virgule flottante sur 64 bits.<br/>
+						Deux valeurs spéciales : <code>NaN</code> (not a number) et <code>Infinity</code>.
+						</p>
+						<pre>
+							<code data-trim class="javascript">
+3/0; //Infinity
+
+parseFloat("a"); // NaN
+
+0.1 + 0.2; //??
+							</code>
+						</pre>
+					</section>
+					
+					<section>
+						<section>
+						<h3>Chaîne de caractère</h3>
+						<p>
+						Délimitée indiféremment par des apostrophes (simple quote) ou des guillemets (double quote).
+						<br/>
+						
+						</p>
+						<pre><code>
+  "toto";
+  'toto';
+							</code></pre>
+					</section>
+						
+					<section>
+						<h3>Chaîne de caractère</h3>
+						<h4>Caractères spéciaux</h4>
+						<table id="caracteres_speciaux">
+ <thead>
+  <tr>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td><code>\b</code></td>
+   <td>Retour arrière</td>
+  </tr>
+  <tr>
+   <td><code>\f</code></td>
+   <td>Saut de page</td>
+  </tr>
+  <tr>
+   <td><code>\n</code></td>
+   <td>Nouvelle ligne</td>
+  </tr>
+  <tr>
+   <td><code>\r</code></td>
+   <td>Retour chariot</td>
+  </tr>
+  <tr>
+   <td><code>\t</code></td>
+   <td>Tabulation</td>
+  </tr>
+  <tr>
+   <td><code>\v</code></td>
+   <td>Tabulation verticale</td>
+  </tr>
+  <tr>
+   <td><code>\'</code></td>
+   <td>Apostrophe ou guillemet droit simple</td>
+  </tr>
+  <tr>
+   <td><code>\"</code></td>
+   <td>Guillemet droit double</td>
+  </tr>
+  <tr>
+   <td><code>\\</code></td>
+   <td>Barre oblique inversée</td>
+  </tr>
+  <tr>
+   <td><code>\<em>XXX</em></code></td>
+   <td>Caractère Latin-1 spécifié par, au plus, 3 chiffres octaux entre 0 et 377.</td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+   <td><code>\x<em>XX</em></code></td>
+   <td>Caractère Latin-1 spécifié par 2 chiffres hexadécimaux entre 00 et FF.</td>
+  </tr>
+  <tr>
+  </tr>
+  <tr>
+   <td><code>\u<em>XXXX</em></code></td>
+   <td>Caractère Unicode spécifié par 4 chiffres hexadécimaux.</td>
+  </tr>
+ </tbody>
+</table>
+							</section>
+						</section>
+						
+						<section>
+							<h3>Undefined</h3>
+							Valeur utilisée lorsqu'aucune valeur n'a été attribuée à une variable.
+							<pre><code class="javascript">var toto;
+							
+toto; //undefined</code></pre>
+						</section>
+						
+						<section>
+							<h3>null</h3>
+							Valeur qui représente l'absence intentionnelle de valeur.
+							<pre><code>
+  var toto = null;
+								</code></pre>  
+						
+					</section>
+					
+				<section>
+					<h2>Déclaration</h2>
+					Obligatoire en mode strict.
+					<pre><code>"use strict";
+					
+var tata; //déclaration
+var toto = "titi"; //déclaration + affectation
+var titi, tutu; //déclaration de 2 variables avec un seul mot clé var.
+
+toto; // "titi"
+titi; // undefined
+tutu; // undefined
+tyty; // ReferenceError: tyty is not defined</code></pre>
+				</section>
+				
+				<section>
+					<h2>Typage dynamique</h2>
+					On ne spécifie pas le type de données.
+					<pre><code>var reponse = 42;
+					
+reponse = "toto";					
+					</code></pre>
+				</section>
+								
+				<section>
+					<section>
+						<h2>Identifiants</h2>
+						<h4>Règles</h4>
+						<ul>
+							<li>commencent par une lettre, un tiret bas (<code>_</code>) ou un dollar (<code>$</code>)</li>
+							<li>les caractères qui suivent peuvent être des chiffres (<code>0</code> à <code>9</code>)</li>
+							<li>sensibles à la casse</li>
+							<li>ne sont pas des mots réservés</li>
+						</ul>
+						<br/>
+						<br/>
+						<h4>Habitudes</h4>
+						<ul>
+							<li>camelCase : <code>maVariable</code> plutôt que <code>ma_variable</code></li>
+							<li>les constructeurs (et uniquement eux) commencent par une majuscule</code></li>
+						</ul>
+						<br/>
+						<br/>
+						<pre><code>var maVariable = new MonConstructeur();</code></pre>
+					</section>
+					<section>
+						<h2>Mots réservés</h2>
+						<ul class="fourColumns">
+							<li><code>break</code></li>
+							<li><code>case</code></li>
+							<li><code>catch</code></li>
+							<li><code>class</code>*</li>
+							<li><code>const</code>*</li>
+							<li><code>continue</code></li>
+							<li><code>debugger</code></li>
+							<li><code>default</code></li>
+							<li><code>delete</code></li>
+							<li><code>do</code></li>
+							<li><code>else</code></li>
+							<li><code>enum</code>*</li>
+							<li><code>export</code>*</li>
+							<li><code>extends</code>*</li>
+							<li><code>finally</code></li>
+							<li><code>for</code></li>
+							<li><code>function</code></li>
+							<li><code>if</code></li>
+							<li><code>implements</code>*</li>
+							<li><code>import</code>*</li>
+							<li><code>in</code></li>
+							<li><code>instanceof</code></li>
+							<li><code>interface</code>*</li>
+							<li><code>let</code>*</li>
+							<li><code>new</code></li>
+							<li><code>package</code>*</li>
+							<li><code>private</code>*</li>
+							<li><code>protected</code>*</li>
+							<li><code>public</code>*</li>
+							<li><code>return</code></li>
+							<li><code>static</code>*</li>
+							<li><code>super</code>*</li>
+							<li><code>switch</code></li>
+							<li><code>this</code></li>
+							<li><code>throw</code></li>
+							<li><code>try</code></li>
+							<li><code>typeof</code></li>
+							<li><code>var</code></li>
+							<li><code>void</code></li>
+							<li><code>while</code></li>
+							<li><code>with</code></li>
+							<li><code>yield</code>*</li>
+						</ul>
+						<br/>
+						<br/>
+						<p>* réservés en vue de l'évolution de javascript.</p>
+					</section>
+				</section>
+								
+				<section>
+					<section>
+						<h2>Portée des variables</h2>
+						<h3>Variables globales</h3>
+						<p>En dehors des fonctions, on parle d'espace global.<br/>
+						Les variables définies dans cet espace sont appelées variables globales. Elles sont disponibles pour tout le code contenu dans le document.
+						</p>
+						<h3>Variables locales</h3>
+						<p>Lorsqu'une variable est déclarée dans une fonction, elle est appelée variable locale car elle n'est disponible qu'au sein de cette fonction.
+						</p>
+					</section>
+					
+					
+					
+					<section>
+						<h2>Variables globales</h2>
+						<h3>Dans un navigateur web</h3>
+						Différents fichiers javascript partagent le <u>même</u> espace global.
+						</p>
+						<pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+   &lt;head&gt;&lt;/head&gt;
+   &lt;body&gt;
+      &lt;script&gt;
+         var maVariable = "toto";
+      &lt;/script&gt;
+      &lt;script src="script1.js"&gt;&lt;/script&gt;
+      &lt;script src="script2.js"&gt;&lt;/script&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+						
+						<p><small>script1.js</small></p>
+						<pre><code>maVariable //"toto"
+var maVariable2 = "tata"</code></pre>
+						<p><small>script2.js</small></p>
+						<pre>
+<code>maVariable //"toto"
+maVariable2 //tata</code></pre>
+					</section>
+				</section>
+				
+				<section>
+				
+					<h2>Élévation des variables</h2>
+					(hoisting en anglais)
+					<pre>
+						<code>function toto1() {
+   if (false) { var titi = "tata"; }
+   return titi;
+}
+
+toto1(); //ReferenceError ? "tata" ? undefined ?
+
+function toto2() {
+   return titi;
+   var titi = "tata";
+}
+
+toto2(); //ReferenceError ? "tata" ? undefined ?
+						</code>
+					</pre>
+					<p>Pour éviter toute ambiguïté, il est conseillé de déclarer TOUTES les variables en début de fonction.</p>
+				</section>
+				
+				<section>
+					<h2>Conversions implicites</h2>
+					<p>Si une instruction attend un type autre que celui de l'opérande, ce dernier est automatiquement converti. Attention aux pièges ! </p>
+					<pre><code>"La réponse est " + 37; // "La réponse est 37"
+"37" - 7; // 30
+"37" + 7; // "377"
+"37" + {}; // "37[object Object]"
+37 + {}; // "37[object Object]"
+37 - {}; // NaN</code></pre>
+					
+				</section>				
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/initialize.js"></script>
+
+	</body>
+</html>

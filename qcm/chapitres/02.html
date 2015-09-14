@@ -1,0 +1,131 @@
+    	
+    		<qcm>
+    			<code>const PI = 3.14;</code>
+    			<question>Cette écriture est correcte</question>
+    			<choix>jamais</choix>
+    			<choix>toujours</choix>
+    			<choix>à partir d'ECMAScript 5</choix>
+    			<choix correct>à partir d'ECMAScript 6</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<question>Combien de types primitifs existe-t-il en javascript ?</question>
+    			<choix>3 (nombre, booléen, chaîne)</choix>
+    			<choix>4 (nombre, booléen, chaîne, null)</choix>
+    			<choix correct>5 (nombre, booléen, chaîne, null, undefined)</choix>
+    			<choix>6 (nombre, booléen, chaîne, null, undefined, objet)</choix>
+    			<choix>7 (nombre, booléen, chaîne, null, undefined, objet, fonction)</choix>
+    		</qcm>
+    
+    		<qcm>
+    			<code>3/0;</code>
+    			<question>Que renvoie cette opération ?</question>
+    			<choix>Error</choix>
+    			<choix>NaN</choix>
+    			<choix correct>Infinity</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>0.1 + 0.2 == 0.3;</code>
+    			<question>Que renvoie cette opération ?</question>
+    			<choix>true</choix>
+    			<choix correct>false</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>parseFloat("°C");</code>
+    			<question>Que renvoie cette opération ?</question>
+    			<choix>Error</choix>
+    			<choix>0</choix>
+    			<choix correct>NaN</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>parseFloat("15.5°C");</code>
+    			<question>Que renvoie cette opération ?</question>
+    			<choix>Error</choix>
+    			<choix>0</choix>
+    			<choix>NaN</choix>
+    			<choix correct>15.5</choix>
+    		</qcm>
+    		
+    		<qcm important>
+    			<code>"toto";
+'toto';</code>
+    			<question>Les deux chaînes sont interprétées exactement de la même façon</question>
+    			<choix correct>vrai</choix>
+    			<choix>faux</choix>
+    		</qcm>
+    		
+    		<qcm important>
+    			<code>var toto;</code>
+    			<question>La valeur de la variable toto est</question>
+    			<choix correct>undefined</choix>
+    			<choix>null</choix>
+    			<choix>""</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>console.log(toto);</code>
+    			<question>Ce code génère une erreur</question>
+    			<choix>jamais</choix>
+    			<choix correct>toujours</choix>
+    			<choix>en mode strict uniquement</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>toto = "Toto";</code>
+    			<question>Ce code génère une erreur</question>
+    			<choix>jamais</choix>
+    			<choix>toujours</choix>
+    			<choix correct>en mode strict uniquement</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var ma_variable, maVariable, MaVariable, $maVariable, 1maVariable, _maVariable, @maVariable;</code>
+    			<question>Quels sont les noms de variables tolérés</question>
+    			<choix>1, 2, 3</choix>
+    			<choix>2, 3</choix>
+    			<choix correct>1, 2, 3, 4, 6</choix>
+    			<choix>1, 2, 3, 4, 5, 6</choix>
+    			<choix>1, 2, 3, 4, 6, 7</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var ma_variable, maVariable, MaVariable, Ma_variable;</code>
+    			<question>Quelle est la version conseillée ?</question>
+    			<choix>1</choix>
+    			<choix correct>2</choix>
+    			<choix>3</choix>
+    			<choix>4</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>function maFct() {
+  return toto;
+  var toto = "tata";
+}
+
+maFct();</code>
+    			<question>Quel est la valeur renvoyée ?</question>
+    			<choix>Error</choix>
+    			<choix>"tata"</choix>
+    			<choix correct>undefined</choix>
+    			<choix>null</choix>
+    		</qcm>
+    		
+    		<qcm important>
+    			<code>5 + '7';</code>
+    			<question>Quel est la valeur renvoyée ?</question>
+    			<choix>12</choix>
+    			<choix correct>57</choix>
+    			<choix>NaN</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>"5" + 7;</code>
+    			<question>Quel est la valeur renvoyée ?</question>
+    			<choix>12</choix>
+    			<choix correct>57</choix>
+    			<choix>NaN</choix>
+    		</qcm>

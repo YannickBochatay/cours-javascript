@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Exercices javascript</title>
+	<link rel="stylesheet" href="../libs/pure/pure.css"/>
+	<link rel="stylesheet" href="../libs/codemirror/lib/codemirror.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/font-awesome.css"/>
+	<link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body>
+    <a class="pull-left" href="../index.html" id="home" title="Sommaire">
+        <i class="fa fa-arrow-circle-left"></i>
+    </a>
+    <h1>Exercices</h1>
+    
+	<form class="pure-form" id="choix_exo">
+	
+            <a class="pure-button" id="prec" href="#01" title="précédent">
+                <i class="fa fa-angle-double-left fa-lg"></i>
+            </a>
+            <select class="form-control" name="exo">
+                    <option value="01">01 - Itération des objets</option>
+                    <option value="02">02 - Chaînes de caractères</option>
+                    <option value="03">03 - Fonction de concaténation</option>
+                    <option value="04">04 - Modificateur d'objets</option>
+                    <option value="05">05 - Manipulation des clés</option>
+                    <option value="06">06 - Diviser par 10 les valeurs d'un tableau</option>
+                    <option value="07">07 - Somme des éléments d'un tableau</option>
+                    <option value="08">08 - Temps d'exécution de fonctions</option>
+                    <option value="09">09 - Borner une valeur à un intervalle</option>
+                    <option value="10">10 - Chronomètre</option>
+                    <option value="11">11 - Chronomètre irrégulier</option>
+                    <option value="20">20 - Calculatrice</option>
+                    <option value="21">21 - mini jQuery</option>
+            </select>
+            <a class="pure-button" id="suiv" href="#03" title="suivant">
+                <i class="fa fa-angle-double-right fa-lg"></i>
+            </a>
+        </form>
+
+        <form class="pure-form pure-form-stacked" id="exo">
+            <br/>
+
+            <label for="intitule">Intitulé</label>
+            <div id="intitule"></div>
+
+            <br/>
+
+            <label for="editeur">Editeur</label>
+            <textarea id="editeur"></textarea>
+
+            <br/>
+
+            <button type="submit" class="pure-button pure-button-primary">Tester</button>
+            <button type="button" id="reinit" class="pure-button pure-button-default">Réinitialiser</button>
+            <button type="button" id="voirCorrige" class="pure-button pure-button-warning">Voir le corrigé</button>
+            <button type="button" id="exporter" class="pure-button pure-button-default">Exporter</button>
+
+
+            <br/>
+            <br/>
+
+            <div id="log">
+                    <ul>
+
+                    </ul>
+            </div>
+
+            <br/>
+            <br/>
+
+            <div id="divCorrige">
+                    <label for="corrige">Corrigé</label>
+                    <div id="corrige"></div>
+            </div>
+
+	</form>
+		
+	<script src="../libs/codemirror/lib/codemirror.js"></script>
+	<script src="../libs/codemirror/mode/javascript/javascript.js"></script>
+	<script src="script.js"></script>
+	
+</body>
+</html>

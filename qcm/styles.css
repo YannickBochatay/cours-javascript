@@ -1,0 +1,12 @@
+form {
+	padding:20px;
+}
+legend {
+	font-weight:bold;
+}
+.ok {
+	background: rgb(28, 184, 65);
+}
+.ko {
+	background: rgb(202, 60, 60);
+}

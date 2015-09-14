@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Cours javascript</title>
+
+		<meta name="description" content="cours de javascript">
+		<meta name="author" content="Yannick Bochatay">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Javascript</h1>
+					<h3>Points divers</h3>
+				</section>
+				<section>
+					<h2>Reconnaître une bonne bibliothèque</h2>
+					<ul>
+						<li>pas d'autre variable globale que l'espace de nom</li>
+						<li>pas de browser sniffing</li>
+						<li>pas d'extension des prototypes natifs ou hôtes</li>
+					</ul>
+					<br/>
+					<br/>
+					Outil expérimental mais pouvant aider :
+                                        <a href="http://jscritic.com/" target="liens">JS critic</a>
+				</section>
+				
+				<section>
+					<h2>Frameworks populaires</h2>
+					<ul>
+                                            <li><a href="https://angularjs.org/" target="liens">Angular</a> (Google)</li>
+                                            <li><a href="https://www.polymer-project.org" target="liens">Polymer</a> (Google)</li>
+                                            <li><a href="http://facebook.github.io/react/" target="liens">React</a> (Facebook)</li>
+                                            <li><a href="http://emberjs.com/" target="liens">Ember</a></li>
+                                            <li><a href="http://aurelia.io/" target="liens">Aurelia</a></li>
+                                            <li><a href="http://backbonejs.org/" target="liens">Backbone</a></li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Bibliothèques populaires</h2>
+					<ul>
+                                            <li><a href="http://jquery.com/" target="liens">jQuery</a> (DOM, ajax, etc)</li>
+                                            <li><a href="http://jqueryui.com/" target="liens">jQuery-UI</a> (widgets, intéraction, etc)</li>
+                                            <li><a href="http://zeptojs.com/" target="liens">Zepto</a> (variante allégée de jQuery)</li>
+                                            <li><a href="http://requirejs.org/" target="liens">RequireJS</a> (chargement de modules)</li>
+                                            <li><a href="http://modernizr.com/" target="liens">Modernizr</a> (détection de fonctionnalités)</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Boite à outils</h2>
+					<ul>
+                                            <li>
+                                                <a href="http://openlayers.org/" target="liens">OpenLayers</a>,
+                                                <a href="http://leafletjs.com/" target="liens">Leaflet</a> (cartographie)
+                                            </li>
+                                            <li>
+                                                <a href="http://d3js.org/" target="liens">D3</a> (visualisation de données)
+                                            </li>
+                                            <li>
+                                                <a href="http://www.highcharts.com/" target="liens">Highcharts</a> (graphiques)
+                                            </li>
+                                            <li>
+                                                <a href="http://linkedin.github.io/hopscotch/" target="liens">Hopscotch</a> (aide intéractive)
+                                            </li>
+                                            <li>
+                                                <a href="http://ckeditor.com/" target="liens">CKEditor</a>,
+                                                <a href="http://www.tinymce.com/" target="liens">TinyMCE</a> (éditeurs riches)
+                                            </li>
+                                            <li>
+                                                <a href="https://highlightjs.org/" target="liens">HighlightJS</a>, 
+                                                <a href="http://prismjs.com/" target="liens">Prism</a> (coloration syntaxique)
+                                            </li>
+                                            <li>
+                                                <a href="http://ace.c9.io" target="liens">Ace editor</a>, 
+                                                <a href="https://codemirror.net/" target="liens">Code Mirror</a> (éditeurs de code)
+                                            </li>
+                                            <li>
+                                                <a href="http://momentjs.com/" target="liens">Moment</a> (gestion des dates)
+                                            </li>
+                                            <li>
+                                                <a href="https://github.com/mozilla/localForage" target="liens">LocalForage</a>,
+                                                <a href="http://www.dexie.org/" target="liens">Dexie</a>
+                                                (stockage client)
+                                            </li>
+                                            <li>
+                                                <a href="https://lodash.com/" target="liens">Lodash</a> (fonctions utiles)
+                                            </li>
+                                            <li>
+                                                <a href="http://rivetsjs.com/" target="liens">Rivets</a>, 
+                                                <a href="http://knockoutjs.com/" target="liens">Knockout</a> (data binding)
+                                            </li>
+                                            <li>
+                                                <a href="http://threejs.org/" target="liens">ThreeJS</a> (WebGL)
+                                            </li>
+                                            <li>
+                                                <a href="http://lab.hakim.se/reveal-js" target="liens">Reveal</a> (présentations)
+                                            </li>
+                                            
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Sites à connaître</h2>
+					<ul>
+						<li><a href="http://caniuse.com/" target="liens">Can I use</a> (compatibilité)</li>
+						<li><a href="http://jshint.com/" target="liens">JSHint</a> (qualité de code)</li>
+                                                <li><a href="https://developer.mozilla.org/fr/" target="liens">Mozilla Developer Network</a> (documentation)</li>
+						<li><a href="https://hacks.mozilla.org/" target="liens">hacks.mozilla.org</a> (actualités Mozilla)</li>
+                                                <li><a href="http://www.html5rocks.com/fr/" target="liens">HTML5 rocks</a> (actualités Google)</li>
+						<li><a href="http://tympanus.net/codrops/" target="liens">Codrops</a> (web design)</li>
+					</ul>
+				</section>
+								
+				<section>
+					<h2>Sites à éviter</h2>
+                                        <ul>
+                                            <li><a href="http://www.toutjavascript.com" target="liens">Tout Javascript</a></li>
+                                            <li><a href="http://www.commentcamarche.net/" target="liens">Comment ça marche</a></li>
+                                            <li><a href="http://www.w3schools.com" target="liens">W3 schools</a>
+                                        </ul>
+				</section>
+				
+				<section>
+					<h2>Introductions à ES6</h2>
+					<ul>
+                                            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Fonctions/Fonctions_fl%C3%A9ch%C3%A9es" target="liens"><strong>Fonctions fléchées</strong></a> : raccourcis pour fonctions anonymes</li>
+                                            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Instructions/let" target="liens"><strong>Portée de bloc</strong></a> avec l'opérateur <em>let</em></li>
+                                            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Instructions/const" target="liens"><strong>Constantes</strong></a> avec le mot clé <em>const</em></li>
+                                            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Classes" target="liens"><strong>Classes</strong></a>  : sucre syntaxique pour l'héritage prototypal</li>
+
+                                            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Gabarit_cha%C3%AEnes_caract%C3%A8res" target="liens"><strong>Gabarits de chaînes de caractères</strong></a> (template strings)</li>
+                                            <li>
+                                                <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Fonctions/Valeurs_par_d%C3%A9faut_des_arguments" target="liens"><strong>Paramètres par défaut</strong>,
+                                                <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Fonctions/param%C3%A8tres_du_reste" target="liens"><strong>paramètres du reste</strong></a>,
+                                                <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Op%C3%A9rateur_de_d%C3%A9composition" target="liens"><strong>opérateur de décomposition</strong></a>    
+                                            </li>
+                                            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Affecter_par_d%C3%A9composition" target="liens"><strong>Affectation par décomposition</strong></a> pour les tableaux et objets</li>
+                                            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/iterateurs_et_generateurs" target="liens"><strong>Itérateurs</strong> et <strong>Générateurs</strong></a></li>
+                                            <li>
+                                                <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Map" target="liens"><strong>Map</strong></a>, 
+                                                <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Set" target="liens"><strong>Set</strong></a>,
+                                                <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/WeakMap" target="liens"><strong>WeakMap</strong></a>,
+                                                <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/WeakSet" target="liens"><strong>WeakSet</strong></a> :
+                                                structures de données
+                                            </li>
+                                            <li><a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-scripts-and-modules" target="liens"><strong>Modules</strong></a> pour organiser et charger le code</li>
+                                            <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Promise" target="liens"><strong>Promises</strong></a> pour gérer l'asynchronisme</li>
+					</ul>
+                                        <br/>
+                                        <br/>
+                                        <p>
+                                            <a href="http://babeljs.io/docs/learn-es2015/" target="liens">&#10152; Plus d'infos</a>
+                                        </p>
+				</section>
+			</div>
+			
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/initialize.js"></script>
+
+	</body>
+</html>

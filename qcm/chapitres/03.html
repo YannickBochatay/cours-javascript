@@ -1,0 +1,195 @@
+    		<qcm important>
+    			<code>var obj = new Object();
+obj1.prop1 = "toto";
+obj1.prop2 = "tata";
+
+var obj = {
+	prop1 : "toto",
+	prop2 : "tata"
+};</code>
+    			<question>Les deux écritures sont strictement équivalentes</question>
+    			<choix correct>vrai</choix>
+    			<choix>faux</choix>
+    		</qcm>
+    		
+    		<qcm important>
+    			<code>var obj = {
+	"prop1" : "toto",
+	"prop2" : "tata"
+};
+
+var obj = {
+	prop1 : "toto",
+	prop2 : "tata"
+};</code>
+    			<question>Les deux écritures sont strictement équivalentes</question>
+    			<choix correct>vrai</choix>
+    			<choix>faux</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var obj = {
+	_prop1 : "toto",
+	$prop2 : "tata"
+};</code>
+    			<question>Ce code génère une erreur</question>
+    			<choix>vrai</choix>
+    			<choix correct>faux</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var obj = {
+	_prop1 : "toto",
+	@prop2 : "tata"
+};</code>
+    			<question>Ce code génère une erreur</question>
+    			<choix correct>vrai</choix>
+    			<choix>faux</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var obj = {
+	"_prop1" : "toto",
+	"@prop2" : "tata"
+};</code>
+    			<question>Ce code génère une erreur</question>
+    			<choix>vrai</choix>
+    			<choix correct>faux</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var obj = {
+	" " : "toto",
+	"  " : "tata"
+};</code>
+    			<question>Ce code génère une erreur</question>
+    			<choix>vrai</choix>
+    			<choix correct>faux</choix>
+    		</qcm>
+    		
+    		<qcm important>
+    			<code>{
+  tata : "toto",
+  toto : "tata"
+}</code>
+    			<question>Ceci est une chaîne JSON valide</question>
+    			<choix>vrai</choix>
+    			<choix correct>faux</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var obj = {
+  "$prop1" : "toto",
+  "_prop2" : "tata"
+};
+
+obj.$prop1;
+obj._prop2;
+</code>
+    			<question>Cette écriture est correcte</question>
+    			<choix correct>vrai</choix>
+    			<choix>faux</choix>
+    		</qcm>
+    		
+    		<qcm important>
+    			<code>window.alert;
+window['alert'];
+</code>
+    			<question>Les deux écritures sont strictement équivalentes</question>
+    			<choix correct>vrai</choix>
+    			<choix>faux</choix>
+    		</qcm>
+    		
+    		<qcm important>
+    			<code>window["alert"]("toto");
+</code>
+    			<question>Ce code génère une erreur</question>
+    			<choix>vrai</choix>
+    			<choix correct>faux</choix>
+    		</qcm>
+    		
+			<qcm>
+    			<code>var obj = { prop1 : "toto" };
+var prop1 = 'prop1';
+
+obj[prop1];
+</code>
+    			<question>La valeur renvoyée est </question>
+    			<choix correct>"toto"</choix>
+    			<choix>"prop1"</choix>
+    			<choix>erreur de syntaxe</choix>
+    		</qcm>
+    		
+    		<qcm important>
+    			<code>var obj = { prop1 : "toto" };
+
+obj.prop2;
+</code>
+    			<question>La valeur renvoyée est </question>
+    			<choix>Error</choix>
+    			<choix>null</choix>
+    			<choix correct>undefined</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var obj = { prop1 : null };
+
+if (obj.prop1) console.log("oui");
+</code>
+    			<question>La console va afficher "oui"</question>
+    			<choix>vrai</choix>
+    			<choix correct>faux</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var obj = { prop1 : null };
+
+if ("prop1" in obj) console.log("oui");
+</code>
+    			<question>La console va afficher "oui"</question>
+    			<choix correct>vrai</choix>
+    			<choix>faux</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var obj = {
+  prop1 : 'tata',
+  prop2 : 'toto',
+};</code>
+    			<question>Cette écriture </question>
+    			<choix>est tout à fait correcte</choix>
+    			<choix>est incorrecte</choix>
+    			<choix correct>peut poser des problèmes selon l'environnement</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<question>L'objet JSON n'est implémenté que dans les navigateurs et ne fait pas partie de la norme ECMAScript.</question>
+    			<choix>vrai</choix>
+    			<choix correct>faux</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<question>L'objet window n'est implémenté que dans les navigateurs et ne fait pas partie de la norme ECMAScript.</question>
+    			<choix correct>vrai</choix>
+    			<choix>faux</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>window.toto = "tata";
+
+toto;</code>
+    			<question>Quelle est la valeur renvoyée </question>
+    			<choix correct>"tata"</choix>
+    			<choix>Error</choix>
+    			<choix>undefined</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var toto = "tata";
+
+window.toto;</code>
+    			<question>Quelle est la valeur renvoyée ?</question>
+    			<choix correct>"tata"</choix>
+    			<choix>Error</choix>
+    			<choix>undefined</choix>
+    		</qcm>
