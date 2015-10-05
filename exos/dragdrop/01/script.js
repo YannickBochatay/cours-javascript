@@ -6,38 +6,38 @@
  * Cette version n'est pas satisfaisante.
  */
 (function() {
-        	
-	"use strict";
-	
-	var elmt = document.getElementById("maDiv"),
-		isPressed = false,
-		mouseXinit, mouseYinit, posXinit, posYinit;
-	
-	function onmousedown(e) {
-		
-		e.preventDefault();
-		
-		mouseXinit = e.clientX;
+    
+    "use strict";
+    
+    var elmt = document.getElementById("maDiv"),
+    isPressed = false,
+    mouseXinit, mouseYinit, posXinit, posYinit;
+    
+    function onmousedown(e) {
+        
+        e.preventDefault();
+        
+        mouseXinit = e.clientX;
         mouseYinit = e.clientY;
         posXinit = parseInt(elmt.style.left,10);
         posYinit = parseInt(elmt.style.top,10);
         
         isPressed = true;
-	}
-	
-	function onmousemove(e) {
-		
-		if (!isPressed) return;
-		
-		elmt.style.left = posXinit + (e.clientX - mouseXinit) + "px";
+    }
+    
+    function onmousemove(e) {
+        
+        if (!isPressed) return;
+        
+        elmt.style.left = posXinit + (e.clientX - mouseXinit) + "px";
         elmt.style.top = posYinit + (e.clientY - mouseYinit) + "px";
-	}
-	
-	function onmouseup(e) {
-		
-		isPressed = false;
-	}
-	      
+    }
+    
+    function onmouseup(e) {
+        
+        isPressed = false;
+    }
+    
     elmt.addEventListener("mousedown",onmousedown);
     document.addEventListener("mousemove",onmousemove);
     document.addEventListener("mouseup",onmouseup);

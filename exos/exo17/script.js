@@ -16,7 +16,7 @@
         
         tr.firstElementChild.textContent = instruction.id;
         
-        lien.href = "http://mpfc/#/instructions/"+instruction.id;
+        lien.href = "http://mpfc.meteo.fr/#/instructions/"+instruction.id;
         lien.textContent = instruction.action;
         
         tbody.appendChild(tr);
@@ -29,7 +29,7 @@
             
     req = new XMLHttpRequest();
     
-    req.open('GET','http://mpfc/back/modeles/instruction/liste/?page=1&tri=id&sens=desc');
+    req.open('GET','http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc');
 
     req.onload = function() {
 

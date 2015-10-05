@@ -1,13 +1,10 @@
 /**
  * Améliorations :
- * - on utilise un espace de noms personnel pour déclarer le module.
+ * - le module devient un plugin jQuery si jQuery est présent.
  * 
- * Problèmes :
- * - certaines méthodes pourraient servir à l'écriture d'autres modules.
- * 
- * Cette version est acceptable.
+ * Cette version est bonne.
  */
-(function() {
+(function($) {
         	
 	"use strict";
      
@@ -24,16 +21,14 @@
     	if (x < 0 || y < 0) alert("Vous êtes presque sorti de la page");
     }
     
-    var div = document.getElementById("maDiv");
+    var div = $("#maDiv");
     
-    var opt = {
+    div.dragNdrop({
     	onstart : logPosition,
     	ondrag : logPosition,
     	onend : checkPosition
-    };
+    });
     
-    var dragNdrop = new maBiblio.DragNdrop(div,opt);
-        
-    window.setTimeout(function() { dragNdrop.disable(); },5000);
+    window.setTimeout(function() { div.dragNdrop("disable"); },5000);
     
-}());
+}(jQuery));

@@ -8,18 +8,18 @@
  * Cette version n'est pas satisfaisante.
  */
 (function() {
-        	
-	"use strict";
-  
+    
+    "use strict";
+    
     function dragNdrop(elmt,onstart,ondrag,onend) {
         
         var mouseXinit, mouseYinit, posXinit, posYinit;
         
         function onmousedown(e) {
-        	
-        	e.preventDefault();
-        	
-        	mouseXinit = e.clientX;
+            
+            e.preventDefault();
+            
+            mouseXinit = e.clientX;
             mouseYinit = e.clientY;
             posXinit = parseInt(elmt.style.left,10);
             posYinit = parseInt(elmt.style.top,10);
@@ -31,7 +31,7 @@
         }
         
         function onmousemove(e) {
-        	
+            
             elmt.style.left = posXinit + (e.clientX - mouseXinit) + "px";
             elmt.style.top = posYinit + (e.clientY - mouseYinit) + "px";
             
@@ -39,11 +39,11 @@
         }
         
         function onmouseup(e) {
-        	
-        	document.removeEventListener("mousemove",onmousemove);
-        	document.removeEventListener("mouseup",onmouseup);
-        	
-        	if (onend) onend.call(elmt,e);
+            
+            document.removeEventListener("mousemove",onmousemove);
+            document.removeEventListener("mouseup",onmouseup);
+            
+            if (onend) onend.call(elmt,e);
         }
         
         elmt.addEventListener("mousedown",onmousedown);
@@ -51,14 +51,14 @@
     
     
     function logPosition() {
-    
+        
     	console.log(this.style.left,this.style.top);
     }
     
     function checkPosition() {
     	
     	var x = parseInt(this.style.left,10),
-    		y = parseInt(this.style.top,10);
+        y = parseInt(this.style.top,10);
     	
     	if (x < 0 || y < 0) alert("Vous êtes presque sorti de la page");
     }

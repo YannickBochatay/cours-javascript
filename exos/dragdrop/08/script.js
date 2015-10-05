@@ -1,10 +1,9 @@
 /**
- * Améliorations :
- * - on utilise l'héritage pour faciliter la réutilisation de méthodes et éviter la duplication de code.
+ * Utilisation de la bibliothèque requirejs pour programmation modulaire sans utiliser de variables globales
  * 
  * Cette version est bonne.
  */
-(function() {
+require(["maBiblio"],function(maBiblio) {
         	
 	"use strict";
      
@@ -23,14 +22,12 @@
     
     var div = document.getElementById("maDiv");
     
-    var opt = {
+    var dragNdrop = new maBiblio.DragNdrop(div,{
     	onstart : logPosition,
     	ondrag : logPosition,
     	onend : checkPosition
-    };
+    });
     
-    var dragNdrop = new maBiblio.DragNdrop(div,opt);
-        
     window.setTimeout(function() { dragNdrop.disable(); },5000);
     
-}());
+});

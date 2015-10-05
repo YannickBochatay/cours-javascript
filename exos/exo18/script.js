@@ -16,7 +16,7 @@
         
         tr.firstElementChild.textContent = instruction.id;
         
-        lien.href = "http://mpfc/#/instructions/"+instruction.id;
+        lien.href = "http://mpfc.meteo.fr/#/instructions/"+instruction.id;
         lien.textContent = instruction.action;
         
         tbody.appendChild(tr);
@@ -26,7 +26,7 @@
     trModele.parentNode.removeChild(trModele);
             
             
-    fetch('http://mpfc/back/modeles/instruction/liste/?page=1&tri=id&sens=desc')
+    fetch('http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc')
     .then(function(response) {
         return response.json();
     })

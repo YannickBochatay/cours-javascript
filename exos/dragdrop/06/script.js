@@ -1,25 +1,23 @@
 /**
  * Améliorations :
- * - création d'un fichier séparé pour le module
+ * - on utilise un espace de noms personnel pour déclarer le module.
+ * - on utilise l'héritage pour faciliter la réutilisation de méthodes et éviter la duplication de code.
  * 
- * Problèmes :
- * - le module est défini dans l'espace de noms global
- * 
- * Cette version est acceptable.
+ * Cette version est bonne.
  */
 (function() {
-        	
-	"use strict";
-     
-    function logPosition() {
     
+    "use strict";
+    
+    function logPosition() {
+        
     	console.log(this.style.left,this.style.top);
     }
     
     function checkPosition() {
     	
     	var x = parseInt(this.style.left,10),
-    		y = parseInt(this.style.top,10);
+        y = parseInt(this.style.top,10);
     	
     	if (x < 0 || y < 0) alert("Vous êtes presque sorti de la page");
     }
@@ -32,8 +30,8 @@
     	onend : checkPosition
     };
     
-    var dragNdrop = new DragNdrop(div,opt);
-            
+    var dragNdrop = new maBiblio.DragNdrop(div,opt);
+    
     window.setTimeout(function() { dragNdrop.disable(); },5000);
     
 }());

@@ -1,34 +1,37 @@
 /**
- * Améliorations :
- * - le module devient un plugin jQuery si jQuery est présent.
+ * Utilisation d'une petite bibliothèque tierce (events.js) pour une gestion plus fine des évènements.
  * 
  * Cette version est bonne.
  */
-(function($) {
-        	
-	"use strict";
-     
-    function logPosition() {
+require(["maBiblio"],function(maBiblio) {
     
+    "use strict";
+    
+    function logPosition() {
+        
     	console.log(this.style.left,this.style.top);
     }
     
     function checkPosition() {
     	
     	var x = parseInt(this.style.left,10),
-    		y = parseInt(this.style.top,10);
+        y = parseInt(this.style.top,10);
     	
     	if (x < 0 || y < 0) alert("Vous êtes presque sorti de la page");
     }
     
-    var div = $("#maDiv");
+    var div = document.getElementById("maDiv");
     
-    div.dragNdrop({
+    var dragNdrop = new maBiblio.DragNdrop(div,{
     	onstart : logPosition,
     	ondrag : logPosition,
     	onend : checkPosition
     });
     
-    window.setTimeout(function() { div.dragNdrop("disable"); },5000);
+    dragNdrop.on("end",function() {
+    	this.style.backgroundColor = maBiblio.colorRand();
+    });
     
-}(jQuery));
+    window.setTimeout(function() { dragNdrop.disable(); },5000);
+    
+});

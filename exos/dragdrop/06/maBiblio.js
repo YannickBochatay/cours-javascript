@@ -1,4 +1,4 @@
-define(["events"],function(Events) {
+(function() {
     
     "use strict";
     
@@ -7,27 +7,30 @@ define(["events"],function(Events) {
     ///////////////////////////////////////////////////////////////////////////////////////
     function StdConstruct() {}
     
-    StdConstruct.prototype = new Events();
-    
-    StdConstruct.prototype.constructor = StdConstruct;
-    
-    StdConstruct.prototype.set = function(opt) {
+    StdConstruct.prototype = {
         
-        for (var n in opt) {
+        constructor : StdConstruct,
+        
+        set : function(opt) {
             
-            if (n in this) this[n] = opt[n];
-        }
+            for (var n in opt) {
+    		
+                if (n in this) this[n] = opt[n];
+            }
+    	},
+    	
+    	reset : function() {
+            
+            var proto = Object.getPrototypeOf(this);
+            
+            for (var n in proto) this[n] = proto[n];
+    	}
     };
-    
-    StdConstruct.prototype.reset = function() {
-        
-    	var proto = Object.getPrototypeOf(this);
-        
-    	for (var n in proto) this[n] = proto[n];
-    };
-    
     
     maBiblio.StdConstruct = StdConstruct;
+    
+    
+    
     
     ///////////////////////////////////////////////////////////////////////////////////////
     function DragNdrop(elmt,opt) {
@@ -48,7 +51,7 @@ define(["events"],function(Events) {
     	
     	this.disable();
         if (opt) this.set(opt);
-        
+    	
         var that = this,
         mouseXinit, mouseYinit, posXinit, posYinit;
         
@@ -64,7 +67,7 @@ define(["events"],function(Events) {
             document.addEventListener("mousemove",onmousemove);
             document.addEventListener("mouseup",onmouseup);
             
-            that.trigger("start",that.elmt,e);
+            if (that.onstart) that.onstart.call(that.elmt,e);
         }
         
         function onmousemove(e) {
@@ -72,7 +75,7 @@ define(["events"],function(Events) {
             that.elmt.style.left = posXinit + (e.clientX - mouseXinit) + "px";
             that.elmt.style.top = posYinit + (e.clientY - mouseYinit) + "px";
             
-            that.trigger("drag",that.elmt,e);
+            if (that.ondrag) that.ondrag.call(that.elmt,e);
         }
         
         function onmouseup(e) {
@@ -80,7 +83,7 @@ define(["events"],function(Events) {
             document.removeEventListener("mousemove",onmousemove);
             document.removeEventListener("mouseup",onmouseup);
             
-            that.trigger("end",that.elmt,e);
+            if (that.onend) that.onend.call(that.elmt,e);
         }
         
         this.elmt.addEventListener("mousedown",onmousedown);
@@ -96,29 +99,8 @@ define(["events"],function(Events) {
         this._attachedFunction = null;
     };
     
-    DragNdrop.prototype.destroy = function() {
-        
-        this.disable();
-        this.reset();
-    };
-    
     maBiblio.DragNdrop = DragNdrop;
     
+    window.maBiblio = maBiblio;
     
-    
-    maBiblio.rand = function(min,max) {
-        
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    };
-    
-    maBiblio.colorRand = function() {
-        
-        var rgb = ["r","g","b"].map(function() { return maBiblio.rand(0,255); });
-        
-        return "rgb("+rgb+")";
-    };
-    
-    
-    return maBiblio;
-    
-});
+}());

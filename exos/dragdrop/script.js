@@ -16,10 +16,10 @@
             files : []
     },{
             nom:"05",
-            files : []
+            files : ["dragdrop.js"]
     },{
             nom:"06",
-            files :["dragdrop.js"]
+            files : ["maBiblio.js"]
     },{
             nom:"07",
             files : ["maBiblio.js"]
@@ -28,12 +28,6 @@
             files : ["maBiblio.js"]
     },{
             nom:"09",
-            files : ["maBiblio.js"]
-    },{
-            nom:"10",
-            files : ["maBiblio.js"]
-    },{
-            nom:"11",
             files : ["maBiblio.js","events.js"]
     }];
 

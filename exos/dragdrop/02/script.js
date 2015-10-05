@@ -9,18 +9,18 @@
  * Cette version n'est pas satisfaisante.
  */
 (function() {
-        	
-	"use strict";
-  
-	function dragNdrop(elmt) {
-		
+    
+    "use strict";
+    
+    function dragNdrop(elmt) {
+        
         var mouseXinit, mouseYinit, posXinit, posYinit;
         
         function onmousedown(e) {
-        	
-        	e.preventDefault();
-        	
-        	mouseXinit = e.clientX;
+            
+            e.preventDefault();
+            
+            mouseXinit = e.clientX;
             mouseYinit = e.clientY;
             posXinit = parseInt(elmt.style.left,10);
             posYinit = parseInt(elmt.style.top,10);
@@ -35,13 +35,13 @@
         }
         
         function onmouseup(e) {
-        	document.removeEventListener("mousemove",onmousemove);
-        	document.removeEventListener("mouseup",onmouseup);
+            document.removeEventListener("mousemove",onmousemove);
+            document.removeEventListener("mouseup",onmouseup);
         }
         
         elmt.addEventListener("mousedown",onmousedown);
     }
-	
+    
     var div = document.getElementById("maDiv");
     
     dragNdrop(div);
