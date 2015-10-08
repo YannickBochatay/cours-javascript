@@ -306,6 +306,25 @@ function add(a,b) { return a+b; }
 add(2,1); //3
 window.add(2,1); //3</code></pre>
 				</section>
+                            
+                             <section>
+                                <h2>Références</h2>
+                                <p>Contrairement aux valeurs primitives, une variable à laquelle on affecte un objet contient une référence vers cet objet</p>
+                                <pre><code class="javascript">var toto = {  //toto contient une référence vers l'objet
+  nom:"Toto",
+  age:26
+};
+
+var tata = toto; //tata contient une copie de la référence vers l'objet
+
+tata.nom = "Tata";
+toto.nom; //Tata
+
+tata = null;
+toto; //{"nom"":"Tata",age:26}
+            </code></pre>
+
+                            </section>	
 			</div>
 			
 		</div>
