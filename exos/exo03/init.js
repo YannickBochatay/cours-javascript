@@ -1,6 +1,0 @@
-function concat() {
-
-	/*
-	 * votre code
-	 */
-}
