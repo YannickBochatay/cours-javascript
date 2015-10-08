@@ -193,3 +193,36 @@ window.toto;</code>
     			<choix>Error</choix>
     			<choix>undefined</choix>
     		</qcm>
+
+                <qcm>
+    			<code>var toto = { nom : "Toto", age : 26 };
+var tata = toto;
+tata.nom = "Tata";
+
+toto.nom;</code>
+    			<question>La propriété toto.nom renvoie</question>
+    			<choix correct>"Tata"</choix>
+    			<choix>"Toto"</choix>
+    		</qcm>
+
+                <qcm>
+    			<code>var toto = { nom : "Toto", age : 26 };
+var tata = toto;
+tata = null;
+
+toto;</code>
+    			<question>La variable toto renvoie</question>
+    			<choix correct>object { nom : "Toto", age : 26 }</choix>
+    			<choix>null</choix>
+    		</qcm>
+
+                <qcm>
+    			<code>var toto = { nom : "Toto", age : 26 };
+var tata = toto;
+toto = null;
+
+tata;</code>
+    			<question>La variable tata renvoie</question>
+    			<choix correct>object { nom : "Toto", age : 26 }</choix>
+    			<choix>null</choix>
+    		</qcm>
