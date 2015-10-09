@@ -30,11 +30,11 @@
             
             return {
                 
-                current : "01",
+                current : "00",
                 
                 nbQuestions : 0,
                 
-                nbQCMs : 12,
+                nbQCMs : 13,
                 
                 change : function(num) {
                     
@@ -81,7 +81,14 @@
                         
                         var inputs = $("input",fieldset);
                         
-                        inputs.forEach(function(input) { input.checked = false; });
+                        inputs.forEach(function(input) {
+                            
+                            var label = input.parentNode;
+                            
+                            input.checked = false;
+                            label.classList.remove("ok");
+                            label.classList.remove("ko");
+                        });
                         
                         if (donnees[i] != undefined && donnees[i] != -1) inputs[ donnees[i] ].checked = true;
                     });
@@ -212,17 +219,35 @@
                     return nbBonnesReponses;
                 },
                 
+                genereCommentaire : function(pourcentage) {
+                  
+                    switch (true) {
+                        
+                        case (pourcentage < 30) : return "Vous aurez beaucoup de choses à apprendre pendant ce stage, accrochez-vous !";
+                        case (pourcentage < 50) : return "De nombreux concepts sont à acquérir pendant ce stage.";
+                        case (pourcentage < 70) : return "Tous les concepts ne sont pas encore clairs, ce stage est fait pour vous !";
+                        case (pourcentage < 90) : return "Des notions restent à éclaircir, vous devriez suivre sans problème.";
+                        case (pourcentage < 100) : return "Vous connaissez la plupart des notions qui seront abordées.";
+                        case (pourcentage  == 100) : return "Restez chez vous, ce stage ne vous apprendra rien.";
+                    }
+                    
+                },
+                
                 enCours : false,
                 
                 valide : function() {
-                    
+                            
                     this.enCours = false;
                     
                     this.playSound("ok");
                     
                     var nbBonnesReponses = this.calculeBonnesReponses();
                     
-                    alert("Votre score : "+nbBonnesReponses+" / "+this.nbQuestions);
+                    var message = "Votre score : "+nbBonnesReponses+" / "+this.nbQuestions;
+                    
+                    if (this.current == "00") message+= "\n\n"+this.genereCommentaire( 100 * nbBonnesReponses / this.nbQuestions);
+                    
+                    alert(message);
                 }
             }
             
@@ -238,20 +263,14 @@
 			
         function hashchange(e) {
             
-            var numQCM = location.hash.slice(1) || "01";
-
-            /*
-            if (numQCM != qcm.current && qcm.enCours && !window.confirm("Etes-vous sur de vouloir quitter le QCM en cours ?")) {
-                location = e.oldURL;
-                return;
-            }*/
-
+            var numQCM = location.hash.slice(1) || "00";
+           
             qcm.change(numQCM);
             select.value = numQCM;
             
             numQCM = Number(numQCM);
 
-            if (numQCM <=1) {
+            if (numQCM <= 0) {
                 prec.setAttribute("disabled","disabled");
                 prec.href="#"+formateNum(numQCM);
             }
@@ -260,7 +279,7 @@
                 prec.href="#"+formateNum(numQCM-1);
             }
 
-            if (numQCM >= qcm.numQCMs) {
+            if (numQCM >= qcm.numQCMs -1) {
                 suiv.setAttribute("disabled","disabled");
                 suiv.href="#"+formateNum(numQCM);
             }

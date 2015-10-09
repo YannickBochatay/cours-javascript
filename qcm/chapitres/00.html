@@ -1,0 +1,304 @@
+<qcm>
+    <question>Vous connaissez précisément le terme ECMAScript</question>
+    <choix correct>oui</choix>
+    <choix>non</choix>
+</qcm>
+
+<qcm>
+    <code>"use strict";</code>
+    <question>Vous connaissez précisément cette instruction</question>
+    <choix correct>oui</choix>
+    <choix>non</choix>
+</qcm>
+
+<qcm>
+    <question>On peut déclarer des constantes en javascript</question>
+    <choix>non</choix>
+    <choix>oui depuis toujours</choix>
+    <choix>oui depuis Ecmascript 5</choix>
+    <choix correct>oui à partir d'Ecmascript 6</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>"toto";
+'toto';</code>
+    <question>Les deux chaînes sont interprétées exactement de la même façon</question>
+    <choix>non</choix>
+    <choix correct>oui</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>toto = "toto";</code>
+    <question>Ce code génère une erreur</question>
+    <choix>jamais</choix>
+    <choix>toujours</choix>
+    <choix correct>en mode strict uniquement</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>5 + '7';</code>
+    <question>Quel est la valeur renvoyée ?</question>
+    <choix>12</choix>
+    <choix correct>57</choix>
+    <choix>NaN</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>"5" + 7;</code>
+    <question>Quel est la valeur renvoyée ?</question>
+    <choix>12</choix>
+    <choix correct>57</choix>
+    <choix>NaN</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>typeof window["alert"];</code>
+    <question>Cette instruction renvoie</question>
+    <choix>Error</choix>
+    <choix>"undefined"</choix>
+    <choix>"object"</choix>
+    <choix correct>"function"</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>typeof null;</code>
+    <question>Cette instruction renvoie</question>
+    <choix>null</choix>
+    <choix>"null"</choix>
+    <choix>Object</choix>
+    <choix correct>"object"</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>var toto = "tata";
+        
+window.toto;</code>
+    <question>Quelle est la valeur renvoyée ?</question>
+    <choix>Error</choix>
+    <choix>undefined</choix>
+    <choix correct>"tata"</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>var obj = {
+    _prop1 : "toto",
+    $prop2 : "tata"
+};</code>
+    <question>Ce code génère une erreur</question>
+    <choix>vrai</choix>
+    <choix correct>faux</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>var toto = " tata ";
+toto.trim();
+toto == "tata";</code>
+    <question>L'égalité est </question>
+    <choix>vraie</choix>
+    <choix correct>fausse</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>function supprObj(obj) {
+    obj = null;
+    return obj;
+}
+        
+var monObjet = { tata : "toto" };
+supprObj(monObjet);
+
+monObjet;</code>
+    <question>Le variable monObjet renvoie</question>
+    <choix correct>object { tata : "toto" }</choix>
+    <choix>null</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>var i=0;
+
+window.setTimeout(function() { alert(i); },1000);
+
+i++;</code>
+    <question>Ce code affichera</question>
+    <choix>0</choix>
+    <choix correct>1</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>function toto() { }
+
+typeof toto.bind(null);</code>
+    <question>Cette expression renvoie</question>
+    <choix>"undefined"</choix>
+    <choix>"object"</choix>
+    <choix correct>"function"</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>function toto() { }
+
+typeof toto.call(null);</code>
+    <question>Cette expression renvoie</question>
+    <choix>Error</choix>
+    <choix correct>"undefined"</choix>
+    <choix>"object"</choix>
+    <choix>"function"</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>var toto = {
+    nom : "toto",
+    age : 25,
+    renaitre : function() { this.age = 0; }
+};
+        
+var boutonMagique = document.getElementById("monBoutonMagique");
+boutonMagique.addEventListener("click",toto.renaitre);</code>
+    <question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0</question>
+    <choix>vrai</choix>
+    <choix correct>faux</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>var x = 1;
+if (true) {
+    var x = 2;
+}
+console.log(x);</code>
+    <question>la console affichera </question>
+    <choix>Error</choix>
+    <choix>1</choix>
+    <choix correct>2</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>var toto = {"nom":"Toto"};
+var toto2 = {"nom":"Toto"};
+
+toto == toto2;</code>
+    <question>l'égalité est</question>
+    <choix>vrai</choix>
+    <choix correct>fausse</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>var x = true || null;</code>
+    <question>x vaut</question>
+    <choix correct>true</choix>
+    <choix>false</choix>
+    <choix>null</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>var x = true && null;</code>
+    <question>x vaut</question>
+    <choix>true</choix>
+    <choix>false</choix>
+    <choix correct>null</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>var toto = [];
+
+console.log(toto instanceof Object);</code>
+    <question>la console affichera</question>
+    <choix correct>true</choix>
+    <choix>false</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>var toto = new NOP.Composant();</code>
+    <question>ce code</question>
+    <choix>génère une erreur de syntaxe</choix>
+    <choix>instancie un objet NOP et exécute aussitôt sa méthode Composant.</choix>
+    <choix correct>instancie un objet à partir du constructeur Composant qui est propriété de l'objet NOP.</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+
+typeof Personne.prototype;
+    </code>
+    <question>L'instruction renvoie</question>
+    <choix>"null"</choix>
+    <choix>"undefined"</choix>
+    <choix>"function"</choix>
+    <choix correct>"object"</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+
+var toto = new Personne("Toto",26);
+
+typeof toto.prototype;
+    </code>
+    <question>L'instruction renvoie</question>
+    <choix>"null"</choix>
+    <choix correct>"undefined"</choix>
+    <choix>"function"</choix>
+    <choix>"object"</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+
+Personne.prototype.vieillir = function() { this.age++ };
+
+var toto = new Personne("Toto",25);
+
+typeof toto.vieillir;
+    </code>
+    <question>La dernière instruction renvoie</question>
+    <choix>Error</choix>
+    <choix>"undefined"</choix>
+    <choix>"null"</choix>
+    <choix correct>"function"</choix>
+    <choix>je ne sais pas</choix>
+</qcm>
+
+<qcm>
+    <code>var module = (function() {
+    var x = 2;
+    return {
+        getX : function() { return x; }
+    };
+}());
+    </code>
+    <question>Cette écriture vous est familière</question>
+    <choix correct>oui</choix>
+    <choix>non</choix>
+</qcm>
+
