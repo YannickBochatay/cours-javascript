@@ -223,12 +223,12 @@
                   
                     switch (true) {
                         
-                        case (pourcentage < 30) : return "Vous aurez beaucoup de choses à apprendre pendant ce stage, accrochez-vous !";
-                        case (pourcentage < 50) : return "De nombreux concepts sont à acquérir pendant ce stage.";
-                        case (pourcentage < 70) : return "Tous les concepts ne sont pas encore clairs, ce stage est fait pour vous !";
+                        case (pourcentage < 30) : return "Vous aurez beaucoup de choses à apprendre dans ce cours, accrochez-vous !";
+                        case (pourcentage < 50) : return "De nombreux concepts sont à acquérir dans ce cours.";
+                        case (pourcentage < 70) : return "Tous les concepts ne sont pas encore clairs, ce cours est fait pour vous !";
                         case (pourcentage < 90) : return "Des notions restent à éclaircir, vous devriez suivre sans problème.";
                         case (pourcentage < 100) : return "Vous connaissez la plupart des notions qui seront abordées.";
-                        case (pourcentage  == 100) : return "Restez chez vous, ce stage ne vous apprendra rien.";
+                        case (pourcentage  == 100) : return "Passez votre chemin, ce cours ne vous apprendra rien.";
                     }
                     
                 },
