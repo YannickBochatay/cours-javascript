@@ -243,9 +243,9 @@ console.log(obj); // { x:5, y:0 }
 maFonction();
 </code></pre>
 Solution plus tricte :<pre><code class="javascript">function maFonction(a,b,c) {
-    a = (a !== undefined) ? a : "toto";
-    b = (b !== undefined) ? b : "tata";
-    c = (c !== undefined) ? c :  "tutu";
+    if (a === undefined) a = "toto";
+    if (b === undefined) b = "tata";
+    if (c === undefined) c = "tutu";
 }
 
 maFonction("titi");
