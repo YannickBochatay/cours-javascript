@@ -1,3 +1,5 @@
+//*
+//Sans jQuery
 ;(function() {
 	
     "use strict";
@@ -10,3 +12,16 @@
     });
 	
 }());
+//*/
+
+/*
+//Avec jQuery
+$(function() {
+    
+    "use strict";
+    
+    $("#titrePage").on("input",function() {
+        document.title = this.value;
+    });
+});
+//*/

@@ -6,8 +6,6 @@
     
     var trModele = tbody.querySelector(".modele");
     
-    var req;
-    
     function insertLigneTableau(instruction) {
         
         var tr = trModele.cloneNode(true);
@@ -25,22 +23,26 @@
     //on supprime la ligne du tableau qui sert de modele
     trModele.parentNode.removeChild(trModele);
             
-            
-            
-    req = new XMLHttpRequest();
     
-    req.open('GET','http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc');
+    function recupInstructions() {
+            
+        var req = new XMLHttpRequest();
 
-    req.onload = function() {
+        req.open('GET','http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc');
 
-      if (this.status != 200) throw new Error("Erreur "+this.status+" : "+this.responseText);
+        req.onload = function() {
 
-      var instructions = JSON.parse(this.responseText);
+          if (this.status != 200) throw new Error("Erreur "+this.status+" : "+this.responseText);
 
-      instructions.forEach(insertLigneTableau);
-      
-    };
+          var instructions = JSON.parse(this.responseText);
 
-    req.send();
+          instructions.forEach(insertLigneTableau);
+
+        };
+
+        req.send();
+    }
+    
+    recupInstructions();
     
 }());
