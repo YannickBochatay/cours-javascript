@@ -67,7 +67,7 @@
     
     function creeUrl(options) {
         
-        var url = "http://nihoa-v27b/cdp1/q_p?";
+        var url = "http://nihoa-v27b.meteo.fr/cdp1/q_p?";
         url+= "id="+options.id.join();
         url+= "&dpivot="+options.dpivot.join();            
         url+= "&param=tn,tx&meta=id,commune,dvalid";
