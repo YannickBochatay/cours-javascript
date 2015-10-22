@@ -85,7 +85,7 @@
         });
     }
     
-    trModele.parentNode.removeChild(trModele);
+    tbody.removeChild(trModele);
     
     recupTnTx({
         id : [290190,315570],
