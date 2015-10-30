@@ -4,6 +4,4 @@ function modifObjet(obj,props) {
   		if (n in obj) continue;
   		obj[n] = props[n];
   	}
-  	
-  	return obj;
 }
