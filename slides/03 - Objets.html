@@ -240,8 +240,9 @@ if (toto.nbEnfants) { /* ce code ne sera pas exécuté */ }
 };
 
 var message = 'Description de Toto \n';
+var n;
 
-for (var n in toto) {
+for (n in toto) {
     message+= n + ' : ' + toto[n] + '\n';
 }
 

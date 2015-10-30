@@ -270,7 +270,8 @@ while (n < 3) {
 					<p>Exemple</p>
 					<pre><code class="javascript">function afficherProps(obj) {
   var result = "";
-  for (var n in obj) result+= n + "=" + obj[n] + "\n";
+  var n;
+  for (n in obj) result+= n + "=" + obj[n] + "\n";
   return result; 
 }
 

@@ -255,7 +255,8 @@ maFonction("titi");
 				<section>
 					<h2>Objet arguments</h2>
 					<pre><code class="javascript">function multiAlert() {
-    for (var i=0;i&lt;arguments.length;i++) {
+    var i;
+    for (i=0;i&lt;arguments.length;i++) {
         window.alert(arguments[i]);
     }
 }
@@ -307,13 +308,13 @@ changeStyle(div,{fontSize:"12px",fontWeight:"bold"});</code></pre>
 						<h2>Hash d'arguments</h2>
 						<h3>Piège</h3>
 						<pre><code>function changeStyle(obj,options) {
-
+    var n;
     options.color = options.color || "green";
     options.fontSize = options.fontSize || "12px";
     options.fontFamily = options.fontFamily || "verdana";
     options.fontWeight = options.fontWeight || "bold";
     
-    for (var n in options) obj.style[n] = options[n];
+    for (n in options) obj.style[n] = options[n];
 }
 
 var options = {fontSize:"12px",fontWeight:"bold"};
@@ -349,11 +350,11 @@ changeStyle(div,options);</code></pre>
 							<h2>Hash d'arguments</h2>
 							<h3>Autre solution</h3>
 							<pre><code class="javascript">function extend(obj1,obj2) {
-  for (var n in obj2) obj1[n] = obj2[n];
+  var n;
+  for (n in obj2) obj1[n] = obj2[n];
   return obj1;						
 }
 function changeStyle(obj,options) {
-  
   var defaut = {
     color:"green",
     fontSize:"12px",
@@ -361,7 +362,6 @@ function changeStyle(obj,options) {
     fontWeight:"bold"
   };
   var n;
-  
   options = extend(defaut,options);
   for (n in options) obj.style[n] = opt[n];
 }</code></pre>
@@ -524,8 +524,9 @@ window.setTimeout(function() {
 &lt;div id="maDiv3"&gt;ou ici !&lt;/div&gt;</code></pre>
 					<small>js</small>
 					<pre><code class="javascript">var div;
+var i;
 					
-for (var i=1;i&lt;=3;i++) {
+for (i=1;i&lt;=3;i++) {
 
   div = document.getElementById("maDiv"+i); 
   
@@ -545,26 +546,9 @@ for (var i=1;i&lt;=3;i++) {
 					</p>
 				</section>
 				
-				<section>
-					<h2>Solution : les fermetures (closures)</h2>
-					<pre><code class="javascript">var i, div;
-					
-function creeFonctionAffiche(cpt) {
-  function affiche() {
-    window.alert("Je suis la div n°"+cpt);
-  }
-  return affiche;
-}
-
-for (i=1;i&lt;=3;i++) {
-  div = document.getElementById("maDiv"+i); 
-  div.addEventListener("click",creeFonctionAffiche(i));
-}</code></pre>
-<p>Une fonction s'exécute toujours dans le contexte dans lequel elle a été créée.</p>
-				</section>
-				
-				<section>
-					<h2>Solution équivalente : méthode bind</h2>
+                                <section>
+                                    <section>
+					<h2>Solution : méthode bind</h2>
 					<pre><code class="javascript">var i, div, fct;
 
 function affiche(cpt) {
@@ -579,7 +563,27 @@ for (i=1;i&lt;=3;i++) {
 <p>Les fonctions étant des objets, elles ont aussi leurs propriétés et méthodes.
 <br/>La méthode <code>bind</code> permet de créer une nouvelle fonction dont on fige les arguments.
 <br/>Le 1er argument sera expliqué bientôt.</p>
-				</section>
+                                    </section>
+                                    
+                                    <section>
+					<h2>Autre solution : les fermetures</h2>
+                                        <p>Avant la normalisation de la méthode <code>bind</code>, il fallait coder l'équivalent par une fermeture (closure).</p>
+					<pre><code class="javascript">var i, div;
+					
+function creeFonctionAffiche(cpt) {
+  function affiche() {
+    window.alert("Je suis la div n°"+cpt);
+  }
+  return affiche;
+}
+
+for (i=1;i&lt;=3;i++) {
+  div = document.getElementById("maDiv"+i); 
+  div.addEventListener("click",creeFonctionAffiche(i));
+}</code></pre>
+<p>Une fonction s'exécute toujours dans le contexte dans lequel elle a été créée.</p>
+                                    </section>
+                                </section>
 				
 				<section>
 					<h2>Problème (encore ?!)</h2>
@@ -647,7 +651,7 @@ for (i=1;i&lt;=3;i++) {
 				</section>
 				
 				<section>
-					
+					<section>
 					<h2>Méthodes</h2>
 					<p>Une méthode d'un objet est une propriété de type <code>function</code>.</p>
 					<pre><code class="javascript">var toto = {
@@ -713,7 +717,7 @@ var totoVieillit = toto.vieillir.bind(toto);
 window.setInterval(totoVieillit,anneeEnMs);</code></pre>
 <p>Le 1er argument de la méthode <code>bind</code> force la valeur de <code>this</code>.</p>
 				</section>
-				
+                                </section>
 			</div>
 			
 		</div>

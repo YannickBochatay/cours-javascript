@@ -86,10 +86,12 @@ tab.length; //3</code></pre>
 					<p>Malgré de <a href="http://www.commentcamarche.net/contents/587-javascript-les-tableaux#tableaux-associatifs" target="liens">nombreuses sources</a> les évoquant, il n'y a <u>pas de tableaux associatifs</u> en javascript.</p>
 					<p>La confusion vient de la notation avec crochets qui rappelle les tableaux associatifs d'autres langages.</p>
 					<pre><code class="javascript">var tab = [];
+var n;
+
 tab["nom"] = "Toto";
 tab["age"] = 25;
 
-for (var n in tab) console.log(n + ' = ' + tab[n]);
+for (n in tab) console.log(n + ' = ' + tab[n]);
 
 //J'arrive à mes fins et je crois utiliser un tableau associatif.
 </code></pre>
@@ -111,10 +113,12 @@ console.log( tab.length ); //0
 						<h3>Solution</h3>
 						<p>Utiliser tout simplement les objets.
 						<pre><code class="javascript">var tab = {};
+var n;
+
 tab.nom = "Toto"; // strictement équivalent à tab["nom"] = "Toto"
 tab.age = 25; // strictement équivalent à tab["age"] = 25
 
-for (var n in tab) console.log(n + ' = ' + tab[n]);
+for (n in tab) console.log(n + ' = ' + tab[n]);
 </code></pre>
 					</section>
 				</section>
@@ -123,14 +127,16 @@ for (var n in tab) console.log(n + ' = ' + tab[n]);
 						<h2>Enumération</h2>
 						<h3>Classique</h3>
 						<pre><code class="javascript">var tab = ["tata","toto","titi"];
+var i;
 						
-for (var i=0 ; i&lttab.length ; i++) {
+for (i=0 ; i&lttab.length ; i++) {
     console.log(tab[i]);
 }</code></pre>
 <p>ou mieux</p>
 <pre><code class="javascript">var tab = ["tata","toto","titi"];
+var i;
 
-for (var i=0, N=tab.length ; i&lt;N ; i++) {
+for (i=0, N=tab.length ; i&lt;N ; i++) {
     console.log(tab[i]);
 }
 
@@ -156,8 +162,9 @@ tab.forEach(function(item,i) {
 						<h3><del>for...in</del></h3>
 						<p>Ne jamais utiliser la boucle <code>for...in</code> pour énumérer un tableau !
 						<pre><code class="javascript">var tab = ["tata","toto","titi"];
+var n;
 
-for (var n in tab) console.log(tab[n]);
+for (n in tab) console.log(tab[n]);
 
 //Pourquoi puisque ça marche ?!
 </code></pre>
@@ -166,10 +173,11 @@ for (var n in tab) console.log(tab[n]);
 						<h2>Enumération</h2>
 						<h3><del>for...in</del></h3>
 						<pre><code class="javascript">var tab = ["tata","toto","titi"];
+var n;
 
 tab.nom = "Mes prénoms";
 
-for (var n in tab) console.log(tab[n]);
+for (n in tab) console.log(tab[n]);
 
 //ça ne fonctionne plus
 </code></pre>
@@ -184,7 +192,9 @@ Array.prototype.maSuperMethodePourTousLesTableaux = function() {
 	//blahblah
 };
 
-for (var n in tab) console.log(tab[n]);
+var n;
+     
+for (n in tab) console.log(tab[n]);
 
 //ça ne fonctionne plus non plus
 </code></pre>

@@ -511,8 +511,8 @@ lien.addEventListener("click", function(e) {
                                 <pre><code class="javascript">function afficheContenuLien() { alert(this.href); }
 
 var links = document.querySelectorAll("a");
-
-for (var i=0;i&lt;links.length;i++) {
+var i;
+for (i=0;i&lt;links.length;i++) {
     links[i].addEventListener("click",afficheContenuLien);
 }</code></pre>
                                 <small>Bonne méthode</small>

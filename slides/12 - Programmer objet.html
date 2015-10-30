@@ -303,6 +303,27 @@ toto.toString; //function
 													
 					<section>
 						<h2>Emprunter une méthode</h2>
+						<h3>Méthode call</h3>
+<pre><code class="javascript" style="max-height:800px">function Personne(nom,age) {
+  this.nom = nom || "inconnu";
+  this.age = age || 0;
+}
+
+Personne.prototype.vieillir = function() { this.age++; }
+
+function Homme(nom,age) {
+  Personne.call(this,nom,age);
+  this.sexe = "M";  
+}
+
+Homme.prototype = new Personne();
+
+var toto = new Homme("Toto",25);
+toto.vieillir();</code></pre>
+				</section>
+                            
+                            <section>
+						<h2>Emprunter une méthode</h2>
 						<h3>Méthode apply</h3>
 <pre><code class="javascript" style="max-height:800px">function Personne(nom,age) {
   this.nom = nom || "inconnu";
@@ -347,31 +368,6 @@ var totoMalade = new Alzheimer("Toto",60);
 toto.vieillir();</code></pre>
 				</section>
                             
-                            <section>
-                                <h2>Surcharger une méthode</h2>
-<pre><code class="javascript" style="max-height:800px">function Personne(nom,age) {
-  this.nom = nom || "inconnu";
-  this.age = age || 0;
-  this.memoire = 2000;
-}
-
-Personne.prototype.vieillir = function() { this.age++; }
-
-function Alzheimer(nom,age) {
-  Personne.apply(this,arguments);
-}
-
-Alzheimer.prototype = new Personne();
-
-Alzheimer.prototype.vieillir = function() {
-    Personne.prototype.vieillir.apply(this);
-    this.memoire--;
-};
-
-var totoMalade = new Alzheimer("Toto",60);
-toto.vieillir();</code></pre>
-				</section>
-				
 				<section>
 					<h2>Surcharger une méthode</h2>
 					<h3>Les méthodes de conversion</h2>
@@ -407,26 +403,43 @@ Object.prototype.isPrototypeOf(tab); //true
 
 Array.prototype.slice; //function</code></pre>
 				</section>
-				
-				<section>
-					<h2>Emprunt d'une méthode d'un objet natif</h2>
-<pre><code class="javascript">function test() {
+			
+                                <section>
+                                    <section>
+                                            <h2>Emprunt d'une méthode d'un objet natif</h2>
+    <pre><code class="javascript">function test() {
 
   var forEach = Array.prototype.forEach;
-	
+
   forEach.call(arguments,function(arg) {
     /* faire quelque chose avec chaque argument*/
-  });
-  
-  var slice = Array.prototype.slice;
-  
-  slice.call(arguments,1).forEach(function(arg) {
-    /* faire quelque chose avec chaque argument (sauf le 1er)*/
   });
 		
 }</code></pre>
 <p>Couramment on emprunte des méthodes des tableaux pour pouvoir les appliquer à des pseudo-tableaux.</p>
 				</section>
+                            
+                            <section>
+					<h2>Emprunt d'une méthode d'un objet natif</h2>
+                                        <h3>Astuce</h3>
+<pre><code class="javascript">function test() {
+
+  var slice = Array.prototype.slice;
+
+  var tabArguments = slice.call(arguments);
+
+  tabArguments.forEach(function(arg) {
+    /* faire quelque chose avec chaque argument*/
+  });
+		
+}</code></pre>
+                                        <p>La méthode <code>slice</code> copie une portion d'un tableau.
+                                            <br/>Sans argument elle prend tout le tableau.
+                                            <br/>Appliquée à un pseudo-tableau (arguments, NodeList, etc), un vrai tableau est renvoyé.
+                                        </p>
+                                    </section>
+
+                            </section>
 				
 				<section>
 					<h2>Héritage dynamique</h2>
@@ -581,7 +594,8 @@ var n;
 for (n in toto) console.log(n+" : "+toto[n]); 
 
 Object.prototype.extend = function(obj2) {
-  for (var n in obj2) this[n] = obj[2];
+  var n;
+  for (n in obj2) this[n] = obj[2];
 }
 
 for (n in toto) console.log(n+" : "+toto[n]); //??</code></pre>
@@ -603,8 +617,8 @@ for (n in toto) console.log(n+" : "+toto[n]); //??</code></pre>
 						<h3>(propres à l'environnement)</h3>
 						Tentant mais tout aussi déconseillé.
 						<pre><code class="javascript">HTMLElement.prototype.css = function(opt) {
-	
-  for (var n in opt) {
+  var n;
+  for (n in opt) {
     if (this.style[n] !== undefined) this.style[n] = opt[n];
   }
 };

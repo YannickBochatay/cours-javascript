@@ -144,9 +144,9 @@ req.send(formData);
     if (this.status != 200)
       throw new Error("Erreur "+this.status+" : "+this.responseText);
 	
-    var json = JSON.parse(this.responseText);
+    var dataObj = JSON.parse(this.responseText);
 		
-    onload(json);
+    onload(dataObj);
   };
 
   req.send();
@@ -154,7 +154,7 @@ req.send(formData);
 
 
 var url = 'http://mpfc/back/modeles/instruction/liste/?page=1';
-var callback = function(json) { console.log(json); }; 
+var callback = function(data) { console.log(data); }; 
 getJSON(url,callback);
 </code></pre>
 				</section>
@@ -174,9 +174,9 @@ getJSON(url,callback);
       if (this.status != 200)
       	reject( new Error("Erreur "+this.status+" : "+this.responseText) );
 	
-      var json = JSON.parse(this.responseText);
+      var dataObj = JSON.parse(this.responseText);
 		
-      resolve(json);
+      resolve(dataObj);
     };
 
     req.send();
@@ -184,7 +184,7 @@ getJSON(url,callback);
 }
 
 getJSON('http://mpfc/back/modeles/instruction/liste/?page=1')
-.then(function(json) { console.log(json); })
+.then(function(data) { console.log(data); })
 .catch(function(e) { alert(e); });
 </code></pre>
 				</section>
@@ -195,7 +195,7 @@ getJSON('http://mpfc/back/modeles/instruction/liste/?page=1')
 					<br/>
 					<pre><code class="javascript">fetch('http://mpfc/back/modeles/instruction/liste/?page=1')
 .then(function(response) { return response.json(); })
-.then(function(json) { console.log(json); })
+.then(function(dataObj) { console.log(dataObj); })
 .catch(function(e) { console.error(e); });
 </code></pre>
 <br/>
