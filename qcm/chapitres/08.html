@@ -1,347 +1,295 @@
-<qcm>
-    			<code>var x = 1;
-if (true) {
-  var x = 2;
-}
-console.log(x);</code>
-    			<question>la console affichera </question>
-    			<choix>1</choix>
+    		<qcm>
+    			<code>x = 10;
+x/=5;
+x;</code>
+    			<question>x vaut</question>
+    			<choix>10</choix>
+    			<choix>5</choix>
     			<choix correct>2</choix>
     		</qcm>
     		
     		<qcm>
-    			<code>var x = 1;
-if (false) {
-  var x = 2;
-}
-console.log(x);</code>
-    			<question>la console affichera </question>
-    			<choix correct>1</choix>
+    			<code>x = 10;
+x%=5;
+x;</code>
+    			<question>x vaut</question>
+    			<choix>5</choix>
     			<choix>2</choix>
+    			<choix correct>0</choix>
+    		</qcm>
+    		
+    		
+    		<qcm>
+    			<code>true == 1;</code>
+    			<question>l'égalité est</question>
+    			<choix correct>vrai</choix>
+    			<choix>fausse</choix>
     		</qcm>
     		
     		<qcm>
-    			<code>var x = 1;
-    			
-if (false) var x = 2;
-
-console.log(x);</code>
-    			<question>la console affichera </question>
-    			<choix correct>1</choix>
-    			<choix>2</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var x = 1;
-if (true) {
-  let x = 2;
-}
-console.log(x);</code>
-    			<question>la console affichera </question>
-    			<choix correct>1</choix>
-    			<choix>2</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var x = 1;
-if (true) {
-  let x = 2;
-}
-console.log(x);</code>
-    			<question>Ce code est conforme à la norme ECMAScript 5 </question>
+    			<code>"true" == 1;</code>
+    			<question>l'égalité est</question>
     			<choix>vrai</choix>
-    			<choix correct>faux</choix>
+    			<choix correct>fausse</choix>
     		</qcm>
     		
     		<qcm>
-    			<code>if (true) {
-	console.log(1);
-} elseif (true) {
-	console.log(2);
-}</code>
-    			<question>la console affichera</question>
-    			<choix correct>Error</choix>
-    			<choix>1</choix>
-    			<choix>1, 2</choix>
+    			<code>null == undefined;</code>
+    			<question>l'égalité est</question>
+    			<choix correct>vrai</choix>
+    			<choix>fausse</choix>
     		</qcm>
     		
     		<qcm>
-    			<code>if (false) console.log("false");
-else if (undefined) console.log("undefined");
-else if (null) console.log("null");
-else if (0) console.log("0");
-else if (NaN) console.log("NaN");
-else if ("") console.log("chaîne vide");
-else if (-1) console.log("-1");
-else if ("false") console.log('"false"');
-else if (new Boolean(false)) console.log("new Boolean(false)");
-</code>
-    			<question>la console affichera</question>
-    			<choix>undefined</choix>
-    			<choix>NaN</choix>
-    			<choix correct>-1</choix>
-    			<choix>"false"</choix>
-    			<choix>new Boolean(false)</choix>
+    			<code>var toto = {"nom":"Toto"};
+var toto2 = {"nom":"Toto"};
+toto == toto2;</code>
+    			<question>l'égalité est</question>
+    			<choix>vrai</choix>
+    			<choix correct>fausse</choix>
     		</qcm>
     		
     		<qcm>
-    			<code>console.log(1?"toto":"tata");</code>
-    			<question>la console affichera</question>
-    			<choix>SyntaxError</choix>
-    			<choix correct>"toto"</choix>
-    			<choix>"tata"</choix>
+    			<code>var toto = {"nom":"Toto"};
+var toto2 = toto;
+toto == toto2;</code>
+    			<question>l'égalité est</question>
+    			<choix correct>vrai</choix>
+    			<choix>fausse</choix>
     		</qcm>
     		
     		<qcm>
-    			<code>var toto = 1 == 2 ? "toto" : "tata";</code>
-    			<question>la variable toto vaut</question>
-    			<choix>SyntaxError</choix>
-    			<choix>"toto"</choix>
-    			<choix correct>"tata"</choix>
+    			<code>var toto = {"nom":"Toto"};
+var toto2 = toto;
+toto === toto2;</code>
+    			<question>l'égalité est</question>
+    			<choix correct>vrai</choix>
+    			<choix>fausse</choix>
     		</qcm>
     		
     		<qcm>
-    			<code>var test = false;
-console[ test ? "log" : "error" ]("coucou");</code>
-    			<question>ce code provoque </question>
-    			<choix>une erreur de syntaxe</choix>
-    			<choix>un log de "coucou" dans la console</choix>
-    			<choix correct>un log d'erreur de "coucou" dans la console</choix>
+    			<code>null === undefined;</code>
+    			<question>l'égalité est</question>
+    			<choix>vrai</choix>
+    			<choix correct>fausse</choix>
     		</qcm>
     		
     		<qcm>
-    			<code>var test = 2;
-var str;
-switch(test) {
-	case 1 : str = "tata";
-	case 2 : str = "toto";
-	case 3 : str = "titi";
-	default : str = "tutu";
-}
-
-str;</code>
-    			<question>str vaut </question>
-    			<choix>"tata"</choix>
-    			<choix>"toto"</choix>
-    			<choix>"titi"</choix>
-    			<choix correct>"tutu"</choix>
+    			<code>[] == [];</code>
+    			<question>l'égalité est</question>
+    			<choix>vrai</choix>
+    			<choix correct>fausse</choix>
     		</qcm>
     		
     		<qcm>
-    			<code>var test = 2;
-var str="";
-switch(test) {
-	case 1 : str+= "tata";
-	case 2 : str+= "toto";
-	case 3 : str+= "titi";
-	default : str+= "tutu";
-}
-
-str;</code>
-    			<question>str vaut </question>
-    			<choix>"tata"</choix>
-    			<choix>"tatatoto"</choix>
-    			<choix>"toto"</choix>
-    			<choix>"tototiti"</choix>
-    			<choix>"tatatototititutu"</choix>
-    			<choix correct>"tototititutu"</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var test = null;
-switch(test) {
-	case false : console.log("false"); break;
-	case undefined : console.log("undefined"); break;
-	case null : console.log("null"); break;
-}</code>
-    			<question>la console affichera </question>
-    			<choix>"false"</choix>
-    			<choix>"undefined"</choix>
-    			<choix correct>"null"</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>for (var i=0;i<5;i++) { }
-i;</code>
-    			<question>la variable i vaut</question>
-    			<choix>undefined</choix>
-    			<choix>Error : i is not defined</choix>
-    			<choix>4</choix>
-    			<choix correct>5</choix>
+    			<code>["toto"] == ["toto"];</code>
+    			<question>l'égalité est</question>
+    			<choix>vrai</choix>
+    			<choix correct>fausse</choix>
     		</qcm>
     		
     		<qcm>
     			<code>var i=0;
-var str="";
-for (;i<5;str+=i,i++);
-str;</code>
-    			<question>la variable str vaut</question>
-    			<choix>SyntaxError</choix>
-    			<choix correct>"01234"</choix>
-    			<choix>10</choix>
+console.log(++i);</code>
+    			<question>la console affichera</question>
+    			<choix>0</choix>
+    			<choix correct>1</choix>
     		</qcm>
     		
     		<qcm>
     			<code>var i=0;
-var str="";
-for (;i<5;i++)
-str+=i;
-str;</code>
-    			<question>la variable str vaut</question>
-    			<choix>SyntaxError</choix>
-    			<choix correct>"01234"</choix>
-    			<choix>"5"</choix>
-    			<choix>10</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var tab = ["toto","tata","titi"];
-var i = tab.length;
-while(i--) console.log(tab[i]);</code>
+console.log(i++);</code>
     			<question>la console affichera</question>
-    			<choix>"toto", "tata", "titi"</choix>
-    			<choix>undefined, "titi", "tata", "toto"</choix>
-    			<choix correct>"titi", "tata", "toto"</choix>
-    			<choix>undefined, "titi", "tata", "toto", undefined, undefined, ... (boucle infinie)</choix>
-    			<choix>"titi", "tata", "toto", undefined, undefined, ... (boucle infinie)</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var angeGaby = { nom : "Gabriel", age : null, sexe : null };
-var n;
-for (n in angeGaby) console.log(angeGaby[n]);</code>
-    			<question>la console affichera</question>
-    			<choix>"nom", "age", "sexe"</choix>
-    			<choix>"nom"</choix>
-    			<choix>"Gabriel"</choix>
-    			<choix correct>"Gabriel", null, null</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>try {
-  alert("tata");
-}
-catch(e) {
-  alert("toto");
-}</code>
-    			<question>ce code affiche</question>
-    			<choix correct>"tata"</choix>
-    			<choix>"toto"</choix>
-    			<choix>"tata" puis "toto"</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>try {
-  alert(tata);
-}
-catch(e) {
-  alert("toto");
-}</code>
-    			<question>ce code affiche</question>
-    			<choix>tata</choix>
-    			<choix correct>"toto"</choix>
-    			<choix>tata puis "toto"</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>try {
-  alert(tata);
-}
-catch(e) {
-  alert(toto);
-}</code>
-    			<question>ce code affiche</question>
-    			<choix>tata</choix>
-    			<choix>toto</choix>
-    			<choix correct>rien, il génère une exception non levée.</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>try {
-  alert(tata);
-}
-catch(e) {
-  try { alert(toto); }
-  catch(e) { alert("titi"); }
-}</code>
-    			<question>ce code affiche</question>
-    			<choix>tata</choix>
-    			<choix>toto</choix>
-    			<choix correct>"titi"</choix>
-    			<choix>rien, il génère une exception.</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var i=0;
-					
-window.setTimeout(function() { i++; },1000);
-
-i;</code>
-    			<question>i vaut</question>
     			<choix correct>0</choix>
     			<choix>1</choix>
     		</qcm>
     		
     		<qcm>
-    			<code>var i=0;
-					
-window.setTimeout(function() { console.log(i); },1000);
-
-i++;</code>
-    			<question>la console affichera</question>
-    			<choix>0</choix>
-    			<choix correct>1</choix>
+    			<code>var x = 5 || 6;</code>
+    			<question>x vaut</question>
+    			<choix>true</choix>
+    			<choix correct>5</choix>
+    			<choix>6</choix>
     		</qcm>
     		
     		<qcm>
-    			<code>var i=0;
-
-function delai() {
-	window.setTimeout(function() { i++; },1000);
-}
-
-delai();
-delai();
-</code>
-    			<question>Après 1 seconde, i vaut</question>
+    			<code>var x = 5 && 6;</code>
+    			<question>x vaut</question>
+    			<choix>true</choix>
+    			<choix>5</choix>
+    			<choix correct>6</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var x = true || null;</code>
+    			<question>x vaut</question>
+    			<choix correct>true</choix>
+    			<choix>false</choix>
+    			<choix>null</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var x = true && null;</code>
+    			<question>x vaut</question>
+    			<choix>true</choix>
+    			<choix>false</choix>
+    			<choix correct>null</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var x = false || null;</code>
+    			<question>x vaut</question>
+    			<choix>true</choix>
+    			<choix>false</choix>
+    			<choix correct>null</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var x = false && null;</code>
+    			<question>x vaut</question>
+    			<choix>true</choix>
+    			<choix correct>false</choix>
+    			<choix>null</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var x = 0 || null;</code>
+    			<question>x vaut</question>
+    			<choix>false</choix>
+    			<choix>0</choix>
+    			<choix correct>null</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var x = 0 && null;</code>
+    			<question>x vaut</question>
+    			<choix>false</choix>
+    			<choix correct>0</choix>
+    			<choix>null</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var x = 1 && null;</code>
+    			<question>x vaut</question>
+    			<choix>true</choix>
+    			<choix>1</choix>
+    			<choix correct>null</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var x = !0;</code>
+    			<question>x vaut</question>
     			<choix>0</choix>
     			<choix>1</choix>
-    			<choix correct>2</choix>
+    			<choix correct>true</choix>
+    		</qcm>
+    		    		    		
+    		<qcm>
+    			<code>var x = !!0;</code>
+    			<question>x vaut</question>
+    			<choix>0</choix>
+    			<choix>1</choix>
+    			<choix correct>false</choix>
     		</qcm>
     		
     		<qcm>
-    			<code>var i=0;
-
-function delai() {
-	window.setTimeout(function() {
-		i++;
-		window.setTimeout(function() {
-			i++;
-		},1000);
-	},1000);
-}
-
-delai();
-</code>
-    			<question>Après 1 seconde, i vaut</question>
-    			<choix>0</choix>
-    			<choix correct>1</choix>
-    			<choix>2</choix>
+    			<code>var toto = {nom:"Toto",age:0};
+console.log("age" in toto);</code>
+    			<question>la console affichera</question>
+    			<choix correct>true</choix>
+    			<choix>false</choix>
+    		</qcm>
+    		
+    		<!--<qcm>
+    			<code>var toto = {nom:"Toto",age:undefined};
+console.log("age" in toto);</code>
+    			<question>la console affichera</question>
+    			<choix correct>true</choix>
+    			<choix>false</choix>
+    		</qcm>-->
+    		
+    		<qcm>
+    			<code>var toto = [];
+console.log(toto instanceof Array);</code>
+    			<question>la console affichera</question>
+    			<choix correct>true</choix>
+    			<choix>false</choix>
     		</qcm>
     		
     		<qcm>
-    			<code>function delai(ms) {
-  return new Promise(function(resolve) {
-     window.setTimeout(resolve,ms);
-  });
-}
-
-var i = 0;
-
-delai(1000).then(function() { i++; });
-</code>
-    			<question>Après 1 seconde, i vaut</question>
-    			<choix>0</choix>
-    			<choix correct>1</choix>
-    			<choix>2</choix>
+    			<code>var toto = [];
+console.log(toto instanceof Object);</code>
+    			<question>la console affichera</question>
+    			<choix correct>true</choix>
+    			<choix>false</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var toto = [];
+console.log(typeof toto);</code>
+    			<question>la console affichera</question>
+    			<choix>"array"</choix>
+    			<choix>Array</choix>
+    			<choix correct>"object"</choix>
+    			<choix>Object</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var toto = function() {};
+console.log(typeof toto);</code>
+    			<question>la console affichera</question>
+    			<choix correct>"function"</choix>
+    			<choix>Function</choix>
+    			<choix>"object"</choix>
+    			<choix>Object</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var toto = null;
+console.log(typeof toto);</code>
+    			<question>la console affichera</question>
+    			<choix>"null"</choix>
+    			<choix>Null</choix>
+    			<choix correct>"object"</choix>
+    			<choix>Object</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var toto = new NOP.Composant();</code>
+    			<question>ce code</question>
+    			<choix>génère une erreur de syntaxe</choix>
+    			<choix>instancie un objet NOP et exécute aussitôt sa méthode Composant.</choix>
+    			<choix correct>instancie un objet à partir du constructeur Composant qui est propriété de l'objet NOP.</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var obj = new NOP[ "Compo"+ "sant"]();</code>
+    			<question>ce code renvoie</question>
+    			<choix>une erreur</choix>
+    			<choix>instancie un objet NOP et exécute aussitôt sa méthode Composant.</choix>
+    			<choix correct>instancie un objet à partir du constructeur Composant qui est propriété de l'objet NOP.</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var toto = { age : 26, vieillir : function() { this.age++; } };
+toto.vieillir().age;</code>
+    			<question>ce code renvoie</question>
+    			<choix correct>une erreur</choix>
+    			<choix>undefined</choix>
+    			<choix>26</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>var date = +new Date();</code>
+    			<question>ce code</question>
+    			<choix>génère une erreur</choix>
+    			<choix correct>instancie un objet Date et le convertit en nombre.</choix>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>typeof new Date();</code>
+    			<question>ce code renvoie</question>
+    			<choix>une erreur</choix>
+    			<choix>"typeof new Date" is not a function</choix>
+    			<choix correct>"object"</choix>
     		</qcm>
