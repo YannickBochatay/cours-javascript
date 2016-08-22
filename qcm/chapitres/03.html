@@ -1,17 +1,4 @@
-    		<qcm important>
-    			<code>var obj = new Object();
-obj1.prop1 = "toto";
-obj1.prop2 = "tata";
 
-var obj = {
-	prop1 : "toto",
-	prop2 : "tata"
-};</code>
-    			<question>Les deux écritures sont strictement équivalentes</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
     		<qcm important>
     			<code>var obj = {
 	"prop1" : "toto",
@@ -26,100 +13,64 @@ var obj = {
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
     		</qcm>
-    		
-    		<qcm>
-    			<code>var obj = {
-	_prop1 : "toto",
-	$prop2 : "tata"
-};</code>
-    			<question>Ce code génère une erreur</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var obj = {
-	_prop1 : "toto",
-	@prop2 : "tata"
-};</code>
-    			<question>Ce code génère une erreur</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var obj = {
-	"_prop1" : "toto",
-	"@prop2" : "tata"
-};</code>
-    			<question>Ce code génère une erreur</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var obj = {
-	" " : "toto",
-	"  " : "tata"
-};</code>
-    			<question>Ce code génère une erreur</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
-    		<qcm important>
-    			<code>{
-  tata : "toto",
-  toto : "tata"
-}</code>
-    			<question>Ceci est une chaîne JSON valide</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var obj = {
-  "$prop1" : "toto",
-  "_prop2" : "tata"
-};
 
-obj.$prop1;
-obj._prop2;
-</code>
-    			<question>Cette écriture est correcte</question>
+    		<qcm>
+    			<code>var obj = {
+	_prop1 : "toto"
+};</code>
+    			<question>Ce code génère une erreur</question>
+    			<choix>vrai</choix>
+    			<choix correct>faux</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>var obj = {
+	@prop1 : "tata"
+};</code>
+    			<question>Ce code génère une erreur</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
     		</qcm>
-    		
+
+    		<qcm>
+    			<code>var obj = {
+	"@prop1" : "toto"
+};</code>
+    			<question>Ce code génère une erreur</question>
+    			<choix>vrai</choix>
+    			<choix correct>faux</choix>
+    		</qcm>
+
     		<qcm important>
     			<code>window.alert;
-window['alert'];
+window["alert"];
 </code>
     			<question>Les deux écritures sont strictement équivalentes</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
     		</qcm>
-    		
-    		<qcm important>
-    			<code>window["alert"]("toto");
-</code>
-    			<question>Ce code génère une erreur</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
-			<qcm>
-    			<code>var obj = { prop1 : "toto" };
-var prop1 = 'prop1';
 
-obj[prop1];
+    		<qcm important>
+    			<code>window.alert("toto");
+window["alert"]("toto");
+</code>
+    			<question>Les deux écritures sont strictement équivalentes</question>
+    			<choix correct>vrai</choix>
+    			<choix>faux</choix>
+    		</qcm>
+
+			<qcm>
+    			<code>var obj = { prop1 : "toto", prop2 : "tata" };
+var maProp = "prop1";
+
+obj[maProp];
 </code>
     			<question>La valeur renvoyée est </question>
     			<choix correct>"toto"</choix>
     			<choix>"prop1"</choix>
     			<choix>erreur de syntaxe</choix>
     		</qcm>
-    		
+
     		<qcm important>
     			<code>var obj = { prop1 : "toto" };
 
@@ -130,17 +81,7 @@ obj.prop2;
     			<choix>null</choix>
     			<choix correct>undefined</choix>
     		</qcm>
-    		
-    		<qcm>
-    			<code>var obj = { prop1 : null };
 
-if (obj.prop1) console.log("oui");
-</code>
-    			<question>La console va afficher "oui"</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
     		<qcm>
     			<code>var obj = { prop1 : null };
 
@@ -150,7 +91,7 @@ if ("prop1" in obj) console.log("oui");
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>var obj = {
   prop1 : 'tata',
@@ -161,19 +102,7 @@ if ("prop1" in obj) console.log("oui");
     			<choix>est incorrecte</choix>
     			<choix correct>peut poser des problèmes selon l'environnement</choix>
     		</qcm>
-    		
-    		<qcm>
-    			<question>L'objet JSON n'est implémenté que dans les navigateurs et ne fait pas partie de la norme ECMAScript.</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<question>L'objet window n'est implémenté que dans les navigateurs et ne fait pas partie de la norme ECMAScript.</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
+
     		<qcm>
     			<code>window.toto = "tata";
 
@@ -183,7 +112,7 @@ toto;</code>
     			<choix>Error</choix>
     			<choix>undefined</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>var toto = "tata";
 
@@ -204,8 +133,8 @@ toto.nom;</code>
     			<choix correct>"Tata"</choix>
     			<choix>"Toto"</choix>
     		</qcm>
-
-                <qcm>
+<!--
+        <qcm>
     			<code>var toto = { nom : "Toto", age : 26 };
 var tata = toto;
 tata = null;
@@ -216,7 +145,7 @@ toto;</code>
     			<choix>null</choix>
     		</qcm>
 
-                <qcm>
+        <qcm>
     			<code>var toto = { nom : "Toto", age : 26 };
 var tata = toto;
 toto = null;
@@ -226,3 +155,4 @@ tata;</code>
     			<choix correct>object { nom : "Toto", age : 26 }</choix>
     			<choix>null</choix>
     		</qcm>
+-->

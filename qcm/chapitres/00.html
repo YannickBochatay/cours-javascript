@@ -42,7 +42,7 @@
     <code>5 + '7';</code>
     <question>Quel est la valeur renvoyée ?</question>
     <choix>12</choix>
-    <choix correct>57</choix>
+    <choix correct>"57"</choix>
     <choix>NaN</choix>
     <choix>je ne sais pas</choix>
 </qcm>
@@ -51,7 +51,7 @@
     <code>"5" + 7;</code>
     <question>Quel est la valeur renvoyée ?</question>
     <choix>12</choix>
-    <choix correct>57</choix>
+    <choix correct>"57"</choix>
     <choix>NaN</choix>
     <choix>je ne sais pas</choix>
 </qcm>
@@ -78,7 +78,7 @@
 
 <qcm>
     <code>var toto = "tata";
-        
+
 window.toto;</code>
     <question>Quelle est la valeur renvoyée ?</question>
     <choix>Error</choix>
@@ -113,7 +113,7 @@ toto == "tata";</code>
     obj = null;
     return obj;
 }
-        
+
 var monObjet = { tata : "toto" };
 supprObj(monObjet);
 
@@ -165,7 +165,7 @@ typeof toto.call(null);</code>
     age : 25,
     renaitre : function() { this.age = 0; }
 };
-        
+
 var boutonMagique = document.getElementById("monBoutonMagique");
 boutonMagique.addEventListener("click",toto.renaitre);</code>
     <question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0</question>
