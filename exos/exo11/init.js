@@ -1,6 +1,6 @@
-function lanceChronoAleatoire() {
+function lanceChrono() {
 
 	/* votre code */
 }
 
-lanceChronoAleatoire();
+lanceChrono();

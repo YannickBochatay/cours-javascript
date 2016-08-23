@@ -1,3 +1,10 @@
-var _objet = { a:0,c:0,b:0,z:0,za:0,zb:0,d4:0,d5:0 };
+var _objet = { nom : "Yannick" };
 
-assert( keys2str(_objet) == "a,b,c,d4,d5,z,za,zb", "Test sur un objet" );
+modifObjet(_objet,{ age : 37 });
+assert( _objet.age == 37, "Ajout d'une propriété" );
+
+modifObjet(_objet,{ nom : "Bernard" });
+assert( _objet.nom == "Yannick", "une propriété existante n'est pas modifiée" );
+
+modifObjet(_objet,{ sexe : "M", metier : "meteo" });
+assert( _objet.sexe == "M" && _objet.metier == "meteo" && _objet.nom == "Yannick" && _objet.age == 37, "ajout simultané des plusieurs propriétés" );

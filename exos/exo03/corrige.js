@@ -1,8 +1,2 @@
-function concat() {
-
-  	var str ='';
-  
-	for (var i=0,N=arguments.length;i<N;i++) str+=arguments[i];
-  
-  	return str;
-}
+var prix = prompt("Saisissez un prix en euros");
+alert( Number(prix).toFixed(2) );

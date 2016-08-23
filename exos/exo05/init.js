@@ -1,9 +1,12 @@
-function keys2str(obj) {
+function modifObjet( objAModifier, propAModifier ) {
 
 	/* votre code */
 }
 
 //exemple
-var obj = { nom : "Toto", age : 26, sexe : "M" };
+var obj = { nom : "Toto" };
 
-keys2str(obj); // affiche "age,nom,sexe"
+modifObjet( obj, { age : 26, nom : "Tata" } );
+
+obj.age; //26
+obj.nom; //Toto (la proopriété existait déjà, elle n'est pas modifiée)

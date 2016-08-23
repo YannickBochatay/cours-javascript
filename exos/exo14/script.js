@@ -4,12 +4,16 @@
 	
     "use strict";
     
-    var input = document.getElementById("titrePage");
-            
-    input.addEventListener("input",function() {
-        
-        document.title = this.value;
-    });
+    var lien = document.getElementById("hautDePage");
+    
+    function checkScroll() {
+       
+        lien.classList[ (window.scrollY > 500) ? "remove" : "add" ]("hidden");
+    }
+
+    window.addEventListener("scroll",checkScroll);
+    
+    checkScroll();
 	
 }());
 //*/
@@ -17,11 +21,21 @@
 /*
 //Avec jQuery
 $(function() {
-    
+	
     "use strict";
     
-    $("#titrePage").on("input",function() {
-        document.title = this.value;
-    });
+    var lien = $("#hautDePage");
+    
+    function checkScroll() {
+       
+        var methode = (window.scrollY > 500 ? "removeClass" : "addClass");
+        
+        lien[methode]("hidden");
+    }
+
+    $(window).on("scroll",checkScroll);
+    
+    checkScroll();
+	
 });
 //*/

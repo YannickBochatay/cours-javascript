@@ -1,21 +1,19 @@
-function lanceChronoAleatoire() {
+function lanceChrono() {
 	
-    var tempsEcoule=0;
+    var tempsEcoule=0, timer;
 
     function logEtIncremente() {
         
         console.log(tempsEcoule);
         
-        var delai = Math.min( 10000-tempsEcoule , Math.round(Math.random() * 2000) );
+        if (tempsEcoule==10) return window.clearInterval(timer);
         
-        if (delai <= 0) return;
-
-        tempsEcoule+= delai;
-        
-        window.setTimeout(logEtIncremente,delai);
+        tempsEcoule++;
     }
+
+    timer = window.setInterval(logEtIncremente,1000);
 
     logEtIncremente();
 }
 
-lanceChronoAleatoire();
+lanceChrono();

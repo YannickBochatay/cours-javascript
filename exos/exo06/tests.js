@@ -1,11 +1,3 @@
-var _tab = [12,13,15,12,13,15];
+var _objet = { a:0,c:0,b:0,z:0,za:0,zb:0,d4:0,d5:0 };
 
-modifTableau(_tab);
-
-assert(_tab[1] == 1.3 , "Modification d'un tableau" );
-
-_tab = [12,13,15,12,13,15];
-
-_tab = nouveauTableau(_tab);
-
-assert(_tab[1] == 1.3 , "Nouveau tableau" );
+assert( keys2str(_objet) == "a,b,c,d4,d5,z,za,zb", "Test sur un objet" );

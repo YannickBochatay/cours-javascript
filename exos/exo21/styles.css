@@ -4,6 +4,9 @@ body {
 section {
     margin-bottom:50px;
 }
+code {
+    font-size:100%;
+}
 table {
     border-collapse: collapse;
 }
@@ -12,4 +15,7 @@ table td,table th {
     padding:5px;
     min-height:30px;
     font-size:12px;
+}
+q {
+    font-style:italic;
 }

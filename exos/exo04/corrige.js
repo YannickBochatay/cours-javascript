@@ -1,7 +1,8 @@
-function modifObjet(obj,props) {
+function concat() {
 
-  	for (var n in props) {
-  		if (n in obj) continue;
-  		obj[n] = props[n];
-  	}
+  	var str ='';
+  
+	for (var i=0,N=arguments.length;i<N;i++) str+=arguments[i];
+  
+  	return str;
 }

@@ -7,11 +7,14 @@
         <link rel="stylesheet" type="text/css" href="libs/prism/prism.css"/>
         <link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
         <link rel="stylesheet" type="text/css" href="css/main.css"/>
+
+        <script src="libs/x-tag/x-tag.js"></script>
+        <script src="components/simpleExc.js"></script>
     </head>
     <body>
-        
+
         <div class="pull-right">
-            
+
             <a class="pure-button" href="qcm/index.html#00" >
                 <i class="fa fa-question-circle"></i>
                 QCM : ce cours est-il pour moi ?
@@ -28,15 +31,16 @@
                 <i class="fa fa-download"></i>
                 Tout télécharger
             </a>
-                
+
         </div>
-            
+
         <h1>Cours javascript</h1>
         <small>Yannick Bochatay DSM/SP/IEM</small>
         <br/>
         <br/>
-            
+
         <ol class="plan">
+
             <li>
                 <h4>Introduction</h4>
                 <a class="pure-button" href="slides/01 - Introduction.html" target="presentation">
@@ -82,6 +86,7 @@
                     QCM
                 </a>
                 <a class="pure-button" href="exos/index.html#02" >Exercice 2</a>
+                <a class="pure-button" href="exos/index.html#03" >Exercice 3</a>
             </li><li>
                 <h4>Fonctions</h4>
                 <a class="pure-button" href="slides/05 - Fonctions.html" target="presentation">
@@ -92,13 +97,13 @@
                     <i class="fa fa-check-square-o"></i>
                     QCM
                 </a>
-                <a class="pure-button" href="exos/index.html#03" >
-                    <i class="fa fa-pencil-square-o"></i>
-                    Exercice 3
-                </a>
                 <a class="pure-button" href="exos/index.html#04" >
                     <i class="fa fa-pencil-square-o"></i>
                     Exercice 4
+                </a>
+                <a class="pure-button" href="exos/index.html#05" >
+                    <i class="fa fa-pencil-square-o"></i>
+                    Exercice 5
                 </a>
             </li><li>
                 <h4>Tableaux</h4>
@@ -110,10 +115,6 @@
                     <i class="fa fa-check-square-o"></i>
                     QCM
                 </a>
-                <a class="pure-button" href="exos/index.html#05" >
-                    <i class="fa fa-pencil-square-o"></i>
-                    Exercice 5
-                </a>
                 <a class="pure-button" href="exos/index.html#06" >
                     <i class="fa fa-pencil-square-o"></i>
                     Exercice 6
@@ -121,6 +122,10 @@
                 <a class="pure-button" href="exos/index.html#07" >
                     <i class="fa fa-pencil-square-o"></i>
                     Exercice 7
+                </a>
+                <a class="pure-button" href="exos/index.html#08" >
+                    <i class="fa fa-pencil-square-o"></i>
+                    Exercice 8
                 </a>
             </li><li>
                 <h4>Autres objets intégrés</h4>
@@ -132,15 +137,15 @@
                     <i class="fa fa-check-square-o"></i>
                     QCM
                 </a>
-                <a class="pure-button" href="exos/index.html#08" >
-                    <i class="fa fa-pencil-square-o"></i>
-                    Exercice 8
-                </a>
                 <a class="pure-button" href="exos/index.html#09" >
                     <i class="fa fa-pencil-square-o"></i>
                     Exercice 9
                 </a>
-                    
+                <a class="pure-button" href="exos/index.html#10" >
+                    <i class="fa fa-pencil-square-o"></i>
+                    Exercice 10
+                </a>
+
             </li><li>
                 <h4>Opérateurs</h4>
                 <a class="pure-button" href="slides/08 - Opérateurs.html" target="presentation">
@@ -151,7 +156,7 @@
                     <i class="fa fa-check-square-o"></i>
                     QCM
                 </a>
-                    
+
             </li><li>
                 <h4>Contrôle du flux d'instructions</h4>
                 <a class="pure-button" href="slides/09 - Contrôle du flux d'instructions.html" target="presentation">
@@ -162,19 +167,19 @@
                     <i class="fa fa-check-square-o"></i>
                     QCM
                 </a>
-                <a class="pure-button" href="exos/index.html#10" >
-                    <i class="fa fa-pencil-square-o"></i>
-                    Exercice 10
-                </a>
                 <a class="pure-button" href="exos/index.html#11" >
                     <i class="fa fa-pencil-square-o"></i>
                     Exercice 11
                 </a>
-                    
+                <a class="pure-button" href="exos/index.html#12" >
+                    <i class="fa fa-pencil-square-o"></i>
+                    Exercice 12
+                </a>
+
             </li><li>
-                
+
                 <h4>Javascript dans le navigateur</h4>
-                    
+
                 <div class="pure-menu pure-menu-horizontal">
                     <ul class="pure-menu-list">
                         <li class="pure-menu-item">
@@ -192,35 +197,17 @@
                         <li class="pure-menu-item pure-menu-has-children">
                             <a href="#" class="pure-menu-link">
                                 <i class="fa fa-pencil-square-o"></i>
-                                Exercice 12
-                            </a>
-                            <ul class="pure-menu-children">
-                                <li class="pure-menu-item">
-                                    <a href="exos/exo12/index.html" target="exos" class="pure-menu-link">Enoncé</a>
-                                </li> 
-                                    
-                                <li class="pure-menu-item">
-                                    <a href="#exo12/enonce" class="pure-menu-link zip">Zip</a>
-                                </li>
-                                    
-                                <li class="pure-menu-item">
-                                    <a href="exos/exo12/script.js" class="pure-menu-link" target="solution">Correction</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="pure-menu-item pure-menu-has-children">
-                            <a href="#" class="pure-menu-link">
-                                <i class="fa fa-pencil-square-o"></i>
                                 Exercice 13
                             </a>
                             <ul class="pure-menu-children">
                                 <li class="pure-menu-item">
-                                    <a href="exos/exo13/index.html"  target="exos" class="pure-menu-link">Enoncé</a>
+                                    <a href="exos/exo13/index.html" target="exos" class="pure-menu-link">Enoncé</a>
                                 </li>
+
                                 <li class="pure-menu-item">
                                     <a href="#exo13/enonce" class="pure-menu-link zip">Zip</a>
                                 </li>
-                                    
+
                                 <li class="pure-menu-item">
                                     <a href="exos/exo13/script.js" class="pure-menu-link" target="solution">Correction</a>
                                 </li>
@@ -238,7 +225,7 @@
                                 <li class="pure-menu-item">
                                     <a href="#exo14/enonce" class="pure-menu-link zip">Zip</a>
                                 </li>
-                                    
+
                                 <li class="pure-menu-item">
                                     <a href="exos/exo14/script.js" class="pure-menu-link" target="solution">Correction</a>
                                 </li>
@@ -256,7 +243,7 @@
                                 <li class="pure-menu-item">
                                     <a href="#exo15/enonce" class="pure-menu-link zip">Zip</a>
                                 </li>
-                                    
+
                                 <li class="pure-menu-item">
                                     <a href="exos/exo15/script.js" class="pure-menu-link" target="solution">Correction</a>
                                 </li>
@@ -274,15 +261,33 @@
                                 <li class="pure-menu-item">
                                     <a href="#exo16/enonce" class="pure-menu-link zip">Zip</a>
                                 </li>
-                                    
+
                                 <li class="pure-menu-item">
                                     <a href="exos/exo16/script.js" class="pure-menu-link" target="solution">Correction</a>
                                 </li>
                             </ul>
                         </li>
+                        <li class="pure-menu-item pure-menu-has-children">
+                            <a href="#" class="pure-menu-link">
+                                <i class="fa fa-pencil-square-o"></i>
+                                Exercice 17
+                            </a>
+                            <ul class="pure-menu-children">
+                                <li class="pure-menu-item">
+                                    <a href="exos/exo17/index.html"  target="exos" class="pure-menu-link">Enoncé</a>
+                                </li>
+                                <li class="pure-menu-item">
+                                    <a href="#exo17/enonce" class="pure-menu-link zip">Zip</a>
+                                </li>
+
+                                <li class="pure-menu-item">
+                                    <a href="exos/exo17/script.js" class="pure-menu-link" target="solution">Correction</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
-                    
+
             </li><li>
                 <h4>Ajax</h4>
                 <div class="pure-menu pure-menu-horizontal">
@@ -300,48 +305,16 @@
                             </a>
                         </li>
                         <li class="pure-menu-item pure-menu-has-children">
-                            <a href="#" class="pure-menu-link">Exercice 17</a>
-                            <ul class="pure-menu-children">
-                                <li class="pure-menu-item">
-                                    <a href="exos/exo17/index.html" target="exos" class="pure-menu-link">Enoncé</a>
-                                </li> 
-                                    
-                                <li class="pure-menu-item">
-                                    <a href="#exo17/enonce" class="pure-menu-link zip">Zip</a>
-                                </li>
-                                    
-                                <li class="pure-menu-item">
-                                    <a href="exos/exo17/script.js" class="pure-menu-link" target="solution">Correction</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="pure-menu-item pure-menu-has-children">
-                            <a href="#" class="pure-menu-link">Exercice 17bis</a>
-                            <ul class="pure-menu-children">
-                                <li class="pure-menu-item">
-                                    <a href="exos/exo17bis/index.html" target="exos" class="pure-menu-link">Enoncé</a>
-                                </li> 
-                                    
-                                <li class="pure-menu-item">
-                                    <a href="#exo17bis/enonce" class="pure-menu-link zip">Zip</a>
-                                </li>
-                                    
-                                <li class="pure-menu-item">
-                                    <a href="exos/exo17bis/script.js" class="pure-menu-link" target="solution">Correction</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="pure-menu-item pure-menu-has-children">
                             <a href="#" class="pure-menu-link">Exercice 18</a>
                             <ul class="pure-menu-children">
                                 <li class="pure-menu-item">
                                     <a href="exos/exo18/index.html" target="exos" class="pure-menu-link">Enoncé</a>
-                                </li> 
-                                    
+                                </li>
+
                                 <li class="pure-menu-item">
                                     <a href="#exo18/enonce" class="pure-menu-link zip">Zip</a>
                                 </li>
-                                    
+
                                 <li class="pure-menu-item">
                                     <a href="exos/exo18/script.js" class="pure-menu-link" target="solution">Correction</a>
                                 </li>
@@ -352,24 +325,56 @@
                             <ul class="pure-menu-children">
                                 <li class="pure-menu-item">
                                     <a href="exos/exo19/index.html" target="exos" class="pure-menu-link">Enoncé</a>
-                                </li> 
-                                    
+                                </li>
+
                                 <li class="pure-menu-item">
                                     <a href="#exo19/enonce" class="pure-menu-link zip">Zip</a>
                                 </li>
-                                    
+
                                 <li class="pure-menu-item">
                                     <a href="exos/exo19/script.js" class="pure-menu-link" target="solution">Correction</a>
                                 </li>
                             </ul>
                         </li>
+                        <li class="pure-menu-item pure-menu-has-children">
+                            <a href="#" class="pure-menu-link">Exercice 20</a>
+                            <ul class="pure-menu-children">
+                                <li class="pure-menu-item">
+                                    <a href="exos/exo20/index.html" target="exos" class="pure-menu-link">Enoncé</a>
+                                </li>
+
+                                <li class="pure-menu-item">
+                                    <a href="#exo20/enonce" class="pure-menu-link zip">Zip</a>
+                                </li>
+
+                                <li class="pure-menu-item">
+                                    <a href="exos/exo20/script.js" class="pure-menu-link" target="solution">Correction</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="pure-menu-item pure-menu-has-children">
+                            <a href="#" class="pure-menu-link">Exercice 21</a>
+                            <ul class="pure-menu-children">
+                                <li class="pure-menu-item">
+                                    <a href="exos/exo21/index.html" target="exos" class="pure-menu-link">Enoncé</a>
+                                </li>
+
+                                <li class="pure-menu-item">
+                                    <a href="#exo21/enonce" class="pure-menu-link zip">Zip</a>
+                                </li>
+
+                                <li class="pure-menu-item">
+                                    <a href="exos/exo21/script.js" class="pure-menu-link" target="solution">Correction</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
-                    
+
             </li><li>
-                
+
                 <h4>Programmer objet</h4>
-                    
+
                 <div class="pure-menu pure-menu-horizontal">
                     <ul class="pure-menu-list">
                         <li class="pure-menu-item">
@@ -385,46 +390,25 @@
                             </a>
                         </li>
                         <li class="pure-menu-item">
-                            <a class="pure-button" href="exos/index.html#20" >
+                            <a class="pure-button" href="exos/index.html#22" >
                                 <i class="fa fa-pencil-square-o"></i>
-                                Exercice 20
+                                Exercice 22
                             </a>
                         </li>
-                            
+
                         <li class="pure-menu-item">
-                            <a class="pure-button" href="exos/index.html#21" >
+                            <a class="pure-button" href="exos/index.html#23" >
                                 <i class="fa fa-pencil-square-o"></i>
-                                Exercice 21
+                                Exercice 23
                             </a>
                         </li>
-                            
+
                         <li class="pure-menu-item">
                             <a class="pure-button" href="exos/dragdrop/index.html" >
                                 <i class="fa fa-pencil-square-o"></i>
                                 TP Drag And Drop
                             </a>
                         </li>
-                        <!--
-                        <li class="pure-menu-item pure-menu-has-children">
-                            <a href="#" class="pure-menu-link">
-                                <i class="fa fa-pencil-square-o"></i>
-                                Exercice 22
-                            </a>
-                            <ul class="pure-menu-children">
-                                <li class="pure-menu-item">
-                                     <a href="exos/exo22/index.html" target="exos" class="pure-menu-link">Enoncé</a>
-                                 </li> 
-                                     
-                                <li class="pure-menu-item">
-                                     <a href="#exo22/enonce" class="pure-menu-link zip">Zip</a>
-                                 </li>
-                                     
-                                <li class="pure-menu-item">
-                                    <a href="exos/exo22/script.js" class="pure-menu-link" target="solution">Correction</a>
-                                </li>
-                            </ul>
-                        </li>-->
-                            
                     </ul>
                 </div>
             </li><li>
@@ -434,11 +418,11 @@
                     Présentation
                 </a>
             </li></ol>
-                
+
         <script src="libs/pure/pure.js"></script>
         <script src="libs/jszip/jszip.min.js"></script>
         <script src="libs/filesaver/filesaver.js"></script>
         <script src="script.js"></script>
-            
+
     </body>
 </html>

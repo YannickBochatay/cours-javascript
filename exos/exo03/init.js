@@ -1,6 +1,1 @@
-function concat() {
-
-	/*
-	 * votre code
-	 */
-}
+var prix;

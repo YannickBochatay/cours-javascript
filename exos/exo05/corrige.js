@@ -1,4 +1,7 @@
-function keys2str(obj) {
+function modifObjet(obj,props) {
 
-    return Object.keys(obj).sort().join();
+  	for (var n in props) {
+  		if (n in obj) continue;
+  		obj[n] = props[n];
+  	}
 }

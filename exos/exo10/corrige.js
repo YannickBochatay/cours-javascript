@@ -1,19 +1,4 @@
-function lanceChrono() {
-	
-    var tempsEcoule=0, timer;
+function clip(valeur,min,max) {
 
-    function logEtIncremente() {
-        
-        console.log(tempsEcoule);
-        
-        if (tempsEcoule==10) return window.clearInterval(timer);
-        
-        tempsEcoule++;
-    }
-
-    timer = window.setInterval(logEtIncremente,1000);
-
-    logEtIncremente();
+    return Math.min( Math.max(valeur,min), max );
 }
-
-lanceChrono();

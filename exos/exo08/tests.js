@@ -1,4 +1,3 @@
-assert( typeof testPerf((function() {})) == "number" , "Le résultat est un nombre" );
+var _tab = [12,13,15,12,13,15];
 
-var perf = testPerf(verifEmail_v1);
-assert( perf > 200 && perf < 1000 , "L'ordre de grandeur est respecté" );
+assert( somme(_tab) == 12+13+15+12+13+15 , "Somme d'un tableau test" );

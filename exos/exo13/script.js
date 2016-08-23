@@ -4,38 +4,42 @@
 	
     "use strict";
     
-    var lien = document.getElementById("hautDePage");
+    var tdHeure = document.getElementById("heure"),
+        tdHauteur = document.getElementById("hauteur"),
+        tdLargeur = document.getElementById("largeur");
     
-    function checkScroll() {
-       
-        lien.classList[ (window.scrollY > 500) ? "remove" : "add" ]("hidden");
+    function afficheTaille() {
+        tdHeure.textContent = new Date().toLocaleTimeString();
+        tdLargeur.textContent = window.innerWidth;
+        tdHauteur.textContent = window.innerHeight;
     }
 
-    window.addEventListener("scroll",checkScroll);
+    window.addEventListener("resize",afficheTaille);
     
-    checkScroll();
+    afficheTaille();
 	
 }());
 //*/
 
-/*
+//*
 //Avec jQuery
 $(function() {
 	
     "use strict";
     
-    var lien = $("#hautDePage");
+    var tdHeure = $("#heure"),
+        tdHauteur = $("#hauteur"),
+        tdLargeur = $("#largeur");
     
-    function checkScroll() {
-       
-        var methode = (window.scrollY > 500 ? "removeClass" : "addClass");
-        
-        lien[methode]("hidden");
+    function afficheTaille() {
+        tdHeure.text( new Date().toLocaleTimeString() );
+        tdLargeur.text( window.innerWidth );
+        tdHauteur.text( window.innerHeight );
     }
 
-    $(window).on("scroll",checkScroll);
+    $(window).on("resize",afficheTaille);
     
-    checkScroll();
+    afficheTaille();
 	
 });
 //*/

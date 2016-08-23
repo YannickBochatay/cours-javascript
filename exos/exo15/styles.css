@@ -4,12 +4,3 @@ body {
 section {
     margin-bottom:50px;
 }
-table {
-    border-collapse: collapse;
-}
-table td,table th {
-    border:1px solid gray;
-    padding:5px;
-    min-height:30px;
-    font-size:12px;
-}

@@ -1,6 +1,3 @@
-function lanceChrono() {
-
-	/* votre code */
+function clip(valeur,min,max) {
+    
 }
-
-lanceChrono();
