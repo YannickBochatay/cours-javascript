@@ -43,79 +43,56 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+
 				<section>
 					<h1>Javascript</h1>
 					<h3>Nombres, chaînes de caractères et booléens</h3>
 				</section>
+
+
 				<section>
 					<h2>Valeurs primitives ou objets ?</h2>
-					<p>Nous avons vu que :</p>
-					<ul>
-						<li>les nombres, chaînes de caractères et booléens sont des types primitifs de javascript</li>
-						<li>ce qui n'est pas de type primitif est une variation du type objet</li>
-						<li>il existe des constructeurs <code>Number</code>, <code>String</code>, <code>Boolean</code>.</li>
-					</ul>
-					<pre><code class="javascript">var age = 25; //age est-il un nombre ou un objet nombre ?
-					
-var nom = "toto"; //nom est-il une chaîne ou un objet chaîne ?
-
-var bool = true; //bool est-il un booléen ou un objet booléen ?
-
-</code></pre>
-				</section>
-				<section>
-					<h2>Valeurs primitives ou objets ?</h2>
-					<p>Ce sont bien des valeurs primitives que nous manipulons :</p>
-					<pre><code class="javascript">var obj = {};
-typeof obj; //object
-
-var age = 25;
+          <p>Ce sont des valeurs primitives que nous définissons</p>
+          <pre><code class="javascript">var age = 25;
 typeof age; //number
-					
+
 var nom = "toto";
 typeof nom; //string
 
 var bool = true;
 typeof bool; //boolean
-</code></pre>
+
+var obj = {};
+typeof obj; //object</code></pre>
 				</section>
-				
-				<section>
-					<h2>Valeurs primitives ou objets ?</h2>
-					<p>Mais alors, pourquoi pouvons-nous faire ceci ?</p>
-					<pre><code class="javascript">var age = 25;
-age.toString(); //"25"
-					
+
+        <section>
+          <h2>Valeurs primitives ou objets ?</h2>
+          <p>Mais on peut appeler des méthodes comme s'il s'agissait d'objets (javascript effectue automatiquement les conversions)</p>
+          <pre><code class="javascript">var age = 25;
+age.toFixed(2); //"25.00"
+
 var nom = "toto";
-nom.replace('o','a'); //tato
+nom.toUpperCase(); //"TOTO"</code></pre>
+        </section>
 
-var bool = true;
-bool.toString(); //true</code></pre>
-					<p class="fragment">Javascript effectue automatiquement les conversions entre valeurs primitives et objets.</p>
-				</section>
-				
+        <section>
+          <h2>Valeurs primitives ou objets ?</h2>
+          <p>Les constructeurs <code>String, Boolean, Number</code> existent, mais on ne les utilise pas pour créer des chaînes, booléens et des nombres. C'est inutile et source d'erreurs.</p>
+          <pre><code class="javascript">//sans les conversions automatiques, il faudrait écrire
+var age = 25;
+var objTmp = new Number(age);
+var str = objTmp.toFixed(2);
+delete objTmp;
+
+//en pratique on écrit
+var age = 25;
+var str = age.toFixed(2);</code></pre>
+        </section>
+
 				<section>
 					<h2>Valeurs primitives ou objets ?</h2>
-					<p>On instancie très rarement des objets à partir des constructeurs <code>String, Boolean, Number</code>.</p>
-					<pre><code class="javascript">var age = new Number(25);
-var nom = new String("toto");                    //très rare
-var bool = new Boolean(true);</code></pre>
-<br/>
-<p>&#10152; plus lourd et peut conduire à des pièges :</p>
-<pre><code class="javascript">var nom = new String("toto");
-typeof nom; //"object" et non "string"
-
-var nom2 = new String("toto");
-nom == nom2; //false (deux instances ne sont jamais égales)
-
-nom.valueOf() == nom2.valueOf(); //true
-//la méthode valueOf permet de convertir en type primitif
-</code></pre>
-				</section>
-				<section>
-					<h2>Valeurs primitives ou objets ?</h2>
-					<p>En revanche l'invocation des constructeurs <code>String, Boolean, Number</code> sans le mot clef <code>new</code> peut s'avérer utile,
-					elle convertit alors l'argument en valeur primitive correspondante.</p>
+					<p>En revanche l'invocation des constructeurs <code>String, Boolean, Number</code> sans le mot clef <code>new</code> est utile pour convertir l'argument en valeur primitive correspondante.</p>
 					<pre><code class="javascript">Number("25.5"); //25.5
 Number("25.5Ko"); //NaN
 Number(true); //1
@@ -131,9 +108,10 @@ Boolean(25); //true
 Boolean(0); //false
 </code></pre>
 				</section>
-							
+
 				<section>
-						<h2>Méthodes usuelles des chaînes</h2>
+						<h2>Méthodes usuelles</h2>
+            <h3>Chaînes</h3>
 						<ul>
 							<li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/charAt" target="liens"><code>charAt</code></a> : renvoie le caractère à la position spécifiée</li>
 							<li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/indexOf" target="liens"><code>indexOf</code></a> : renvoie l'indice de la 1ère occurence</li>
@@ -152,18 +130,80 @@ Boolean(0); //false
 						</small>
 						</p>
 					</section>
+
+          <section>
+            <h2>Méthodes usuelles</h2>
+            <h3>Nombres</h3>
+            <ul>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/toFixed" target="liens"><code>toFixed</code></a> : renvoie une chaîne de caractères avec un nombre spécifié de chiffres après la virgule</li>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/toPrecision" target="liens"><code>toPrecision</code></a> : renvoie une chaîne de caractères avec un nombre spécifié de chiffres significatifs</li>
+            </ul>
+            <br/><br/>
+            <pre><code class="javascript">var num = 2.4567887899;
+num.toFixed(2); // "2.46"
+num.toPrecision(2); // "2.5"
+
+num = 0.05;
+num.toFixed(3); // "0.050"
+num.toPrecision(3); // "0.0500"</code></pre>
+            <p><small>
+              <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number" target="liens">&#10152; Référence complète</a>
+            </small>
+            </p>
+          </section>
+
 					<section>
-						<h2>Méthodes usuelles des chaînes</h2>
-						<p>Toutes ces méthodes ne modifient pas la chaîne elle-même mais renvoient une nouvelle valeur primitive de type "string".</p>
+						<h2>Méthodes usuelles</h2>
+						<p>Toutes ces méthodes ne modifient pas la variable elle-même mais renvoient une nouvelle valeur primitive.</p>
 						<pre><code class="javascript">var nom = "Toto";
-nom.replace('o','a');
+nom.toUpperCase();
 console.log(nom); //Toto
-						
-var nomModifie = nom.replace('o','a');
-console.log( nomModifie ); //Tato</code></pre>
-				</section>
+
+var nomModifie = nom.toUpperCase();
+console.log( nomModifie ); //TOTO</code></pre>
+				  </section>
+
+          <section>
+            <h2>Quelques fonctions globales</h2>
+            <h3>Chaînes</h3>
+            <ul>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/decodeURI" target="liens"><code>decodeURI</code></a> : décode une URL</li>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/decodeURIComponent" target="liens"><code>decodeURIComponent</code></a> : décode un paramètre d'URL</li>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/encodeURI" target="liens"><code>encodeURI</code></a> : encode une URL</li>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/encodeURIComponent" target="liens"><code>encodeURIComponent</code></a> : encode un paramètre d'URL</li>
+            </ul>
+            <br/><br/>
+            <pre><code class="javascript">encodeURI("http://monDomaine.fr/mon article/?param=toto");
+//"http://monDomaine.fr/mon%20article/?param=toto"
+
+encodeURIComponent("toto&tata?titi");
+//"toto%26tata%3Ftiti"
+</code></pre>
+          </section>
+
+          <section>
+            <h2>Quelques fonctions globales</h2>
+            <h3>Nombres</h3>
+            <ul>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/parseInt" target="liens"><code>parseInt</code></a> : convertit une variable en nombre entier</li>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/parseFloat" target="liens"><code>parseFloat</code></a> : convertit une variable en nombre décimal</li>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/isFinite" target="liens"><code>isFinite</code></a> : détermine si l'argument est un nombre fini</li>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/isFinite" target="liens"><code>isNaN</code></a> : détermine si l'argument est <code>NaN</code> (not a number)</li>
+            </ul>
+            <br/><br/>
+            <pre><code class="javascript">parseInt("25.5°C"); //25 les décimaux sont tronqués
+parseFloat("25.5°C"); //25.5
+Number("25.5°C"); //NaN
+
+isFinite(2/3); //true
+isFinite(Infinity); //false
+isFinite(NaN); //false
+
+isNaN(3/0); //false
+isNaN( parseInt("a") ); //true</code></pre>
+          </section>
 			</div>
-			
+
 		</div>
 
 		<script src="lib/js/head.min.js"></script>

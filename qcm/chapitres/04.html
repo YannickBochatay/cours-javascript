@@ -1,58 +1,137 @@
 <qcm>
-    			<code>var toto = " tata ";
-    			
+  <code>var toto = "tata";
+typeof toto;</code>
+  <question>Ce code renvoie</question>
+  <choix correct>"string"</choix>
+  <choix>"object"</choix>
+</qcm>
+
+<qcm>
+  <code>var toto = " tata ";
+var tata = toto.trim(); //la méthode trim supprime les blancs en début et fin de chaîne
+typeof tata;</code>
+  <question>Ce code renvoie</question>
+  <choix correct>"string"</choix>
+  <choix>"object"</choix>
+</qcm>
+
+<qcm>
+  <code>var toto = " tata ";
 typeof toto.trim();</code>
-    			<question>La valeur renvoyée est</question>
-    			<choix correct>"string"</choix>
-    			<choix>"object"</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var toto = new String("tata");
-
-toto == "tata";</code>
-    			<question>L'égalité est </question>
-    			<choix correct>vraie</choix>
-    			<choix>fausse</choix>
-    		</qcm>
-    		
-    		<qcm important>
-    			<code>var toto = " tata ";
-
-toto.trim();
-
-toto == "tata";</code>
-    			<question>L'égalité est </question>
-    			<choix>vraie</choix>
-    			<choix correct>fausse</choix>
-    		</qcm>
-
-<qcm important>
-    <code>var tempe = parseInt("25°C");
-var tempe2 = parseFloat("25°C");
-
-tempe == tempe2;</code>
-    <question>L'égalité est </question>
-    <choix correct>vraie</choix>
-    <choix>fausse</choix>
+  <question>Ce code renvoie</question>
+  <choix correct>"string"</choix>
+  <choix>"object"</choix>
 </qcm>
 
-<qcm important>
-    <code>var tempe = parseInt("25.5°C");
-var tempe2 = parseFloat("25.5°C");
-
-tempe == tempe2;</code>
-    <question>L'égalité est </question>
-    <choix>vraie</choix>
-    <choix correct>fausse</choix>
+<qcm>
+  <code>var toto = " tata ";
+toto.trim();</code>
+	<question>Après exécution de ce code, la variable toto vaut</question>
+	<choix>"tata"</choix>
+	<choix correct>" tata "</choix>
 </qcm>
 
-<qcm important>
-    <code>var tempe = parseFloat("25.5°C");
-var tempe2 = Number("25.5°C");
+<qcm>
+  <code>var toto = " tata ";
+var tata = toto.trim();</code>
+  <question>Après exécution de ce code, la variable tata vaut</question>
+  <choix correct>"tata"</choix>
+  <choix>" tata "</choix>
+</qcm>
 
-tempe == tempe2;</code>
-    <question>L'égalité est </question>
-    <choix>vraie</choix>
-    <choix correct>fausse</choix>
+<qcm>
+  <code>var nb = 25;
+nb.toFixed(2);</code>
+  <question>Après exécution de ce code, la variable nb vaut</question>
+  <choix correct>25</choix>
+  <choix>"25.00"</choix>
+</qcm>
+
+<qcm>
+  <code>var nb = 25;
+var str = nb.toFixed(2);</code>
+  <question>Après exécution de ce code, la variable str vaut</question>
+  <choix>25</choix>
+  <choix correct>"25.00"</choix>
+</qcm>
+
+<qcm>
+  <code>var age = new Number(25);</code>
+  <question>Cette écriture peut s'avérer utile</question>
+  <choix>oui</choix>
+  <choix correct>non</choix>
+</qcm>
+
+<qcm>
+  <code>var age = Number("25");</code>
+  <question>Cette écriture peut s'avérer utile</question>
+  <choix correct>oui</choix>
+  <choix>non</choix>
+</qcm>
+
+<qcm>
+  <code>var age = Number(25);
+typeof age;</code>
+  <question>Ce code renvoie</question>
+  <choix>"string"</choix>
+  <choix>"object"</choix>
+  <choix correct>"number"</choix>
+</qcm>
+
+<qcm>
+  <code>var age = Number("25");
+typeof age;</code>
+  <question>Ce code renvoie</question>
+  <choix>"string"</choix>
+  <choix>"object"</choix>
+  <choix correct>"number"</choix>
+</qcm>
+
+<qcm>
+  <code>var age = Number(true);</code>
+  <question>La variable age vaut</question>
+  <choix>Error</choix>
+  <choix>NaN</choix>
+  <choix>0</choix>
+  <choix correct>1</choix>
+</qcm>
+
+<qcm>
+  <code>var bool = Boolean("toto");</code>
+  <question>La variable bool vaut</question>
+  <choix>Error</choix>
+  <choix correct>true</choix>
+  <choix>false</choix>
+</qcm>
+
+<qcm>
+  <code>var tempe = "25.5°C";
+Number(tempe);</code>
+  <question>Ce code renvoie</question>
+  <choix>"25.5"</choix>
+  <choix>25.5</choix>
+  <choix>25</choix>
+  <choix correct>NaN</choix>
+</qcm>
+
+<qcm>
+  <code>var tempe = "25.5°C";
+parseInt(tempe);</code>
+  <question>Ce code renvoie</question>
+  <choix>"25.5"</choix>
+  <choix>25.5</choix>
+  <choix correct>25</choix>
+  <choix>26</choix>
+  <choix>NaN</choix>
+</qcm>
+
+<qcm>
+  <code>var tempe = "25.5°C";
+parseFloat(tempe);</code>
+  <question>Ce code renvoie</question>
+  <choix>"25.5"</choix>
+  <choix correct>25.5</choix>
+  <choix>25</choix>
+  <choix>26</choix>
+  <choix>NaN</choix>
 </qcm>

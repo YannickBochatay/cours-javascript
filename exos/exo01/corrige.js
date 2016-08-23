@@ -7,8 +7,8 @@ var obj = {
 var str="", n;
 
 for (n in obj) {
-	obj[n] = prompt(n+' : ');
-	str = str + n + ' : ' + obj[n] + '\n';
+	obj[n] = prompt(n+" : ");
+	str = str + n + " : " + obj[n] + "\n";
 }
 
 alert(str);
