@@ -58,32 +58,21 @@
 					Les fonctions sont des objets instances du constructeur <code>Function</code>.
 					</p>
 				</section>
+
 				<section>
 					<section>
 						<h2>Déclaration</h2>
-                                                <div>
-						<p>Instruction <code>function</code></p>
-						<pre><code>function round(nb,nbDecimales) {
+  						<p>Instruction <code>function</code></p>
+	   					<pre><code>function round(nb,nbDecimales) {
     var pow = Math.pow(10,nbDecimales);
     return Math.round(nb*pow)/pow;
 }</code></pre>
-                                                <p><small>&#8680; à privilégier</small></p>
-                                                </div>
-
-                                                <div class="fragment">
-                                                    <p>Expression de fonction</p>
-                                                    <pre><code>var round = function(nb,nbDecimales) {
+              <br/>
+              <p>Expression de fonction</p>
+              <pre><code>var round = function(nb,nbDecimales) {
     var pow = Math.pow(10,nbDecimales);
     return Math.round(nb*pow)/pow;
 };</code></pre>
-                                                </div>
-
-                                                <div class="fragment">
-                                                    <p>Constructeur <code>Function</code></p>
-                                                    <pre><code>var round = new Function(nb,nbDecimales,"var pow = Math.pow(10,nbDecimales); return Math.round(nb*pow)/pow;");
-	</code></pre>
-                                                    <p><small>&#8680; à éviter</small></p>
-                                                </div>
 					</section>
 					<section>
 						<h2>Différences</h2>
@@ -97,7 +86,7 @@ function round(nb,nbDecimales) {
     return Math.round(nb*pow)/pow;
 }</code></pre>
 <br/>
-							<p>Expression de fonction (ou constructeur)</p>
+							<p>Expression de fonction</p>
 <pre><code class="javascript">round(3.5123,2); //Exception: round is not a function
 
 typeof round; //"undefined"
@@ -109,11 +98,18 @@ var round = function(nb,prec) {
 </code></pre>
 
 					</section>
+          <section>
+            <h2>Constructeur Function</h2>
+            <p>Il est également possible de passer par le constructeur <code>Function</code> pour créer une fonction. Mais cette écriture n'est <u>jamais</u> utilisée.
+            <pre><code>var round = new Function(nb,nbDecimales,"var pow = Math.pow(10,nbDecimales); return Math.round(nb*pow)/pow;");
+            </code></pre>
 				</section>
-				<section>
-					<h2>Arguments</h2>
-					Grande souplesse au niveau des arguments.
-					<pre><code class="javascript">function round(nb,nbDecimales) {
+      </section>
+
+			<section>
+				<h2>Arguments</h2>
+				Grande souplesse au niveau des arguments.
+				<pre><code class="javascript">function round(nb,nbDecimales) {
 
     //un argument omis à la valeur undefined
     if (nbDecimales === undefined) nbDecimales = 0;
@@ -125,91 +121,26 @@ var round = function(nb,prec) {
 round(5.265485, 2, "toto", "tata"); //5.27
 round(5.265485); //5
 </code></pre>
-				</section>
-				<!--
-				<section>
-					<section>
-						<h2>Stratégie d'évaluation</h2>
-						<small>source : <a href="http://dmitrysoshnikov.com/ecmascript/chapter-8-evaluation-strategy/">http://dmitrysoshnikov.com/ecmascript/chapter-8-evaluation-strategy/</a></small>
-					</section>
-					<section>
-						<h2>Théorie Générale</h2>
-						<p>Pseudo code utilisé pour illustrer les différentes stratégies :</p>
-						<pre><code>procedure foo(barArg, isFullChange):
 
-  if isFullChange:
-    barArg = {z: 1, q: 2}
-    exit
-  end
+      </section>
 
-  barArg.x = 100
-  barArg.y = 200
-
-end</code></pre>
-					</section>
-					<section>
-						<h2>Théorie Générale</h2>
-						<h3>Passage par valeur</h3>
-						<p>La fonction reçoit une copie de l'objet.</p>
-						<pre><code>bar = { x: 10, y: 20 }
-
-foo(bar)
-
-print(bar) // {x: 10, y: 20}
-
-foo(bar, true)
-
-print(bar) // {x: 10, y: 20}, mais pas {z: 1, q: 2}</code></pre>
-					</section>
-
-					<section>
-						<h2>Théorie Générale</h2>
-						<h3>Passage par référence</h3>
-						<p>La fonction reçoit la référence implicite de l'objet (l'adresse en mémoire).</p>
-						<pre><code>bar = { x: 10, y: 20 }
-
-foo(bar)
-
-print(bar) // {x: 100, y: 200}
-
-foo(bar, true)
-
-print(bar) // {z: 1, q: 2}</code></pre>
-
-					</section>
-					<section>
-						<h2>Théorie Générale</h2>
-						<h3>Passage par partage d'objets</h3>
-						<p>La fonction reçoit une copie de la référence vers l'objet.</p>
-						<pre><code>bar = { x: 10, y: 20 }
-
-foo(bar)
-
-print(bar) // {x: 100, y: 200}
-
-foo(bar, true)
-
-print(bar) // {x: 100, y: 200}</code></pre>
-					</section>
-					 -->
-
-          <section>
-            <h2>Stratégie d'évaluation</h2>
-            <p>C'est ce qui détermine quand évaluer les arguments à l'appel d'une fonction et comment passer les arguments à la fonction.
-            </p>
-            <p>En javascript, les paramètres sont d'abord évalués, puis la fonction est évaluée.</p>
-            <pre><code class="javascript">function somme(a,b) { return a+b; }
+      <section>
+        <h2>Stratégie d'évaluation</h2>
+        <p>C'est ce qui détermine quand évaluer les arguments à l'appel d'une fonction et comment passer les arguments à la fonction.
+        </p>
+        <p>En javascript, les paramètres sont d'abord évalués, puis la fonction est évaluée.</p>
+        <pre><code class="javascript">function somme(a,b) { return a+b; }
 
 somme( 5*2, 10-1 );// équivalent à somme(10,9)
 
 somme( somme(2,3), somme(3,8) ); //équivalent à somme(5,11)</code></pre>
-          </section>
+      </section>
 
-          <section>
-            <h2>Stratégie d'évaluation</h2>
-            <h3>Valeurs primitives</h3>
-            <p>La fonction reçoit une copie des valeurs primitives.</p>
-            <pre><code class="javascript">function ajoutSignature(texte) {
+      <section>
+        <h2>Stratégie d'évaluation</h2>
+        <h3>Valeurs primitives</h3>
+        <p>La fonction reçoit une copie des valeurs primitives.</p>
+        <pre><code class="javascript">function ajoutSignature(texte) {
   texte = texte + "\n\nMr Dupont\nMétéo-France"
   return texte;
 }
@@ -219,26 +150,31 @@ var mess = "Bonjour, bla bla bla.";
 ajoutSignature(mess); //Bonjour, bla bla bla.\n\nMr Dupont\nMétéo-France"
 
 mess; // "Bonjour, bla bla bla."</code></pre>
-          </section>
+        </section>
 
-					<section>
-						<h2>Stratégie d'évaluation</h2>
-            <h3>Objets</h3>
-            <p>La fonction reçoit une copie de la référence vers l'objet.</p>
-            <pre><code>function changeProp(obj) { obj.x = 5; }
+				<section>
+					<h2>Stratégie d'évaluation</h2>
+          <h3>Objets</h3>
+          <p>La fonction reçoit une copie de la référence vers l'objet.</p>
 
-function changeObj(obj) { obj = null; }
+          <div>
+            <p><small>Les modifications sur les propriétés d'un argument ont des effets sur l'objet externe.</small></p>
+            <pre><code class="javascript">function changeProp(obj) { obj.x = 5; }
 
-var obj = { x:0, y:0 };
+var monObjet = { x:0, y:0 };
+changeProp(monObjet);
+console.log(monObjet); // { x:5, y:0 }</code></pre>
+          </div>
 
-changeProp(obj);
-console.log(obj); // { x:5, y:0 }
+          <div class="fragment">
+            <p><small>Mais une nouvelle valeur peut être assignée à l'argument sans influence sur l'objet externe.</small></p>
+            <pre><code class="javascript">function changeProp(obj) { obj = null; }
 
+var monObjet = { x:0, y:0 };
 changeObj(obj);
 console.log(obj); // { x:5, y:0 }</code></pre>
-  <p>Les modifications sur les propriétés d'un argument ont des effets sur l'objet externe.</p>
-            <p>Une nouvelle valeur peut être assignée à l'argument sans influence sur l'objet externe.</p>
-					</section>
+          </div>
+				</section>
 
 				<section>
 					<h2>Valeurs par défaut des arguments</h2>
