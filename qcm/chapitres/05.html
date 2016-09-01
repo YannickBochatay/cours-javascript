@@ -1,12 +1,12 @@
 <qcm>
-    			<code>fct();
+    			<code>somme(3,2);
 
-function fct() {}</code>
+function somme(a,b) { return a+b; }</code>
     			<question>Ce code génère une erreur</question>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
     		</qcm>
-    		
+    		<!--
     		<qcm>
     			<code>fct();
 
@@ -14,24 +14,54 @@ var fct = function() {};</code>
     			<question>Ce code génère une erreur</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>function fct(arg1,arg2) { return arg1 + arg2; }
+    		</qcm>-->
 
-fct(3);
-fct(3,5);
-fct(3,5,8);
-fct(null,5,8);</code>
-    			<question>Ces instructions renvoient</question>
-    			<choix>Error</choix>
-    			<choix>3, 8 , 8 et 5</choix>
-    			<choix correct>NaN, 8, 8 et 5</choix>
-    			<choix>NaN, 8, 8 et 13</choix>
+    		<qcm>
+    			<code>function somme(a,b) { return a + b; }
+
+somme(3,5);</code>
+    			<question>Ce code renvoie</question>
+    			<choix correct>8</choix>
+    			<choix>"35"</choix>
     		</qcm>
-    		
-    		<qcm important>
+
+        <qcm>
+          <code>function somme(a,b) { return a + b; }
+
+somme(3);</code>
+          <question>Ce code renvoie</question>
+          <choix>3</choix>
+          <choix>Error</choix>
+          <choix correct>NaN</choix>
+        </qcm>
+
+        <qcm>
+          <code>function somme(a,b) { return a + b; }
+
+somme(3,5,8);</code>
+          <question>Ce code renvoie</question>
+          <choix>Error</choix>
+          <choix correct>8</choix>
+          <choix>16</choix>
+          <choix correct>NaN</choix>
+        </qcm>
+
+        <qcm>
+          <code>function modifChaine(str) { str.trim(); }
+
+var chaine = " toto ";
+modifChaine(chaine);
+
+chaine; //?
+</code>
+          <question>La valeur de chaîne est </question>
+          <choix correct>" toto "</choix>
+          <choix>"toto"</choix>
+        </qcm>
+
+    		<qcm>
     			<code>function modifChaine(str) { str = str.trim(); }
+
 var chaine = " toto ";
 modifChaine(chaine);
 
@@ -41,30 +71,60 @@ chaine; //?
     			<choix correct>" toto "</choix>
     			<choix>"toto"</choix>
     		</qcm>
-    		
-    		<qcm>
-    			<code>function modifObj(obj) { obj = {x:50,y:100};  }
-var obj = {x:15,y:20};
-modifObj(obj);
-obj.x; //?</code>
-    			<question>La valeur de <code>obj.x</code> est </question>
-    			<choix correct>15</choix>
-    			<choix>50</choix>
-    		</qcm>
-    		
+
+        <qcm>
+          <code>function modifChaine(str) { return str.trim(); }
+
+var chaine = " toto ";
+modifChaine(chaine);
+
+chaine; //?
+</code>
+          <question>La valeur de chaîne est </question>
+          <choix correct>" toto "</choix>
+          <choix>"toto"</choix>
+        </qcm>
+
+        <qcm>
+          <code>function modifChaine(str) { return str.trim(); }
+
+var chaine = " toto ";
+chaine = modifChaine(chaine);
+
+chaine; //?
+</code>
+          <question>La valeur de chaîne est </question>
+          <choix>" toto "</choix>
+          <choix correct>"toto"</choix>
+        </qcm>
+
     		<qcm>
     			<code>function modifObj(obj) { obj.x = 50;  }
-var obj = {x:15,y:20};
-modifObj(obj);
-obj.x; //?</code>
-    			<question>La valeur de <code>obj.x</code> est </question>
+
+var monObjet = {x:15,y:20};
+modifObj(monObjet);
+
+monObjet.x; //?</code>
+    			<question>La valeur de <code>monObjet.x</code> est </question>
     			<choix>15</choix>
     			<choix correct>50</choix>
     		</qcm>
-    		
+
+        <qcm>
+          <code>function modifObj(obj) { obj = {x:50,y:100};  }
+
+var monObjet = {x:15,y:20};
+modifObj(monObjet);
+
+monObjet.x; //?</code>
+          <question>La valeur de <code>monObjet.x</code> est </question>
+          <choix correct>15</choix>
+          <choix>50</choix>
+        </qcm>
+<!--
     		<qcm>
     			<code>function fct(a,b,c) {
-    
+
     return (a || 5) + (b || 2) + (c || 3);
 }
 
@@ -77,34 +137,53 @@ fct(0,3,5); //?
     			<choix>10, 13, 13, 8</choix>
     			<choix correct>10, 13, 13, 13</choix>
     			<choix>10, 13, Error</choix>
-    		</qcm>
-    		
-    		<qcm important>
-    			<code>function logMessage() {
+    		</qcm>-->
+
+        <qcm important>
+          <code>function coucou() {
   console.log("coucou");
 }
 
-window.setTimeout( logMessage() ,3000);
-    			</code>
+window.setTimeout( coucou() ,3000);
+          </code>
+          <question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
+          <choix>vrai</choix>
+          <choix correct>faux</choix>
+        </qcm>
+
+
+         <qcm important>
+          <code>function coucou() {
+  console.log("coucou");
+}
+
+window.setTimeout(coucou, 3000);</code>
+          <question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
+          <choix correct>vrai</choix>
+          <choix>faux</choix>
+        </qcm>
+
+    		<qcm important>
+    			<code>window.setTimeout( console.log("coucou"), 3000);</code>
     			<question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
     		</qcm>
-    		
-    		<qcm>
-    			<code>window.setTimeout(function() {
-    console.log("coucou");
-},3000);</code>
-    			<question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
+
+        <qcm important>
+          <code>window.setTimeout( function() {
+  console.log("coucou")
+}, 3000);</code>
+          <question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
+          <choix correct>vrai</choix>
+          <choix>faux</choix>
+        </qcm>
+
     		<qcm important>
     			<code>function fct1() {
-					
+
     function fct2() {
-    
+
     }
 }
 
@@ -114,80 +193,7 @@ fct2();
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
     		</qcm>
-    		
-    		<qcm>
-    			<code>function fct1() {
-  var test = true;
-  function fct2() {
-    var test = false;
-    return test; 
-  }
-  fct2();
-  return test;
-}
-fct1();</code>
-    			<question>Ce code renvoie <code>true</code></question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>function fct1() {
-  var test = true;
-  function fct2() {
-    test = false;
-  }
-  fct2();
-  return test;
-}
-fct1();</code>
-    			<question>Ce code renvoie <code>true</code></question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>function fct1() {
-  var test = true;
-  function fct2(test) {
-    test = false;
-  }
-  fct2();
-  return test;
-}
-fct1();</code>
-    			<question>Ce code renvoie <code>true</code></question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>function fct1() {
-  var test = true;
-  function fct2() {
-    test = false;
-    var test;
-  }
-  fct2();
-  return test;
-}
-fct1();</code>
-    			<question>Ce code renvoie <code>true</code></question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>function log(message) {
-  console.log("Voici le message :\n" + message);
-}
 
-window.setTimeout( log("coucou") , 3000);</code>
-    			<question>Ce code génère une erreur</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
     		<qcm important>
     			<code>var i=0;
 window.setTimeout(function() { alert(i); },1000);
@@ -196,59 +202,38 @@ i++;</code>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>var i=0;
 function affiche(i) { alert(i); }
-    			
+
 window.setTimeout(affiche,1000);
 i++;</code>
     			<question>Ce code affichera 0</question>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
     		</qcm>
-    		
-    		<qcm>
-    			<code>var i=0;
-function afficheI(i) { return function() { alert(i); }; }
-    			
-window.setTimeout(afficheI(i),1000);
-i++;</code>
-    			<question>Ce code affichera 0</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var i=0;
-    			
-window.setTimeout( function(i) { return function() { alert(i); }; }(i) ,1000);
-i++;</code>
-    			<question>Ce code affichera 0</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
+
     		<qcm important>
-    			<code>function toto() { }
-typeof toto.bind(null);</code>
+    			<code>function somme(a,b) { return a+b; }
+typeof toto.bind(null,2);</code>
     			<question>Cette expression renvoie</question>
     			<choix>"undefined"</choix>
     			<choix>"object"</choix>
     			<choix correct>"function"</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>var i=0;
-    			
+
 window.setTimeout( alert.bind(null,i) ,1000);
 
 i++;</code>
-    			<question>Ce code affichera 0</question>
+    			<question>Ce code affichera 0 après une seconde</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>(function() {
    alert("toto");
@@ -257,25 +242,30 @@ i++;</code>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
     		</qcm>
-    		    		
+
     		<qcm>
-    			<code>function() {
-   alert("toto");
-}();</code>
-    			<question>Ce code affiche "toto"</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>;(function() {
+    			<code>(function() {
    alert("toto");
 }());</code>
     			<question>Ce code affiche "toto"</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
     		</qcm>
-    		
+
+        <qcm>
+          <code>var toto = {
+  nom : "toto",
+  age : 25,
+  renaitre : function() { this.age = 0; }
+};
+
+var boutonMagique = document.getElementById("monBoutonMagique");
+boutonMagique.addEventListener("click",toto.renaitre());</code>
+          <question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0.</question>
+          <choix>vrai</choix>
+          <choix correct>faux</choix>
+        </qcm>
+
     		<qcm important>
     			<code>var toto = {
   nom : "toto",
@@ -289,21 +279,23 @@ boutonMagique.addEventListener("click",toto.renaitre);</code>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>var toto = {
   nom : "toto",
   age : 25,
   renaitre : function() { this.age = 0; }
 };
+
+var totoRenaitre = function() { toto.renaitre(); };
 
 var boutonMagique = document.getElementById("monBoutonMagique");
-boutonMagique.addEventListener("click",toto.renaitre());</code>
+boutonMagique.addEventListener("click",totoRenaitre);</code>
     			<question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0.</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
+    			<choix correct>vrai</choix>
+    			<choix>faux</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>var toto = {
   nom : "toto",
@@ -311,122 +303,10 @@ boutonMagique.addEventListener("click",toto.renaitre());</code>
   renaitre : function() { this.age = 0; }
 };
 
-var renaitre = toto.renaitre;
+var totoRenaitre = toto.renaitre.bind(toto);
 
 var boutonMagique = document.getElementById("monBoutonMagique");
 boutonMagique.addEventListener("click",renaitre);</code>
-    			<question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0.</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var toto = {
-  nom : "toto",
-  age : 25,
-  renaitre : function() { this.age = 0; }
-};
-
-var renaitre = toto.renaitre();
-
-var boutonMagique = document.getElementById("monBoutonMagique");
-boutonMagique.addEventListener("click",renaitre);</code>
-    			<question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0.</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var toto = {
-  nom : "toto",
-  age : 25,
-  renaitre : function() { this.age = 0; }
-};
-
-var renaitre = toto.renaitre();
-
-var boutonMagique = document.getElementById("monBoutonMagique");
-boutonMagique.addEventListener("click",renaitre.bind(toto));</code>
-    			<question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0.</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var toto = {
-  nom : "toto",
-  age : 25,
-  renaitre : function() { this.age = 0; }
-};
-
-var renaitre = toto.renaitre;
-
-var boutonMagique = document.getElementById("monBoutonMagique");
-boutonMagique.addEventListener("click",renaitre.bind(toto));</code>
-    			<question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0.</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var toto = {
-  nom : "toto",
-  age : 25,
-  renaitre : function() { this.age = 0; }
-};
-
-var renaitre = toto.renaitre;
-
-var boutonMagique = document.getElementById("monBoutonMagique");
-boutonMagique.addEventListener("click",function() { renaitre(); });</code>
-    			<question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0.</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-    		
-    		<qcm important>
-    			<code>var toto = {
-  nom : "toto",
-  age : 25,
-  renaitre : function() { this.age = 0; }
-};
-
-var tata = toto;
-
-var boutonMagique = document.getElementById("monBoutonMagique");
-boutonMagique.addEventListener("click",function() { tata.renaitre(); });</code>
-    			<question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0.</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var toto = {
-  nom : "toto",
-  age : 25,
-  renaitre : function() { this.age = 0; }
-};
-
-var tata = toto;
-
-var boutonMagique = document.getElementById("monBoutonMagique");
-boutonMagique.addEventListener("click",tata.renaitre.bind(tata));</code>
-    			<question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0.</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>var toto = {
-  nom : "toto",
-  age : 25,
-  renaitre : function() { this.age = 0; }
-};
-
-var tata = toto;
-
-var boutonMagique = document.getElementById("monBoutonMagique");
-boutonMagique.addEventListener("click",tata.renaitre.bind(toto));</code>
     			<question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0.</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>

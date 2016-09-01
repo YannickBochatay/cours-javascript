@@ -1,1 +1,1 @@
-assert( concat("toto"," ","est"," ","un"," ","gentil"," ","garçon") == "toto est un gentil garçon", "Concaténation de chaîne" );
+assert( concat("Lorem"," ","ipsum"," ","dolor"," ","sit"," ","amet") == "Lorem ipsum dolor sit amet", "Concaténation de chaîne" );

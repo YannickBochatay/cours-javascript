@@ -5,7 +5,7 @@ var tab1 = new Array();</code>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
     		</qcm>
-    	
+
     		<qcm>
     			<code>var tab1 = [];
 var tab2 = new Array();
@@ -15,33 +15,33 @@ tab1 == tab2;</code>
     			<choix>vraie</choix>
     			<choix correct>fausse</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>function modifTableau(tab) {
 	tab = [];
 }
 
-var tab = ["toto"];
-modifTableau(tab);
-console.log(tab.length);</code>
+var monTableau = ["toto"];
+modifTableau(monTableau);
+console.log(monTableau.length);</code>
     			<question>La console affiche 0</question>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>function modifTableau(tab) {
 	tab.push("toto");
 }
 
-var tab = ["toto"];
-modifTableau(tab);
-console.log(tab.length);</code>
+var monTableau = ["toto"];
+modifTableau(monTableau);
+console.log(monTableau.length);</code>
     			<question>La console affiche 2</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>var tab = [];
 tab[0] = "toto";
@@ -50,7 +50,7 @@ console.log(tab.length);</code>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>var tab = [];
 tab[5] = "toto";
@@ -59,7 +59,7 @@ console.log(tab.length);</code>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>var tab = [];
 tab["toto"] = "tata";
@@ -68,35 +68,27 @@ console.log(tab.length);</code>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
     		</qcm>
-    		
-    		<qcm important>
-    			<code>var tab = ["tata","toto","titi"];
-for (var n in tab) console.log(n);</code>
-    			<question>La console affiche</question>
-    			<choix correct>0, 1, 2</choix>
-    			<choix>"tata","toto","titi"</choix>
-    			<choix>la boucle for...in ne fonctionne pas sur les tableaux</choix>
-    		</qcm>
-    		
+
     		<qcm>
     			<code>var tab = ["tata","toto","titi"];
-for (var i=0,N=tab.length ; i&lt;N ; i++) console.log(tab[i]);</code>
+var i, N;
+for (i=0,N=tab.length ; i&lt;N ; i++) console.log(tab[i]);</code>
     			<question>La console affiche</question>
-    			<choix>1, 2, 3</choix>
+    			<choix>0, 1, 2</choix>
     			<choix correct>"tata","toto,"titi"</choix>
-    			<choix>undefined, undefined, undefined</choix>
+          <choix>undefined, undefined, undefined</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>var tab = ["tata","toto","titi"];
 var i=0,N=tab.length;
 for (; i&lt;N ; i++) console.log(tab[i]);</code>
     			<question>La console affiche</question>
-    			<choix>1, 2, 3</choix>
+    			<choix>0, 1, 2</choix>
     			<choix correct>"tata","toto","titi"</choix>
     			<choix>Error</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>var tab = ["tata","toto","titi"];
 typeof tab.forEach;</code>
@@ -105,27 +97,38 @@ typeof tab.forEach;</code>
     			<choix>object</choix>
     			<choix correct>function</choix>
     		</qcm>
-    		
+
+        <qcm>
+          <code>var tab = ["tata","toto","titi"];
+tab.forEach(function(a) {
+  console.log(a);
+});</code>
+          <question>La console affiche</question>
+          <choix>0, 1, 2</choix>
+          <choix correct>"tata","toto","titi"</choix>
+          <choix>undefined,undefined,undefined</choix>
+        </qcm>
+
     		<qcm>
     			<code>var tab = ["tata","toto","titi"];
 tab.forEach(function(a,b) {
 	console.log(b);
 });</code>
     			<question>La console affiche</question>
-    			<choix correct>0,1,2</choix>
+    			<choix correct>0, 1, 2</choix>
     			<choix>"tata","toto","titi"</choix>
     			<choix>undefined,undefined,undefined</choix>
     		</qcm>
-    		
+
     		<qcm important>
     			<code>var tab = ["tata","toto","titi"];
-    			
+
 tab.forEach(function(elmt,i) {
 
 	function affiche() { alert(i); }
-	
+
 	window.setTimeout(affiche,1000);
-	
+
 });</code>
     			<question>La console affiche</question>
     			<choix>0 après une seconde, 1 après 2 secondes, 2 après 3 secondes</choix>
@@ -134,4 +137,4 @@ tab.forEach(function(elmt,i) {
     			<choix>2,2,2 au bout d'1 seconde</choix>
     			<choix>"tata","toto","titi" au bout d'1 seconde</choix>
     		</qcm>
-		
+
