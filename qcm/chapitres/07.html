@@ -7,7 +7,7 @@ new Date(1422828900000);
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>new Date("2015");
 new Date("2015-02");
@@ -17,46 +17,17 @@ new Date("2015-02-01");
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>new Date("2015-02-01 23:15");
 new Date("2015-02-01T23:15");
-new Date("2015-02-01 23:15Z");
+new Date("2015-02-01T23:15Z");
 </code>
-    			<question>Les dates suivantes sont valides</question>
-    			<choix>1</choix>
-    			<choix>1, 2</choix>
-    			<choix>1, 3</choix>
-    			<choix correct>2</choix>
-    			<choix>2, 3</choix>
-    			<choix>3</choix>
+    			<question>Les 3 dates sont valides</question>
+    			<choix>vrai</choix>
+          <choix correct>faux</choix>
     		</qcm>
-    		
-    		<qcm>
-    			<code>new Date("2015-02-01T23:15");
-new Date("2015-02-01T23:15:00");
-new Date("2015-02-01T23:15:00.0");
-new Date("2015-02-01T23:15:00.000");
-</code>
-    			<question>Les 4 dates sont valides</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>new Date(2015);
-new Date(2015,01);
-new Date(2015,01,01);
-new Date(2015,01,01,23);
-new Date(2015,01,01,23,15);
-new Date(2015,01,01,23,15,20);
-new Date(2015,01,01,23,15,20,80);
-</code>
-    			<question>Toutes les dates sont valides</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-    		
+
     		<qcm>
     			<code>new Date(2015).getFullYear();</code>
     			<question>La valeur renvoyée est </question>
@@ -65,7 +36,7 @@ new Date(2015,01,01,23,15,20,80);
     			<choix correct>1970</choix>
     			<choix>"1970"</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>new Date(2015,02).getMonth();</code>
     			<question>La valeur renvoyée est </question>
@@ -74,7 +45,7 @@ new Date(2015,01,01,23,15,20,80);
     			<choix>"01"</choix>
     			<choix>"02"</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>new Date(2015,13).getMonth();</code>
     			<question>La valeur renvoyée est </question>
@@ -83,7 +54,7 @@ new Date(2015,01,01,23,15,20,80);
     			<choix correct>1</choix>
     			<choix>2</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>var math = new Math();
 math.cos(0);</code>
@@ -92,7 +63,7 @@ math.cos(0);</code>
     			<choix>0</choix>
     			<choix>1</choix>
     		</qcm>
-    	
+
     		<qcm>
     			<code>var math = new Math();
 math.cos( math.PI );</code>
@@ -101,7 +72,7 @@ math.cos( math.PI );</code>
     			<choix>0</choix>
     			<choix>-1</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>Math.cos( Math.PI );</code>
     			<question>Ce code renvoie </question>
@@ -109,7 +80,7 @@ math.cos( math.PI );</code>
     			<choix>0</choix>
     			<choix correct>-1</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>/^toto$/.test("toto");</code>
     			<question>Ce code renvoie </question>
@@ -117,7 +88,7 @@ math.cos( math.PI );</code>
     			<choix correct>true</choix>
     			<choix>false</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>var json = new JSON();
 json.stringify( { tata : "toto" } );</code>
@@ -126,7 +97,7 @@ json.stringify( { tata : "toto" } );</code>
     			<choix>'{tata:"toto"}'</choix>
     			<choix>'{"tata":"toto"}'</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>JSON.stringify( { tata : "toto" } );</code>
     			<question>Ce code renvoie </question>
@@ -134,7 +105,7 @@ json.stringify( { tata : "toto" } );</code>
     			<choix>'{tata:"toto"}'</choix>
     			<choix correct>'{"tata":"toto"}'</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>JSON.parse( { tata : "toto" } );</code>
     			<question>Ce code renvoie </question>
@@ -142,7 +113,7 @@ json.stringify( { tata : "toto" } );</code>
     			<choix>Object</choix>
     			<choix>String</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>JSON.parse( '{ tata : "toto" }' );</code>
     			<question>Ce code renvoie </question>
@@ -157,7 +128,7 @@ json.stringify( { tata : "toto" } );</code>
     			<choix correct>Object { tata: "toto" }</choix>
     			<choix>'{"tata":"toto"}'</choix>
     		</qcm>
-    		
+
     		<qcm>
     			<code>JSON.parse("toto");</code>
     			<question>Ce code renvoie </question>
@@ -165,18 +136,11 @@ json.stringify( { tata : "toto" } );</code>
     			<choix>String Object</choix>
     			<choix>"toto"</choix>
     		</qcm>
-    		
-    		<qcm>
-    			<code>try {
-  console.log( JSON.parse("toto") );
-}
-catch(e) {
-  console.log( e instanceof Error, e instanceof SyntaxError );
-}</code>
-    			<question>La console affichera </question>
-    			<choix>52465</choix>
-    			<choix>SyntaxError</choix>
-    			<choix>SyntaxError,true,true</choix>
-    			<choix>true,false</choix>
-    			<choix correct>true,true</choix>
-    		</qcm>
+
+        <qcm>
+          <code>JSON.parse('"toto"'');</code>
+          <question>Ce code renvoie </question>
+          <choix>SyntaxError</choix>
+          <choix>String Object</choix>
+          <choix correct>"toto"</choix>
+        </qcm>
