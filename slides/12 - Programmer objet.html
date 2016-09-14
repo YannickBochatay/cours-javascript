@@ -43,53 +43,53 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-			
+
 				<section>
 					<h1>Javascript</h1>
 					<h3>Programmer objet</h3>
 				</section>
-				
+
 				<section>
 					<h2>Modules</h2>
 					<pre><code class="javascript" style="max-height:1000px">var monModule = (function(){
-  
+
   var maVariablePrivee = 4;
-                 
+
   function maFonctionPrivee() { return maVariablePrivee + 58; }
-  
+
   return {
-  
-   maProprietePublique : 42, 
-  
+
+   maProprietePublique : 42,
+
    maMethodePublique : function() {
     return maFonctionPrivee() + maVariablePrivee + this.maProprietePublique;
    }
   };
-  
+
 })();
 
 monModule.maProprietePublique; //42
 monModule.maMethodePublique(); //4 + 58 + 4 + 42</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Accesseurs et mutateurs</h2>
 					<h3>Object.defineProperty</h3>
 					<pre><code class="javascript" style="max-height:1000px">var personne = (function() {
-					
-  var personne = { nom : "Toto" };
+
+  var toto = { nom : "Toto" };
   var age = 0;
-  
-  Object.defineProperty(personne,"age",{
+
+  Object.defineProperty(toto,"age",{
     get:function() { return age; },
     set:function(value) {
       if (typeof value!="number") throw new Error("pas un nombre");
       age = value;
     }
   });
-  
-  return personne;
-  
+
+  return toto;
+
 }());
 
 personne.age; //0;
@@ -97,14 +97,14 @@ personne.age = 26;
 personne.age = "toto"; //Error</code></pre>
 <p><small><a target="liens" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/defineProperty">&#8680; Référence complète</a></small></p>
 				</section>
-				
+
 				<section>
 					<h2>Accesseurs et mutateurs</h2>
 					<h3>Notation littérale</h3>
 					<pre><code class="javascript" style="max-height:1000px">var personne = (function() {
-	
+
   var age = 0;
-  
+
   return {
     nom : "Toto",
     get age() { return age; },
@@ -113,66 +113,66 @@ personne.age = "toto"; //Error</code></pre>
       age = value;
     }
   };
-  
+
 }());
 
 personne.age; //0;
 personne.age = 26;
 personne.age = "toto"; //Error : pas un nombre</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>this</h2>
 					<p>Dans l'espace global, <code>this</code> représente l'objet global</p>
 					<pre><code class="javascript">this == window; //true</code></pre>
 					<p>Dans une fonction appelée sans base, <code>this</code> est <code>undefined</code></p>
 					<pre><code class="javascript">function fct() { return this; }
-					
+
 fct(); //undefined</code></pre>
 					<p>Dans une méthode, <code>this</code> représente l'objet</p>
 					<pre><code class="javascript">function fct() { return this; }
-					
+
 var obj = { methode : fct };
 
 obj.methode(); //obj</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>this</h2>
 					<p>Chaque fonction redéfinit la valeur de <code>this</code> : dans une fonction interne, <code>this</code> n'a plus la même valeur que dans la fonction externe.</p>
 					<pre><code class="javascript" style="max-height:1000px">var obj = {
 
   methode : function() {
-  
+
     this == obj; //true
-  
+
     function fctInterne() {
       this == obj; //false
     }
-  } 					
+  }
 }</code></pre>
 				</section>
-				
-				
+
+
 				<section>
 					<h2>this</h2>
 					On a donc souvent besoin de garder une référence vers l'objet
 					<pre><code class="javascript" style="max-height:1000px">var obj = {
 
   methode : function() {
-    
+
     var that = this;
-    
+
     that == obj; //true
-  
+
     function fctInterne() {
       that == obj; //true
       that == this; //false
     }
-  } 					
+  }
 }</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Les constructeurs</h2>
 					<p>Il n'y a pas de classe en javascript.
@@ -186,11 +186,11 @@ obj.methode(); //obj</code></pre>
 var toto = new Personne();
 
 //on instancie un objet toto à partir
-//du constructeur Personne</code></pre> 
+//du constructeur Personne</code></pre>
 <p>Par convention, pour les différencier des fonctions "classiques", les constructeurs commencent par une majuscule.</p>
 				</section>
 
-				
+
 				<section>
 					<h2>Les constructeurs</h2>
 					<p>Dans le constructeur, le mot clé <code>this</code> fait référence à l'instance.
@@ -201,12 +201,12 @@ var toto = new Personne();
 
 var toto = new Personne("Toto",25);
 toto.nom; //"Toto"
-toto.age; //25</code></pre> 
+toto.age; //25</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Les méthodes</h2>
-					<p>On peut définir des méthodes dans le constructeur 
+					<p>On peut définir des méthodes dans le constructeur
 <pre><code class="javascript">function Personne(nom,age) {
   this.nom = nom;
   this.age = age;
@@ -219,10 +219,10 @@ toto.vieillir();
 toto.age; //26</code></pre>
 <p class="fragment">mais...</p>
 				</section>
-				
+
 				<section>
 					<h2>Les méthodes</h2>
-					Inconvénient des méthodes dans le constructeur 
+					Inconvénient des méthodes dans le constructeur
 <pre><code class="javascript">function Personne(nom,age) {
   this.nom = nom;
   this.age = age;
@@ -235,7 +235,7 @@ var tata = new Personne("Tata",27);
 toto.vieillir == tata.vieillir; //false</code></pre>
 <p>Les méthodes sont dupliquées pour chaque instance, ce qui peut s'avérer très gourmand en mémoire, et souvent inutile.</p>
 				</section>
-				
+
 				<section>
 					<h2>Le prototype</h2>
 <p>Chaque objet possède une propriété cachée, son prototype, qui est lui-même un objet.<br/>
@@ -253,7 +253,7 @@ var tata = new Personne("Tata",27);
 
 toto.vieillir == tata.vieillir; //true</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>La chaîne des prototypes</h2>
 <p>Le prototype étant un objet, le mécanisme d'accès aux propriétés va plus loin : si l'objet ne possède pas la propriété demandée et le prototype non plus,
@@ -268,7 +268,7 @@ Personne.prototype.vieillir = function() { this.age++; };
 function Homme(nom,age) {
   this.nom = nom || "inconnu";
   this.age = age || 0;
-  this.sexe = "M";  
+  this.sexe = "M";
 }
 
 Homme.prototype = new Personne();
@@ -277,7 +277,7 @@ var toto = new Homme("Toto",25);
 toto.vieillir();
 //recherche dans toto -> Homme.prototype -> Personne.prototype</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>La chaîne des prototypes</h2>
 					... jusqu'à <code>Object.prototype</code>.
@@ -287,7 +287,7 @@ toto.vieillir();
 }
 
 Personne.prototype.vieillir = function() { this.age++; };
-    
+
 var toto = new Personne("Toto",25);
 
 toto instanceof Personne; //true
@@ -300,7 +300,7 @@ Object.prototype.isPrototypeOf(toto); //true
 toto.toString; //function
 //recherche dans toto -> Personne.prototype -> Object.prototype</code></pre>
 				</section>
-													
+
 					<section>
 						<h2>Emprunter une méthode</h2>
 						<h3>Méthode call</h3>
@@ -313,7 +313,7 @@ Personne.prototype.vieillir = function() { this.age++; }
 
 function Homme(nom,age) {
   Personne.call(this,nom,age);
-  this.sexe = "M";  
+  this.sexe = "M";
 }
 
 Homme.prototype = new Personne();
@@ -321,7 +321,7 @@ Homme.prototype = new Personne();
 var toto = new Homme("Toto",25);
 toto.vieillir();</code></pre>
 				</section>
-                            
+
                             <section>
 						<h2>Emprunter une méthode</h2>
 						<h3>Méthode apply</h3>
@@ -334,7 +334,7 @@ Personne.prototype.vieillir = function() { this.age++; }
 
 function Homme(nom,age) {
   Personne.apply(this,arguments);
-  this.sexe = "M";  
+  this.sexe = "M";
 }
 
 Homme.prototype = new Personne();
@@ -342,7 +342,7 @@ Homme.prototype = new Personne();
 var toto = new Homme("Toto",25);
 toto.vieillir();</code></pre>
 				</section>
-                            
+
                             <section>
                                 <h2>Surcharger une méthode</h2>
 <pre><code class="javascript" style="max-height:800px">function Personne(nom,age) {
@@ -367,7 +367,7 @@ Alzheimer.prototype.vieillir = function() {
 var totoMalade = new Alzheimer("Toto",60);
 toto.vieillir();</code></pre>
 				</section>
-                            
+
 				<section>
 					<h2>Surcharger une méthode</h2>
 					<h3>Les méthodes de conversion</h2>
@@ -386,7 +386,7 @@ console.log("je m'appelle " + toto); //je m'appelle Toto
 console.log( JSON.stringify(toto) ); //'{"nom":"Toto"}'
 </code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Structure des objets natifs</h2>
 Ils sont construits selon le même principe
@@ -403,7 +403,7 @@ Object.prototype.isPrototypeOf(tab); //true
 
 Array.prototype.slice; //function</code></pre>
 				</section>
-			
+
                                 <section>
                                     <section>
                                             <h2>Emprunt d'une méthode d'un objet natif</h2>
@@ -414,11 +414,11 @@ Array.prototype.slice; //function</code></pre>
   forEach.call(arguments,function(arg) {
     /* faire quelque chose avec chaque argument*/
   });
-		
+
 }</code></pre>
 <p>Couramment on emprunte des méthodes des tableaux pour pouvoir les appliquer à des pseudo-tableaux.</p>
 				</section>
-                            
+
                             <section>
 					<h2>Emprunt d'une méthode d'un objet natif</h2>
                                         <h3>Astuce</h3>
@@ -431,7 +431,7 @@ Array.prototype.slice; //function</code></pre>
   tabArguments.forEach(function(arg) {
     /* faire quelque chose avec chaque argument*/
   });
-		
+
 }</code></pre>
                                         <p>La méthode <code>slice</code> copie une portion d'un tableau.
                                             <br/>Sans argument elle prend tout le tableau.
@@ -440,7 +440,7 @@ Array.prototype.slice; //function</code></pre>
                                     </section>
 
                             </section>
-				
+
 				<section>
 					<h2>Héritage dynamique</h2>
 Le prototype peut être modifié après instanciation des objets
@@ -450,7 +450,7 @@ Le prototype peut être modifié après instanciation des objets
 }
 
 Personne.prototype.vieillir = function() { this.age++; };
-    
+
 var toto = new Personne("Toto",25);
 
 Personne.prototype.rajeunir = function() { this.age--; };
@@ -458,7 +458,7 @@ Personne.prototype.rajeunir = function() { this.age--; };
 toto.rajeunir(); //ça fonctionne
 </code></pre>
 				</section>
-				
+
 				<section>
 					<section>
 					<h2>Ecriture de propriétés</h2>
@@ -469,14 +469,14 @@ toto.rajeunir(); //ça fonctionne
 }
 
 Personne.prototype.vieillir = function() { this.age++; }
-    
+
 var toto = new Personne("Toto",25);
 toto.vieillir = null;
 
 var tata = new Personne("Tata",26);
 typeof tata.vieillir; //function</code></pre>
 					</section>
-				
+
 					<section>
 					<h2>Ecriture de propriétés</h2>
 					Attention au piège des objets !
@@ -498,7 +498,7 @@ var liste2 = new List();
 liste2.elmts; // ["toto"]
 //avec cette écriture, toutes les instances partagent le même tableau elmts</code></pre>
 					</section>
-					
+
 					<section>
 					<h2>Ecriture de propriétés</h2>
 					Dans ce cas on est obligé de définir la propriété dans le constructeur
@@ -520,16 +520,16 @@ list.add("toto");
 
 List.prototype.elmts; // undefined</code></pre>
 					</section>
-					
+
 				</section>
-				
+
 				<section>
 					<h2>Prototype et variables privées</h2>
 Impossible d'utiliser des variables privées dans le prototype
 <pre><code class="javascript">function Constructeur() {
 
    var valeurCachee = true;
-   
+
    this.recupValeurCachee = function() {
      /* valeurCachee est accessible */
    };
@@ -539,7 +539,7 @@ Constructeur.prototype.recupValeurCachee = function() {
   /* valeurCachee n'est pas accessible */
 };</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Prototype et variables privées</h2>
 					<p>Pour des raisons de performance et pour respecter le mécanisme d'héritage prototypal,
@@ -555,7 +555,7 @@ Constructeur.prototype.recupPropPrivee = function() {
   return this._propPrivee;
 };</code></pre>
 				</section>
-									
+
 				<section>
 					<h2>Extension des objets natifs</h2>
 <pre><code class="javascript">var tab = ["titi","tata","toto"];
@@ -568,30 +568,30 @@ tab.empty();
 </code></pre>
 <p class="fragment">mais...</p>
 				</section>
-				
+
 				<section>
 					<section>
 					<h2>Extension des objets natifs</h2>
 				<p>Les prototypes natifs ne <u>devraient jamais être étendus</u>,
 				à moins que cela soit strictement nécessaire pour la compatibilité avec de nouvelles fonctionnalités de javascript.</p>
 				<pre><code class="javascript">if (!String.prototype.trim) {
-				
+
   (function() {
     var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
     String.prototype.trim = function() { return this.replace(rtrim, ''); };
   })();
-  
+
 } //c'est une prothèse d'émulation -> OK</code></pre>
 
 					</section>
-					
+
 					<section>
 					<h2>Extension des prototypes natifs</h2>
 					<h3>Problèmes</h3>
 <pre><code class="javascript">var toto = { age : 25, nom : "Toto" };
 var n;
 
-for (n in toto) console.log(n+" : "+toto[n]); 
+for (n in toto) console.log(n+" : "+toto[n]);
 
 Object.prototype.extend = function(obj2) {
   var n;
@@ -600,7 +600,7 @@ Object.prototype.extend = function(obj2) {
 
 for (n in toto) console.log(n+" : "+toto[n]); //??</code></pre>
 					</section>
-				
+
 					<section>
 					<h2>Extension des prototypes natifs</h2>
 					<h3>Autres problèmes</h3>
@@ -610,7 +610,7 @@ for (n in toto) console.log(n+" : "+toto[n]); //??</code></pre>
 					</ul>
 					</section>
 				</section>
-				
+
 				<section>
 					<section>
 						<h2>Extension des objets hôtes</h2>
@@ -632,14 +632,14 @@ div.css({fontSize:"12px",fontWeight:"bold"});</code></pre>
 </p>
 					</section>
 				</section>
-				
+
 				<section>
 					<h2>Solution</h2>
 					<h3>Les encapsuleurs (wrappers)</h3>
 					<p>L'objet natif/hôte n'est pas modifié, il devient propriété de l'objet personnalisé.</p>
 					<p>C'est le modèle choisi par jQuery.</p>
 					<pre><code class="javascript">var div = document.getElementById("maDiv");
-						
+
 var $div = $(div);
 
 $div.css({fontSize:"12px",color:"red"});
@@ -647,7 +647,7 @@ $div.css({fontSize:"12px",color:"red"});
 $div instanceof HTMLDivElement; //false
 $div instanceof $; //true</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Propriétés/méthodes statiques</h2>
 					Elles se définissent comme propriétés du constructeur
@@ -663,8 +663,8 @@ var toto = {nom:"Toto",age:26};
 
 Personne.test(toto); //false
 </code></pre>
-				</section>		
-				
+				</section>
+
 				<section>
 					<h2>Espaces de noms</h2>
 					<p>Il n'y a pas d'espace de noms à proprement parler en javascript. On utilise les objets.</p>
@@ -673,7 +673,7 @@ Personne.test(toto); //false
 MABIBLIO.maConstante = "toto";
 
 MABIBLIO.maFonctionGenerique = function() { /* ... */ }
-					
+
 MABIBLIO.MonConstructeur1 = function() {};
 
 MABIBLIO.MonConstructeur1.prototype = {
@@ -683,40 +683,40 @@ MABIBLIO.MonConstructeur1.prototype = {
 
 var toto = new MABIBLIO.MonConstructeur1();</code></pre>
 				</section>
-				
-				
+
+
 				<section>
 					<h2>En résumé</h2>
 					<pre><code class="javascript" style="max-height:1500px">;(function(root) {
-					
+
   "use strict";
-  
+
   var BIBLIO = {};
-  
+
   function MonConstructeur() {};
-  
+
   MonConstructeur.prototype = {
     constructor : MonConstructeur,
     maMethodePublique : function() { /* ... */ },
     _maMethodePrivee : function() { /* ... */ }
   };
-  
+
   MonConstructeur.maMethodeStatique = function() {/* ... */ };
-  
+
   BIBLIO.MonConstructeur = MonConstructeur;
-  
+
   BIBLIO.maFonction = function() { /* */ };
-  
+
   BIBLIO.maConstante = 25;
-   
+
   //on expose la bibliothèque à l'espace global
   root.BIBLIO = BIBLIO;
-  
+
 }(this));</code></pre>
 				</section>
-				
+
 			</div>
-			
+
 		</div>
 
 		<script src="lib/js/head.min.js"></script>

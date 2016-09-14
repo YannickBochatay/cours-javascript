@@ -43,12 +43,12 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-			
+
 				<section>
 					<h1>Javascript</h1>
 					<h3>Dans un navigateur web</h3>
 				</section>
-				
+
 				<section>
 					<h2>Inclusion du code</h2>
 					<pre><code class="html">&lt;!doctype html&gt;
@@ -68,18 +68,18 @@
 						<li>inclure les fichiers javascript juste avant de fermer la balise body (affiche la page plus rapidement)</li>
 					</ul>
 				</section>
-				
+
 				<section>
 					<h2>D<small>ocument</small> O<small>bject</small> M<small>odel</small></h2>
 					<p>Standard du <a href="https://fr.wikipedia.org/wiki/World_Wide_Web_Consortium" target="liens">W3C</a> qui décrit une API indépendante du langage et de la plate-forme, permettant à des programmes d'accéder et de mettre à jour le contenu de documents HTML et XML.</p>
 				</section>
-				
+
 				<section>
 					<h2>DOM Window</h2>
 					<p><u>Rappel</u> : <code>window</code> est l'objet global dans l'environnement du navigateur.
 					Définir une variable globale revient à définir une propriété de l'objet global.</p>
 					<pre><code class="javascript">typeof window; //"object"
-						
+
 var toto = "tata";
 
 window.toto; //"tata"
@@ -186,7 +186,7 @@ document.body.appendChild(div);</code></pre>
 						</small>
 					</p>
 				</section>
-				
+
 				<section>
 					<h2>DOM Element</h2>
 					Tous les nœuds html de la page sont représentés par des objets DOM qui partagent des propriétés communes.
@@ -203,9 +203,9 @@ document.body.appendChild(div);</code></pre>
 &lt;/html&gt;</code></pre>
 					<pre><code class="javascript">var div = document.getElementById("maDiv");
 div.parentNode == document.body; //true
-div.classList.remove("maClasse");</code></pre> 
+div.classList.remove("maClasse");</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>DOM Element</h2>
 					<h3>Propriétés usuelles (1/2)</h3>
@@ -220,9 +220,9 @@ div.classList.remove("maClasse");</code></pre>
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/innertHTML" target="liens">innerHTML</a></code> : définit/obtient l'ensemble du balisage contenu</li>
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/outerHTML" target="liens">outerHTML</a></code> : définit/obtient l'ensemble du balisage de l'élément et son contenu</li>
 					</ul>
-					
+
 				</section>
-				
+
 				<section>
 					<h2>DOM Element</h2>
 					<h3>Propriétés usuelles (2/2)</h3>
@@ -234,15 +234,15 @@ div.classList.remove("maClasse");</code></pre>
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/NonDocumentTypeChildNode/previousElementSibling" target="liens">previousElementSibling</a></code> : élément précédant immédiatement</li>
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/NonDocumentTypeChildNode/nextElementSibling" target="liens">nextElementSibling</a></code> : élément suivant immédiatement</li>
 					</ul>
-					
+
 					<p>
 						<small>
 							<a href="https://developer.mozilla.org/fr/docs/Web/API/Element#Propri.C3.A9t.C3.A9s" target="liens">&#8680; Référence complète</a>
 						</small>
 					</p>
-					
+
 				</section>
-				
+
 				<section>
 					<h2>DOM Element</h2>
 					<h3>Méthodes usuelles (1/2)</h3>
@@ -252,38 +252,38 @@ div.classList.remove("maClasse");</code></pre>
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/replaceChild" target="liens">replaceChild</a></code> : remplace un nœud enfant par un autre</li>
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/insertBefore" target="liens">insertBefore</a></code> : insère un nœud avant le nœud enfant spécifié</li>
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/insertAdjacentHTML" target="liens">insertAdjacentHTML</a></code> : parse en tant que HTML et insert les noeuds résultants à la position spécifiée</li>
-						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/cloneNode" target="liens">cloneNode</a></code> : clone le nœud</li>						
+						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/cloneNode" target="liens">cloneNode</a></code> : clone le nœud</li>
 					</ul>
-					
+
 				</section>
-				
+
 				<section>
 					<h2>DOM Element</h2>
 					<h3>Méthodes usuelles (2/2)</h3>
-				
+
 					<ul>
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener" target="liens">addEventListener</a></code> : ajoute un écouteur d'événements</li>
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/removeEventListener" target="liens">removeEventListener</a></code> : retire un écouteur d'événements</li>
-						
+
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/querySelector" target="liens">querySelector</a></code> : renvoie le 1er élément parmi les descendants correspondant au selecteur css</li>
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/querySelectorAll" target="liens">querySelectorAll</a></code> : renvoie la liste des éléments parmi les descendants correspondant au selecteur css</li>
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/matches" target="liens">matches</a></code> : teste si l'élément correspond au selecteur css</li>
-						
+
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/getBoundingClientRect" target="liens">getBoundingClientRect</a></code> : renvoie les coordonnées</li>
-						
+
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/getAttribute" target="liens">getAttribute</a></code> : renvoie la valeur de l'attribut spécifié</li>
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/setAttribute" target="liens">setAttribute</a></code> : définit la valeur de l'attribut spécifié</li>
 						<li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/removeAttribute" target="liens">removeAttribute</a></code> : retire l'attribut spécifié</li>
 					</ul>
-					
+
 					<p>
 						<small>
 							<a href="https://developer.mozilla.org/fr/docs/Web/API/Element#M.C3.A9thodes" target="liens">&#8680; Référence complète</a>
 						</small>
 					</p>
-					
+
 				</section>
-				
+
 				<section>
 					<h2>Gestionnaires d'événements</h2>
 					<p>Très vieille école &#8680; à éviter</p>
@@ -305,7 +305,7 @@ lien.addEventListener("click", function(e) {
                                             <p>&#8680; permet de gérer plusieurs écouteurs sur un même type d'événement.</p>
                                         </div>
 				</section>
-				
+
 				<section>
 					<h2>Gestionnaires d'événements</h2>
 					<h3>mot clé this</h3>
@@ -328,7 +328,7 @@ document.getElementById("monLien1").addEventListener("click",afficheLien);
 document.getElementById("monLien2").addEventListener("click",afficheLien);</code></pre>
 </div>
 				</section>
-				
+
 				<section>
 					<section>
 					<h2>Propagation des événements</h2>
@@ -386,17 +386,17 @@ span.addEventListener("click",function() { alert("tata"); },true);
 //un clic sur span affiche "toto" puis "tata"</code></pre>
 					</section>
 				</section>
-				
+
 				<section>
 					<h2>L'objet Event</h2>
 					<p>C'est la nature de l'objet passé en argument de la fonction enregistrée.</p>
 					<pre><code class="javascript">var lien = document.getElementById("monLien");
-					
+
 lien.addEventListener("click", function(e) {
 
   e instanceof Event; //true
   e.type; //type d'événement sous forme de chaîne ("click" dans ce cas)
-  
+
 });</code></pre>
 <p>
 	<small>
@@ -405,7 +405,7 @@ lien.addEventListener("click", function(e) {
 </p>
 <br/>
 				</section>
-								
+
 				<section>
 					<h2>L'objet Event</h2>
 					<h3>Propriété <a target="liens" href="https://developer.mozilla.org/fr/docs/Web/API/Event/target">target</a></h3>
@@ -424,7 +424,7 @@ div.addEventListener("click",afficheCible);
 //les
 </code></pre>
 				</section>
-				
+
 				<section>
 					<h2>L'objet Event</h2>
 					<h3>Méthode <a target="liens" href="https://developer.mozilla.org/fr/docs/Web/API/Event/preventDefault">preventDefault</a></h3>
@@ -439,7 +439,7 @@ var lien = document.getElementById("monLien");
 lien.addEventListener("click",changeLien);
 </code></pre>
 				</section>
-				
+
 				<section>
 					<h2>L'objet Event</h2>
 					<h3>Méthode <a target="liens" href="https://developer.mozilla.org/fr/docs/Web/API/Event/stopPropagation">stopPropagation</a></h3>
@@ -452,28 +452,28 @@ div.addEventListener("click",function() { alert("toto"); });
 
 var span = div.querySelector("span");
 span.addEventListener("click",function(e) {
-  
+
   e.stopPropagation();
   //l'événement ne se propagera pas vers la div parente
-  
+
   alert("tata");
 });
 </code></pre>
 				</section>
-				
+
 				<section>
 					<h2>L'objet MouseEvent</h2>
                                         <p>Dérivation de l'objet Event pour les événements de pointage (<em>click, dblclick, contextmenu, mousedown, mouseup, mousemove, mouseover, mouseout</em>, etc)</p>
 					<pre><code class="javascript">var lien = document.getElementById("monLien");
-					
+
 lien.addEventListener("click", function(e) {
 
   e instanceof Event; //true
   e instanceof MouseEvent; //true
-  
+
   e.clientX; //abcisse du pointeur dans la fenêtre (et non la page)
   e.clientY; //ordonnée du pointeur dans la fenêtre (et non la page)
-  
+
 });</code></pre>
 <p>
 	<small>
@@ -481,7 +481,7 @@ lien.addEventListener("click", function(e) {
 	</small>
 </p>
 				</section>
-				
+
 				<section>
 					<h2>L'objet KeyboardEvent</h2>
                                         <p>Dérivation de l'objet Event pour les événements liés au clavier (<em>keydown, keypress, keyup</em>)</p>
@@ -489,9 +489,9 @@ lien.addEventListener("click", function(e) {
 
   e instanceof Event; //true
   e instanceof KeyboardEvent; //true
-  
+
   e.key; //nom de la touche
-  
+
 });</code></pre>
 <p>
 	<small>
@@ -503,7 +503,7 @@ lien.addEventListener("click", function(e) {
 	</small>
 </p>
 				</section>
-                            
+
                             <section>
                                 <h2>Délégation d'événements</h2>
                                 <p>Plutôt que d'attacher de nombreux écouteurs d'événements identiques, il est préférable d'en attacher un seul sur un élément plus haut dans la hiérarchie.</p>
@@ -521,23 +521,23 @@ for (i=0;i&lt;links.length;i++) {
     if (target.tagName == "A") alert(target.href);
 });</code></pre>
                             </section>
-				
+
 				<section>
 					<h2>Gérer la compatibilité</h2>
-<p>Microsoft n'ayant suivi le DOM du W3C qu'à partir de la version 9 d'IE, rendre son code compatible avec des versions antérieures est un enfer.</p>   
+<p>Microsoft n'ayant suivi le DOM du W3C qu'à partir de la version 9 d'IE, rendre son code compatible avec des versions antérieures est un enfer.</p>
 <p>En négligeant ces anciennes versions, la situation s'est nettement améliorée, mais on reste régulièrement confronté à des problèmes de compatibilité (ex : dernières nouveautés HTML5).</p>
 				</section>
-				
+
 				<section>
 					<h2>Gérer la compatibilité</h2>
 					<h3>Répartition des navigateurs</h3>
 					<img alt="graphique" src="img/StatCounter-browser_version_partially_combined-ww-monthly-201504-201506-bar.png">
 				</section>
-				
+
 				<section>
 					<h2>Gérer la compatibilité</h2>
 					<h3>La mauvaise méthode : browser sniffing</h3>
-					<pre><code class="javascript">var browser = navigator.userAgent.matches(/MSIE/) ? "IE" : "autre"; 
+					<pre><code class="javascript">var browser = navigator.userAgent.matches(/MSIE/) ? "IE" : "autre";
 
 function addListener(elmt,type,fct) {
 
@@ -568,7 +568,7 @@ addListener(div,"click",function() { alert("hello world"); });
 						</li>
 					</ul>
 				</section>
-				
+
 				<section>
 					<h2>Gérer la compatibilité</h2>
 					<h3>La bonne méthode</h3>
@@ -583,22 +583,22 @@ var div = document.getElementById("maDiv");
 addListener(div,"click",function() { alert("hello world"); });
 </code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Introduction à jQuery</h2>
 					<p>Face à ces problèmes de compatibilité, mais également à la verbosité du DOM, une bibliothèque a rapidement conquis le monde du web, <a href="http://jquery.com/" target="liens">jQuery</a>.
 					<br/>Elle est écrite en javascript, c'est un fichier à inclure dans chaque page dans une balise script.
 					<pre><code class="html"><!-- inclusion depuis un serveur CDN -->
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script></code></pre> 
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script></code></pre>
 					</p>
 				</section>
-				
+
 				<section>
 					<h2>Principes de jQuery</h2>
 					<h3>Pas de pollution de l'espace global</h3>
 					Une seule variable globale <code>jQuery</code> (et son alias <code>$</code>).
 				</section>
-				
+
 				<section>
 					<h2>Principes de jQuery</h2>
 					<h3>Concision</h3>
@@ -608,7 +608,7 @@ div.parentNode.removeChild(div);</code></pre>
 					<small>jQuery</small>
 					<pre><code class="javascript">$('#maDiv').detach();</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Principes de jQuery</h2>
 					<h3>Gestion de la compatibilité entre navigateurs</h3>
@@ -631,7 +631,7 @@ addListener(div,"click",function() { alert("hello world"); });</code></pre>
   alert("hello world");
 });</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Principes de jQuery</h2>
 					<h3>les objets sont des collections d'éléments DOM</h3>
@@ -639,18 +639,18 @@ addListener(div,"click",function() { alert("hello world"); });</code></pre>
 $('a').each(function() {
 
   //this représente l'élément DOM natif
-  this instanceof Element; //true
+  this instanceof HTMLElement; //true
   console.log(this.href);
-  
+
 });</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Principes de jQuery</h2>
 					<h3>les méthodes s'appliquent à tous les éléments</h3>
 					<pre><code class="javascript">$('a').hide(); //masque tous les liens de la page</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Principes de jQuery</h2>
 					<h3>Chaînage</h3>
@@ -660,11 +660,11 @@ $('a').each(function() {
 .show()
 .on("click",function() { alert("toto"): });</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Principes de jQuery</h2>
 					<h3>les objets jQuery ne sont pas des objets DOM !</h3>
-					
+
 					<pre><code class="javascript" style="max-height:1200px">var lien = document.querySelector('a');
 var jLien = $('a');
 
@@ -680,16 +680,16 @@ $('a') == $('a'); //false
 lien instanceof Element; //true
 lien instanceof jQuery; //false
 lien.appendChild; //function
-lien.fadeOut; //undefined 
+lien.fadeOut; //undefined
 
 jLien instanceof Element; //false
 jLien instanceof jQuery; //true
 jLien.appendChild; //undefined
 jLien.fadeOut; //function</code></pre>
 				</section>
-												
+
 			</div>
-			
+
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
