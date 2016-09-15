@@ -52,6 +52,14 @@ x;</code>
 
 
 
+<qcm>
+    <code>null === undefined;</code>
+    <question>l'égalité est</question>
+    <choix>vrai</choix>
+    <choix correct>fausse</choix>
+</qcm>
+
+
 
 <qcm>
 	<code>var toto = {"nom":"Toto"};
@@ -86,15 +94,6 @@ toto === toto2;</code>
 	<choix>fausse</choix>
 </qcm>
 
-
-
-
-<qcm>
-	<code>null === undefined;</code>
-	<question>l'égalité est</question>
-	<choix>vrai</choix>
-	<choix correct>fausse</choix>
-</qcm>
 
 
 
@@ -379,10 +378,14 @@ console.log(typeof toto);</code>
 </qcm>
 
 <qcm>
-	<code>var toto = { age : 26, vieillir : function() { this.age++; } };
+	<code>var toto = {
+    age : 26,
+    vieillir : function() { this.age++; }
+};
+
 toto.vieillir().age;</code>
 	<question>ce code renvoie</question>
-	<choix correct>une erreur</choix>
+	<choix correct>TypeError</choix>
 	<choix>undefined</choix>
 	<choix>26</choix>
 </qcm>
