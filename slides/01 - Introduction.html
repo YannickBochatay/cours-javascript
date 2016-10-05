@@ -1,26 +1,26 @@
 <!doctype html>
 <html lang="fr">
-    
+
     <head>
         <meta charset="utf-8">
-        
+
         <title>Cours javascript : introduction</title>
-        
+
         <meta name="description" content="cours de javascript">
         <meta name="author" content="Yannick Bochatay">
-        
+
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        
+
         <link rel="stylesheet" href="css/reveal.min.css">
         <link rel="stylesheet" href="css/theme/default.css" id="theme">
         <link rel="stylesheet" href="css/custom.css">
-        
+
         <!-- For syntax highlighting -->
         <link rel="stylesheet" href="lib/css/zenburn.css">
-        
+
         <!-- If the query includes 'print-pdf', include the PDF print sheet -->
         <script>
             if( window.location.search.match( /print-pdf/gi ) ) {
@@ -29,19 +29,20 @@
                 link.type = 'text/css';
                 link.href = 'css/print/pdf.css';
                 document.getElementsByTagName( 'head' )[0].appendChild( link );
+                window.print();
             }
         </script>
-        
+
         <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
-        
+
     </head>
-    
+
     <body>
-        
+
         <div class="reveal">
-            
+
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section>
@@ -87,7 +88,7 @@
                         <li>etc</li>
                     </ul>
                 </section>
-                
+
                 <section>
                     <h2>Son nom</h2>
                     <blockquote>Javascript is to Java what hamster is to ham</blockquote>
@@ -102,7 +103,7 @@
                     </ul>
                     <br/>
                 </section>
-                
+
                 <section>
                     <h2>Domaines d'action</h2>
                     Navigateurs évidemment, mais aussi :
@@ -119,7 +120,7 @@
                         <li>etc</li>
                     </ul>
                 </section>
-                
+
                 <section>
                     <h2>Confusion entre Javascript et DOM</h2>
                     <p>Le DOM (<b>D</b>ocument <b>O</b>bject <b>M</b>odel) est très critiqué,
@@ -129,7 +130,7 @@
                     <br/>
                     <p>Contrairement aux idées reçues, Internet Explorer s'est très vite conformé à la norme ECMAScript 3 (mais pas au DOM du W3C).</p>
                 </section>
-                
+
                 <section>
                     <h2>
                         Outils Firefox
@@ -139,7 +140,7 @@
                         <li>Ardoise javascript <code>(Maj+F4)</code></li>
                     </ul>
                 </section>
-                
+
                 <section>
                     <h2>Aperçu syntaxique</h2>
                     <h3>Sensibilité à la casse</h3>
@@ -149,7 +150,7 @@ var Toto = "tata";
 //toto et Toto sont 2 variables distinctes.
 </code></pre>
                 </section>
-                
+
                 <section>
                     <section>
                         <h2>Aperçu syntaxique</h2>
@@ -172,12 +173,12 @@ console.log(Toto);
                         <h2>Point-virgules</h2>
                         <h3>Exemple de piège</h3>
                         <pre><code class="javascript">var toto = "toto";
-						
+
 [1,2,3,4].forEach(function(nb) { console.log(nb); });
 
 //écrit 1, 2, 3 et 4 dans la console de debuggage</code></pre>
                         <pre><code class="javascript">var toto = "toto"
-						
+
 [1,2,3,4].forEach(function(nb) { console.log(nb); });
 
 /*
@@ -191,18 +192,18 @@ de points-virgule
                     <h2>Aperçu syntaxique</h2>
                     <h3>commentaires</h3>
                     <pre><code class="javascript">var toto; //commentaire sur une seule ligne
-						
+
 /* commentaire
 sur
 plusieurs
 lignes
 */
 </code></pre></li>
-                    
+
                 </section>
-                
+
                 <section>
-                    
+
                     <h2>Mode strict</h2>
                     <h3>variante restrictive de javascript</h3>
                     <ul>
@@ -210,7 +211,7 @@ lignes
                         <li>corrige les erreurs qui font qu'il est difficile pour les moteurs javascript d'effectuer des optimisations.</li>
                         <li>interdit les mot-clés susceptibles d'être définis dans les futures versions de ECMAScript.</li>
                     </ul>
-                    
+
                     <br/><br/>
                     <p><small><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Strict_mode">&#10152; Référence</a></small>
                 </section>
@@ -239,27 +240,27 @@ var tata = {
                             &#10152; bugs possibles si on concatène des fichiers pas tous écrits en mode strict.
                         </li>
                         <li>En début de fonction, il s'applique au contenu de la fonction (y compris les fonctions imbriquées).<br/>
-                            &#10152; c'est la méthode préconisée. 
+                            &#10152; c'est la méthode préconisée.
                         </li>
                         <pre><code class="javascript">function toto() {
-						
+
     "use strict";
-    
+
     //je suis en mode strict
-    
+
     function tata() {
     	//je suis en mode strict
-    }					
+    }
 }
 //je ne suis pas en mode strict</code></pre>
                 </section>
-                
+
             </div>
         </div>
-        
+
         <script src="lib/js/head.min.js"></script>
         <script src="js/reveal.min.js"></script>
         <script src="js/initialize.js"></script>
-        
+
     </body>
 </html>

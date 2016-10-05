@@ -63,7 +63,7 @@ i.fa {
 }
 
 ul li.log {
-	
+
 }
 
 ul li.error {
@@ -101,4 +101,7 @@ span.OK {
 }
 #prec i,#suiv i{
     color:#333;
+}
+.qcm {
+  margin-left:30px;
 }

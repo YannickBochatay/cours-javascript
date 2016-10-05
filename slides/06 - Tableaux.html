@@ -29,6 +29,7 @@
 				link.type = 'text/css';
 				link.href = 'css/print/pdf.css';
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
+        window.print();
 			}
 		</script>
 
@@ -128,7 +129,7 @@ for (n in tab) console.log(n + ' = ' + tab[n]);
 						<h3>Classique</h3>
 						<pre><code class="javascript">var tab = ["tata","toto","titi"];
 var i;
-						
+
 for (i=0 ; i&lttab.length ; i++) {
     console.log(tab[i]);
 }</code></pre>
@@ -146,13 +147,13 @@ for (i=0, N=tab.length ; i&lt;N ; i++) {
 						<h2>Enumération</h2>
 						<h3>forEach <small>(ecmascript5)</small></h3>
 						<pre><code class="javascript">var tab = ["tata","toto","titi"];
-						
+
 tab.forEach(function(item) {
     console.log(item);
 });</code></pre>
 <p>avec les indices</p>
 <pre><code class="javascript">var tab = ["tata","toto","titi"];
-						
+
 tab.forEach(function(item,i) {
     console.log("item n°"+i+" : "+item);
 });</code></pre>
@@ -186,14 +187,14 @@ for (n in tab) console.log(tab[n]);
 						<h2>Enumération</h2>
 						<h3><del>for...in</del></h3>
 						<pre><code class="javascript">var tab = ["tata","toto","titi"];
-						
+
 //cela sera étudié dans le chapitre "Programmer objet"
 Array.prototype.maSuperMethodePourTousLesTableaux = function() {
 	//blahblah
 };
 
 var n;
-     
+
 for (n in tab) console.log(tab[n]);
 
 //ça ne fonctionne plus non plus
@@ -271,23 +272,23 @@ for (n in tab) console.log(tab[n]);
 								<li>
 									<code>forEach</code> : appelle une fonction sur chacun des éléments.
 								</li>
-						
+
 								<li>
 									<code>every</code> : renvoie true si chaque élément satisfait la fonction.
 								</li>
-							
+
 								<li>
 									<code>some</code> : renvoie true si au moins un élément satisfait la fonction.
 								</li>
-						
+
 								<li>
 									<code>filter</code> : crée un tableau contenant tous les éléments satisfaisant la fonction.
 								</li>
-							
+
 								<li>
 									<code>map</code> : crée un tableau contenant les images de chaque élément par la fonction.
 								</li>
-						
+
 								<li>
 									<code>reduce</code> : applique une fonction sur un accumulateur et sur chaque élément de façon à obtenir une unique valeur.
 								</li>
@@ -302,16 +303,16 @@ for (n in tab) console.log(tab[n]);
 						<h2>Reconnaître un tableau</h2>
 						<h3>Array.isArray</h3>
 						<pre><code class="javascript">var tab = ["tata","toto","titi"];
-						
+
 var tab2 = { "0" : "tata", "1" : "toto", "2" : "titi", length : 3 };
-						
+
 Array.isArray(tab); //true;
 
 Array.isArray(tab2); //false;
 </code></pre>
 				</section>
 			</div>
-			
+
 		</div>
 
 		<script src="lib/js/head.min.js"></script>

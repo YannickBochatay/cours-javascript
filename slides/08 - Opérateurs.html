@@ -20,7 +20,7 @@
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
-                
+
                 <style>.reveal code { color: white; }.reveal table code { color: inherit; }</style>
 
 		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
@@ -31,6 +31,7 @@
 				link.type = 'text/css';
 				link.href = 'css/print/pdf.css';
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
+        window.print();
 			}
 		</script>
 
@@ -50,7 +51,7 @@
 					<h1>Javascript</h1>
 					<h3>Opérateurs</h3>
 				</section>
-				
+
 				<section>
 					<h2>Opérateurs d'affectation</h2>
 					<table class="compact">
@@ -125,7 +126,7 @@
 					 </tbody>
 					</table>
 				</section>
-				
+
 				<section>
 					<h2>Opérateurs de comparaison</h2>
 					<table class="compact">
@@ -180,10 +181,10 @@
 						 </tbody>
 						</table>
 				</section>
-								
+
 				<section>
-					<!-- 
-					
+					<!--
+
 					<section>
 						<h2>A retenir</h2>
 						<ul>
@@ -212,7 +213,7 @@
 					</section>
 					 -->
 					<section>
-						
+
 						<h2>Egalité simple / stricte</h2>
 <table class="standard-table" style="font-size:60%;line-height:100%;margin:auto">
  <thead>
@@ -371,7 +372,7 @@
  </tbody>
 </table>
 					</section>
-					
+
 					<section>
 						<h2>Algorithme d'égalité stricte</h2>
 						<ol style="font-size:80%">
@@ -431,7 +432,7 @@
 	      				</ol>
 					</section>
 				</section>
-			
+
 			<section>
 				<h2>Opérateurs arithmétiques</h2>
 				<table class="compact">
@@ -474,14 +475,14 @@
 				   <td>Opérateur unaire. Si l'opérande n'est pas un nombre, il tente de le convertir en une valeur numérique.</td>
 				   <td>
 				    <p><code>+"3"</code> renvoie <code>3</code>.</p>
-				
+
 				    <p><code>+true</code> renvoie <code>1</code>.</p>
 				   </td>
 				  </tr>
 				 </tbody>
 				</table>
 			</section>
-			
+
 			<section>
 				<h2>Opérateurs binaires</h2>
 				<table class="compact">
@@ -531,7 +532,7 @@
 				 </tbody>
 				</table>
 			</section>
-			
+
 			<section>
 				<h2>Opérateurs logiques</h2>
 				<table class="compact">
@@ -565,7 +566,7 @@
 				 </tbody>
 				</table>
 			</section>
-			
+
 			<section>
 				<h2>Opérateurs relationnels</h2>
 				<p><code>in</code> : renvoie true si la propriété donnée appartient à l'objet</p>
@@ -581,7 +582,7 @@ date instanceof Date; //true
 date instanceof Object; //true
 date instanceof Array; //false</code></pre>
 			</section>
-			
+
 			<section>
 					<section>
 						<h2>Opérateur typeof</h2>
@@ -646,14 +647,14 @@ date instanceof Array; //false</code></pre>
 						<p>
 						Pour tester si une variable est un tableau, il faut utiliser la méthode statique <code>isArray</code> du constructeur <code>Array</code> : </p>
 						<pre><code class="javascript">var toto = [];
-						
+
 Array.isArray(toto); //true</code></pre>
 					</section>
 				</section>
-							
+
 			<section>
 			<h2>Précédence des opérateurs</h2>
-			
+
 			<table class="compact" style="font-size:50%">
   <thead>
   <tr>
@@ -728,8 +729,8 @@ Array.isArray(toto); //true</code></pre>
   </tr>
  </tbody>
 </table>
-			
-			<!-- 
+
+			<!--
 					<table id="precedence_operateurs">
   <tbody>
     <tr>
@@ -969,7 +970,7 @@ Array.isArray(toto); //true</code></pre>
 </table>
 -->
 				</section>
-				
+
 				<section>
 					<h2>Opérateur de groupement</h2>
 					<p>L'opérateur de groupement consiste en une paire de parenthèses encadrant une expression et permettant de surcharger la précédence normale des opérateurs.</p>
@@ -982,13 +983,13 @@ typeof a == b; //false
 typeof (a == b); //boolean
 </code></pre>
 				</section>
-				
+
 			</div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
 		<script src="js/initialize.js"></script>
-		
+
 	</body>
 </html>

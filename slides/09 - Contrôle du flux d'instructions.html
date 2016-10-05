@@ -29,6 +29,7 @@
 				link.type = 'text/css';
 				link.href = 'css/print/pdf.css';
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
+        window.print();
 			}
 		</script>
 
@@ -56,7 +57,7 @@
   x++;
 }</code></pre>
 					</section>
-					
+
 					<section>
 						<h2>Portée</h2>
 						<u>Rappel</u> : il n'y a pas de portée de bloc dans la norme ECMAScript&nbsp;5.
@@ -66,7 +67,7 @@
 }
 console.log(x); // affichera 2</code></pre>
 					</section>
-					
+
 				</section>
 				<section>
 					<h2>Instructions conditionnelles</h2>
@@ -90,11 +91,11 @@ console.log(x); // affichera 2</code></pre>
   //instruction3;
 }
 </code></pre>
-<p>Si la condition n'est pas un booléen, la conversion est automatique.</p> 
+<p>Si la condition n'est pas un booléen, la conversion est automatique.</p>
 					</section>
-					
+
 					<section>
-						<h2>Valeurs équivalentes à false</h2>	
+						<h2>Valeurs équivalentes à false</h2>
 						<p>Lors d'une conversion en booléen, les valeurs suivantes renvoient false (falsy values) :</p>
 						<ul>
 						 <li><code>false</code></li>
@@ -127,10 +128,10 @@ if ('true' == true) {
   //car c'est le résultat de la comparaison entre 'true' et true
   //qui sera comparé à true, et 'true' == true vaut false
   //(voir les règles de l'égalité simple)
-}</code></pre> 
+}</code></pre>
 					</section>
 				</section>
-				
+
 				<section>
 					<h2>Opérateur conditionnel ternaire</h2>
 					<p>Syntaxe</p>
@@ -138,13 +139,13 @@ if ('true' == true) {
 					<br/>
 					<p>Exemples</p>
 					<pre><code class="javascript">var autorisation = true;
-					
+
 console.log( autorisation ? "autorisé" : "interdit" ); //autorisé</code></pre>
 <pre><code class="javascript">var toto = { nom : "Toto", age : 25};
-					
+
 console.log( toto.age > 18 ? "majeur" : "mineur" ); //majeur</code></pre>
 				</section>
-				
+
 				<section>
 					<section>
 						<h2>Instruction switch</h2>
@@ -157,17 +158,17 @@ console.log( toto.age > 18 ? "majeur" : "mineur" ); //majeur</code></pre>
 	}</code>
 	<br/>
 	<p>Exemple</p>
-						<pre><code class="javascript">function prixDesFruits(fruits) {					
-	
+						<pre><code class="javascript">function prixDesFruits(fruits) {
+
 var prix;
-						
+
   switch (fruits) {
     case "Oranges" : prix = 0.59; break;
     case "Cerises" : prix = 3; break;
     case "Mangues" : case "Papayes" : prix = 2.79; break;
     default: console.log("Désolé, nous n'avons pas de " + fruits + ".");
   }
-  
+
   return prix;
 }</code></pre>
 				</section>
@@ -177,7 +178,7 @@ var prix;
 					<p>Attention à ne pas oublier le <code>break</code> sans quoi toutes les instructions qui suivent seront également exécutées (c'est le mécanisme qui permet de regrouper les cas).</p>
 				</section>
 			</section>
-				
+
 				<section>
 					<h2>Boucles et itération</h2>
 				</section>
@@ -194,14 +195,14 @@ var prix;
 						<p>
 						Exemple
 						<pre><code class="javascript">var pas;
-						
+
 for (pas=0 ; pas<5 ; pas++) {
   // Ceci sera exécuté 5 fois
   // la variable "pas" ira de 0 à 4
   console.log("Faire un pas vers l'est");
 }
 						</code></pre>
-						</p><!-- 
+						</p><!--
 						<ol>
  							<li><code>expressionInitiale</code> est exécutée si elle est présente.</li>
  							<li><code>condition</code> est évaluée, si elle vaut <code>true</code>, les instructions contenues dans la boucle sont exécutées.</li>
@@ -213,14 +214,14 @@ for (pas=0 ; pas<5 ; pas++) {
 					<section>
 						<h2>Instruction for</h2>
 						<p>Les trois expressions sont optionnelles.</p>
-				
+
 					<pre><code class="javascript">var i = 0;
 
 for (;;) {
   if (i > 3) break;
   console.log(i);
   i++;
-}</code></pre>										
+}</code></pre>
 					<p>A l'inverse, on peut l'utiliser avec une instruction vide.</p>
 					<pre><code class="javascript">var x = 0;
 
@@ -234,9 +235,9 @@ console.log("Décalage de position : "+x+"px");</code></pre>
 					<p><u>Rappel</u> : pas de portée de bloc.</p>
 					</section>
 				</section>
-				
+
 				<section>
-					
+
 						<h2>Instruction while</h2>
 						<p>Syntaxe</p>
 						<code class="syntaxe">while (condition)
@@ -257,10 +258,10 @@ var x = 0;
 while (n < 3) {
   n++;
   x+= n;
-}</code></pre>	
-			
+}</code></pre>
+
 				</section>
-				
+
 				<section>
 					<section>
 					<h2>Instruction for...in</h2>
@@ -272,7 +273,7 @@ while (n < 3) {
   var result = "";
   var n;
   for (n in obj) result+= n + "=" + obj[n] + "\n";
-  return result; 
+  return result;
 }
 
 afficherProps({nom:"Toto",age:25});
@@ -287,12 +288,12 @@ age=25
 						<ul>
 							<li>parcourt les propriétés d'un objet dans un ordre <u>arbitraire</u></li>
 							<li>ne doit pas être utilisé pour parcourir un tableau</li>
-							<li>ne parcourt que les propriétés énumérables</li> 
+							<li>ne parcourt que les propriétés énumérables</li>
 						</ul>
 					</section>
 				</section>
-				
-				
+
+
 				<section>
 					<h2>break</h2>
 					<p>Provoque la fin de l'instruction <code>while, do-while, for,</code> ou <code>switch</code> dans laquelle il est inscrit (la plus imbriquée).</p>
@@ -319,21 +320,21 @@ while (i < 5) {
 
 n; //1 + 2 + 4 + 5</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Gestion des exceptions</h2>
 				</section>
-				
+
 				<section>
 					<h2>Gestion des exceptions</h2>
 					<h3>Problème</h3>
 					<pre><code class="javascript">function dernierElement(tableau) {
-  
+
   if (!tableau.length) {
     console.log("Le tableau est vide");
     return false;
   }
-  
+
   return tableau[tableau.length - 1];
 }
 					</code></pre>
@@ -343,15 +344,15 @@ n; //1 + 2 + 4 + 5</code></pre>
 	<li class="fragment">Que se passe-t-il si le dernier élément du tableau contient la valeur <code>false</code> ?</li>
 </ul>
 				</section>
-				
+
 				<section>
 					<h2>Gestion des exceptions</h2>
 					<h3>Solution</h3>
 					<p>La fonction jette (ou lève) une exception quand elle rencontre un cas anormal.</p>
 					<pre><code class="javascript">function dernierElement(tableau) {
-  
+
   if (!tableau.length) throw new Error("Le tableau est vide");
-  
+
   return tableau[tableau.length - 1];
 }</code></pre>
 					<p>C'est à l'appel de la fonction que l'on décide comment gérer l'erreur.</p>
@@ -363,7 +364,7 @@ catch(e) { console.log(e); }
 try { dernierElement([]); }
 catch(e) { window.alert(e); }</code></pre>
 				</section>
-				
+
 				<section>
 					<section>
 					<h2>Gestion des exceptions</h2>
@@ -391,7 +392,7 @@ try {
 }
 catch(e) { window.alert(e); }</code></pre>
 					</section>
-					
+
 					<section>
 					<h2>Gestion des exceptions</h2>
 					<h3>Exemple plus poussé</h3>
@@ -421,7 +422,7 @@ catch(e) {
     else window.alert("ça s'adresse plutôt à l'utilisateur");
 }</code></pre>
 					</section>
-					
+
 					<section>
 						<h2>Gestion des exceptions</h2>
 						<h3>Remarques</h3>
@@ -430,7 +431,7 @@ catch(e) {
 						<li>La variable du bloc <code>catch</code> à une portée de bloc (c'est l'unique cas en ECMAScript 5).</li>
 						</ul>
 						<pre><code class="javascript" style="max-height:1000px">try {
-  throw new Error("grave erreur !");						
+  throw new Error("grave erreur !");
 }
 catch(e) {
   console.log(e.message);
@@ -441,22 +442,22 @@ e; //Exception : e is not defined;
 						</code></pre>
 					</section>
 				</section>
-				
+
 				<section>
 					<h2>Asynchronisme</h2>
 					<h3>Exemple</h3>
 					<pre><code class="javascript">var i=0;
-					
+
 window.setTimeout(function() { i++; },1000);
 
 console.log(i); //?</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Asynchronisme</h2>
 					<h3>évènements</h3>
 					<pre><code class="javascript">var img = new Image();
-					
+
 img.src = "http://www.meteofrance.com/integration/sim-portail/generated/integration/img/vigilance/mn.gif";
 
 console.log(img.width); //0
@@ -469,9 +470,9 @@ img.onload = function() {
 
 //quand l'image est chargée, l'évènement "load" est déclenché
 //et les fonctions liées à l'évènement sont exécutées.
-</code></pre>					
+</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Asynchronisme</h2>
 					<h3>Callback hell</h3>
@@ -483,19 +484,19 @@ img.onload = function() {
   window.setTimeout(function() {
     var img = new Image();
     img.src = "http://monServeur/monImage1.png";
-    img.onload = function() {	
+    img.onload = function() {
       window.setTimeout(function() {
         var img = new Image();
         img.src = "http://monServeur/monImage3.png";
         img.onload = function() {
           //etc etc
-        };		
+        };
       },5000);
     };
   },5000)
 };</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Asynchronisme</h2>
 					<h3>Callback hell, tentative d'amélioration</h3>
@@ -504,9 +505,9 @@ img.onload = function() {
   img.src = "http://monServeur/"+src;
   img.onload = function() {
     window.setTimeout(callback,5000);
-  } 						
+  }
 }
-						
+
 chargerImage("monImage1.png",function() {
   chargerImage("monImage2.png",function() {
     chargerImage("monImage3.png",function() {
@@ -515,7 +516,7 @@ chargerImage("monImage1.png",function() {
   });
 });</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Promesses</h2>
 					<p>Norme ECMAScript 6 mais implémentées dans les navigateurs récents ou grâce à une <a target="liens" href="https://github.com/jakearchibald/es6-promise">prothèse
@@ -524,13 +525,13 @@ chargerImage("monImage1.png",function() {
   return new Promise(function(resolve) {
     var img = new Image();
     img.src = "http://monServeur/"+src;
-    img.onload = resolve;	
+    img.onload = resolve;
   });
 }
 
 function attendre(s) {
   return new Promise(function(resolve) {
-    window.setTimeout(resolve,s*1000);	
+    window.setTimeout(resolve,s*1000);
   });
 }
 
@@ -544,9 +545,9 @@ chargerImage("monImage1.png")
 						<small>http://www.html5rocks.com/fr/tutorials/es6/promises/</small>
 					</a>
 				</section>
-								
+
 			</div>
-			
+
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
