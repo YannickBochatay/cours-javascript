@@ -1,4 +1,4 @@
-function modifObjet( objAModifier, propAModifier ) {
+function modifObjet( objAModifier, propsAModifier ) {
 
 	/* votre code */
 }
