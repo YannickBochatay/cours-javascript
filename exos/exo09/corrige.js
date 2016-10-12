@@ -17,13 +17,13 @@ function verifEmail_v3(email) {
 
 function testPerf(fctVerifEmail) {
     
-    var start = new Date,
+    var start = Date.now(),
         email = "yannick.bochatay@meteo.fr",
-        i = 0;
+        i;
    
-    for (;i<1e7;i++) fctVerifEmail(email);
+    for (i=0;i<1e7;i++) fctVerifEmail(email);
     
-    return new Date - start;
+    return Date.now() - start;
 }
 
 console.log( testPerf(verifEmail_v1), testPerf(verifEmail_v2), testPerf(verifEmail_v3) );
