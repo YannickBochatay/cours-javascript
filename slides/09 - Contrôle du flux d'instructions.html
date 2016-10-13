@@ -94,42 +94,6 @@ console.log(x); // affichera 2</code></pre>
 <p>Si la condition n'est pas un booléen, la conversion est automatique.</p>
 					</section>
 
-					<section>
-						<h2>Valeurs équivalentes à false</h2>
-						<p>Lors d'une conversion en booléen, les valeurs suivantes renvoient false (falsy values) :</p>
-						<ul>
-						 <li><code>false</code></li>
-						 <li><code>undefined</code></li>
-						 <li><code>null</code></li>
-						 <li><code>0</code></li>
-						 <li><code>NaN</code></li>
-						 <li><code>""</code></li>
-						</ul>
-						<p>Les autres valeurs, dont les objets, renvoient true.</p>
-						<pre><code>Boolean(5) //true
-Boolean(-1) //true
-Boolean(0) //false
-Boolean({}) //true
-Boolean([]) //true
-Boolean(5/0) // Infinity => true
-Boolean( Number("toto") ) // NaN => false
-Boolean("true") //true
-Boolean("false") //true</code></pre>
-					</section>
-					<section>
-						<h2>Piège</h2>
-						<pre><code>if ('true') {
-  //ce code sera toujours exécuté
-  //car 'true' est converti en booléen, et équivaut à true.
-}
-
-if ('true' == true) {
-  //ce code ne sera jamais exécuté
-  //car c'est le résultat de la comparaison entre 'true' et true
-  //qui sera comparé à true, et 'true' == true vaut false
-  //(voir les règles de l'égalité simple)
-}</code></pre>
-					</section>
 				</section>
 
 				<section>
@@ -144,6 +108,29 @@ console.log( autorisation ? "autorisé" : "interdit" ); //autorisé</code></pre>
 <pre><code class="javascript">var toto = { nom : "Toto", age : 25};
 
 console.log( toto.age > 18 ? "majeur" : "mineur" ); //majeur</code></pre>
+				</section>
+					
+				<section>
+					<h2>Valeurs équivalentes à false</h2>
+					<p>Lors d'une conversion en booléen, les valeurs suivantes renvoient false (falsy values) :</p>
+					<ul>
+					 <li><code>false</code></li>
+					 <li><code>undefined</code></li>
+					 <li><code>null</code></li>
+					 <li><code>0</code></li>
+					 <li><code>NaN</code></li>
+					 <li><code>""</code></li>
+					</ul>
+					<p>Les autres valeurs, dont les objets, renvoient true.</p>
+					<pre><code>Boolean(5) //true
+Boolean(-1) //true
+Boolean(0) //false
+Boolean({}) //true
+Boolean([]) //true
+Boolean(5/0) // Infinity => true
+Boolean( Number("toto") ) // NaN => false
+Boolean("true") //true
+Boolean("false") //true</code></pre>
 				</section>
 
 				<section>
