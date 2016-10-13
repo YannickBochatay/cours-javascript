@@ -1,8 +1,9 @@
 function concat() {
 
   	var str ='';
+	var i;
   
-	for (var i=0,N=arguments.length;i<N;i++) str+=arguments[i];
+	for (i=0;i<arguments.length;i++) str+=arguments[i];
   
   	return str;
 }
