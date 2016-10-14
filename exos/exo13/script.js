@@ -1,6 +1,6 @@
 //*
 //Sans jQuery
-;(function() {
+(function() {
 	
     "use strict";
     
