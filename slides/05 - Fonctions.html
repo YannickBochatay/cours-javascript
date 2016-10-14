@@ -559,12 +559,10 @@ for (i=1;i&lt;=3;i++) {
 }());</code></pre>
 						<p>On encapsule notre code dans une fonction anonyme aussitôt exécutée, ce qui protège nos variables de l'espace global.</p>
 				</section>
-
 				<section>
-					<section>
-						<h2>IIFE : complément</h2>
-						<p>Cette syntaxe nous permet d'utiliser le mode strict sans risque de perturber le reste du code.</p>
-						<pre><code class="javascript">(function() {
+					<h2>IIFE : complément</h2>
+					<p>Cette syntaxe nous permet d'utiliser le mode strict sans risque de perturber le reste du code.</p>
+					<pre><code class="javascript">(function() {
 
   "use strict";
 
@@ -574,30 +572,9 @@ for (i=1;i&lt;=3;i++) {
 
 }());</code></pre>
 <p>C'est donc le modèle qu'on utilisera systématiquement pour écrire du code javascript.</p>
-					</section>
-
-					<section>
-						<h2>IIFE : remarque</h2>
-						<p>On voit parfois cette syntaxe :</p>
-						<pre><code class="javascript">;(function() {
-  /* blah blah*/
-}());</code></pre>
-						<p>Elle peut permettre d'éviter des erreurs de concaténation de fichiers.</p>
-						<pre><code class="javascript">//1er fichier
-1+2
-
-//2ème fichier
-(function() {
-  /* blah blah*/
-}());
-
-//Exception: 2 is not a function
-</code></pre>
-					</section>
-
 				</section>
 
-				<section>
+
 					<section>
 					<h2>Méthodes</h2>
 					<p>Une méthode d'un objet est une propriété de type <code>function</code>.</p>
