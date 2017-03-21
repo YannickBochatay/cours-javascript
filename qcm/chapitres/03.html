@@ -12,6 +12,7 @@ var obj = {
     			<question>Les deux écritures sont strictement équivalentes</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
+				<reponse>Lorsque les noms de propriétés respectent les règles des identifiants, les guillemets sont toptionnels</reponse>
     		</qcm>
 
     		<qcm>
@@ -21,6 +22,7 @@ var obj = {
     			<question>Ce code génère une erreur</question>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
+				<reponse>Le caractère _ est autorisé dans les règles des identifiants</reponse>
     		</qcm>
 
     		<qcm>
@@ -30,6 +32,7 @@ var obj = {
     			<question>Ce code génère une erreur</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
+				<reponse>Le caractère @ n'est pas autorisé dans les règles des identifiants</reponse>
     		</qcm>
 
     		<qcm>
@@ -39,6 +42,7 @@ var obj = {
     			<question>Ce code génère une erreur</question>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
+				<reponse>Si les noms de propriétés sont entre guillemets, elles peuvent ne pas respecter les règles des identifiants</reponse>
     		</qcm>
 
     		<qcm important>
@@ -48,38 +52,57 @@ window["alert"];
     			<question>Les deux écritures sont strictement équivalentes</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
+				<reponse>La notation avec point et la notation avec crochets permettent toutes deux d'accéder aux propriétés de l'objet.</reponse>
     		</qcm>
 
-    		<qcm important>
+    		<!--<qcm>
     			<code>window.alert("toto");
 window["alert"]("toto");
 </code>
     			<question>Les deux écritures sont strictement équivalentes</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
-    		</qcm>
+				<reponse>La propriété "alert" de l'objet window a la particularité d'être une fonction, elle peut donc être exécutée.
+				Mais pour y accéder, on peut aussi bien utiliser la notation avec point que la notation avec crochets.
+				</reponse>
+    		</qcm>-->
 
 			<qcm>
-    			<code>var obj = { prop1 : "toto", prop2 : "tata" };
-var maProp = "prop1";
+    			<code>var toto = { "nom" : "toto", "age" : 26 };
+var prop = "nom";
 
-obj[maProp];
+toto[prop];
 </code>
     			<question>La valeur renvoyée est </question>
     			<choix correct>"toto"</choix>
-    			<choix>"prop1"</choix>
+    			<choix>"nom"</choix>
     			<choix>erreur de syntaxe</choix>
+				<reponse>L'intérêt de la notation avec crochets est qu'on peut utiliser une variable comme nom de propriété.</reponse>
+    		</qcm>
+
+			<qcm>
+    			<code>var toto = { nom : "toto", age : 26 };
+var prop = "nom";
+
+toto[prop];
+</code>
+    			<question>La valeur renvoyée est </question>
+    			<choix correct>"toto"</choix>
+    			<choix>"nom"</choix>
+    			<choix>erreur de syntaxe</choix>
+				<reponse>Si les noms de propriétés respectent les règles des identifiants, les guillements sont optionnels.</reponse>
     		</qcm>
 
     		<qcm important>
-    			<code>var obj = { prop1 : "toto" };
+    			<code>var toto = { nom : "toto", age : 26 };
 
-obj.prop2;
+toto.prenom;
 </code>
     			<question>La valeur renvoyée est </question>
     			<choix>Error</choix>
     			<choix>null</choix>
     			<choix correct>undefined</choix>
+				<reponse>L'accès à une propriété non définie ne génère pas d'erreur mais renvoie la valeur undefined</reponse>
     		</qcm>
 
     		<qcm>
@@ -90,9 +113,10 @@ if ("prop1" in obj) console.log("oui");
     			<question>La console va afficher "oui"</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
+				<reponse>La propriété contient la valeur spéciale null, mais elle est bel et bien définie.</reponse>
     		</qcm>
 
-    		<qcm>
+    		<!--<qcm>
     			<code>var obj = {
   prop1 : 'tata',
   prop2 : 'toto',
@@ -101,7 +125,7 @@ if ("prop1" in obj) console.log("oui");
     			<choix>est tout à fait correcte</choix>
     			<choix>est incorrecte</choix>
     			<choix correct>peut poser des problèmes selon l'environnement</choix>
-    		</qcm>
+    		</qcm>-->
 
     		<qcm>
     			<code>window.toto = "tata";
@@ -111,6 +135,7 @@ toto;</code>
     			<choix correct>"tata"</choix>
     			<choix>Error</choix>
     			<choix>undefined</choix>
+				<reponse>Définir une propriété de l'objet global revient à déclarer une variable globale.</reponse>
     		</qcm>
 
     		<qcm>
@@ -121,6 +146,7 @@ window.toto;</code>
     			<choix correct>"tata"</choix>
     			<choix>Error</choix>
     			<choix>undefined</choix>
+				<reponse>Déclarer une variable globale revient à définir une propriété de l'objet global.</reponse>
     		</qcm>
 
                 <qcm>
@@ -132,6 +158,9 @@ toto.nom;</code>
     			<question>La propriété toto.nom renvoie</question>
     			<choix correct>"Tata"</choix>
     			<choix>"Toto"</choix>
+				<reponse>Une variable définissant un objet contient en fait une référence vers cet objet.
+					Lorsqu'on définit une nouvelle variable égale à la première, on crée une nouvelle référence vers ce même objet.
+					Il n'y a qu'un seul objet en mémoire, et deux identifiants qui permettent d'y accéder.</reponse>
     		</qcm>
 <!--
         <qcm>

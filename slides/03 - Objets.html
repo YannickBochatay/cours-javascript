@@ -72,14 +72,6 @@ toto.age = 25;</code></pre>
 					<div/>
 
                                         <div class="fragment">
-					<p>Object.create<br/>
-						<small>Utilisé dans des cas bien précis</small></p>
-					<pre><code class="javascript">var toto = Object.create(null);
-toto.nom = "Toto";
-toto.age = 25;</code></pre>
-					<div/>
-
-                                        <div class="fragment">
 					<p>Notation littérale (initialisateur d'objet)<br/>
 						<small>La plus répandue et conseillée.</small></p>
 					<pre><code class="javascript">var toto = {
@@ -87,6 +79,14 @@ toto.age = 25;</code></pre>
     age : 25
 };</code></pre>
                                         </div>
+
+					<div class="fragment">
+					<p>Object.create<br/>
+						<small>Utilisé dans des cas bien précis (pas utile dans un premier temps)</small></p>
+					<pre><code class="javascript">var toto = Object.create(null);
+toto.nom = "Toto";
+toto.age = 25;</code></pre>
+					<div/>
 				</section>
 
 				<section>
@@ -207,11 +207,18 @@ toto["2-age"]; //25</code></pre>
 
 				<section>
 					<h2>Accès aux propriétés</h2>
-					<p>Une tentative d'accès à une propriété non définie ne renvoie pas d'erreur mais la valeur primitive <code>undefined</code>.</p>
+					<p>Une tentative d'accès à une propriété non définie ne renvoie pas d'erreur mais la valeur primitive <code>undefined</code> :</p>
 					<pre><code class="javascript">var toto = { nom : "Toto", age : 25 };
 
 toto.nbEnfants; //undefined</code></pre>
+				<div class="fragment">
+					<p>On peut également tester l'existence d'une propriété par l'opérateur <code>in</code> :</p>
+					<pre><code class="javascript">var toto = { nom : "Toto", age : 25 };
+
+"nbEnfants" in toto; //false</code></pre>
+				</div>
 				</section>
+
 
 				<section>
 					<h2>Enumération des propriétés</h2>
@@ -231,7 +238,7 @@ for (n in toto) {
 </code></pre>
 				</section>
 
-                            <section>
+                <section>
 					<h2>Enumération des propriétés</h2>
 					<h3>Object.keys</h3>
                                         Renvoie un tableau des noms de propriétés
@@ -247,28 +254,56 @@ var tab = Object.keys(toto);
 
 console.log(tab); //"nom,age,sexe"
 </code></pre>
-                                        <p>Les tableaux font l'objet d'un chapitre dédié.</p>
+                    <p>Les tableaux font l'objet d'un chapitre dédié.</p>
 
 				</section>
 
 				<section>
-					<h2>Objets intégrés</h2>
-					<p>Valables dans tous les environnements d'exécution :</p>
-					<ul>
-						<li><code>Object</code> : constructeur d'objets</li>
-						<li><code>Function</code> : constructeur de fonctions</li>
-						<li><code>Array</code> : constructeur de tableaux</li>
-						<li><code>String</code> : constructeur d'objets chaînes de caractères</li>
-						<li><code>Boolean</code> : constructeur d'objets booléens</li>
-						<li><code>Number</code> : constructeur d'objets nombres</li>
-						<li><code>Math</code> : objet natif pour fonctions mathématiques</li>
-						<li><code>Date</code> : constructeur d'objets dates</li>
-						<li><code>RegExp</code> : constructeur d'expressions rationnelles</li>
-						<li><code>JSON</code> : objet natif pour manipulation du JSON</li>
-						<li>
-							<code>Error (Error, EvalError, RangeError, ReferenceError, SyntaxError, TypeError, URIError)
-							</code>: constructeurs d'erreurs</li>
-					</ul>
+					<section>
+						<h2>Objets intégrés</h2>
+						<p>Valables dans tous les environnements d'exécution :</p>
+						<ul>
+							<li><code>Object</code> : constructeur d'objets</li>
+							<li><code>Function</code> : constructeur de fonctions</li>
+							<li><code>Array</code> : constructeur de tableaux</li>
+							<li><code>String</code> : constructeur d'objets chaînes de caractères</li>
+							<li><code>Boolean</code> : constructeur d'objets booléens</li>
+							<li><code>Number</code> : constructeur d'objets nombres</li>
+							<li><code>Math</code> : objet natif pour fonctions mathématiques</li>
+							<li><code>Date</code> : constructeur d'objets dates</li>
+							<li><code>RegExp</code> : constructeur d'expressions rationnelles</li>
+							<li><code>JSON</code> : objet natif pour manipulation du JSON</li>
+							<li>
+								<code>Error (Error, EvalError, RangeError, ReferenceError, SyntaxError, TypeError, URIError)
+								</code>: constructeurs d'erreurs</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Objets intégrés</h2>
+						<h3>Ajouts dans la norme ECMAScript 6</h3>
+						<ul class="twoColumns">
+							<li><code>ArrayBuffer</code></li>
+							<li><code>DataView</code></li>
+							<li><code>Float32Array</code></li>
+							<li><code>Float64Array</code></li>
+							<li><code>Int8Array</code></li>
+							<li><code>Int16Array</code></li>
+							<li><code>Int32Array</code></li>
+							<li><code>Map</code></li>
+							<li><code>Proxy</code></li>
+							<li><code>Promise</code></li>
+							<li><code>Set</code></li>
+							<li><code>Symbol</code></li>
+							<li><code>Uint8Array</code></li>
+							<li><code>Uint8ClampedArray</code></li>
+							<li><code>Uint16Array</code></li>
+							<li><code>Uint32Array</code></li>
+							<li><code>WeakMap</code></li>
+							<li><code>WeakSet</code></li>
+							<li><code>Reflect</code></li>
+						</ul>
+					</section>
 				</section>
 
 				<section>

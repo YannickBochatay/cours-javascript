@@ -56,11 +56,10 @@
 					<h2>Définition</h2>
 					<p>Une variable est un symbole qui associe un nom (l'identifiant) à une valeur.</p>
 					<p>La valeur peut être une valeur primitive ou un objet.</p>
-					<br/>
-					<p>Pas de constante dans la 5ème édition d'ECMAScript.</p>
 				</section>
 
 				<section>
+					<section>
 						<h2>
 							Valeurs primitives
 						</h2>
@@ -73,9 +72,18 @@
 						</ul>
 					</section>
 					<section>
-						<h3>Booléen</h3>
-						<code>true</code> ou <code>false</code>
+						<h2>Symbol</h2>
+						<h3>Nouveau type primitif en ES6</h3>
+						<p>Valeur unique et immuable qui peut être utilisée comme clé d'une propriété d'un objet.</p>
+						<pre><code data-trim class="javascript">var sym = Symbol("toto");
+var obj = {};
+obj[sym] = "titi";</code></pre>
 					</section>
+				</section>
+				<section>
+					<h3>Booléen</h3>
+					<code>true</code> ou <code>false</code>
+				</section>
 
 					<section>
 						<h3>Nombre</h3>

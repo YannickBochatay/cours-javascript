@@ -3,6 +3,7 @@
     			<question>Il existe un type "entier" en javascript ?</question>
     			<choix>oui</choix>
     			<choix correct>non</choix>
+					<reponse>Pour représenter les nombres, il n'existe qu'un type "number"</reponse>
     		</qcm>
 
     		<qcm>
@@ -27,6 +28,7 @@
     			<choix correct>undefined</choix>
     			<choix>null</choix>
     			<choix>""</choix>
+					<reponse>une variable déclarée mais non affectée a la valeur undefined</reponse>
     		</qcm>
 
     		<qcm>
@@ -35,6 +37,7 @@
     			<choix>oui</choix>
     			<choix>non</choix>
     			<choix correct>en mode strict uniquement</choix>
+					<reponse>Avant la création du mode strict, une variable déclarée sans le mot clé "var" était déclarée comme globale, ce qui pouvait facilement créer des conflits.</reponse>
     		</qcm>
 
         <qcm>
@@ -42,6 +45,7 @@
           <question>Ce nom de variable est toléré</question>
           <choix correct>oui</choix>
           <choix>non</choix>
+					<reponse>les caractères spéciaux $ et _ sont les seuls autorisés dans les identifiants, y compris en premier caractère</reponse>
         </qcm>
 
         <qcm>
@@ -49,6 +53,7 @@
           <question>Ce nom de variable est toléré</question>
           <choix>oui</choix>
           <choix correct>non</choix>
+					<reponse>les caractères spéciaux $ et _ sont les seuls autorisés dans les identifiants</reponse>
         </qcm>
 
         <qcm>
@@ -56,6 +61,7 @@
           <question>Ce nom de variable est toléré</question>
           <choix>oui</choix>
           <choix correct>non</choix>
+					<reponse>Un identifiant ne peut pas commencer par un chiffre. Par contre il peut en contenir.</reponse>
         </qcm>
 
         <qcm>
@@ -63,6 +69,7 @@
           <question>Ce nom de variable est toléré</question>
           <choix correct>oui</choix>
           <choix>non</choix>
+					<reponse>le caractère spécial _ est autorisé dans les indentifiants. En premier caractère, il sert habituellement à identifier des variables à usage privé (voir chapitre "programmer objet")</reponse>
         </qcm>
 
     		<qcm>
@@ -72,6 +79,7 @@
     			<choix correct>2</choix>
     			<choix>3</choix>
     			<choix>4</choix>
+					<reponse>Le style CamelCase est habituellement utilisé en javascript.</reponse>
     		</qcm>
 
     		<qcm important>
@@ -80,6 +88,7 @@
     			<choix>12</choix>
     			<choix correct>"57"</choix>
     			<choix>NaN</choix>
+					<reponse>Javascript convertit automatiquement les opérandes s'ils ne sont pas du type attendu. Dans ce cas, c'est le nombre qui en converti en chaîne de caractères</reponse>
     		</qcm>
 
     		<qcm>
@@ -88,4 +97,5 @@
     			<choix>12</choix>
     			<choix correct>"57"</choix>
     			<choix>NaN</choix>
+					<reponse>L'ordre des opérandes n'importe pas. Le nombre est ici encore converti en chaîne de caractères.</reponse>
     		</qcm>

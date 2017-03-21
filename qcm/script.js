@@ -109,6 +109,7 @@
 
                     this._initFieldSets([]);
                     this._sauve([]);
+                    this.hideResponses();
                 },
 
                 _createQCM : function(elmt,i) {
@@ -149,10 +150,28 @@
                         return label;
                     }
 
+                    function createResponse(content) {
+
+                        var response = document.createElement("div");
+                        response.classList.add("response");
+                        response.style.display = "none";
+                        
+                        var icon = document.createElement("i");
+                        icon.className = "fa fa-lightbulb-o fa-lg";
+                        response.appendChild(icon);
+
+                        var text = document.createTextNode( " " + content + (content.match(/\.$/) ? "" : ".") )
+
+                        response.appendChild(text)
+
+                        return response;
+                    }
+
                     var fieldset = document.createElement("fieldset"),
                         code = elmt.querySelector("code"),
                         question = elmt.querySelector("question").textContent,
-                        choix = slice.call( elmt.querySelectorAll("choix") );
+                        choix = slice.call( elmt.querySelectorAll("choix") ),
+                        response = elmt.querySelector("reponse");
 
                     fieldset.appendChild( createTitle() );
 
@@ -165,6 +184,8 @@
                             var correct = choix.getAttribute("correct") != undefined;
                             fieldset.appendChild( createInput(text,correct) );
                     });
+
+                    response && fieldset.appendChild(createResponse(response.textContent))
 
                     elmt.parentNode.replaceChild(fieldset,elmt);
                 },
@@ -212,6 +233,16 @@
                     return nbBonnesReponses;
                 },
 
+                showResponses : function() {
+
+                    $("form#qcm .response").forEach(function(node) { node.style.display = "block"})
+                },
+
+                hideResponses : function() {
+
+                    $("form#qcm .response").forEach(function(node) { node.style.display = "none"})
+                },
+
                 genereCommentaire : function(pourcentage) {
 
                     switch (true) {
@@ -237,6 +268,8 @@
                     var message = "Votre score : "+nbBonnesReponses+" / "+this.nbQuestions;
 
                     if (this.current == "00") message+= "\n\n"+this.genereCommentaire( 100 * nbBonnesReponses / this.nbQuestions);
+
+                    this.showResponses();
 
                     alert(message);
                 }

@@ -105,3 +105,11 @@ span.OK {
 .qcm {
   margin-left:30px;
 }
+
+.response {
+	background-color: #faebcc;
+	padding: 5px;
+	border-radius: 5px;
+    font-style: italic;
+    color:#777;
+}
