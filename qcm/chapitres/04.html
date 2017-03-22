@@ -4,6 +4,7 @@ typeof toto;</code>
   <question>Ce code renvoie</question>
   <choix correct>"string"</choix>
   <choix>"object"</choix>
+  <reponse>Une variable contenant une chaîne de caractères est de type primitif "string"</reponse>
 </qcm>
 
 <qcm>
@@ -13,6 +14,7 @@ typeof tata;</code>
   <question>Ce code renvoie</question>
   <choix correct>"string"</choix>
   <choix>"object"</choix>
+  <reponse>La méthode renvoie une nouvelle valeur primitive de type "string", que l'on stocke dans la variable tata.</reponse>
 </qcm>
 
 <qcm>
@@ -21,6 +23,7 @@ typeof toto.trim();</code>
   <question>Ce code renvoie</question>
   <choix correct>"string"</choix>
   <choix>"object"</choix>
+  <reponse>La méthode renvoie une nouvelle valeur primitive de type "string", que celle-ci soit stockée ou non dans une variable.</reponse>
 </qcm>
 
 <qcm>
@@ -29,6 +32,7 @@ toto.trim();</code>
 	<question>Après exécution de ce code, la variable toto vaut</question>
 	<choix>"tata"</choix>
 	<choix correct>" tata "</choix>
+  <reponse>La méthode ne modifie pas la variable elle-même mais renvoie une nouvelle valeur primitive.</reponse>
 </qcm>
 
 <qcm>
@@ -37,6 +41,7 @@ var tata = toto.trim();</code>
   <question>Après exécution de ce code, la variable tata vaut</question>
   <choix correct>"tata"</choix>
   <choix>" tata "</choix>
+  <reponse>La méthode renvoie une nouvelle valeur primitive dont les blancs ont été supprimés en début et fin de chaîne.</reponse>
 </qcm>
 
 <qcm>
@@ -45,6 +50,7 @@ nb.toFixed(2);</code>
   <question>Après exécution de ce code, la variable nb vaut</question>
   <choix correct>25</choix>
   <choix>"25.00"</choix>
+  <reponse>La méthode ne modifie pas la variable elle-même mais renvoie une nouvelle valeur primitive.</reponse>
 </qcm>
 
 <qcm>
@@ -53,6 +59,7 @@ var str = nb.toFixed(2);</code>
   <question>Après exécution de ce code, la variable str vaut</question>
   <choix>25</choix>
   <choix correct>"25.00"</choix>
+  <reponse>La méthode renvoie une chaîne de caractères formatée en notation à point fixe.</reponse>
 </qcm>
 
 <qcm>
@@ -60,6 +67,9 @@ var str = nb.toFixed(2);</code>
   <question>Cette écriture peut s'avérer utile</question>
   <choix>oui</choix>
   <choix correct>non</choix>
+  <reponse>Même si c'est possible, les constructeurs Boolean, String, Number ne sont jamais invoqués avec l'opérateur new. C'est inutile et source d'erreurs.
+Les conversions automatiques de javascript permettent une écriture plus intuitive.
+  </reponse>
 </qcm>
 
 <qcm>
@@ -67,6 +77,7 @@ var str = nb.toFixed(2);</code>
   <question>Cette écriture peut s'avérer utile</question>
   <choix correct>oui</choix>
   <choix>non</choix>
+  <reponse>L'invocation des constructeurs Boolean, String et Number sans le mot clé new permet de convertir l'argument en valeur primitive correspondante.</reponse>
 </qcm>
 
 <qcm>
@@ -76,6 +87,8 @@ typeof age;</code>
   <choix>"string"</choix>
   <choix>"object"</choix>
   <choix correct>"number"</choix>
+  <choix>Error</choix>
+  <reponse>Si l'argument est déjà un nombre, ce même nombre est renvoyé sans générer d'erreur.</reponse>
 </qcm>
 
 <qcm>
@@ -85,6 +98,7 @@ typeof age;</code>
   <choix>"string"</choix>
   <choix>"object"</choix>
   <choix correct>"number"</choix>
+  <reponse>La chaîne de caractères "25" est convertie en nombre 25, de type "number"</reponse>
 </qcm>
 
 <qcm>
@@ -94,6 +108,7 @@ typeof age;</code>
   <choix>NaN</choix>
   <choix>0</choix>
   <choix correct>1</choix>
+  <reponse>La conversion d'un booléen true en nombre renvoie 1. La conversion de la valeur booléenne false renvoie 0.</reponse>
 </qcm>
 
 <qcm>
@@ -102,6 +117,7 @@ typeof age;</code>
   <choix>Error</choix>
   <choix correct>true</choix>
   <choix>false</choix>
+  <reponse>La conversion en booléen de toute chaîne non vide ("") renvoie true.</reponse>
 </qcm>
 
 <qcm>
@@ -112,6 +128,7 @@ Number(tempe);</code>
   <choix>25.5</choix>
   <choix>25</choix>
   <choix correct>NaN</choix>
+  <reponse>Si la chaîne contient des caractères non numériques, la conversion en nombre renvoie la valeur spéciale NaN (not a number).</reponse>
 </qcm>
 
 <qcm>
@@ -123,6 +140,8 @@ parseInt(tempe);</code>
   <choix correct>25</choix>
   <choix>26</choix>
   <choix>NaN</choix>
+  <reponse>Le fonctionnement de la fonction parseInt est différent : elle s'arrête dès qu'elle trouve un caractère non numérique.
+    "25.5" est retenu et est tronqué à la valeur entière 25.</reponse>
 </qcm>
 
 <qcm>
@@ -134,4 +153,5 @@ parseFloat(tempe);</code>
   <choix>25</choix>
   <choix>26</choix>
   <choix>NaN</choix>
+  <reponse>Le fonctionnement de parseFloat est le même que celui de parseInt, sauf que le nombre n'est pas tronqué.</reponse>
 </qcm>

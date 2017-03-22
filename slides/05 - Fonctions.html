@@ -98,13 +98,30 @@ var round = function(nb,prec) {
 }
 </code></pre>
 
-					</section>
+			</section>
+
+			<section>
+				<h2>Fonctions fléchées</h2>
+				<h3>Nouveauté ES6</h3>
+				<p>Syntaxe plus courte pour créer des fonctions.</p>
+				<pre><code class="javascript">//ES5
+var length = function(str) { return str.length; }
+var somme = function(x,y) { return x + y; }
+
+
+//ES6
+var length = str => str.length;
+var somme = (x,y) => x + y;</code></pre>
+			</section>
+
+			
+
           <section>
             <h2>Constructeur Function</h2>
             <p>Il est également possible de passer par le constructeur <code>Function</code> pour créer une fonction. Mais cette écriture n'est <u>jamais</u> utilisée.
-            <pre><code>var round = new Function(nb,nbDecimales,"var pow = Math.pow(10,nbDecimales); return Math.round(nb*pow)/pow;");
+            <pre><code class="javascript">var round = new Function(nb,nbDecimales,"var pow = Math.pow(10,nbDecimales); return Math.round(nb*pow)/pow;");
             </code></pre>
-				</section>
+		</section>
       </section>
 
 			<section>
@@ -178,6 +195,7 @@ console.log(obj); // { x:0, y:0 }</code></pre>
 				</section>
 
 				<section>
+				  <section>
 					<h2>Valeurs par défaut des arguments</h2>
 					<p>Dans la norme ECMAScript 5, il n'est pas possible de définir des valeurs par défaut pour les arguments.</p>
 					Solution de contournement :
@@ -200,6 +218,22 @@ maFonction("titi");
 				</section>
 
 				<section>
+					<h2>Valeurs par défaut des arguments</h2>
+					<h3>Introduites dans la norme ES6</h3>
+					<pre><code class="javascript">function maFonction(a = "toto", b = "tata", c = "tutu") {
+
+    /* blah blah */
+
+}
+</code></pre>
+				</section>
+			  </section>
+
+				
+
+				<section>
+
+				  <section>
 					<h2>Objet arguments</h2>
 					<pre><code class="javascript">function multiAlert() {
     var i;
@@ -210,6 +244,29 @@ maFonction("titi");
 
 multiAlert("J'aime","abuser","des","messages","d'alerte","en","javascript");
 </code></pre>
+				  </section>
+
+				  <section>
+					<h2>Paramètres du reste</h2>
+					<h3>Nouveauté ES6</h3>
+					<p>Cette écriture permet d'obtenir dans un tableau des paramètres "supplémentaires"</p>
+					<pre><code class="javascript">function maFonction(paramRequis1, paramRequis2, ...paramsOptionnels) {
+    var i;
+    for (i=0;i&lt;paramsOptionnels.length;i++) {
+        window.alert(args[i]);
+    }
+}
+
+maFonction("toto","tata","et","plus","encore");
+//n'affichera que "et" "plus" "encore"</code></pre>
+<div class="fragment">
+<p>Par extension, cette écriture peut remplacer l'utilisation de l'objet arguments</p>
+<pre><code class="javascript">function maFonction(...args) {
+  // args est un tableau contenant les mêmes éléments que arguments
+}</code></pre>
+</div>
+				  </section>
+
 				</section>
 
 				<section>
@@ -251,7 +308,24 @@ changeStyle(div,{fontSize:"12px",fontWeight:"bold"});</code></pre>
 							<li>l'appel de la fonction est explicite</li>
 						</ul>
 					</section>
+
 					<section>
+							<h2>Hash d'arguments</h2>
+							<h3>Solution avec ES6</h3>
+							<pre><code class="javascript">function changeStyle(obj, { color, fontSize, fontFamily, fontWeight }) {
+  
+  if (color) obj.style.color = color;
+  if (fontSize) obj.style.fontSize = fontSize;
+  if (fontFamily) obj.style.fontFamily = fontFamily;
+  if (fontWeight) obj.style.fontWeight = fontWeight;
+}
+
+var div = document.getElementById("maDiv");
+
+changeStyle(div,{fontSize:"12px",fontWeight:"bold"});</code></pre>
+					</section>
+
+					<!--<section>
 						<h2>Hash d'arguments</h2>
 						<h3>Piège</h3>
 						<pre><code>function changeStyle(obj,options) {
@@ -291,28 +365,8 @@ var options = {fontSize:"12px",fontWeight:"bold"};
 var div = document.getElementById("maDiv");
 
 changeStyle(div,options);</code></pre>
-						</section>
+						</section>-->
 
-						<section>
-							<h2>Hash d'arguments</h2>
-							<h3>Autre solution</h3>
-							<pre><code class="javascript">function extend(obj1,obj2) {
-  var n;
-  for (n in obj2) obj1[n] = obj2[n];
-  return obj1;
-}
-function changeStyle(obj,options) {
-  var defaut = {
-    color:"green",
-    fontSize:"12px",
-    fontFamily:"verdana",
-    fontWeight:"bold"
-  };
-  var n;
-  options = extend(defaut,options);
-  for (n in options) obj.style[n] = opt[n];
-}</code></pre>
-					</section>
 				</section>
 
 				<section>

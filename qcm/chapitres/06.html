@@ -4,6 +4,7 @@ var tab1 = new Array();</code>
     			<question>L'écriture est strictement équivalente</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
+				<reponse>La notation littérale est à privilégier, plus concise et tout aussi claire.</reponse>
     		</qcm>
 
     		<!--<qcm>
@@ -40,6 +41,7 @@ console.log(monTableau.length);</code>
     			<question>La console affiche 2</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
+				<reponse>La fonction reçoit une copie de la référence vers le tableau. La méthode push ajoute un élément à ce tableau unique en mémoire.</reponse>
     		</qcm>
 
     		<qcm>
@@ -49,6 +51,7 @@ console.log(tab.length);</code>
     			<question>La console affiche 1</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
+				<reponse>On peut ajouter des éléments au tableau sans passer par la méthode push.</reponse>
     		</qcm>
 
     		<qcm>
@@ -58,6 +61,7 @@ console.log(tab.length);</code>
     			<question>La console affiche 1</question>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
+				<reponse>C'est un piège, la propriété length renvoie en fait l'indice du dernier élément + 1.</reponse>
     		</qcm>
 
     		<qcm>
@@ -67,6 +71,7 @@ console.log(tab.length);</code>
     			<question>La console affiche 1</question>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
+				<reponse>On n'ajoute pas un élement au tableau mais une propriété à l'objet tableau.</reponse>
     		</qcm>
 
     		<qcm>
@@ -77,16 +82,7 @@ for (i=0,N=tab.length ; i&lt;N ; i++) console.log(tab[i]);</code>
     			<choix>0, 1, 2</choix>
     			<choix correct>"tata","toto,"titi"</choix>
           <choix>undefined, undefined, undefined</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var tab = ["tata","toto","titi"];
-var i=0,N=tab.length;
-for (; i&lt;N ; i++) console.log(tab[i]);</code>
-    			<question>La console affiche</question>
-    			<choix>0, 1, 2</choix>
-    			<choix correct>"tata","toto","titi"</choix>
-    			<choix>Error</choix>
+		  <reponse>Enumération classique d'un tableau</reponse>
     		</qcm>
 
     		<qcm>
@@ -96,6 +92,8 @@ typeof tab.forEach;</code>
     			<choix>undefined</choix>
     			<choix>object</choix>
     			<choix correct>function</choix>
+				<reponse>Les tableaux sont des objets qui ont des propriétés, notamment la propriété <code>forEach</code> qui est de type <code>"function"</code>.
+				Elle permet d'exécuter une fonction de rappel sur chaque élément du tableau.</reponse>
     		</qcm>
 
         <qcm>
@@ -107,6 +105,7 @@ tab.forEach(function(a) {
           <choix>0, 1, 2</choix>
           <choix correct>"tata","toto","titi"</choix>
           <choix>undefined,undefined,undefined</choix>
+		  <reponse>Enumération du tableau par la méthode <code>forEach</code></reponse>
         </qcm>
 
     		<qcm>
@@ -118,6 +117,7 @@ tab.forEach(function(a,b) {
     			<choix correct>0, 1, 2</choix>
     			<choix>"tata","toto","titi"</choix>
     			<choix>undefined,undefined,undefined</choix>
+				<reponse>Le deuxième argument de la fonction de rappel correspond à l'indice de l'élément</reponse>
     		</qcm>
 
     		<!--<qcm important>

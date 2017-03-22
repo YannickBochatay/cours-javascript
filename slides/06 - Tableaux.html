@@ -84,7 +84,7 @@ tab.length; //3</code></pre>
 					<section>
 					<h2>Tableaux associatifs ?</h2>
 					<h3>Illusion</h3>
-					<p>Malgré de <a href="http://www.commentcamarche.net/contents/587-javascript-les-tableaux#tableaux-associatifs" target="liens">nombreuses sources</a> les évoquant, il n'y a <u>pas de tableaux associatifs</u> en javascript.</p>
+					<p>Il n'y a <u>pas de tableaux associatifs</u> en javascript.</p>
 					<p>La confusion vient de la notation avec crochets qui rappelle les tableaux associatifs d'autres langages.</p>
 					<pre><code class="javascript">var tab = [];
 var n;
@@ -133,31 +133,23 @@ var i;
 for (i=0 ; i&lttab.length ; i++) {
     console.log(tab[i]);
 }</code></pre>
-<p>ou mieux</p>
-<pre><code class="javascript">var tab = ["tata","toto","titi"];
-var i;
+						<div class="fragment">
+							<h3>forEach</h3>
+							<pre><code class="javascript">var tab = ["tata","toto","titi"];
 
-for (i=0, N=tab.length ; i&lt;N ; i++) {
-    console.log(tab[i]);
-}
-
-//tab.length n'est pas réévalué à chaque passage</code></pre>
-					</section>
-					<section>
-						<h2>Enumération</h2>
-						<h3>forEach <small>(ecmascript5)</small></h3>
-						<pre><code class="javascript">var tab = ["tata","toto","titi"];
-
-tab.forEach(function(item) {
-    console.log(item);
-});</code></pre>
-<p>avec les indices</p>
-<pre><code class="javascript">var tab = ["tata","toto","titi"];
-
-tab.forEach(function(item,i) {
+tab.forEach(function(item, i) {
     console.log("item n°"+i+" : "+item);
 });</code></pre>
+						</div>
+						<div class="fragment">
+							<h4>avec une fonction fléchée (ES6)</h4>
+							<pre><code class="javascript">var tab = ["tata","toto","titi"];
+
+tab.forEach(item => console.log("item n°" + item) );
+</code></pre>
+						</div>
 					</section>
+
 					<section>
 						<h2>Enumération</h2>
 						<h3><del>for...in</del></h3>

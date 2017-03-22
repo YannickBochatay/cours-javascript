@@ -135,7 +135,14 @@
                         return pre;
                     }
 
-                    function createInput(text,correct) {
+                    function createSpan(html) {
+
+                        var span = document.createElement("span");
+                        span.innerHTML = ' ' + html
+                        return span
+                    }
+
+                    function createInput(html,correct) {
 
                         var label = document.createElement("label");
                         var input = document.createElement("input");
@@ -145,7 +152,7 @@
                         if (correct) input.dataset.correct = true;
 
                         label.appendChild(input);
-                        label.appendChild( document.createTextNode(' '+text) );
+                        label.appendChild(createSpan(html));
 
                         return label;
                     }
@@ -160,16 +167,14 @@
                         icon.className = "fa fa-lightbulb-o fa-lg";
                         response.appendChild(icon);
 
-                        var text = document.createTextNode( " " + content + (content.match(/\.$/) ? "" : ".") )
-
-                        response.appendChild(text)
+                        response.appendChild( createSpan(content + (content.match(/\.\s*$/) ? "" : ".")) )
 
                         return response;
                     }
 
                     var fieldset = document.createElement("fieldset"),
                         code = elmt.querySelector("code"),
-                        question = elmt.querySelector("question").textContent,
+                        question = elmt.querySelector("question").innerHTML,
                         choix = slice.call( elmt.querySelectorAll("choix") ),
                         response = elmt.querySelector("reponse");
 
@@ -177,7 +182,7 @@
 
                     code && fieldset.appendChild( createCodeSnippet(code.textContent) );
 
-                    fieldset.appendChild( document.createTextNode(question+' : ') );
+                    fieldset.appendChild( createSpan(question + (question.match(/:\s*$/) ? "" : " :")) );
 
                     choix.forEach(function(choix) {
                             var text = choix.textContent;
@@ -185,7 +190,7 @@
                             fieldset.appendChild( createInput(text,correct) );
                     });
 
-                    response && fieldset.appendChild(createResponse(response.textContent))
+                    response && fieldset.appendChild(createResponse(response.innerHTML))
 
                     elmt.parentNode.replaceChild(fieldset,elmt);
                 },

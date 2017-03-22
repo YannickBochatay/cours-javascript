@@ -106,7 +106,11 @@ span.OK {
   margin-left:30px;
 }
 
-.response {
+#qcm code {
+    font-family : Consolas, Monaco, 'Andale Mono', monospace;
+}
+
+#qcm .response {
 	background-color: #faebcc;
 	padding: 5px;
 	border-radius: 5px;

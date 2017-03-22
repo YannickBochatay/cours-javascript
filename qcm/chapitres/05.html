@@ -5,6 +5,7 @@ function somme(a,b) { return a+b; }</code>
     			<question>Ce code génère une erreur</question>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
+					<reponse>Si on utilise l'instruction function, la fonction peut être appelée n'importe où dans le code (même avant sa déclaration).</reponse>
     		</qcm>
     		<!--
     		<qcm>
@@ -23,6 +24,7 @@ somme(3,5);</code>
     			<question>Ce code renvoie</question>
     			<choix correct>8</choix>
     			<choix>"35"</choix>
+					<reponse>Lorsque les 2 opérandes sont des nombres, l'opérateur + procède à la somme des 2 valeurs.</reponse>
     		</qcm>
 
         <qcm>
@@ -33,6 +35,9 @@ somme(3);</code>
           <choix>3</choix>
           <choix>Error</choix>
           <choix correct>NaN</choix>
+					<reponse>Javascript n'effectue pas de contrôle sur le nombre d'arguments passés à une fonction.
+						Un argument non défini obtient la valeur spéciale undefined.
+						La somme d'un nombre avec la valeur undefined renvoie NaN (not a number).</reponse>
         </qcm>
 
         <qcm>
@@ -44,6 +49,9 @@ somme(3,5,8);</code>
           <choix correct>8</choix>
           <choix>16</choix>
           <choix correct>NaN</choix>
+					<reponse>Javascript n'effectue pas de contrôle sur le nombre d'arguments passés à une fonction.
+						Les arguments non prévus sont simplement ignorés.
+					</reponse>
         </qcm>
 
         <qcm>
@@ -57,6 +65,7 @@ chaine; //?
           <question>La valeur de chaîne est </question>
           <choix correct>" toto "</choix>
           <choix>"toto"</choix>
+					<reponse>La méthode trim renvoie une nouvelle chaîne et ne modifie pas la chaîne elle-même.</reponse>
         </qcm>
 
     		<qcm>
@@ -70,20 +79,9 @@ chaine; //?
     			<question>La valeur de chaîne est </question>
     			<choix correct>" toto "</choix>
     			<choix>"toto"</choix>
+					<reponse>La fonction modifChaine reçoit une copie de la chaîne passée en argument, identifiée par str.
+						On réaffecte une valeur à str, mais cela n'a pas d'impact sur la chaîne initiale.</reponse>
     		</qcm>
-
-        <qcm>
-          <code>function modifChaine(str) { return str.trim(); }
-
-var chaine = " toto ";
-modifChaine(chaine);
-
-chaine; //?
-</code>
-          <question>La valeur de chaîne est </question>
-          <choix correct>" toto "</choix>
-          <choix>"toto"</choix>
-        </qcm>
 
         <qcm>
           <code>function modifChaine(str) { return str.trim(); }
@@ -96,6 +94,7 @@ chaine; //?
           <question>La valeur de chaîne est </question>
           <choix>" toto "</choix>
           <choix correct>"toto"</choix>
+					<reponse>On réaffecte à la variable "chaîne"" le résultat de la fonction modifChaine, c'est à dire la chaîne sans les blancs en début et fin.</reponse>
         </qcm>
 
     		<qcm>
@@ -108,9 +107,13 @@ monObjet.x; //?</code>
     			<question>La valeur de <code>monObjet.x</code> est </question>
     			<choix>15</choix>
     			<choix correct>50</choix>
+					<reponse>La fonction reçoit une copie de la référence vers l'objet.<br/>
+						L'objet n'est présent qu'une seule fois en mémoire, mais possède alors deux références (monObjet et obj).<br/>
+						Modifier une propriété par l'une ou l'autre modifie donc le même objet en mémoire.<br/>
+						On dit que la fonction a un effet de bord (qui n'est généralement pas souhaitable).</reponse>
     		</qcm>
 
-        <qcm>
+        <!--<qcm>
           <code>function modifObj(obj) { obj = {x:50,y:100};  }
 
 var monObjet = {x:15,y:20};
@@ -120,24 +123,10 @@ monObjet.x; //?</code>
           <question>La valeur de <code>monObjet.x</code> est </question>
           <choix correct>15</choix>
           <choix>50</choix>
-        </qcm>
-<!--
-    		<qcm>
-    			<code>function fct(a,b,c) {
-
-    return (a || 5) + (b || 2) + (c || 3);
-}
-
-fct(2,3,5); //?
-fct(null,3,5); //?
-fct(false,3,5); //?
-fct(0,3,5); //?
-</code>
-    			<question>Les valeurs renvoyées sont</question>
-    			<choix>10, 13, 13, 8</choix>
-    			<choix correct>10, 13, 13, 13</choix>
-    			<choix>10, 13, Error</choix>
-    		</qcm>-->
+					<reponse>La fonction reçoit une copie de la référence vers l'objet.<br/>
+						On réaffecte la variable contenant cette référence : cela n'a pas d'impact sur l'objet initial.
+					</reponse>
+        </qcm>-->
 
         <qcm important>
           <code>function coucou() {
@@ -149,6 +138,11 @@ window.setTimeout( coucou() ,3000);
           <question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
           <choix>vrai</choix>
           <choix correct>faux</choix>
+					<reponse>Les arguments sont évalués puis la fonction est évaluée : <code>coucou</code> est donc exécuté et c'est le résultat de cette fonction (en l'occurence <code>undefined</code>)
+						qui sera passé à la fonction setTimeout.<br/>
+						Donc la chaîne "coucou" sera loguée dans la console immédiatement, et rien ne se passera au bout de 3 secondes.
+					</reponse>
+
         </qcm>
 
 
@@ -161,6 +155,9 @@ window.setTimeout(coucou, 3000);</code>
           <question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
           <choix correct>vrai</choix>
           <choix>faux</choix>
+					<reponse>On passe à la fonction setTimeout une référence vers la fonction coucou.
+						Au bout de 3 secondes, javascript va chercher en mémoire la fonction correspondante et l'éxécute.
+					</reponse>
         </qcm>
 
     		<qcm important>
@@ -168,6 +165,9 @@ window.setTimeout(coucou, 3000);</code>
     			<question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
+					<reponse>Les arguments d'une fonction sont évalués prioritairement à la fonction. On exécute donc console.log("coucou") et le résultat (undefined)
+						est passé en argument de la fonction setTimeout.
+					</reponse>
     		</qcm>
 
         <qcm important>
@@ -177,6 +177,9 @@ window.setTimeout(coucou, 3000);</code>
           <question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
           <choix correct>vrai</choix>
           <choix>faux</choix>
+					<reponse>On crée ici une fonction anonyme passée directement en argument de setTimeout. Elle n'est donc pas exécutée immédiatement mais conservée en mémoire
+						pour être exécutée 3 secondes plus tard.
+					</reponse>
         </qcm>
 
     		<qcm important>
@@ -192,65 +195,20 @@ fct2();
     			<question>Ce code est correct</question>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
+					<reponse>Une fonction (ou variable) interne n'est pas accessible à l'extérieur de la fonction dans laquelle elle a été définie.</reponse>
     		</qcm>
 
-    		<qcm important>
+    		<!--<qcm important>
     			<code>var i=0;
 window.setTimeout(function() { alert(i); },1000);
 i++;</code>
     			<question>Ce code affichera 0</question>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var i=0;
-function affiche(i) { alert(i); }
-
-window.setTimeout(affiche,1000);
-i++;</code>
-    			<question>Ce code affichera 0</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-
-    		<qcm important>
-    			<code>function somme(a,b) { return a+b; }
-typeof somme.bind(null,2);</code>
-    			<question>Cette expression renvoie</question>
-    			<choix>"undefined"</choix>
-    			<choix>"object"</choix>
-    			<choix correct>"function"</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var i=0;
-
-window.setTimeout( alert.bind(null,i) ,1000);
-
-i++;</code>
-    			<question>Ce code affichera 0 après une seconde</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>(function() {
-   alert("toto");
-});</code>
-    			<question>Ce code affiche "toto"</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>(function() {
-   alert("toto");
-}());</code>
-    			<question>Ce code affiche "toto"</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
+					<reponse>i est défini globalement.
+						La fonction anonyme passée en argument de setTimeout sera éxécutée avec la valeur qu'aura i à cet instant, c'est à dire 1, car setTimeout n'est pas une instruction bloquante
+						(le reste du code continue de s'exécuter).</reponse>
+    		</qcm>-->
 
         <qcm>
           <code>var toto = {
@@ -259,55 +217,62 @@ i++;</code>
   renaitre : function() { this.age = 0; }
 };
 
-var boutonMagique = document.getElementById("monBoutonMagique");
-boutonMagique.addEventListener("click",toto.renaitre());</code>
-          <question><code>toto.age</code> passera à 0 seulement lors du clic</question>
-          <choix>vrai</choix>
-          <choix correct>faux</choix>
+toto.renaitre();
+
+toto.age; // ?</code>
+          <question><code>toto.age</code> vaut</question>
+          <choix correct>0</choix>
+          <choix>25</choix>
+					<reponse>Dans une méthode (propriété de type fonction), le mot clé this fait référence à l'objet lui-même.<br/>
+						<code>this.age</code> est donc la même chose que <code>toto.age</code>
+					</reponse>
         </qcm>
 
-    		<qcm important>
-    			<code>var toto = {
+				<qcm>
+          <code>var toto = {
+  nom : "toto",
+  age : 25,
+  disBonjour : function() { alert("bonjour"); }
+};
+
+window.setTimeout(toto.disBonjour, 1000 );</code>
+          <question>Le message "bonjour" s'affiche au bout d'une seconde : </question>
+          <choix correct>vrai</choix>
+          <choix>faux</choix>
+					<reponse>On passe en argument de la fonction setTimeout une référence vers la méthode disBonjour de l'objet toto.
+						Celle-ci est éxécutée une seconde plus tard.
+					</reponse>
+        </qcm>
+
+				<qcm>
+          <code>var toto = {
   nom : "toto",
   age : 25,
   renaitre : function() { this.age = 0; }
 };
 
-var boutonMagique = document.getElementById("monBoutonMagique");
-boutonMagique.addEventListener("click",toto.renaitre);</code>
-    			<question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0.</question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
-    		</qcm>
+window.setTimeout(toto.renaitre, 1000 );</code>
+          <question><code>toto.age</code> passe à 0 au bout d'une seconde : </question>
+          <choix>vrai</choix>
+          <choix correct>faux</choix>
+					<reponse>On passe en argument de la fonction setTimeout une référence vers la méthode disBonjour de l'objet toto.
+						setTimeout sait donc où aller chercher en mémoire la méthode renaître, mais elle n'a pas de référence vers l'objet toto.
+						Elle ne sait donc pas à quoi fait référence le mot clé <code>this</code>.
+					</reponse>
+        </qcm>
 
-    		<qcm>
-    			<code>var toto = {
+				<qcm>
+          <code>var toto = {
   nom : "toto",
   age : 25,
   renaitre : function() { this.age = 0; }
 };
 
-var totoRenaitre = function() { toto.renaitre(); };
-
-var boutonMagique = document.getElementById("monBoutonMagique");
-boutonMagique.addEventListener("click",totoRenaitre);</code>
-    			<question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0.</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var toto = {
-  nom : "toto",
-  age : 25,
-  renaitre : function() { this.age = 0; }
-};
-
-var totoRenaitre = toto.renaitre.bind(toto);
-
-var boutonMagique = document.getElementById("monBoutonMagique");
-boutonMagique.addEventListener("click",totoRenaitre);</code>
-    			<question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0.</question>
-    			<choix correct>vrai</choix>
-    			<choix>faux</choix>
-    		</qcm>
+window.setTimeout(function() { toto.renaitre(); }, 1000 );</code>
+          <question><code>toto.age</code> passe à 0 au bout d'une seconde : </question>
+          <choix correct>vrai</choix>
+          <choix>faux</choix>
+					<reponse>On crée une fonction anonyme qui contient une référence vers l'objet <code>toto</code>.
+						Dans ce cas là, la fonction <code>renaitre</code> est bien éxécutée en tant que méthode de l'objet toto.
+					</reponse>
+        </qcm>
