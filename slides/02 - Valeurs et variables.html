@@ -112,73 +112,88 @@ parseFloat("a"); // NaN
   "toto";
   'toto';
 							</code></pre>
-					</section>
+					  </section>
 
-					<section>
+					  <section>
 						<h3>Chaîne de caractère</h3>
 						<h4>Caractères spéciaux</h4>
 						<table id="caracteres_speciaux">
- <thead>
-  <tr>
-  </tr>
- </thead>
- <tbody>
-  <tr>
-   <td><code>\b</code></td>
-   <td>Retour arrière</td>
-  </tr>
-  <tr>
-   <td><code>\f</code></td>
-   <td>Saut de page</td>
-  </tr>
-  <tr>
-   <td><code>\n</code></td>
-   <td>Nouvelle ligne</td>
-  </tr>
-  <tr>
-   <td><code>\r</code></td>
-   <td>Retour chariot</td>
-  </tr>
-  <tr>
-   <td><code>\t</code></td>
-   <td>Tabulation</td>
-  </tr>
-  <tr>
-   <td><code>\v</code></td>
-   <td>Tabulation verticale</td>
-  </tr>
-  <tr>
-   <td><code>\'</code></td>
-   <td>Apostrophe ou guillemet droit simple</td>
-  </tr>
-  <tr>
-   <td><code>\"</code></td>
-   <td>Guillemet droit double</td>
-  </tr>
-  <tr>
-   <td><code>\\</code></td>
-   <td>Barre oblique inversée</td>
-  </tr>
-  <tr>
-   <td><code>\<em>XXX</em></code></td>
-   <td>Caractère Latin-1 spécifié par, au plus, 3 chiffres octaux entre 0 et 377.</td>
-  </tr>
-  <tr>
-  </tr>
-  <tr>
-   <td><code>\x<em>XX</em></code></td>
-   <td>Caractère Latin-1 spécifié par 2 chiffres hexadécimaux entre 00 et FF.</td>
-  </tr>
-  <tr>
-  </tr>
-  <tr>
-   <td><code>\u<em>XXXX</em></code></td>
-   <td>Caractère Unicode spécifié par 4 chiffres hexadécimaux.</td>
-  </tr>
- </tbody>
-</table>
-							</section>
+                            <thead>
+                            <tr>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                            <td><code>\b</code></td>
+                            <td>Retour arrière</td>
+                            </tr>
+                            <tr>
+                            <td><code>\f</code></td>
+                            <td>Saut de page</td>
+                            </tr>
+                            <tr>
+                            <td><code>\n</code></td>
+                            <td>Nouvelle ligne</td>
+                            </tr>
+                            <tr>
+                            <td><code>\r</code></td>
+                            <td>Retour chariot</td>
+                            </tr>
+                            <tr>
+                            <td><code>\t</code></td>
+                            <td>Tabulation</td>
+                            </tr>
+                            <tr>
+                            <td><code>\v</code></td>
+                            <td>Tabulation verticale</td>
+                            </tr>
+                            <tr>
+                            <td><code>\'</code></td>
+                            <td>Apostrophe ou guillemet droit simple</td>
+                            </tr>
+                            <tr>
+                            <td><code>\"</code></td>
+                            <td>Guillemet droit double</td>
+                            </tr>
+                            <tr>
+                            <td><code>\\</code></td>
+                            <td>Barre oblique inversée</td>
+                            </tr>
+                            <tr>
+                            <td><code>\<em>XXX</em></code></td>
+                            <td>Caractère Latin-1 spécifié par, au plus, 3 chiffres octaux entre 0 et 377.</td>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                            <td><code>\x<em>XX</em></code></td>
+                            <td>Caractère Latin-1 spécifié par 2 chiffres hexadécimaux entre 00 et FF.</td>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr>
+                            <td><code>\u<em>XXXX</em></code></td>
+                            <td>Caractère Unicode spécifié par 4 chiffres hexadécimaux.</td>
+                            </tr>
+                            </tbody>
+                            </table>
 						</section>
+
+                        <section>
+                        <h3>Littéraux de gabarits</h3>
+						<h3>Nouveauté ES6</h3>
+						<p>
+						Délimitées par les guillements obliques, ils permettent d'intégrer des expressions et de définir des chaînes sur plusieurs lignes.
+						</p>
+						<pre><code class="javascript">
+  var nom = "Toto";
+  
+  alert(`Bonjour ${nom},
+  comment vas-tu ?`);
+							</code></pre>
+					  </section>
+					</section>
+                
 
 						<section>
 							<h3>Undefined</h3>
@@ -198,9 +213,10 @@ toto; //undefined</code></pre>
 					</section>
 
 				<section>
-					<h2>Déclaration</h2>
-					Obligatoire en mode strict.
-					<pre><code>"use strict";
+                    <section>
+                        <h2>Déclaration</h2>
+                        Obligatoire en mode strict
+                        <pre><code>"use strict";
 
 var tata; //déclaration
 var toto = "titi"; //déclaration + affectation
@@ -210,6 +226,27 @@ toto; // "titi"
 titi; // undefined
 tutu; // undefined
 tyty; // ReferenceError: tyty is not defined</code></pre>
+				    </section>
+
+                    <section>
+                        <h2>Nouveautés ES6</h2>
+                        <h3>Portée de bloc et constantes</h3>
+                        <pre><code class="javascript">
+if (true) {
+    let x = 2;
+}
+
+x; //ReferenceError: x is not defined
+
+if (true) {
+    const y = 2;
+    y = 3; //TypeError: invalid assignment to const `y'
+}
+
+y; //ReferenceError: y is not defined
+</code></pre>
+				    </section>
+
 				</section>
 
 				<section>

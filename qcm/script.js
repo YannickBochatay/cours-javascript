@@ -167,7 +167,7 @@
                         icon.className = "fa fa-lightbulb-o fa-lg";
                         response.appendChild(icon);
 
-                        response.appendChild( createSpan(content + (content.match(/\.\s*$/) ? "" : ".")) )
+                        response.appendChild( createSpan(content + (content.match(/[.?!]\s*$/) ? "" : ".")) )
 
                         return response;
                     }

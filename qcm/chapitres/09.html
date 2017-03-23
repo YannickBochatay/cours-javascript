@@ -7,28 +7,8 @@ console.log(x);</code>
     			<question>la console affichera </question>
     			<choix>1</choix>
     			<choix correct>2</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var x = 1;
-if (false) {
-  var x = 2;
-}
-console.log(x);</code>
-    			<question>la console affichera </question>
-    			<choix correct>1</choix>
-    			<choix>2</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var x = 1;
-
-if (false) var x = 2;
-
-console.log(x);</code>
-    			<question>la console affichera </question>
-    			<choix correct>1</choix>
-    			<choix>2</choix>
+                <reponse>Les variables déclarées avec le mot clé <code>var</code> ont une portée globale (ou locale à l'intérieur d'une fonction), mais
+                pas une portée de bloc. La deuxième déclaration de <code>x</code> écrase donc la première.</reponse>
     		</qcm>
 
     		<qcm>
@@ -40,17 +20,7 @@ console.log(x);</code>
     			<question>la console affichera </question>
     			<choix correct>1</choix>
     			<choix>2</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var x = 1;
-if (true) {
-  let x = 2;
-}
-console.log(x);</code>
-    			<question>Ce code est conforme à la norme ECMAScript 5 </question>
-    			<choix>vrai</choix>
-    			<choix correct>faux</choix>
+                <reponse>Le mot clé <code>let</code>, introduit dans ES6, permet une portée de bloc. En sortant du bloc, la variable x égale à 2 n'existe plus.</reponse>
     		</qcm>
 
     		<qcm>
@@ -63,6 +33,7 @@ console.log(x);</code>
     			<choix correct>Error</choix>
     			<choix>1</choix>
     			<choix>1, 2</choix>
+                <reponse><code>elseif</code>n'est pas un mot clé en javascript. Il faut juste séparer le <code>else</code> du <code>if</code>.</reponse>
     		</qcm>
 
         <qcm>
@@ -71,6 +42,7 @@ if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix correct>oui</choix>
           <choix>non</choix>
+          <reponse><code>x</code> a la valeur <code>undefined</code>, qui est équivalente à <code>false</code>.</reponse>
         </qcm>
 
         <qcm>
@@ -79,6 +51,7 @@ if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix correct>oui</choix>
           <choix>non</choix>
+          <reponse><code>null</code> est une valeur équivalente à <code>false</code></reponse>
         </qcm>
 
         <qcm>
@@ -87,14 +60,7 @@ if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix correct>oui</choix>
           <choix>non</choix>
-        </qcm>
-
-        <qcm>
-          <code>var x = 1;
-if (!x) console.log("falsy value");</code>
-          <question>la console affichera le message</question>
-          <choix>oui</choix>
-          <choix correct>non</choix>
+          <reponse><code>0</code> est une valeur équivalente à <code>false</code> (ce qui est source de pièges)</reponse>
         </qcm>
 
         <qcm>
@@ -103,22 +69,7 @@ if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix>oui</choix>
           <choix correct>non</choix>
-        </qcm>
-
-        <qcm>
-          <code>var x = Infinity;
-if (!x) console.log("falsy value");</code>
-          <question>la console affichera le message</question>
-          <choix>oui</choix>
-          <choix correct>non</choix>
-        </qcm>
-
-        <qcm>
-          <code>var x = Number("toto");
-if (!x) console.log("falsy value");</code>
-          <question>la console affichera le message</question>
-          <choix correct>oui</choix>
-          <choix>non</choix>
+          <reponse>Tout nombre différent de 0 est équivalent à <code>true</code></reponse>
         </qcm>
 
         <qcm>
@@ -127,6 +78,7 @@ if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix correct>oui</choix>
           <choix>non</choix>
+          <reponse>Une chaîne vide est équivalente à <code>false</code></reponse>
         </qcm>
 
         <qcm>
@@ -135,14 +87,7 @@ if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix>oui</choix>
           <choix correct>non</choix>
-        </qcm>
-
-        <qcm>
-          <code>var x = "null";
-if (!x) console.log("falsy value");</code>
-          <question>la console affichera le message</question>
-          <choix>oui</choix>
-          <choix correct>non</choix>
+          <reponse>Toute chaîne non vide est équivalente à <code>true</code></reponse>
         </qcm>
 
         <qcm>
@@ -151,6 +96,7 @@ if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix>oui</choix>
           <choix correct>non</choix>
+          <reponse>Tout objet est équivalent à <code>true</code></reponse>
         </qcm>
 
         <qcm>
@@ -159,6 +105,7 @@ if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix>oui</choix>
           <choix correct>non</choix>
+          <reponse>Tout objet (dont les tableaux) est équivalent à <code>true</code></reponse>
         </qcm>
 
     		<qcm>
@@ -168,6 +115,7 @@ console.log( test ? "toto" : "tata" );</code>
     			<choix>SyntaxError</choix>
     			<choix correct>"toto"</choix>
     			<choix>"tata"</choix>
+                <reponse>C'est l'opérateur conditionnel ternaire : si la condition est vraie, c'est la première expression qui est renvoyée</reponse>
     		</qcm>
 
     		<qcm>
@@ -178,6 +126,8 @@ var toto = x == y ? "toto" : "tata";</code>
     			<choix>SyntaxError</choix>
     			<choix>"toto"</choix>
     			<choix correct>"tata"</choix>
+                <reponse>La condition est fausse, donc c'est la deuxième expression qui est renvoyée.<br/>
+                Les parenthèses sont vivement conseillées pour clarifier l'écriture.</reponse>
     		</qcm>
 
     		<qcm>
@@ -187,6 +137,9 @@ console[ test ? "log" : "error" ]("coucou");</code>
     			<choix>une erreur de syntaxe</choix>
     			<choix>un log de "coucou" dans la console</choix>
     			<choix correct>un log d'erreur de "coucou" dans la console</choix>
+                <reponse>La condition est fausse, donc l'opérateur conditionnel ternaire renvoie "error".<br/>
+                Ce qui revient à écrire : <code>console["error"]("coucou")</code><br/>
+                Ce qui est la même chose que : <code>console.error("coucou")</code></reponse>
     		</qcm>
 
     		<qcm>
@@ -205,26 +158,7 @@ str;</code>
     			<choix>"toto"</choix>
     			<choix>"titi"</choix>
     			<choix correct>"tutu"</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var test = 2;
-var str="";
-switch(test) {
-	case 1 : str+= "tata";
-	case 2 : str+= "toto";
-	case 3 : str+= "titi";
-	default : str+= "tutu";
-}
-
-str;</code>
-    			<question>str vaut </question>
-    			<choix>"tata"</choix>
-    			<choix>"tatatoto"</choix>
-    			<choix>"toto"</choix>
-    			<choix>"tototiti"</choix>
-    			<choix>"tatatototititutu"</choix>
-    			<choix correct>"tototititutu"</choix>
+                <reponse>Si on oublie l'instruction <code>break</code> en fin de cas, tout le reste du code est éxécuté.</reponse>
     		</qcm>
 
     		<qcm>
@@ -238,6 +172,7 @@ switch(test) {
     			<choix>"false"</choix>
     			<choix>"undefined"</choix>
     			<choix correct>"null"</choix>
+                <reponse>C'est l'égalité stricte qui est testée.</reponse>
     		</qcm>
 
     		<qcm>
@@ -246,33 +181,24 @@ for (i=0;i<5;i++) { }
 i;</code>
     			<question>la variable i vaut</question>
     			<choix>undefined</choix>
-    			<choix>Error : i is not defined</choix>
+    			<choix>ReferenceError : i is not defined</choix>
     			<choix>4</choix>
     			<choix correct>5</choix>
+                <reponse>La portée de <code>i</code> est globale.<br/>
+                Il y a incrémentation de <code>i</code> jusqu'à ce que la condition ne soit plus vraie.<br/>
+                Celà se produit quand <code>i</code> est égal à 5.
+                </reponse>
     		</qcm>
 
-    		<!--<qcm>
-    			<code>var i=0;
-var str="";
-for (;i<5;str+=i,i++);
-str;</code>
-    			<question>la variable str vaut</question>
-    			<choix>SyntaxError</choix>
-    			<choix correct>"01234"</choix>
-    			<choix>10</choix>
-    		</qcm>-->
-
-    		<qcm>
-    			<code>var i=0;
-var str="";
-for (;i<5;i++)
-str+=i;
-str;</code>
-    			<question>la variable str vaut</question>
-    			<choix>SyntaxError</choix>
-    			<choix correct>"01234"</choix>
-    			<choix>"5"</choix>
-    			<choix>10</choix>
+            <qcm>
+    			<code>for (let i=0;i<5;i++) { }
+i;</code>
+    			<question>la variable i vaut</question>
+    			<choix>undefined</choix>
+    			<choix correct>ReferenceError : i is not defined</choix>
+    			<choix>4</choix>
+    			<choix correct>5</choix>
+                <reponse>L'instruction <code>let</code> donne une portée de bloc à la variable <code>i</code> (ES6)</reponse>
     		</qcm>
 
     		<qcm>
@@ -285,6 +211,10 @@ while(i--) console.log(tab[i]);</code>
     			<choix correct>"titi", "tata", "toto"</choix>
     			<choix>undefined, "titi", "tata", "toto", undefined, undefined, ... (boucle infinie)</choix>
     			<choix>"titi", "tata", "toto", undefined, undefined, ... (boucle infinie)</choix>
+                <reponse>On décrémente <code>i</code> et on affiche tab[i].<br/>
+                Au premier passage, on affiche donc le dernier élément du tableau.<br/>
+                Lorsque <code>i</code> est égal à 1, <code>i--</code> renvoie <code>1</code> mais <code>i</code> vaut alors 0, la première valeur du tableau est affichée.<br/>
+                Au tour suivant, <code>i</code> est égal à <code>0</code>, <code>i--</code> renvoie <code>0</code> donc la condition est fausse.</reponse>
     		</qcm>
 
     		<qcm>
@@ -296,19 +226,7 @@ for (n in angeGaby) console.log(angeGaby[n]);</code>
     			<choix>"nom"</choix>
     			<choix>"Gabriel"</choix>
     			<choix correct>"Gabriel", null, null</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>try {
-  alert("tata");
-}
-catch(e) {
-  alert("toto");
-}</code>
-    			<question>ce code affiche</question>
-    			<choix correct>"tata"</choix>
-    			<choix>"toto"</choix>
-    			<choix>"tata" puis "toto"</choix>
+                <reponse><code>n</code> itère sur les noms de propriétés. <code>angeGaby[n]</code> est donc la valeur de la propriété correspondante.</reponse>
     		</qcm>
 
     		<qcm>
@@ -322,34 +240,8 @@ catch(e) {
     			<choix>tata</choix>
     			<choix correct>"toto"</choix>
     			<choix>tata puis "toto"</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>try {
-  alert(tata);
-}
-catch(e) {
-  alert(toto);
-}</code>
-    			<question>ce code affiche</question>
-    			<choix>tata</choix>
-    			<choix>toto</choix>
-    			<choix correct>rien, il génère une exception non levée.</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>try {
-  alert(tata);
-}
-catch(e) {
-  try { alert(toto); }
-  catch(e) { alert("titi"); }
-}</code>
-    			<question>ce code affiche</question>
-    			<choix>tata</choix>
-    			<choix>toto</choix>
-    			<choix correct>"titi"</choix>
-    			<choix>rien, il génère une exception.</choix>
+                <reponse><code>tata</code> est indéfini. Une exception est donc levée, elle est interceptée par le bloc <code>catch</code>.
+                C'est donc la chaîne "toto" qui va s'afficher.</reponse>
     		</qcm>
 
     		<qcm>
@@ -361,6 +253,9 @@ console.log(i);</code>
     			<question>la console affiche</question>
     			<choix correct>0</choix>
     			<choix>1</choix>
+                <reponse><code>i</code> est incrémenté 1 seconde plus tard.<br/>
+                <code>setTimeout</code> ne bloque pas l'éxécution du code, donc <code>i</code> vaut toujours 0 au moment où est éxécuté <code>console.log</code>
+                </reponse>
     		</qcm>
 
     		<qcm>
@@ -372,6 +267,7 @@ i++;</code>
     			<question>la console affichera</question>
     			<choix>0</choix>
     			<choix correct>1</choix>
+                <code>La fonction éxécutée avec une seconde de délai prendra la valeur de <code>i</code> telle qu'elle est à cet instant.</code>
     		</qcm>
 
     		<qcm>
@@ -388,41 +284,5 @@ delai();
     			<choix>0</choix>
     			<choix>1</choix>
     			<choix correct>2</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var i=0;
-
-function delai() {
-	window.setTimeout(function() {
-		i++;
-		window.setTimeout(function() {
-			i++;
-		},1000);
-	},1000);
-}
-
-delai();
-</code>
-    			<question>Après 1.5s, i vaut</question>
-    			<choix>0</choix>
-    			<choix correct>1</choix>
-    			<choix>2</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>function delai(ms) {
-  return new Promise(function(resolve) {
-     window.setTimeout(resolve,ms);
-  });
-}
-
-var i = 0;
-
-delai(1000).then(function() { i++; });
-</code>
-    			<question>Après 1.5s, i vaut</question>
-    			<choix>0</choix>
-    			<choix correct>1</choix>
-    			<choix>2</choix>
+                <reponse>La fonction <code>delai</code> est lancée deux fois deux suite. L'incrémentation se fera donc deux fois deux site, une seconde plus tard.</reponse>
     		</qcm>

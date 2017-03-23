@@ -49,24 +49,12 @@
 					<h3>Contrôle du flux d'instructions</h3>
 				</section>
 				<section>
-					<section>
 					<h2>Bloc</h2>
 					<p>L'instruction la plus simple est l'instruction de bloc qui permet de regrouper des instructions. Un bloc est délimité par une paire d'accolades.</p>
 					<p>Les instructions de blocs sont souvent utilisées avec les instructions conditionnelles et itératives telles que <code>if, for, while</code>.</p>
 					<pre><code>while (x < 10) {
   x++;
 }</code></pre>
-					</section>
-
-					<section>
-						<h2>Portée</h2>
-						<u>Rappel</u> : il n'y a pas de portée de bloc dans la norme ECMAScript&nbsp;5.
-						<pre><code class="javascript">var x = 1;
-{
-  var x = 2;
-}
-console.log(x); // affichera 2</code></pre>
-					</section>
 
 				</section>
 				<section>
@@ -170,18 +158,17 @@ var prix;
 					<h2>Boucles et itération</h2>
 				</section>
 				<section>
-					<section>
-						<h2>Instruction for</h2>
-						<p>Syntaxe</p>
-						<code class="syntaxe">
-							for ([expressionInitiale]; [condition]; [expressionIncrément])
-							<br/>
-  							&nbsp;&nbsp;instruction
-						</code>
-						<br/><br/>
-						<p>
-						Exemple
-						<pre><code class="javascript">var pas;
+                    <h2>Instruction for</h2>
+                    <p>Syntaxe</p>
+                    <code class="syntaxe">
+                        for ([expressionInitiale]; [condition]; [expressionIncrément])
+                        <br/>
+                        &nbsp;&nbsp;instruction
+                    </code>
+                    <br/><br/>
+                    <p>
+                    Exemple
+                    <pre><code class="javascript">var pas;
 
 for (pas=0 ; pas<5 ; pas++) {
   // Ceci sera exécuté 5 fois
@@ -189,38 +176,8 @@ for (pas=0 ; pas<5 ; pas++) {
   console.log("Faire un pas vers l'est");
 }
 						</code></pre>
-						</p><!--
-						<ol>
- 							<li><code>expressionInitiale</code> est exécutée si elle est présente.</li>
- 							<li><code>condition</code> est évaluée, si elle vaut <code>true</code>, les instructions contenues dans la boucle sont exécutées.</li>
- 							<li><code>instruction</code> est exécutée. Si on souhaite exécuter plusieurs instructions, on utilisera un bloc d'instructions.</li>
- 							<li><code>expressionIncrément</code> est exécutée si elle est présente. On retourne ensuite à l'étape 2.</li>
-						</ol>
-						 -->
-					</section>
-					<section>
-						<h2>Instruction for</h2>
-						<p>Les trois expressions sont optionnelles.</p>
-
-					<pre><code class="javascript">var i = 0;
-
-for (;;) {
-  if (i > 3) break;
-  console.log(i);
-  i++;
-}</code></pre>
-					<p>A l'inverse, on peut l'utiliser avec une instruction vide.</p>
-					<pre><code class="javascript">var x = 0;
-
-for ( var node=document.getElementById('maDiv');
-      node;
-      x+=node.offsetLeft , node=node.offsetParent
-);
-
-console.log("Décalage de position : "+x+"px");</code></pre>
-					<p>L'opérateur "<code>,</code>" permet de passer plusieurs instructions.</p>
-					<p><u>Rappel</u> : pas de portée de bloc.</p>
-					</section>
+						</p>
+					
 				</section>
 
 				<section>

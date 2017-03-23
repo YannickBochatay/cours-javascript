@@ -183,16 +183,17 @@ encodeURIComponent("toto&tata?titi");
           </section>
 
           <section>
-            <h2>Quelques fonctions globales</h2>
-            <h3>Nombres</h3>
-            <ul>
-              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/parseInt" target="liens"><code>parseInt</code></a> : convertit une variable en nombre entier</li>
-              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/parseFloat" target="liens"><code>parseFloat</code></a> : convertit une variable en nombre décimal</li>
-              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/isFinite" target="liens"><code>isFinite</code></a> : détermine si l'argument est un nombre fini</li>
-              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/isFinite" target="liens"><code>isNaN</code></a> : détermine si l'argument est <code>NaN</code> (not a number)</li>
-            </ul>
-            <br/><br/>
-            <pre><code class="javascript">parseInt("25.5°C"); //25 les décimaux sont tronqués
+            <section>
+                <h2>Quelques fonctions globales</h2>
+                <h3>Nombres</h3>
+                <ul>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/parseInt" target="liens"><code>parseInt</code></a> : convertit une variable en nombre entier</li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/parseFloat" target="liens"><code>parseFloat</code></a> : convertit une variable en nombre décimal</li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/isFinite" target="liens"><code>isFinite</code></a> : détermine si l'argument est un nombre fini</li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/isFinite" target="liens"><code>isNaN</code></a> : détermine si l'argument est <code>NaN</code> (not a number)</li>
+                </ul>
+                <br/><br/>
+                <pre><code class="javascript">parseInt("25.5°C"); //25 les décimaux sont tronqués
 parseFloat("25.5°C"); //25.5
 Number("25.5°C"); //NaN
 
@@ -202,7 +203,17 @@ isFinite(NaN); //false
 
 isNaN(3/0); //false
 isNaN( parseInt("a") ); //true</code></pre>
-          </section>
+                </section>
+                <section>
+                    <h2>Changement dans ES6</h2>
+                    <p>Ces fonctions ont été rattachées au constructeur <code>Number</code> en tant que méthodes statiques.</p>
+                    <pre><code class="javascript">Number.parseInt("25.5°C"); //25 les décimaux sont tronqués
+Number.parseFloat("25.5°C"); //25.5
+Number.isFinite(2/3);
+Number.isNaN( Number.parseInt("a") ); //true</code></pre>
+                </section>
+              </section>
+              </section>
 			</div>
 
 		</div>
