@@ -1,11 +1,9 @@
-.reveal code {
-    color: #FFE796;
-}
-.reveal pre code {
-    color:white;
-}
 .reveal small {
 	vertical-align:bottom;
+}
+
+.reveal pre code {
+    font-weight:bold;
 }
 
 .reveal .slides section p { text-align:left; }
