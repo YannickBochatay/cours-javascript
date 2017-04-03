@@ -184,14 +184,14 @@ changeProp(monObjet);
 console.log(monObjet); // { x:5, y:0 }</code></pre>
           </div>
 
-          <div class="fragment">
+          <!--<div class="fragment">
             <p><small>Mais une nouvelle valeur peut être assignée à l'argument sans influence sur l'objet externe.</small></p>
             <pre><code class="javascript">function changeProp(obj) { obj = null; }
 
 var monObjet = { x:0, y:0 };
 changeObj(monObjet);
 console.log(monObjet); // { x:0, y:0 }</code></pre>
-          </div>
+          </div>-->
 				</section>
 
 				<section>
@@ -517,7 +517,7 @@ window.setTimeout(function() {
 },3000);</code></pre>
 				</section>
 
-				<section>
+				<!--<section>
 					<h2>Problème</h2>
 					<small>html</small>
 					<pre><code class="html">&lt;div id="maDiv1"&gt;Cliquez ici !&lt;/div&gt;
@@ -584,10 +584,10 @@ for (i=1;i&lt;=3;i++) {
 }</code></pre>
 <p>Une fonction s'exécute toujours dans le contexte dans lequel elle a été créée.</p>
                                     </section>
-                                </section>
+                                </section>-->
 
 				<section>
-					<h2>Problème (encore ?!)</h2>
+					<h2>Autre problème</h2>
 <p>Mes variables ont des noms très génériques et une portée globale.
 <br/>Que se passe-t-il si j'écris une autre portion de code avec des noms semblables ?
 <br/>Que se passe-t-il si j'inclus une bibliothèque qui utilise des noms semblables ?</p>
@@ -648,7 +648,7 @@ toto.age; //27</code></pre>
 					<p>Dans la méthode d'un objet, le mot clé <code>this</code> fait référence à l'objet lui-même.</p>
 				</section>
 
-				<section>
+				<!--<section>
 					<h2>Méthodes</h2>
 					<h3>Piège : perte du contexte</h3>
 					<pre><code class="javascript">var toto = {
@@ -695,7 +695,7 @@ var totoVieillit = toto.vieillir.bind(toto);
 window.setInterval(totoVieillit,anneeEnMs);</code></pre>
 <p>Le 1er argument de la méthode <code>bind</code> force la valeur de <code>this</code>.</p>
 				</section>
-                                </section>
+                </section>-->
 			</div>
 
 		</div>
