@@ -21,7 +21,7 @@
         var target = e.target,
             str = "";
         
-        for (var n in target) str+= n+" : "+target[n]+"\n";
+        for (let n in target) str+= n+" : "+target[n]+"\n";
         
         descriptElmt.textContent = str; 
     });
@@ -53,7 +53,7 @@ $(function() {
             var target = e.target,
                 str = "";
 
-            for (var n in target) str+= n+" : "+target[n]+"\n";
+            for (let n in target) str+= n+" : "+target[n]+"\n";
 
             descriptElmt.text(str);
         }

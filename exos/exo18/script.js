@@ -2,28 +2,25 @@
 	
     "use strict";
     
-    var tbody = document.querySelector("#listeDesInstructions tbody");
+    var ul = document.querySelector("#listeDesInstructions");
+    var ex = document.querySelector("#exemple");
+
+    ul.removeChild(ex);
     
-    var trModele = tbody.querySelector(".modele");
-    
-    function insertLigneTableau(instruction) {
+    function ajoutInstruction(instruction) {
+
+        var li, a;
         
-        var tr = trModele.cloneNode(true);
+        a = document.createElement("a");
+        a.href = "http://mpfc.meteo.fr/#/instructions/"+instruction.id;
+        a.textContent = instruction.action;
+
+        li = document.createElement("li");
+        li.appendChild(a);
         
-        var lien = tr.querySelector("a");
-        
-        tr.firstElementChild.textContent = instruction.id;
-        
-        lien.href = "http://mpfc.meteo.fr/#/instructions/"+instruction.id;
-        lien.textContent = instruction.action;
-        
-        tbody.appendChild(tr);
+        ul.appendChild(li);
     }
-            
-    //on supprime la ligne du tableau qui sert de modele
-    trModele.parentNode.removeChild(trModele);
-            
-    
+                
     function recupInstructions() {
             
         var req = new XMLHttpRequest();
@@ -36,7 +33,7 @@
 
           var instructions = JSON.parse(this.responseText);
 
-          instructions.forEach(insertLigneTableau);
+          instructions.forEach(ajoutInstruction);
 
         };
 
