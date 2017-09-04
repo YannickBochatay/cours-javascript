@@ -1,0 +1,174 @@
+    		<qcm>
+    			<code>new Date();
+new Date(0);
+new Date(1422828900000);
+</code>
+    			<question>Les 3 dates sont valides</question>
+    			<choix correct>vrai</choix>
+    			<choix>faux</choix>
+                <reponse>Construit sans argument, l'objet date représente la date courante.
+                    Si le constructeur est appelé avec un nombre, celui-ci est pris en compte comme un timestamp (nombre de millisecondes écoulées depuis le 1er janvier 1970).
+                </reponse>
+    		</qcm>
+
+    		<qcm>
+    			<code>new Date("2015");
+new Date("2015-02");
+new Date("2015-02-01");
+</code>
+    			<question>Les 3 dates sont valides</question>
+    			<choix correct>vrai</choix>
+    			<choix>faux</choix>
+                <reponse>Appelé avec une chaîne de caractères, celle-ci doit être conforme à l'ISO8601.<br/>
+                Si le mois n'est pas précisé, la date sera calée au mois de janvier.<br/>
+                Si le jour n'est pas précisé, la date sera calée au 1er du mois.<br/>
+                Si l'heure n'est pas précisé, la date sera calée à 00h locale.<br/>
+                </reponse>
+    		</qcm>
+
+    		<qcm>
+    			<code>new Date("2015-02-01 23:15");
+new Date("2015-02-01T23:15");
+new Date("2015-02-01T23:15Z");
+</code>
+    			<question>Les 3 dates sont valides</question>
+    			<choix>vrai</choix>
+          <choix correct>faux</choix>
+          <reponse>La norme ISO8601 exige un "T" entre la date et l'heure. Le Z final indique que l'heure est en UTC.</reponse>
+    		</qcm>
+
+    		<qcm>
+    			<code>new Date(2015).getFullYear();</code>
+    			<question>La valeur renvoyée est </question>
+    			<choix>2015</choix>
+    			<choix>"2015"</choix>
+    			<choix correct>1970</choix>
+    			<choix>"1970"</choix>
+                <reponse>Attention au piège. Si on passe un nombre et non une chaîne de caractères, l'argument est considéré comme un timestamp.<br/>
+                    2015 représente donc le nombre de millisecondes écoulées depuis le 1er janvier 1970.<br/>
+                    La méthode <code>getFullYear</code> renvoie un nombre.
+                </reponse>
+    		</qcm>
+
+    		<qcm>
+    			<code>new Date(2015,2).getMonth();</code>
+    			<question>La valeur renvoyée est </question>
+    			<choix>1</choix>
+    			<choix correct>2</choix>
+    			<choix>"01"</choix>
+    			<choix>"02"</choix>
+                <reponse>Si on passe plusieurs arguments, alors le constructeur attend une structure <code>année, mois[, jour[, heures[, minutes[, secondes[, millisecondes]]]]]</code>.
+                    <br/>
+                    La méthode <code>getMonth</code> renvoie un nombre.<br/>
+                    <strong>Attention</strong>, les mois vont de 0 à 11 !
+                </reponse>
+    		</qcm>
+
+    		<qcm>
+    			<code>new Date(2015,13).getMonth();</code>
+    			<question>La valeur renvoyée est </question>
+    			<choix>Error</choix>
+    			<choix>0</choix>
+    			<choix correct>1</choix>
+    			<choix>2</choix>
+                <reponse>Javascript gère les dépassements de ce type. La date représentée sera le 1er février 2016.</reponse>
+    		</qcm>
+
+    		<qcm>
+    			<code>var math = new Math();
+math.cos(0);</code>
+    			<question>Ce code renvoie </question>
+    			<choix correct>TypeError</choix>
+    			<choix>0</choix>
+    			<choix>1</choix>
+                <reponse>Math n'est pas un constructeur. C'est un objet déjà instancié qui répertorie des méthodes statiques.</reponse>
+    		</qcm>
+
+    		<qcm>
+    			<code>Math.cos( Math.PI );</code>
+    			<question>Ce code renvoie </question>
+    			<choix>Error</choix>
+    			<choix>0</choix>
+    			<choix correct>-1</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>/^toto$/.test("toto");</code>
+    			<question>Ce code renvoie </question>
+    			<choix>Error</choix>
+    			<choix correct>true</choix>
+    			<choix>false</choix>
+                <reponse>On instancie une expression rationnelle représentant la chaîne exacte "toto".<br/>
+                Les expressions rationnelles possèdent une méthode <code>test</code> qui permet de savoir si la chaîne passée en argument
+                répond à cette expression.<br/>
+                Elle renvoie un booléen, dans ce cas <code>true</code></reponse>
+    		</qcm>
+
+    		<qcm>
+    			<code>var json = new JSON();
+json.stringify( { tata : "toto" } );</code>
+    			<question>Ce code renvoie </question>
+    			<choix correct>TypeError</choix>
+    			<choix>'{ tata : "toto" }'</choix>
+    			<choix>'{ "tata" : "toto" }'</choix>
+                <reponse>JSON n'est pas un constructeur. C'est un objet déjà instancié qui possède des méthodes statiques.</reponse>
+    		</qcm>
+
+    		<qcm>
+    			<code>JSON.stringify( { tata : "toto" } );</code>
+    			<question>Ce code renvoie </question>
+    			<choix>Error</choix>
+    			<choix>'{ tata : "toto" }'</choix>
+    			<choix correct>'{ "tata" : "toto" }'</choix>
+                <reponse>la méthode <code>JSON.stringify</code> transforme un objet javascript en chaîne de caractères JSON.<br/>
+                    Dans la norme JSON, les noms de propriétés sont obligatoirement entre double quotes.
+                </reponse>
+    		</qcm>
+
+    		<qcm>
+    			<code>JSON.parse( { tata : "toto" } );</code>
+    			<question>Ce code renvoie </question>
+    			<choix correct>SyntaxError</choix>
+    			<choix>Object</choix>
+    			<choix>String</choix>
+                <reponse>La méthode <code>JSON.parse</code> transforme une chaîne de caractères JSON en objet javascript.<br/>
+                Si on passe un objet en argument de la méthode, on obtient une erreur.</reponse>
+    		</qcm>
+
+    		<qcm>
+    			<code>JSON.parse( '{ tata : "toto" }' );</code>
+    			<question>Ce code renvoie </question>
+    			<choix correct>SyntaxError</choix>
+    			<choix>Object { tata: "toto" }</choix>
+    			<choix>'{ "tata" : "toto" }'</choix>
+                <reponse>Dans la norme JSON, les noms de propriétés sont obligatoirement entre double quotes.<br/>
+                La chaîne de caractères passée en argument n'est donc pas conforme. On obtient donc une erreur.
+                </reponse>
+    		</qcm>
+    		<qcm>
+    			<code>JSON.parse( '{ "tata" : "toto" }' );</code>
+    			<question>Ce code renvoie </question>
+    			<choix>SyntaxError</choix>
+    			<choix correct>Object { tata: "toto" }</choix>
+    			<choix>'{ "tata" : "toto" }'</choix>
+                <reponse>La chaîne est conforme, la méthode renvoie donc un objet javascript.</reponse>
+    		</qcm>
+
+    		<qcm>
+    			<code>JSON.parse("toto");</code>
+    			<question>Ce code renvoie </question>
+    			<choix correct>SyntaxError</choix>
+    			<choix>String Object</choix>
+    			<choix>"toto"</choix>
+                <reponse>La chaîne n'est pas conforme. Les double quotes doivent apparaître dans la chaîne de caractères.<br/>
+                Celles qui sont ici servent uniquement à délimiter la chaîne.</reponse>
+    		</qcm>
+
+        <qcm>
+          <code>JSON.parse('"toto"');</code>
+          <question>Ce code renvoie </question>
+          <choix>SyntaxError</choix>
+          <choix>String Object</choix>
+          <choix correct>"toto"</choix>
+          <reponse>C'est la syntaxe conforme si on veut représenter une chaîne de caractères au format JSON.</reponse>
+        </qcm>

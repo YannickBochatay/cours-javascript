@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="fr">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Cours javascript : les fonctions</title>
+
+		<meta name="description" content="cours de javascript">
+		<meta name="author" content="Yannick Bochatay">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+        <link rel="stylesheet" href="css/custom.css">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/hemisu-light.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+        window.print();
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Javascript</h1>
+					<h3>Les fonctions</h3>
+				</section>
+				<section>
+					<h2>Définition</h2>
+					<p>Une fonction est une procédure, un ensemble d'instructions effectuant une tâche ou calculant une valeur.</p>
+					<br/>
+					<p>En javascript, les fonctions sont des <u>objets</u> de première classe.
+					Cela signifie qu'elles peuvent être manipulées et échangées comme tous les autres objets JavaScript.</p>
+					<br/>
+					<p>
+					Les fonctions sont des objets instances du constructeur <code>Function</code>.
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Déclaration</h2>
+  						<p>Instruction <code>function</code></p>
+	   					<pre><code>function round(nb,nbDecimales) {
+    var pow = Math.pow(10,nbDecimales);
+    return Math.round(nb*pow)/pow;
+}</code></pre>
+              <br/>
+              <p>Expression de fonction</p>
+              <pre><code>var round = function(nb,nbDecimales) {
+    var pow = Math.pow(10,nbDecimales);
+    return Math.round(nb*pow)/pow;
+};</code></pre>
+					</section>
+					<section>
+						<h2>Différences</h2>
+						<p>Instruction function</p>
+								<pre><code class="javascript">round(3.5123,2); //3.51
+
+typeof round; //"function"
+
+function round(nb,nbDecimales) {
+    var pow = Math.pow(10,nbDecimales);
+    return Math.round(nb*pow)/pow;
+}</code></pre>
+<br/>
+							<p>Expression de fonction</p>
+<pre><code class="javascript">round(3.5123,2); //Exception: round is not a function
+
+typeof round; //"undefined"
+
+var round = function(nb,prec) {
+    var pow = Math.pow(10,nbDecimales);
+    return Math.round(nb*pow)/pow;
+}
+</code></pre>
+
+			</section>
+
+			<section>
+				<h2>Fonctions fléchées</h2>
+				<h3>Nouveauté ES6</h3>
+				<p>Syntaxe plus courte pour créer des fonctions.</p>
+				<pre><code class="javascript">//ES5
+var length = function(str) { return str.length; }
+var somme = function(x,y) { return x + y; }
+
+
+//ES6
+var length = str => str.length;
+var somme = (x,y) => x + y;</code></pre>
+			</section>
+
+			
+
+          <section>
+            <h2>Constructeur Function</h2>
+            <p>Il est également possible de passer par le constructeur <code>Function</code> pour créer une fonction. Mais cette écriture n'est <u>jamais</u> utilisée.
+            <pre><code class="javascript">var round = new Function(nb,nbDecimales,"var pow = Math.pow(10,nbDecimales); return Math.round(nb*pow)/pow;");
+            </code></pre>
+		</section>
+      </section>
+
+			<section>
+				<h2>Arguments</h2>
+				Grande souplesse au niveau des arguments.
+				<pre><code class="javascript">function round(nb,nbDecimales) {
+
+    //un argument omis à la valeur undefined
+    if (nbDecimales === undefined) nbDecimales = 0;
+
+    var pow = Math.pow(10,nbDecimales);
+    return Math.round(nb*pow)/pow;
+}
+
+round(5.265485, 2, "toto", "tata"); //5.27
+round(5.265485); //5
+</code></pre>
+
+      </section>
+
+      <section>
+        <h2>Stratégie d'évaluation</h2>
+        <p>C'est ce qui détermine quand évaluer les arguments à l'appel d'une fonction et comment passer les arguments à la fonction.
+        </p>
+        <p>En javascript, les paramètres sont d'abord évalués, puis la fonction est évaluée.</p>
+        <pre><code class="javascript">function somme(a,b) { return a+b; }
+
+somme( 5*2, 10-1 );// équivalent à somme(10,9)
+
+somme( somme(2,3), somme(3,8) ); //équivalent à somme(5,11)</code></pre>
+      </section>
+
+      <section>
+        <h2>Stratégie d'évaluation</h2>
+        <h3>Valeurs primitives</h3>
+        <p>La fonction reçoit une copie des valeurs primitives.</p>
+        <pre><code class="javascript">function ajoutSignature(texte) {
+  texte = texte + "\n\nMr Dupont\nMétéo-France"
+  return texte;
+}
+
+var mess = "Bonjour, bla bla bla.";
+
+ajoutSignature(mess); //Bonjour, bla bla bla.\n\nMr Dupont\nMétéo-France"
+
+mess; // "Bonjour, bla bla bla."</code></pre>
+        </section>
+
+				<section>
+					<h2>Stratégie d'évaluation</h2>
+          <h3>Objets</h3>
+          <p>La fonction reçoit une copie de la référence vers l'objet.</p>
+
+          <div>
+            <p><small>Les modifications sur les propriétés d'un argument ont des effets sur l'objet externe.</small></p>
+            <pre><code class="javascript">function changeProp(obj) { obj.x = 5; }
+
+var monObjet = { x:0, y:0 };
+changeProp(monObjet);
+console.log(monObjet); // { x:5, y:0 }</code></pre>
+          </div>
+
+          <!--<div class="fragment">
+            <p><small>Mais une nouvelle valeur peut être assignée à l'argument sans influence sur l'objet externe.</small></p>
+            <pre><code class="javascript">function changeProp(obj) { obj = null; }
+
+var monObjet = { x:0, y:0 };
+changeObj(monObjet);
+console.log(monObjet); // { x:0, y:0 }</code></pre>
+          </div>-->
+				</section>
+
+				<section>
+				  <section>
+					<h2>Valeurs par défaut des arguments</h2>
+					<p>Dans la norme ECMAScript 5, il n'est pas possible de définir des valeurs par défaut pour les arguments.</p>
+					Solution de contournement :
+					<pre><code class="javascript">function maFonction(a,b,c) {
+    a = a || "toto";
+    b = b || "tata";
+    c = c || "tutu";
+}
+
+maFonction();
+</code></pre>
+Solution plus tricte :<pre><code class="javascript">function maFonction(a,b,c) {
+    if (a == null) a = "toto";
+    if (b == null) b = "tata";
+    if (c == null) c = "tutu";
+}
+
+maFonction("titi");
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Valeurs par défaut des arguments</h2>
+					<h3>Introduites dans la norme ES6</h3>
+					<pre><code class="javascript">function maFonction(a = "toto", b = "tata", c = "tutu") {
+
+    /* blah blah */
+
+}
+</code></pre>
+				</section>
+			  </section>
+
+				
+
+				<section>
+
+				  <section>
+					<h2>Objet arguments</h2>
+					<pre><code class="javascript">function multiAlert() {
+    var i;
+    for (i=0;i&lt;arguments.length;i++) {
+        window.alert(arguments[i]);
+    }
+}
+
+multiAlert("J'aime","abuser","des","messages","d'alerte","en","javascript");
+</code></pre>
+				  </section>
+
+				  <section>
+					<h2>Paramètres du reste</h2>
+					<h3>Nouveauté ES6</h3>
+					<p>Cette écriture permet d'obtenir dans un tableau des paramètres "supplémentaires"</p>
+					<pre><code class="javascript">function maFonction(paramRequis1, paramRequis2, ...paramsOptionnels) {
+    var i;
+    for (i=0;i&lt;paramsOptionnels.length;i++) {
+        window.alert(args[i]);
+    }
+}
+
+maFonction("toto","tata","et","plus","encore");
+//n'affichera que "et" "plus" "encore"</code></pre>
+<div class="fragment">
+<p>Par extension, cette écriture peut remplacer l'utilisation de l'objet arguments</p>
+<pre><code class="javascript">function maFonction(...args) {
+  // args est un tableau contenant les mêmes éléments que arguments
+}</code></pre>
+</div>
+				  </section>
+
+				</section>
+
+				<section>
+					<h2>Hash d'arguments</h2>
+					<h3>Problème</h3>
+					<pre><code>function changeStyle(obj,color,fontSize,fontFamily,fontWeight) {
+    if (color) obj.style.color = color;
+    if (fontSize) obj.style.fontSize = fontSize;
+    if (fontFamily) obj.style.fontFamily = fontFamily;
+    if (fontWeight) obj.style.fontWeight = fontWeight;
+}
+
+var div = document.getElementById("maDiv");
+
+changeStyle(div,null,"12px",null,"bold");</code></pre>
+					<ul>
+						<li>il faut connaître l'ordre des arguments</li>
+						<li>si seul le dernier nous intéresse, on est obligé de passer des valeurs aux précédents</li>
+						<li>l'appel est peu lisible pour celui qui ne connaît pas la fonction</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>Hash d'arguments</h2>
+						<h3>Solution</h3>
+						<pre><code>function changeStyle(obj,options) {
+    if (options.color) obj.style.color = options.color;
+    if (options.fontSize) obj.style.fontSize = options.fontSize;
+    if (options.fontFamily) obj.style.fontFamily = options.fontFamily;
+    if (options.fontWeight) obj.style.fontWeight = options.fontWeight;
+}
+
+var div = document.getElementById("maDiv");
+
+changeStyle(div,{fontSize:"12px",fontWeight:"bold"});</code></pre>
+						<ul>
+							<li>l'ordre des propriétés est sans importance</li>
+							<li>seules les propriétés qui nous intéressent sont passées</li>
+							<li>l'appel de la fonction est explicite</li>
+						</ul>
+					</section>
+
+					<section>
+							<h2>Hash d'arguments</h2>
+							<h3>Solution avec ES6</h3>
+							<pre><code class="javascript">function changeStyle(obj, { color, fontSize, fontFamily, fontWeight }) {
+  
+  if (color) obj.style.color = color;
+  if (fontSize) obj.style.fontSize = fontSize;
+  if (fontFamily) obj.style.fontFamily = fontFamily;
+  if (fontWeight) obj.style.fontWeight = fontWeight;
+}
+
+var div = document.getElementById("maDiv");
+
+changeStyle(div,{fontSize:"12px",fontWeight:"bold"});</code></pre>
+					</section>
+
+					<!--<section>
+						<h2>Hash d'arguments</h2>
+						<h3>Piège</h3>
+						<pre><code>function changeStyle(obj,options) {
+    var n;
+    options.color = options.color || "green";
+    options.fontSize = options.fontSize || "12px";
+    options.fontFamily = options.fontFamily || "verdana";
+    options.fontWeight = options.fontWeight || "bold";
+
+    for (n in options) obj.style[n] = options[n];
+}
+
+var options = {fontSize:"12px",fontWeight:"bold"};
+var div = document.getElementById("maDiv");
+
+changeStyle(div,options);
+
+console.log(options);</code></pre>
+						</section>
+						<section>
+							<h2>Hash d'arguments</h2>
+							<h3>Solution</h3>
+							<pre><code class="javascript">function changeStyle(obj,options) {
+    //crée un nouvel objet sur le modèle de "options"
+    var opt = Object.create(options);
+    var n;
+
+    opt.color = opt.color || "green";
+    opt.fontSize = opt.fontSize || "12px";
+    opt.fontFamily = opt.fontFamily || "verdana";
+    opt.fontWeight = opt.fontWeight || "bold";
+
+    for (n in options) obj.style[n] = opt[n];
+}
+
+var options = {fontSize:"12px",fontWeight:"bold"};
+var div = document.getElementById("maDiv");
+
+changeStyle(div,options);</code></pre>
+						</section>-->
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Fonctions de rappel (callbacks)</h2>
+						<p>C'est une fonction passée en argument d'une autre fonction.</p>
+						<pre><code class="javascript">function logMessage() {
+  console.log("coucou");
+}
+
+window.setTimeout(logMessage,3000);
+//la fonction setTimeout attend en premier argument une fonction,
+//qui sera executée après 3000 millisecondes.
+
+var lien = document.getElementById("monLien");
+lien.addEventListener("click",logMessage);
+//la fonction addEventListener attend un nom d'évènement
+//et une fonction qui sera exécutée au déclenchement de l'évènement.
+</code></pre>
+					</section>
+					<section>
+						<h2>Fonctions de rappel (callbacks)</h2>
+						<h3>Erreur fréquemment commise</h3>
+<pre><code class="javascript">function logMessage() {
+  console.log("coucou");
+}
+
+window.setTimeout( logMessage() ,3000);</code></pre>
+                                                <p class="fragment">
+                                                    La fonction <em>logMessage</em> est exécutée immédiatement et c'est la valeur renvoyée par la fonction (ici <em>undefined</em>) qui
+est passée en argument de la fonction setTimeout.</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Fonctions anonymes</h2>
+					<p>L'exemple précédent peut s'écrire de la manière suivante :</p>
+<pre><code class="javascript">window.setTimeout(function() {
+    console.log("coucou");
+},3000);
+
+var lien = document.getElementById("monLien");
+lien.addEventListener("click",function() {
+    console.log("hello");
+});
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Fonctions imbriquées</h2>
+					<p>On peut définir une fonction à l'intérieur d'une fonction.</p>
+					<pre><code class="javascript">function valideFormulaire() {
+
+    function valideChampNom() {
+      /*blah blah*/
+    }
+
+    function valideChampEmail() {
+      /*blah blah*/
+    }
+
+    function envoiDonnees() { /*blah blah*/}
+
+    valideChampNom();
+    valideChampEmail();
+    envoiDonnees();
+}</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h2>Portée des variables</h2>
+						<p>Les fonctions internes ont accès à toutes les variables de la fonction externe.</p>
+						<pre><code class="javascript">function valideFormulaire() {
+
+  var test = true;
+
+  function valideChampNom() { test = false; }
+
+  function valideChampEmail() { test = false; }
+
+  valideChampNom();
+  valideChampEmail();
+
+  test;//false
+}
+valideFormulaire();</code></pre>
+					</section>
+					<section>
+						<h2>Portée des variables</h2>
+						<p>L'inverse n'est évidemment pas vrai.</p>
+<pre><code class="javascript">function valideFormulaire() {
+
+  function valideChampNom() { var nom = "Toto"; }
+
+  valideChampNom();
+
+  nom; //Exception: nom is not defined
+}
+valideFormulaire();</code></pre>
+					</section>
+					<section>
+						<h2>Portée des variables</h2>
+						<h3>Conflits de nom</h3>
+<pre><code class="javascript">function valideFormulaire() {
+
+  var test = true;
+
+  function valideChampNom() {
+    test; //??
+    var test = false;
+    test; //??
+  }
+
+  valideChampNom();
+
+  test; //??
+}
+valideFormulaire();</code></pre>
+<p class="fragment">La portée la plus interne l'emporte.<br/>Attention au mécanisme d'élévation des variables !</p>
+				</section>
+
+			</section>
+
+				<section>
+					<h2>Problème</h2>
+					<h3>Comment passer une fonction avec des paramètres ?</h3>
+					<pre><code class="javascript">function log(message) {
+  console.log("Voici le message :\n" + message);
+}
+
+window.setTimeout(log,3000); //la fonction sera appelée sans argument
+
+window.setTimeout( log("coucou") , 3000);
+//la fonction est exécutée immédiatemment et
+//le résultat (undefined) est passé en argument de setTimeout</code></pre>
+				</section>
+
+				<section>
+					<h2>Solution</h2>
+					<h3>On encapsule la fonction dans une autre</h3>
+					<pre><code class="javascript">function log(message) {
+  console.log("Voici le message :\n" + message);
+}
+
+window.setTimeout(function() {
+  log("coucou");
+},3000);</code></pre>
+				</section>
+
+				<!--<section>
+					<h2>Problème</h2>
+					<small>html</small>
+					<pre><code class="html">&lt;div id="maDiv1"&gt;Cliquez ici !&lt;/div&gt;
+&lt;div id="maDiv2"&gt;ou ici !&lt;/div&gt;
+&lt;div id="maDiv3"&gt;ou ici !&lt;/div&gt;</code></pre>
+					<small>js</small>
+					<pre><code class="javascript">var div;
+var i;
+
+for (i=1;i&lt;=3;i++) {
+
+  div = document.getElementById("maDiv"+i);
+
+  div.addEventListener("click",function() {
+    window.alert("Je suis la div n°"+i);
+  });
+
+}</code></pre>
+				</section>
+
+				<section>
+					<h2>Explication</h2>
+					<p>La portée de la variable <code>i</code> est globale.
+					<br/>Après la boucle <code>for</code>, <code>i</code> est égal à <code>4</code>.
+					<br/>Quand on clique, la valeur de <code>i</code> est toujours <code>4</code>.
+					<br/><br/><strong>La valeur de <code>i</code> n'est pas capturée.</strong>
+					</p>
+				</section>
+
+                                <section>
+                                    <section>
+					<h2>Solution : méthode bind</h2>
+					<pre><code class="javascript">var i, div, fct;
+
+function affiche(cpt) {
+  window.alert("Je suis la div n°"+cpt);
+}
+
+for (i=1;i&lt;=3;i++) {
+  div = document.getElementById("maDiv"+i);
+  fct = affiche.bind(null,i);
+  div.addEventListener("click",fct);
+}</code></pre>
+<p>Les fonctions étant des objets, elles ont aussi leurs propriétés et méthodes.
+<br/>La méthode <code>bind</code> permet de créer une nouvelle fonction dont on fige les arguments.
+<br/>Le 1er argument sera expliqué bientôt.</p>
+                                    </section>
+
+                                    <section>
+					<h2>Autre solution : les fermetures</h2>
+                                        <p>Avant la normalisation de la méthode <code>bind</code>, il fallait coder l'équivalent par une fermeture (closure).</p>
+					<pre><code class="javascript">var i, div;
+
+function creeFonctionAffiche(cpt) {
+  function affiche() {
+    window.alert("Je suis la div n°"+cpt);
+  }
+  return affiche;
+}
+
+for (i=1;i&lt;=3;i++) {
+  div = document.getElementById("maDiv"+i);
+  div.addEventListener("click",creeFonctionAffiche(i));
+}</code></pre>
+<p>Une fonction s'exécute toujours dans le contexte dans lequel elle a été créée.</p>
+                                    </section>
+                                </section>-->
+
+				<section>
+					<h2>Autre problème</h2>
+<p>Mes variables ont des noms très génériques et une portée globale.
+<br/>Que se passe-t-il si j'écris une autre portion de code avec des noms semblables ?
+<br/>Que se passe-t-il si j'inclus une bibliothèque qui utilise des noms semblables ?</p>
+				</section>
+
+				<section>
+					<h2>Solution : IIFE</h2>
+					<h3>Immediately Invoked Function Expression</h3>
+					<pre><code class="javascript">(function() {
+
+  var i, div, fct;
+
+  function affiche(cpt) {
+    window.alert("Je suis la div n°"+cpt);
+  }
+
+  for (i=1;i&lt;=3;i++) {
+    div = document.getElementById("maDiv"+i);
+    fct = affiche.bind(null,i);
+    div.addEventListener("click",fct);
+  }
+
+}());</code></pre>
+						<p>On encapsule notre code dans une fonction anonyme aussitôt exécutée, ce qui protège nos variables de l'espace global.</p>
+				</section>
+				<section>
+					<h2>IIFE : complément</h2>
+					<p>Cette syntaxe nous permet d'utiliser le mode strict sans risque de perturber le reste du code.</p>
+					<pre><code class="javascript">(function() {
+
+  "use strict";
+
+  /*
+    mon code
+  */
+
+}());</code></pre>
+<p>C'est donc le modèle qu'on utilisera systématiquement pour écrire du code javascript.</p>
+				</section>
+
+
+					<section>
+					<h2>Méthodes</h2>
+					<p>Une méthode d'un objet est une propriété de type <code>function</code>.</p>
+					<pre><code class="javascript">var toto = {
+  nom : "toto",
+  age : 25,
+  vieillir : function() { this.age++; }
+};
+
+typeof toto.vieillir; //"function"
+toto.vieillir();
+toto.age; //26
+
+//attention
+typeof toto.vieillir(); //"undefined"
+toto.age; //27</code></pre>
+					<p>Dans la méthode d'un objet, le mot clé <code>this</code> fait référence à l'objet lui-même.</p>
+				</section>
+
+				<!--<section>
+					<h2>Méthodes</h2>
+					<h3>Piège : perte du contexte</h3>
+					<pre><code class="javascript">var toto = {
+  nom : "toto",
+  age : 25,
+  vieillir : function() { this.age++; }
+};
+
+var anneeEnMs = 1000 * 3600 * 24 * 365;
+
+window.setInterval(toto.vieillir,anneeEnMs);
+
+</code></pre>
+<p class="fragment">On passe à la fonction setInterval une référence vers la méthode vieillir, mais on perd le contexte de l 'objet.</p>
+				</section>
+
+				<section>
+					<h2>Solution 1</h2>
+					<h3>Encapsulation</h3>
+					<pre><code class="javascript">var toto = {
+  nom : "toto",
+  age : 25,
+  vieillir : function() { this.age++; }
+};
+
+var anneeEnMs = 1000 * 3600 * 24 * 365;
+
+window.setInterval(function() { toto.vieillir(); },anneeEnMs);</code></pre>
+				</section>
+
+				<section>
+					<h2>Solution 2</h2>
+					<h3>Binding</h3>
+					<pre><code class="javascript">var toto = {
+  nom : "toto",
+  age : 25,
+  vieillir : function() { this.age++; }
+};
+
+var anneeEnMs = 1000 * 3600 * 24 * 365;
+
+var totoVieillit = toto.vieillir.bind(toto);
+
+window.setInterval(totoVieillit,anneeEnMs);</code></pre>
+<p>Le 1er argument de la méthode <code>bind</code> force la valeur de <code>this</code>.</p>
+				</section>
+                </section>-->
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/initialize.js"></script>
+
+	</body>
+</html>

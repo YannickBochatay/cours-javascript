@@ -1,0 +1,441 @@
+<qcm>
+    			<code>var monModule = (function(){
+  var nom = "toto";
+})();
+
+nom;</code>
+    			<question>L'instruction renvoie</question>
+    			<choix correct>Error</choix>
+    			<choix>undefined</choix>
+    			<choix>"toto"</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>var monModule = (function(){
+  var nom = "toto";
+  return nom;
+})();
+
+monModule.nom;</code>
+    			<question>L'instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix correct>undefined</choix>
+    			<choix>"toto"</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>var monModule = (function(){
+  return {
+    nom : "toto"
+  };
+})();
+
+monModule.toto;</code>
+    			<question>L'instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix>undefined</choix>
+    			<choix correct>"toto"</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>var monModule = (function(){
+  return {
+    nom : "toto",
+    age : 26,
+    vieillir : function() { this.age++; }
+  };
+})();
+
+monModule.viellir();
+monModule.age;</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix>undefined</choix>
+          <choix>26</choix>
+    			<choix correct>27</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>var monModule = (function(){
+  var age = 26;
+  var nom = "toto";
+  return {
+    recupAge : function() { return age; },
+    recupNom : function() { return nom; },
+    vieillir : function() { age++; }
+  };
+})();
+
+monModule.vieillir();
+monModule.recupAge();</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>Error</choix>
+          <choix>undefined</choix>
+          <choix>26</choix>
+          <choix correct>27</choix>
+    		</qcm>
+
+        <qcm>
+          <code>var monModule = (function(){
+  var age = 26;
+  var personne = {};
+
+  Object.defineProperty(personne,"age",{
+    get : function() { return age; }
+  });
+
+  return personne;
+})();
+
+monModule.age;</code>
+          <question>L'instruction renvoie</question>
+          <choix>Error</choix>
+          <choix>undefined</choix>
+          <choix correct>26</choix>
+        </qcm>
+
+        <qcm>
+          <code>var monModule = (function(){
+  var age = 26;
+  var personne = {};
+
+  Object.defineProperty(personne,"age",{
+    get : function() { return age; },
+    set : function(val) {
+      if (typeof val != "number") throw new Error("l'âge doit être un nombre");
+    }
+  });
+
+  return personne;
+})();
+
+monModule.age = "toto";</code>
+          <question>L'instruction renvoie</question>
+          <choix correct>Error</choix>
+          <choix>undefined</choix>
+          <choix>26</choix>
+        </qcm>
+
+        <qcm>
+          <code>var monModule = (function(){
+  var age = 26;
+  return {
+    get age() { return age; },
+    set age(val) {
+      if (typeof val != "number") throw new Error("val doit être un nombre");
+    }
+  };
+})();
+
+monModule.age = "toto";</code>
+          <question>L'instruction renvoie</question>
+          <choix correct>Error</choix>
+          <choix>undefined</choix>
+          <choix>26</choix>
+        </qcm>
+
+    		<qcm>
+    			<code>this == window;</code>
+    			<question>Dans le navigateur, l'égalité est</question>
+    			<choix correct>vrai</choix>
+    			<choix>fausse</choix>
+    			<choix>ce code renvoie une erreur</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>"use strict";
+var monModule = (function() {
+	this == window;
+}());</code>
+    			<question>Dans le navigateur, l'égalité est</question>
+    			<choix>vraie</choix>
+    			<choix correct>fausse</choix>
+    			<choix>ce code renvoie une erreur</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>function Personne() { this.nom = "toto"; }
+var obj = new Personne();
+typeof obj;</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix>"undefined"</choix>
+    			<choix>"string"</choix>
+    			<choix correct>"object"</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>function Personne() { this.nom = "toto"; }
+var obj = new Personne();
+typeof obj.nom;</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix>"undefined"</choix>
+    			<choix correct>"string"</choix>
+    			<choix>"object"</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+var toto = new Personne();
+typeof toto.age;</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix correct>"undefined"</choix>
+    			<choix>"string"</choix>
+    			<choix>"object"</choix>
+    		</qcm>
+
+        <qcm>
+          <code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+    this.vieillir = function() { this.age++; };
+}
+
+var toto = new Personne();</code>
+          <question>Cette écriture est</question>
+          <choix>syntaxiquement incorrecte</choix>
+          <choix>correcte mais la fonction vieillir perd le contexte de l'objet</choix>
+          <choix correct>déconseillée, car une nouvelle fonction vieillir est créée pour chaque instance</choix>
+        </qcm>
+
+    		<qcm>
+    			<code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+
+Personne.vieillir = function() { this.age++; };
+
+var toto = new Personne();
+typeof toto.vieillir;</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix correct>"undefined"</choix>
+    			<choix>"function"</choix>
+    			<choix>"object"</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+
+Personne.prototype.vieillir = function() { this.age++; };
+
+var toto = new Personne();
+typeof toto.vieillir;</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix>"undefined"</choix>
+    			<choix correct>"function"</choix>
+    			<choix>"object"</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>function Personne() {}
+
+typeof Personne.prototype;</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix>"undefined"</choix>
+    			<choix>"function"</choix>
+    			<choix correct>"object"</choix>
+    		</qcm>
+
+        <qcm>
+          <code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+
+Personne.prototype.vieillir = function() { this.age++; };
+
+var toto = new Personne();
+var tata = new Personne();
+toto.vieillir === tata.vieillir</code>
+          <question>L'égalité est </question>
+          <choix correct>vraie</choix>
+          <choix>fausse</choix>
+        </qcm>
+
+    		<qcm>
+    			<code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+
+Personne.prototype.vieillir = function() { this.age++ };
+
+var toto = new Personne("Toto",25);
+toto.vieillir();
+toto.age;</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>25</choix>
+    			<choix correct>26</choix>
+    			<choix>undefined</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+
+Personne.prototype.vieillir = function() { this.age++ };
+
+var toto = new Personne("Toto",25);
+toto.toString();
+</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix correct>"[object Object]"</choix>
+    			<choix>undefined</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+
+Personne.prototype.vieillir = function() { this.age++ };
+
+Personne.prototype.toString = function() { return "[object Personne]"; };
+
+var toto = new Personne("Toto",25);
+toto.toString();
+</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix>"[object Object]"</choix>
+    			<choix correct>"[object Personne]"</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+
+Personne.prototype.vieillir = function() { this.age++ };
+
+Personne.prototype.toString = function() { return "[object Personne]"; };
+
+var toto = new Personne("Toto",25);
+console.log("toto : "+toto);
+</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix>"toto : undefined"</choix>
+    			<choix>"toto : [object Object]"</choix>
+    			<choix correct>"toto : [object Personne]"</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+
+Personne.prototype.vieillir = function() { this.age++ };
+
+Personne.prototype.toString = function() { Object.prototype.toString.call(this) + " " + JSON.stringify(this); };
+
+var toto = new Personne("Toto",25);
+toto.toString();
+</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix>"[object Object]"</choix>
+    			<choix correct>'[object Object] {"nom":"Toto","age":25}'</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+
+Personne.prototype.vieillir = function() { this.age++ };
+
+function Homme() {
+	Personne.apply(this,arguments);
+	this.sexe = "M";
+}
+
+Homme.prototype = Object.create(Personne.prototype);
+
+var toto = new Homme("Toto",25);
+toto.vieillir();
+toto.age;
+</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>25</choix>
+    			<choix correct>26</choix>
+    			<choix>Error</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>function Personne(nom,age) {
+    this.nom = nom;
+    this.age = age;
+}
+
+Personne.prototype.vieillir = function() { this.age++ };
+
+function Homme() {
+	Personne.apply(this,arguments);
+	this.sexe = "M";
+}
+
+Homme.prototype = Object.create(Personne.prototype);
+
+var toto = new Homme("Toto",25);
+toto.toString();
+</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>Error</choix>
+    			<choix correct>"[object Object]"</choix>
+    			<choix>Error</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>var slice = Array.prototype.slice;
+var slice2 = [].slice;
+
+slice == slice2;
+</code>
+    			<question>L'égalité est</question>
+    			<choix correct>vraie</choix>
+    			<choix>fausse</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>var slice = Array.prototype.slice;
+var liste = slice.call( document.querySelectorAll(".maClasse") );
+
+Array.isArray(liste);
+</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>false</choix>
+    			<choix correct>true</choix>
+    		</qcm>
+
+    		<qcm>
+    			<code>var slice = Array.prototype.slice;
+var liste = slice.call( document.querySelectorAll(".maClasse") );
+
+typeof liste.forEach;
+</code>
+    			<question>La dernière instruction renvoie</question>
+    			<choix>"undefined"</choix>
+    			<choix correct>"function"</choix>
+    			<choix>"object"</choix>
+    			<choix>Error</choix>
+    		</qcm>

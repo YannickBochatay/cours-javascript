@@ -1,0 +1,55 @@
+.reveal small {
+	vertical-align:bottom;
+}
+
+.reveal pre code {
+    font-weight:bold;
+}
+
+.reveal .slides section p { text-align:left; }
+
+table.compact {
+	font-size:60%;
+	border-collapse:collapse;
+	margin:auto;
+}
+table.compact td {
+	border:1px solid white;
+	padding:5px 5px;
+	line-height:150%;
+}
+.twoColumns {
+	-moz-column-count:2;
+	-webkit-column-count:2;
+	column-count:2;
+}
+.fourColumns {
+	-moz-column-count:4;
+	-webkit-column-count:4;
+	column-count:4;
+}
+#caracteres_speciaux {
+	font-size:75%;
+}
+.reveal ol.small {
+	font-size:60%;
+	line-height:120%
+}
+code.syntaxe {
+	font-size:60%;
+	line-height:120%;
+	background-color:#333;
+	display:block;
+	width:90%;
+	padding:10px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:left;
+        color:white;
+}
+code.flow {
+	
+}
+.barre {
+	text-decoration: line-through;
+}

@@ -1,0 +1,84 @@
+<qcm>
+    			<code>var toto = "tata";
+
+window.toto;</code>
+    			<question>l'instruction renvoie</question>
+    			<choix>undefined</choix>
+    			<choix correct>"tata"</choix>
+    			<choix>Error</choix>
+                <reponse>Déclarer une variable globale revient à ajouter une propriété à l'objet global</reponse>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>function add(a,b) { return a+b; }
+
+window.add(2,1);</code>
+    			<question>l'instruction renvoie</question>
+    			<choix>undefined</choix>
+    			<choix correct>3</choix>
+    			<choix>Error</choix>
+                <reponse>Les fonctions sont des variables qui sont aussi propriétés de l'objet global.</reponse>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>window.prompt === prompt;</code>
+    			<question>l'égalité est</question>
+    			<choix>fausse</choix>
+    			<choix correct>vrai</choix>
+    			<choix>le code renvoie une erreur</choix>
+                <reponse>Les fonctions globales peuvent donc être appelées directement, ou en tant que méthode de l'objet global.<br/>
+                Il peut être utile, pour la lisibilité du code, de préciser <code>window.<i>xxxxx</i></code> pour montrer qu'on utilise bien
+                la méthode originale et non une fonction personnelle définie ailleurs.</reponse>
+    		</qcm>
+    		    		    		
+    		<qcm>
+    			<code>document.title = "Hello world";</code>
+    			<question>Ce code </question>
+    			<choix>renvoie une erreur car la propriété est en lecture seule</choix>
+    			<choix correct>modifie le titre de l'onglet</choix>
+    			<choix>est sans effet</choix>
+                <reponse>L'objet document est global. On peut directement modifier sa propriété <code>title</code>, ce qui a pour effet de modifier le titre de l'onglet.</reponse>
+    		</qcm>
+    		    		
+    		<qcm>
+    			<code>document.createElement("div");</code>
+    			<question>Ce code renvoie</question>
+    			<choix>une erreur</choix>
+    			<choix correct>un nouvel objet représentant un élément HTML de balise div</choix>
+                <reponse>C'est cette méthode qui permet de créer des éléments HTML dans une page web.</reponse>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>document.getElementById("maDiv");</code>
+    			<question>Ce code</question>
+    			<choix correct>renvoie l'objet correspondant à l'élément HTML d'id maDiv</choix>
+    			<choix>instancie un nouvel objet représentant l'élément HTML d'id maDiv</choix>
+                <reponse>Les objets DOM d'une page web sont déjà instanciés au chargement de la page.<br/>
+                La méthode <code>getElementById</code> permet de récupérer un de ces objets en fonction de son attribut <code>id</code>.</reponse>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>document.querySelector("maDiv") == document.getElementById("maDiv");</code>
+    			<question>l'égalité est </question>
+    			<choix>vrai</choix>
+    			<choix correct>fausse</choix>
+                <reponse>la méthode <code>querySelector</code> attend un sélecteur css. Sans symbole devant "maDiv", il va chercher un élément
+                dont le nom de balise est "maDiv".</reponse>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>document.querySelector(".maDiv") == document.getElementById("maDiv");</code>
+    			<question>l'égalité est </question>
+    			<choix>vrai</choix>
+    			<choix correct>fausse</choix>
+                <reponse>Selon la syntaxe css, ".maDiv" correspond aux éléments HTML ayant un attribut "class" égal à "maDiv".</reponse>
+    		</qcm>
+    		
+    		<qcm>
+    			<code>document.querySelector("#maDiv") == document.getElementById("maDiv");</code>
+    			<question>l'égalité est </question>
+    			<choix correct>vrai</choix>
+    			<choix>fausse</choix>
+                <reponse>Selon la syntaxe css, "#maDiv" correspond à l'élément HTML ayant un attribut "id" égal à "maDiv".<br/>
+                On obtient donc le même objet que par la méthode <code>getElementById("maDiv")</code></reponse>
+    		</qcm>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+    	<meta charset="UTF-8"/>
+        <title>QCM</title>
+        <link rel="stylesheet" type="text/css" href="../libs/pure/pure.css"/>
+        <link rel="stylesheet" type="text/css" href="../libs/prism/prism.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/font-awesome.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/main.css"/>
+    </head>
+    <body>
+        <a class="pull-left" href="../index.html" id="home" title="Sommaire">
+            <i class="fa fa-arrow-circle-left"></i>
+        </a>
+        <h1>QCM<small>s</small></h1>
+
+        
+        <form class="pure-form" id="choix_qcm">
+             <a class="pure-button" id="prec" href="#01" title="précédent">
+                <i class="fa fa-angle-double-left fa-lg"></i>
+            </a>
+            <select class="form-control" name="qcm">
+                <option value="00">00 - Ce cours est-il pour moi ?</option>
+                <option value="01">01 - Introduction</option>
+                <option value="02">02 - Valeurs et variables</option>
+                <option value="03">03 - Objets</option>
+                <option value="04">04 - Nombre, chaines de caractères et booléens</option>
+                <option value="05">05 - Fonctions</option>
+                <option value="06">06 - Tableaux</option>
+                <option value="07">07 - Autres objets intégrés</option>
+                <option value="08">08 - Opérateurs</option>
+                <option value="09">09 - Controle du flux d'instructions</option>
+                <option value="10">10 - Javascript dans le navigateur</option>
+                <option value="11">11 - Ajax</option>
+                <option value="12">12 - Programmer objet</option>
+            </select>
+             <a class="pure-button" id="suiv" href="#03" title="suivant">
+                <i class="fa fa-angle-double-right fa-lg"></i>
+            </a>
+        </form>
+
+        <br/>
+        <br/>
+        <button type="submit" class="pure-button" id="reinit">Réinitialiser le QCM</button>
+        <br/>
+        <br/>
+
+        <form id="qcm" class="pure-form pure-form-stacked">
+            <div></div>
+            <button type="submit" class="pure-button pure-button-primary">Valider</button>
+        </form>
+    	
+    	<script src="../libs/prism/prism.js"></script>
+    	<script src="script.js"></script>
+    </body>
+</html>

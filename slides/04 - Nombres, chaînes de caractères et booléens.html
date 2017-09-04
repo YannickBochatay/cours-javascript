@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="fr">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Cours javascript : nombres, chaînes de caractères et booléens</title>
+
+		<meta name="description" content="cours de javascript">
+		<meta name="author" content="Yannick Bochatay">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+        <link rel="stylesheet" href="css/custom.css">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/hemisu-light.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+        window.print();
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>Javascript</h1>
+					<h3>Nombres, chaînes de caractères et booléens</h3>
+				</section>
+
+
+				<section>
+					<h2>Valeurs primitives ou objets ?</h2>
+          <p>Ce sont des valeurs primitives que nous définissons</p>
+          <pre><code class="javascript">var age = 25;
+typeof age; //number
+
+var nom = "toto";
+typeof nom; //string
+
+var bool = true;
+typeof bool; //boolean
+
+var obj = {};
+typeof obj; //object</code></pre>
+				</section>
+
+        <section>
+          <h2>Valeurs primitives ou objets ?</h2>
+          <p>Mais on peut appeler des méthodes comme s'il s'agissait d'objets (javascript effectue automatiquement les conversions)</p>
+          <pre><code class="javascript">var age = 25;
+age.toFixed(2); //"25.00"
+
+var nom = "toto";
+nom.toUpperCase(); //"TOTO"</code></pre>
+        </section>
+
+        <section>
+          <h2>Valeurs primitives ou objets ?</h2>
+          <p>Les constructeurs <code>String, Boolean, Number</code> existent, mais on ne les utilise pas pour créer des chaînes, booléens et des nombres. C'est inutile et source d'erreurs.</p>
+          <pre><code class="javascript">//sans les conversions automatiques, il faudrait écrire
+var age = 25;
+var objTmp = new Number(age);
+var str = objTmp.toFixed(2);
+delete objTmp;
+
+//en pratique on écrit
+var age = 25;
+var str = age.toFixed(2);</code></pre>
+        </section>
+
+				<section>
+					<h2>Valeurs primitives ou objets ?</h2>
+					<p>En revanche l'invocation des constructeurs <code>String, Boolean, Number</code> sans le mot clef <code>new</code> est utile pour convertir l'argument en valeur primitive correspondante.</p>
+					<pre><code class="javascript">Number("25.5"); //25.5
+Number("25.5Ko"); //NaN
+Number(true); //1
+Number(false); //0
+
+String(25.5); //"25.5"
+String(true); //"true"
+String(false); //"false"
+
+Boolean("toto"); //true
+Boolean(""); //false
+Boolean(25); //true
+Boolean(0); //false
+</code></pre>
+				</section>
+
+				<section>
+						<h2>Méthodes usuelles</h2>
+            <h3>Chaînes</h3>
+						<ul>
+							<li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/charAt" target="liens"><code>charAt</code></a> : renvoie le caractère à la position spécifiée</li>
+							<li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/indexOf" target="liens"><code>indexOf</code></a> : renvoie l'indice de la 1ère occurence</li>
+							<li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/lastIndexOf" target="liens"><code>lastIndexOf</code></a> : renvoie l'indice de la dernière occurence</li>
+							<li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/replace" target="liens"><code>replace</code></a> : renvoie la chaîne modifiée à l'aide d'une expression rationnelle et un texte de remplacement</li>
+							<li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/search" target="liens"><code>search</code></a> : recherche grâce à une expression rationnelle</li>
+							<li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/slice" target="liens"><code>slice</code></a> : extrait une section de la chaine de caractères</li>
+							<li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/split" target="liens"><code>split</code></a> : divise la chaîne en tableau de sous-chaînes</li>
+							<li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/toLowerCase" target="liens"><code>toLowerCase</code></a> : renvoie la chaîne en minuscules</li>
+							<li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/toUpperCase" target="liens"><code>toUpperCase</code></a> : renvoie la chaîne en majuscules</li>
+							<li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/trim" target="liens"><code>trim</code></a> : renvoie la chaîne en retirant les blancs en début et fin</li>
+						</ul>
+						<br/><br/>
+						<p><small>
+							<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String" target="liens">&#10152; Référence complète</a>
+						</small>
+						</p>
+					</section>
+
+          <section>
+            <h2>Méthodes usuelles</h2>
+            <h3>Nombres</h3>
+            <ul>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/toFixed" target="liens"><code>toFixed</code></a> : renvoie une chaîne de caractères avec un nombre spécifié de chiffres après la virgule</li>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/toPrecision" target="liens"><code>toPrecision</code></a> : renvoie une chaîne de caractères avec un nombre spécifié de chiffres significatifs</li>
+            </ul>
+            <br/><br/>
+            <pre><code class="javascript">var num = 2.4567887899;
+num.toFixed(2); // "2.46"
+num.toPrecision(2); // "2.5"
+
+num = 0.05;
+num.toFixed(3); // "0.050"
+num.toPrecision(3); // "0.0500"</code></pre>
+            <p><small>
+              <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number" target="liens">&#10152; Référence complète</a>
+            </small>
+            </p>
+          </section>
+
+					<section>
+						<h2>Méthodes usuelles</h2>
+						<p>Toutes ces méthodes ne modifient pas la variable elle-même mais renvoient une nouvelle valeur primitive.</p>
+						<pre><code class="javascript">var nom = "Toto";
+nom.toUpperCase();
+console.log(nom); //Toto
+
+var nomModifie = nom.toUpperCase();
+console.log( nomModifie ); //TOTO</code></pre>
+				  </section>
+
+          <section>
+            <h2>Quelques fonctions globales</h2>
+            <h3>Chaînes</h3>
+            <ul>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/decodeURI" target="liens"><code>decodeURI</code></a> : décode une URL</li>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/decodeURIComponent" target="liens"><code>decodeURIComponent</code></a> : décode un paramètre d'URL</li>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/encodeURI" target="liens"><code>encodeURI</code></a> : encode une URL</li>
+              <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/encodeURIComponent" target="liens"><code>encodeURIComponent</code></a> : encode un paramètre d'URL</li>
+            </ul>
+            <br/><br/>
+            <pre><code class="javascript">encodeURI("http://monDomaine.fr/mon article/?param=toto");
+//"http://monDomaine.fr/mon%20article/?param=toto"
+
+encodeURIComponent("toto&tata?titi");
+//"toto%26tata%3Ftiti"
+</code></pre>
+          </section>
+
+          <section>
+            <section>
+                <h2>Quelques fonctions globales</h2>
+                <h3>Nombres</h3>
+                <ul>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/parseInt" target="liens"><code>parseInt</code></a> : convertit une variable en nombre entier</li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/parseFloat" target="liens"><code>parseFloat</code></a> : convertit une variable en nombre décimal</li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/isFinite" target="liens"><code>isFinite</code></a> : détermine si l'argument est un nombre fini</li>
+                <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/isFinite" target="liens"><code>isNaN</code></a> : détermine si l'argument est <code>NaN</code> (not a number)</li>
+                </ul>
+                <br/><br/>
+                <pre><code class="javascript">parseInt("25.5°C"); //25 les décimaux sont tronqués
+parseFloat("25.5°C"); //25.5
+Number("25.5°C"); //NaN
+
+isFinite(2/3); //true
+isFinite(Infinity); //false
+isFinite(NaN); //false
+
+isNaN(3/0); //false
+isNaN( parseInt("a") ); //true</code></pre>
+                </section>
+                <section>
+                    <h2>Changement dans ES6</h2>
+                    <p>Ces fonctions ont été rattachées au constructeur <code>Number</code> en tant que méthodes statiques.</p>
+                    <pre><code class="javascript">Number.parseInt("25.5°C"); //25 les décimaux sont tronqués
+Number.parseFloat("25.5°C"); //25.5
+Number.isFinite(2/3);
+Number.isNaN( Number.parseInt("a") ); //true</code></pre>
+                </section>
+              </section>
+              </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/initialize.js"></script>
+
+	</body>
+</html>

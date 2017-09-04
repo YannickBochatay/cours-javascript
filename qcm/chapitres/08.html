@@ -1,0 +1,332 @@
+<qcm>
+	<code>x = 10;
+x/=5;
+x;</code>
+	<question>x vaut</question>
+	<choix>10</choix>
+	<choix>5</choix>
+	<choix correct>2</choix>
+    <reponse>équivalent à <code>x = x / 5</code></reponse>
+</qcm>
+
+
+
+<qcm>
+	<code>x = 10;
+x%=5;
+x;</code>
+	<question>x vaut</question>
+	<choix>5</choix>
+	<choix>2</choix>
+	<choix correct>0</choix>
+    <reponse>équivalent à <code>x = x % 5</code> (modulo)</reponse>
+</qcm>
+
+
+
+
+<qcm>
+	<code>true == 1;</code>
+	<question>l'égalité est</question>
+	<choix correct>vrai</choix>
+	<choix>fausse</choix>
+    <reponse>true est converti en nombre et donne 1</reponse>
+</qcm>
+
+
+<qcm>
+	<code>null == undefined;</code>
+	<question>l'égalité est</question>
+	<choix correct>vrai</choix>
+	<choix>fausse</choix>
+    <reponse>null et undefined sont égales selon l'algorithme d'égalité simple.</reponse>
+</qcm>
+
+
+<qcm>
+	<code>var toto = {"nom":"Toto"};
+var toto2 = {"nom":"Toto"};
+toto == toto2;</code>
+	<question>l'égalité est</question>
+	<choix>vrai</choix>
+	<choix correct>fausse</choix>
+    <reponse>Deux instances d'objets ne sont jamais égales, même si elles ont les mêmes propriétés.</reponse>
+</qcm>
+
+
+
+
+<qcm>
+	<code>var toto = {"nom":"Toto"};
+var toto2 = toto;
+toto == toto2;</code>
+	<question>l'égalité est</question>
+	<choix correct>vrai</choix>
+	<choix>fausse</choix>
+    <reponse><code>toto</code> et <code>toto2</code> font référence au même objet. L'égalité est vraie.</reponse>
+</qcm>
+
+
+
+
+<qcm>
+	<code>var toto = {"nom":"Toto"};
+var toto2 = toto;
+toto === toto2;</code>
+	<question>l'égalité est</question>
+	<choix correct>vrai</choix>
+	<choix>fausse</choix>
+    <reponse><code>toto</code> et <code>toto2</code> font référence au même objet. L'égalité stricte est également vraie.</reponse>
+</qcm>
+
+
+
+
+
+<qcm>
+	<code>[] == [];</code>
+	<question>l'égalité est</question>
+	<choix>vrai</choix>
+	<choix correct>fausse</choix>
+    <reponse>Les tableaux sont des objets. Deux instances d'objets (quels qu'ils soient) ne sont jamais égales.</reponse>
+</qcm>
+
+
+
+
+<qcm>
+	<code>["toto"] == ["toto"];</code>
+	<question>l'égalité est</question>
+	<choix>vrai</choix>
+	<choix correct>fausse</choix>
+    <reponse>Les tableaux sont des objets. Deux instances d'objets (quels qu'ils soient) ne sont jamais égales.</reponse>
+</qcm>
+
+
+
+
+<qcm>
+	<code>var i=0;
+console.log(++i);</code>
+	<question>la console affichera</question>
+	<choix>0</choix>
+	<choix correct>1</choix>
+    <reponse>Avant la variable, l'opérateur ++ incrémente la valeur et renvoie la valeur incrémentée</reponse>
+</qcm>
+
+
+
+
+<qcm>
+	<code>var i=0;
+console.log(i++);</code>
+	<question>la console affichera</question>
+	<choix correct>0</choix>
+	<choix>1</choix>
+    <reponse>Après la variable, l'opérateur ++ renvoie la valeur initiale.</reponse>
+</qcm>
+
+
+
+<qcm>
+	<code>function recupAge(personne) {
+    return personne.age;
+}
+
+console.log( recupAge() );</code>
+	<question>la console affiche</question>
+    <choix correct>TypeError: personne is undefined</choix>
+	<choix>undefined</choix>
+	<choix>null</choix>
+    <reponse>Si l'on cherche à accéder à une propriété d'une variable null ou undefined, javascript renvoie une erreur.</reponse>
+</qcm>
+
+
+
+
+<qcm>
+    <code>function recupAge(personne) {
+    return personne && personne.age;
+}
+
+console.log( recupAge() );</code>
+    <question>la console affiche</question>
+    <choix>TypeError: personne is undefined</choix>
+    <choix correct>undefined</choix>
+    <choix>null</choix>
+    <reponse>La première expression n'étant pas convertible à true, elle est renvoyée sans que la deuxième ne soit évaluée.</reponse>
+</qcm>
+
+
+
+
+<qcm>
+    <code>function recupAge(personne) {
+    return personne && personne.age;
+}
+
+var individu = { nom : "Toto" };
+
+console.log( recupAge(individu) );</code>
+    <question>la console affiche</question>
+    <choix>TypeError: age is undefined</choix>
+    <choix correct>undefined</choix>
+    <choix>null</choix>
+    <reponse>L'accès à une propriété non définie d'un objet ne renvoie pas d'erreur mais la valeur undefined</reponse>
+</qcm>
+
+
+
+
+<qcm>
+    <code>function recupNomCourant(personne) {
+    return personne.surnom || personne.nom;
+}
+
+var individu = { nom : "Bernard", surnom : "Nanard" };
+
+console.log( recupNomCourant(individu) );</code>
+    <question>la console affiche</question>
+    <choix>"Bernard"</choix>
+    <choix correct>"Nanard"</choix>
+    <choix>"NanardBernard"</choix>
+    <choix>null</choix>
+    <reponse>La première expression étant convertible à true, elle est renvoyée.<reponse>
+</qcm>
+
+
+
+
+<qcm>
+    <code>function recupNomCourant(personne) {
+    return personne.surnom || personne.nom;
+}
+
+var individu = { nom : "Bernard" };
+
+console.log( recupNomCourant(individu) );</code>
+    <question>la console affiche</question>
+    <choix correct>"Bernard"</choix>
+    <choix>undefined</choix>
+    <choix>null</choix>
+    <reponse>La première expression n'étant pas convertible à true, c'est la deuxième qui est renvoyée.<reponse>
+</qcm>
+
+
+
+<qcm>
+    <code>function recupNomCourant(personne) {
+    return personne.surnom || personne.nom;
+}
+
+console.log( recupNomCourant() );</code>
+    <question>la console affiche</question>
+    <choix correct>TypeError: personne is undefined</choix>
+    <choix>undefined</choix>
+    <choix>null</choix>
+    <reponse>La première expression (nécessairement évaluée) renvoie une erreur.<reponse>
+</qcm>
+
+
+
+
+<qcm>
+    <code>function recupNomCourant(personne) {
+    return personne && personne.surnom || personne.nom;
+}
+
+console.log( recupNomCourant() );</code>
+    <question>la console affiche</question>
+    <choix correct>TypeError: personne is undefined</choix>
+    <choix>undefined</choix>
+    <choix>null</choix>
+    <reponse>Le "ET" logique étant prioritaire sur le "OU", cela revient à <code>(personne && personne.surnom) || personne.nom</code>
+    La première expression n'étant pas convertible à true, la deuxième est évaluée et génère une erreur.
+</qcm>
+
+
+
+<qcm>
+    <code>function recupNomCourant(personne) {
+    return personne && (personne.surnom || personne.nom);
+}
+
+console.log( recupNomCourant() );</code>
+    <question>la console affiche</question>
+    <choix>TypeError: personne is undefined</choix>
+    <choix correct>undefined</choix>
+    <choix>null</choix>
+    <reponse>C'est la bonne solution pour prévoir tous les cas de figures</reponse>
+</qcm>
+
+
+
+<qcm>
+	<code>var x = !0;</code>
+	<question>x vaut</question>
+	<choix>0</choix>
+	<choix>1</choix>
+	<choix correct>true</choix>
+    <reponse>L'opérateur "NON logique" renvoie toujours un booléen</reponse>
+</qcm>
+
+
+<qcm>
+	<code>var toto = {nom:"Toto",age:null};
+console.log("age" in toto);</code>
+	<question>la console affichera</question>
+	<choix correct>true</choix>
+	<choix>false</choix>
+    <reponse>La valeur null d'une propriété n'est pas équivalente à l'absence de définition d'une propriété.</reponse>
+</qcm>
+
+<qcm>
+	<code>var toto = [];
+console.log(toto instanceof Array);</code>
+	<question>la console affichera</question>
+	<choix correct>true</choix>
+	<choix>false</choix>
+    <reponse>Tous les tableaux sont des instances du constructeur Array</reponse>
+</qcm>
+
+<qcm>
+	<code>var toto = [];
+console.log(toto instanceof Object);</code>
+	<question>la console affichera</question>
+	<choix correct>true</choix>
+	<choix>false</choix>
+    <reponse>Les tableaux sont des objets, tous les objets héritent du constructeur Object.</reponse>
+</qcm>
+
+<qcm>
+	<code>var toto = [];
+console.log(typeof toto);</code>
+	<question>la console affichera</question>
+	<choix>"array"</choix>
+	<choix>Array</choix>
+	<choix correct>"object"</choix>
+	<choix>Object</choix>
+    <reponse>C'est un piège de javascript. Il faut utiliser la fonction <code>Array.isArray</code></reponse>
+</qcm>
+
+<qcm>
+	<code>var toto = function() {};
+console.log(typeof toto);</code>
+	<question>la console affichera</question>
+	<choix correct>"function"</choix>
+	<choix>Function</choix>
+	<choix>"object"</choix>
+	<choix>Object</choix>
+    <reponse>l'opérateur <code>typeof</code> renvoie toujours une chaîne de caractères. Les fonctions sont des objets mais le type "function" est tout de même différencié.</reponse>
+</qcm>
+
+<qcm>
+	<code>var toto = null;
+console.log(typeof toto);</code>
+	<question>la console affichera</question>
+	<choix>"null"</choix>
+	<choix>Null</choix>
+	<choix correct>"object"</choix>
+	<choix>Object</choix>
+    <reponse>C'est un bug de javascript qui n'a jamais pu être corrigé. Bizarrerie à connaître.</reponse>
+</qcm>
