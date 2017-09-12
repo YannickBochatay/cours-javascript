@@ -463,8 +463,7 @@ chargerImage("monImage1.png",function() {
 
 				<section>
 					<h2>Promesses</h2>
-					<p>Norme ECMAScript 6 mais implémentées dans les navigateurs récents ou grâce à une <a target="liens" href="https://github.com/jakearchibald/es6-promise">prothèse
-					d'émulation</a> (polyfill).</p>
+					<h3>Norme ECMAScript 6</h3>
 					<pre><code class="javascript" style="max-height:1000px">function chargerImage(src) {
   return new Promise(function(resolve) {
     var img = new Image();
@@ -488,6 +487,35 @@ chargerImage("monImage1.png")
 					<a href="http://www.html5rocks.com/fr/tutorials/es6/promises/" target="liens">
 						<small>http://www.html5rocks.com/fr/tutorials/es6/promises/</small>
 					</a>
+				</section>
+
+				<section>
+					<h2>Async / await</h2>
+					<h3>Norme ECMAScript 8 (2017)</h3>
+					<pre><code class="javascript" style="max-height:1000px">function chargerImage(src) {
+  return new Promise(function(resolve) {
+    var img = new Image();
+    img.src = "http://monServeur/"+src;
+    img.onload = resolve;
+  });
+}
+
+function attendre(s) {
+  return new Promise(function(resolve) {
+    window.setTimeout(resolve,s*1000);
+  });
+}
+
+async function chargerTout() {
+	await chargerImage("monImage1.png")
+	await attendre(5)
+	await chargerImage("monImage2.png")
+	await attendre(5)
+	await chargerImage("monImage3.png")
+	await attendre(5)
+}
+
+chargerTout()</code></pre>
 				</section>
 
 			</div>
