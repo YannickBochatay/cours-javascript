@@ -14,7 +14,7 @@ table.compact {
 	margin:auto;
 }
 table.compact td {
-	border:1px solid white;
+	border:1px solid gray;
 	padding:5px 5px;
 	line-height:150%;
 }
@@ -45,7 +45,7 @@ code.syntaxe {
 	margin-left:auto;
 	margin-right:auto;
 	text-align:left;
-        color:white;
+    color:white;
 }
 code.flow {
 	

@@ -212,10 +212,9 @@ toto; //undefined</code></pre>
 					</section>
 
 				<section>
-                    <section>
-                        <h2>Déclaration</h2>
-                        Obligatoire en mode strict
-                        <pre><code>"use strict";
+					<h2>Déclaration</h2>
+					Obligatoire en mode strict
+					<pre><code>"use strict";
 
 var tata; //déclaration
 var toto = "titi"; //déclaration + affectation
@@ -225,29 +224,8 @@ toto; // "titi"
 titi; // undefined
 tutu; // undefined
 tyty; // ReferenceError: tyty is not defined</code></pre>
-				    </section>
-
-                    <section>
-                        <h2>Nouveautés ES6</h2>
-                        <h3>Portée de bloc et constantes</h3>
-                        <pre><code class="javascript">
-if (true) {
-    let x = 2;
-}
-
-x; //ReferenceError: x is not defined
-
-if (true) {
-    const y = 2;
-    y = 3; //TypeError: invalid assignment to const `y'
-}
-
-y; //ReferenceError: y is not defined
-</code></pre>
-				    </section>
-
 				</section>
-
+				
 				<section>
 					<h2>Typage dynamique</h2>
 					On ne spécifie pas le type de données.
@@ -284,8 +262,8 @@ reponse = "toto";
 							<li><code>break</code></li>
 							<li><code>case</code></li>
 							<li><code>catch</code></li>
-							<li><code>class</code>*</li>
-							<li><code>const</code>*</li>
+							<li><code>class</code></li>
+							<li><code>const</code></li>
 							<li><code>continue</code></li>
 							<li><code>debugger</code></li>
 							<li><code>default</code></li>
@@ -293,26 +271,26 @@ reponse = "toto";
 							<li><code>do</code></li>
 							<li><code>else</code></li>
 							<li><code>enum</code>*</li>
-							<li><code>export</code>*</li>
-							<li><code>extends</code>*</li>
+							<li><code>export</code></li>
+							<li><code>extends</code></li>
 							<li><code>finally</code></li>
 							<li><code>for</code></li>
 							<li><code>function</code></li>
 							<li><code>if</code></li>
-							<li><code>implements</code>*</li>
-							<li><code>import</code>*</li>
+							<li><code>implements</code></li>
+							<li><code>import</code></li>
 							<li><code>in</code></li>
 							<li><code>instanceof</code></li>
 							<li><code>interface</code>*</li>
-							<li><code>let</code>*</li>
+							<li><code>let</code></li>
 							<li><code>new</code></li>
 							<li><code>package</code>*</li>
 							<li><code>private</code>*</li>
 							<li><code>protected</code>*</li>
 							<li><code>public</code>*</li>
 							<li><code>return</code></li>
-							<li><code>static</code>*</li>
-							<li><code>super</code>*</li>
+							<li><code>static</code></li>
+							<li><code>super</code></li>
 							<li><code>switch</code></li>
 							<li><code>this</code></li>
 							<li><code>throw</code></li>
@@ -322,7 +300,7 @@ reponse = "toto";
 							<li><code>void</code></li>
 							<li><code>while</code></li>
 							<li><code>with</code></li>
-							<li><code>yield</code>*</li>
+							<li><code>yield</code></li>
 						</ul>
 						<br/>
 						<br/>
@@ -362,37 +340,65 @@ reponse = "toto";
 &lt;/html&gt;</code></pre>
 
 						<p><small>script1.js</small></p>
-						<pre><code>maVariable //"toto"
-var maVariable2 = "tata"</code></pre>
+						<pre><code>maVariable; //"toto"
+var maVariable2 = "tata";</code></pre>
 						<p><small>script2.js</small></p>
 						<pre>
-<code>maVariable //"toto"
-maVariable2 //tata</code></pre>
+<code>maVariable; //"toto"
+maVariable2; //tata</code></pre>
 					</section>
 				</section>
 
+			</section>
+
+			<section>
+			
+				<h2>Ecrasement des variables</h2>
+				<pre><code>function maFonction() {
+
+    var toto = "tata";
+
+    if (true) {
+		var toto = "titi";
+		
+		toto; // ?
+    }
+
+    var toto = "tutu";
+
+    toto; // ?
+}</code></pre>
+	<p>Pour éviter toute ambiguïté, il est conseillé de déclarer TOUTES les variables en début de fonction.</p>
+	</section>
+
 				<section>
+					<h2>EcmaScript 6</h2>
+					<h3>Constantes</h3>
+					<pre><code class="javascript">const x = 2;
+	
+x = 3; //TypeError: invalid assignment to const `x'
+</code></pre>
+			</section>
 
-					<h2>Élévation des variables</h2>
-					(hoisting en anglais)
-					<pre>
-						<code>function toto1() {
-   if (false) { var titi = "tata"; }
-   return titi;
+			<section>
+				<h2>EcmaScript 6</h2>
+				<h3>Portée de bloc</h3>
+				<pre><code class="javascript">
+if (true) {
+    let x = 2;
 }
 
-toto1(); //ReferenceError ? "tata" ? undefined ?
+x; //ReferenceError: x is not defined
 
-function toto2() {
-   return titi;
-   var titi = "tata";
+if (true) {
+    const y = 2;
 }
 
-toto2(); //ReferenceError ? "tata" ? undefined ?
-						</code>
-					</pre>
-					<p>Pour éviter toute ambiguïté, il est conseillé de déclarer TOUTES les variables en début de fonction.</p>
+y; //ReferenceError: y is not defined
+</code></pre>
+				<p>En EcmaScript 6, on peut se passer complètement du mot clé <code>var</code>.
 				</section>
+
 
 				<section>
 					<h2>Conversions implicites</h2>
