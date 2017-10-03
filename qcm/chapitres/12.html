@@ -1,441 +1,206 @@
-<qcm>
-    			<code>var monModule = (function(){
-  var nom = "toto";
-})();
-
-nom;</code>
-    			<question>L'instruction renvoie</question>
-    			<choix correct>Error</choix>
-    			<choix>undefined</choix>
-    			<choix>"toto"</choix>
-    		</qcm>
-
     		<qcm>
-    			<code>var monModule = (function(){
-  var nom = "toto";
-  return nom;
-})();
+    			<code>class Personne {
+  constructor() { this.nom = "toto"; }
+}
 
-monModule.nom;</code>
-    			<question>L'instruction renvoie</question>
-    			<choix>Error</choix>
-    			<choix correct>undefined</choix>
-    			<choix>"toto"</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var monModule = (function(){
-  return {
-    nom : "toto"
-  };
-})();
-
-monModule.toto;</code>
-    			<question>L'instruction renvoie</question>
-    			<choix>Error</choix>
-    			<choix>undefined</choix>
-    			<choix correct>"toto"</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var monModule = (function(){
-  return {
-    nom : "toto",
-    age : 26,
-    vieillir : function() { this.age++; }
-  };
-})();
-
-monModule.viellir();
-monModule.age;</code>
-    			<question>La dernière instruction renvoie</question>
-    			<choix>Error</choix>
-    			<choix>undefined</choix>
-          <choix>26</choix>
-    			<choix correct>27</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var monModule = (function(){
-  var age = 26;
-  var nom = "toto";
-  return {
-    recupAge : function() { return age; },
-    recupNom : function() { return nom; },
-    vieillir : function() { age++; }
-  };
-})();
-
-monModule.vieillir();
-monModule.recupAge();</code>
-    			<question>La dernière instruction renvoie</question>
-    			<choix>Error</choix>
-          <choix>undefined</choix>
-          <choix>26</choix>
-          <choix correct>27</choix>
-    		</qcm>
-
-        <qcm>
-          <code>var monModule = (function(){
-  var age = 26;
-  var personne = {};
-
-  Object.defineProperty(personne,"age",{
-    get : function() { return age; }
-  });
-
-  return personne;
-})();
-
-monModule.age;</code>
-          <question>L'instruction renvoie</question>
-          <choix>Error</choix>
-          <choix>undefined</choix>
-          <choix correct>26</choix>
-        </qcm>
-
-        <qcm>
-          <code>var monModule = (function(){
-  var age = 26;
-  var personne = {};
-
-  Object.defineProperty(personne,"age",{
-    get : function() { return age; },
-    set : function(val) {
-      if (typeof val != "number") throw new Error("l'âge doit être un nombre");
-    }
-  });
-
-  return personne;
-})();
-
-monModule.age = "toto";</code>
-          <question>L'instruction renvoie</question>
-          <choix correct>Error</choix>
-          <choix>undefined</choix>
-          <choix>26</choix>
-        </qcm>
-
-        <qcm>
-          <code>var monModule = (function(){
-  var age = 26;
-  return {
-    get age() { return age; },
-    set age(val) {
-      if (typeof val != "number") throw new Error("val doit être un nombre");
-    }
-  };
-})();
-
-monModule.age = "toto";</code>
-          <question>L'instruction renvoie</question>
-          <choix correct>Error</choix>
-          <choix>undefined</choix>
-          <choix>26</choix>
-        </qcm>
-
-    		<qcm>
-    			<code>this == window;</code>
-    			<question>Dans le navigateur, l'égalité est</question>
-    			<choix correct>vrai</choix>
-    			<choix>fausse</choix>
-    			<choix>ce code renvoie une erreur</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>"use strict";
-var monModule = (function() {
-	this == window;
-}());</code>
-    			<question>Dans le navigateur, l'égalité est</question>
-    			<choix>vraie</choix>
-    			<choix correct>fausse</choix>
-    			<choix>ce code renvoie une erreur</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>function Personne() { this.nom = "toto"; }
 var obj = new Personne();
 typeof obj;</code>
     			<question>La dernière instruction renvoie</question>
     			<choix>Error</choix>
     			<choix>"undefined"</choix>
     			<choix>"string"</choix>
-    			<choix correct>"object"</choix>
+          <choix correct>"object"</choix>
+          <reponse>Les instances de classe sont toujours de type objet</reponse>
     		</qcm>
 
     		<qcm>
-    			<code>function Personne() { this.nom = "toto"; }
+    			<code>class Personne {
+  constructor() { this.nom = "toto"; }
+}
+
 var obj = new Personne();
 typeof obj.nom;</code>
     			<question>La dernière instruction renvoie</question>
     			<choix>Error</choix>
     			<choix>"undefined"</choix>
     			<choix correct>"string"</choix>
-    			<choix>"object"</choix>
+          <choix>"object"</choix>
+          <reponse>La proriété nom définie à l'instanciation est de type chaîne</reponse>
     		</qcm>
 
     		<qcm>
-    			<code>function Personne(nom,age) {
-    this.nom = nom;
-    this.age = age;
+    			<code>class Personne {
+  constructor(age) { this.age = age; }
 }
+
 var toto = new Personne();
 typeof toto.age;</code>
     			<question>La dernière instruction renvoie</question>
     			<choix>Error</choix>
     			<choix correct>"undefined"</choix>
     			<choix>"string"</choix>
-    			<choix>"object"</choix>
-    		</qcm>
+          <choix>"object"</choix>
+          <reponse>Un argument non passé à la valeur undefined</reponse>
+        </qcm>
 
         <qcm>
-          <code>function Personne(nom,age) {
-    this.nom = nom;
+          <code>class Personne {
+  constructor(age) {
     this.age = age;
-    this.vieillir = function() { this.age++; };
+    this._activiteSecrete = "espion";
+  }
 }
 
-var toto = new Personne();</code>
-          <question>Cette écriture est</question>
-          <choix>syntaxiquement incorrecte</choix>
-          <choix>correcte mais la fonction vieillir perd le contexte de l'objet</choix>
-          <choix correct>déconseillée, car une nouvelle fonction vieillir est créée pour chaque instance</choix>
+var toto = new Personne();
+toto._activiteSecrete;</code>
+          <question>La dernière instruction renvoie</question>
+          <choix>Error</choix>
+          <choix correct>"espion"</choix>
+          <choix>"undefined"</choix>
+          <reponse>Il n'y a pas de propriété privée en javascript, c'est juste une convention de nommage</reponse>
         </qcm>
 
     		<qcm>
-    			<code>function Personne(nom,age) {
-    this.nom = nom;
-    this.age = age;
+    			<code>class Personne {
+  constructor(nom) { this.nom = nom; }
+  static test(obj) { return obj instanceof Personne; }
 }
 
-Personne.vieillir = function() { this.age++; };
-
-var toto = new Personne();
-typeof toto.vieillir;</code>
+var toto = new Personne("Toto");
+typeof toto.test;</code>
     			<question>La dernière instruction renvoie</question>
     			<choix>Error</choix>
     			<choix correct>"undefined"</choix>
     			<choix>"function"</choix>
-    			<choix>"object"</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>function Personne(nom,age) {
-    this.nom = nom;
-    this.age = age;
-}
-
-Personne.prototype.vieillir = function() { this.age++; };
-
-var toto = new Personne();
-typeof toto.vieillir;</code>
-    			<question>La dernière instruction renvoie</question>
-    			<choix>Error</choix>
-    			<choix>"undefined"</choix>
-    			<choix correct>"function"</choix>
-    			<choix>"object"</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>function Personne() {}
-
-typeof Personne.prototype;</code>
-    			<question>La dernière instruction renvoie</question>
-    			<choix>Error</choix>
-    			<choix>"undefined"</choix>
-    			<choix>"function"</choix>
-    			<choix correct>"object"</choix>
-    		</qcm>
-
-        <qcm>
-          <code>function Personne(nom,age) {
-    this.nom = nom;
-    this.age = age;
-}
-
-Personne.prototype.vieillir = function() { this.age++; };
-
-var toto = new Personne();
-var tata = new Personne();
-toto.vieillir === tata.vieillir</code>
-          <question>L'égalité est </question>
-          <choix correct>vraie</choix>
-          <choix>fausse</choix>
+          <choix>"object"</choix>
+          <reponse>Les méthodes statiques ne sont pas accessibles à partir des instances, seulement à partir du constructeur (classe).</reponse>
         </qcm>
 
-    		<qcm>
-    			<code>function Personne(nom,age) {
+        <qcm>
+            <code>class Personne {
+  constructor(nom, age) {
     this.nom = nom;
     this.age = age;
+  }
+  vieillir() {
+    this.age++;
+  }
 }
 
-Personne.prototype.vieillir = function() { this.age++ };
+class Anxieux extends Personne {
+  constructor(nom, age) {
+    super(nom, age);
+    this.anxiete = 10;
+  }
+  vieillir() {
+    super.vieillir();
+    this.anxiete++;
+  }
+}
 
-var toto = new Personne("Toto",25);
+var toto = new Anxieux("Toto",25);
 toto.vieillir();
 toto.age;</code>
-    			<question>La dernière instruction renvoie</question>
-    			<choix>25</choix>
-    			<choix correct>26</choix>
-    			<choix>undefined</choix>
-    		</qcm>
+            <question>La dernière instruction renvoie</question>
+            <choix>25</choix>
+            <choix correct>26</choix>
+            <choix>Error</choix>
+          </qcm>
 
     		<qcm>
-    			<code>function Personne(nom,age) {
-    this.nom = nom;
-    this.age = age;
+    			<code>class Personne {
+  constructor(nom) { this.nom = nom; }
 }
 
-Personne.prototype.vieillir = function() { this.age++ };
-
-var toto = new Personne("Toto",25);
+var toto = new Personne("Toto");
 toto.toString();
 </code>
     			<question>La dernière instruction renvoie</question>
     			<choix>Error</choix>
     			<choix correct>"[object Object]"</choix>
-    			<choix>undefined</choix>
+          <choix>undefined</choix>
+          <reponse>Tous les objets héritent du constructeur Object, qui contient la méthode toString</reponse>
     		</qcm>
 
     		<qcm>
-    			<code>function Personne(nom,age) {
-    this.nom = nom;
-    this.age = age;
+    			<code>class Personne {
+  constructor(nom) { this.nom = nom; }
+  toString() { return "[object Personne]"; }
 }
 
-Personne.prototype.vieillir = function() { this.age++ };
-
-Personne.prototype.toString = function() { return "[object Personne]"; };
-
-var toto = new Personne("Toto",25);
+var toto = new Personne("Toto");
 toto.toString();
 </code>
     			<question>La dernière instruction renvoie</question>
     			<choix>Error</choix>
     			<choix>"[object Object]"</choix>
-    			<choix correct>"[object Personne]"</choix>
+          <choix correct>"[object Personne]"</choix>
+          <reponse>La méthode toString a été surchargée</reponse>
     		</qcm>
 
     		<qcm>
-    			<code>function Personne(nom,age) {
-    this.nom = nom;
-    this.age = age;
+    			<code>class Personne {
+  constructor(nom) { this.nom = nom; }
+  toString() { return "[object Personne]"; }
 }
 
-Personne.prototype.vieillir = function() { this.age++ };
-
-Personne.prototype.toString = function() { return "[object Personne]"; };
-
-var toto = new Personne("Toto",25);
-console.log("toto : "+toto);
+var toto = new Personne("Toto");
+console.log("toto : " + toto);
 </code>
     			<question>La dernière instruction renvoie</question>
     			<choix>Error</choix>
     			<choix>"toto : undefined"</choix>
     			<choix>"toto : [object Object]"</choix>
-    			<choix correct>"toto : [object Personne]"</choix>
+          <choix correct>"toto : [object Personne]"</choix>
+          <reponse>La méthode toString est utilisée en interne pour convertir un objet en chaîne de caractère.</reponse>
     		</qcm>
 
     		<qcm>
-    			<code>function Personne(nom,age) {
+    			<code>class Personne {
+  constructor(nom, age) {
     this.nom = nom;
     this.age = age;
+  }
+  get age() {
+    return this._age;
+  }
+  set age(val)  {
+    if (typeof val !== "number") throw new TypeError("val n'est pas un nombre");
+    this._age = val;
+  }
 }
-
-Personne.prototype.vieillir = function() { this.age++ };
-
-Personne.prototype.toString = function() { Object.prototype.toString.call(this) + " " + JSON.stringify(this); };
-
-var toto = new Personne("Toto",25);
-toto.toString();
-</code>
-    			<question>La dernière instruction renvoie</question>
-    			<choix>Error</choix>
-    			<choix>"[object Object]"</choix>
-    			<choix correct>'[object Object] {"nom":"Toto","age":25}'</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>function Personne(nom,age) {
-    this.nom = nom;
-    this.age = age;
-}
-
-Personne.prototype.vieillir = function() { this.age++ };
-
-function Homme() {
-	Personne.apply(this,arguments);
-	this.sexe = "M";
-}
-
-Homme.prototype = Object.create(Personne.prototype);
 
 var toto = new Homme("Toto",25);
-toto.vieillir();
 toto.age;
 </code>
     			<question>La dernière instruction renvoie</question>
-    			<choix>25</choix>
-    			<choix correct>26</choix>
-    			<choix>Error</choix>
-    		</qcm>
+    			<choix correct>25</choix>
+    			<choix>undefined</choix>
+          <choix>Error</choix>
+          <reponse>Le mutateur (set) a été utilisé à la construction pour instancier la propriété _age, renvoyée par l'accesseur (get).</reponse>
+        </qcm>
 
-    		<qcm>
-    			<code>function Personne(nom,age) {
+        <qcm>
+            <code>class Personne {
+  constructor(nom, age) {
     this.nom = nom;
     this.age = age;
+  }
+  get age() {
+    return this._age;
+  }
+  set age(val)  {
+    if (typeof val !== "number") throw new TypeError("val n'est pas un nombre");
+    this._age = val;
+  }
 }
-
-Personne.prototype.vieillir = function() { this.age++ };
-
-function Homme() {
-	Personne.apply(this,arguments);
-	this.sexe = "M";
-}
-
-Homme.prototype = Object.create(Personne.prototype);
 
 var toto = new Homme("Toto",25);
-toto.toString();
-</code>
-    			<question>La dernière instruction renvoie</question>
-    			<choix>Error</choix>
-    			<choix correct>"[object Object]"</choix>
-    			<choix>Error</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var slice = Array.prototype.slice;
-var slice2 = [].slice;
-
-slice == slice2;
-</code>
-    			<question>L'égalité est</question>
-    			<choix correct>vraie</choix>
-    			<choix>fausse</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var slice = Array.prototype.slice;
-var liste = slice.call( document.querySelectorAll(".maClasse") );
-
-Array.isArray(liste);
-</code>
-    			<question>La dernière instruction renvoie</question>
-    			<choix>false</choix>
-    			<choix correct>true</choix>
-    		</qcm>
-
-    		<qcm>
-    			<code>var slice = Array.prototype.slice;
-var liste = slice.call( document.querySelectorAll(".maClasse") );
-
-typeof liste.forEach;
-</code>
-    			<question>La dernière instruction renvoie</question>
-    			<choix>"undefined"</choix>
-    			<choix correct>"function"</choix>
-    			<choix>"object"</choix>
-    			<choix>Error</choix>
-    		</qcm>
+toto.age = "titi";</code>
+            <question>La dernière instruction renvoie</question>
+            <choix>true</choix>
+            <choix>undefined</choix>
+            <choix>25</choix>
+            <choix correct>Error</choix>
+            <reponse>Le mutateur (set) est appelé pour définir la propriété age et jette une erreur car la valeur n'est pas un nombre</reponse>
+          </qcm>

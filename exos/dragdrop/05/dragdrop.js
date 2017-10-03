@@ -1,42 +1,35 @@
 (function() {
     
     "use strict";
-    
-    function DragNdrop(elmt,opt) {
-    	
-    	this.elmt = elmt;
-    	
-    	if (opt) this.enable(opt);
-    }
-    
-    DragNdrop.prototype = {
+    class DragNdrop {
         
-        constructor : DragNdrop,
+        constructor(elmt,opt) {
     	
-    	onstart : null,
-    	
-    	ondrag : null,
-    	
-    	onend : null,
-    	
-    	_attachedFunction : null,
-    	
-    	set : function(opt) {
+            this.elmt = elmt;
+            this.onstart = null;
+            this.ondrag = null;
+            this.onend = null;
+            this._attachedFunction = null;
             
-            for (var n in opt) {
-    		
+            if (opt) this.enable(opt);
+        }
+
+        set(opt) {
+
+            for (let n in opt) {
+                
                 if (n in this) this[n] = opt[n];
             }
-    	},
-    	
-    	reset : function() {
+        }
+
+        reset() {
             
             var proto = Object.getPrototypeOf(this);
             
-            for (var n in proto) this[n] = proto[n];
-    	},
-        
-    	enable : function(opt) {
+            for (let n in proto) this[n] = proto[n];
+        }
+
+        enable(opt) {
             
             this.disable();
             if (opt) this.set(opt);
@@ -78,16 +71,17 @@
             this.elmt.addEventListener("mousedown",onmousedown);
             
             this._attachedFunction = onmousedown;
-    	},
+    	}
     	
-    	disable : function() {
+    	disable() {
             
             if (!this._attachedFunction) return;
             
             this.elmt.removeEventListener("mousedown",this._attachedFunction);
             this._attachedFunction = null;
     	}
-    };
+    
+    }
     
     window.DragNdrop = DragNdrop;
     

@@ -168,9 +168,7 @@ var prix;
                     <br/><br/>
                     <p>
                     Exemple
-                    <pre><code class="javascript">var pas;
-
-for (pas=0 ; pas<5 ; pas++) {
+                    <pre><code class="javascript">for (let pas=0 ; pas<5 ; pas++) {
   // Ceci sera exécuté 5 fois
   // la variable "pas" ira de 0 à 4
   console.log("Faire un pas vers l'est");
@@ -215,8 +213,7 @@ while (n < 3) {
 					<p>Exemple</p>
 					<pre><code class="javascript">function afficherProps(obj) {
   var result = "";
-  var n;
-  for (n in obj) result+= n + "=" + obj[n] + "\n";
+  for (let n in obj) result+= n + "=" + obj[n] + "\n";
   return result;
 }
 
@@ -242,9 +239,8 @@ age=25
 					<h2>break</h2>
 					<p>Provoque la fin de l'instruction <code>while, do-while, for,</code> ou <code>switch</code> dans laquelle il est inscrit (la plus imbriquée).</p>
 					<br/><pre><code class="javascript">var tab = ["toto","titi","tata"];
-var i;
 
-for (i=0; i&lt;tab.length; i++) {
+for (let i=0; i&lt;tab.length; i++) {
   if (a[i] == "tata") break;
   console.log(a[i]);
 }
@@ -507,12 +503,12 @@ function attendre(s) {
 }
 
 async function chargerTout() {
-	await chargerImage("monImage1.png")
-	await attendre(5)
-	await chargerImage("monImage2.png")
-	await attendre(5)
-	await chargerImage("monImage3.png")
-	await attendre(5)
+  await chargerImage("monImage1.png")
+  await attendre(5)
+  await chargerImage("monImage2.png")
+  await attendre(5)
+  await chargerImage("monImage3.png")
+  await attendre(5)
 }
 
 chargerTout()</code></pre>

@@ -23,12 +23,6 @@
     },{
             nom:"07",
             files : ["maBiblio.js"]
-    },{
-            nom:"08",
-            files : ["maBiblio.js"]
-    },{
-            nom:"09",
-            files : ["maBiblio.js","events.js"]
     }];
 
     function get(url) {
