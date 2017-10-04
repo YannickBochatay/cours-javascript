@@ -1,3 +1,0 @@
-function $(selecteur) {
-    /* votre code */
-}

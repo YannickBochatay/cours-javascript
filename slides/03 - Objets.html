@@ -153,6 +153,19 @@ var personnes = { toto : toto, tata : tata };</code></pre>
 
 //ok</code></pre>
 				</section>
+				
+				<section>
+						<h2>Notation littérale</h2>
+						<h3>EcmaScript 6</h3>
+	<pre><code class="javascript">var nom = "Toto";
+var age = 26;
+
+var toto = { nom, age };
+
+// équivalent à 
+var toto = { "nom" : nom, "age" : age };
+</code></pre>
+				</section>
 
 				</section>
 
@@ -221,9 +234,10 @@ toto.nbEnfants; //undefined</code></pre>
 
 
 				<section>
-					<h2>Enumération des propriétés</h2>
-					<h3>boucle for...in</h3>
-					<pre><code class="javascript">var toto = {
+					<section>
+						<h2>Enumération des propriétés</h2>
+						<h3>boucle for...in</h3>
+						<pre><code class="javascript">var toto = {
     nom : "Toto",
     age : 25,
     sexe : "M"
@@ -236,6 +250,21 @@ for (n in toto) {
 }
 
 </code></pre>
+					</section>
+
+					<section>
+					<h2>Enumération des propriétés</h2>
+					<h3>EcmaScript 6</h3>
+					<pre><code class="javascript">var toto = {
+    nom : "Toto",
+    age : 25,
+    sexe : "M"
+};
+
+for (let n in toto) {
+    console.log(n, toto[n]);
+}</code></pre>
+					</section>
 				</section>
 
                 <section>

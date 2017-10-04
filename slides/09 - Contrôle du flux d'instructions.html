@@ -168,9 +168,7 @@ var prix;
                     <br/><br/>
                     <p>
                     Exemple
-                    <pre><code class="javascript">var pas;
-
-for (pas=0 ; pas<5 ; pas++) {
+                    <pre><code class="javascript">for (let pas=0 ; pas<5 ; pas++) {
   // Ceci sera exécuté 5 fois
   // la variable "pas" ira de 0 à 4
   console.log("Faire un pas vers l'est");
@@ -215,8 +213,7 @@ while (n < 3) {
 					<p>Exemple</p>
 					<pre><code class="javascript">function afficherProps(obj) {
   var result = "";
-  var n;
-  for (n in obj) result+= n + "=" + obj[n] + "\n";
+  for (let n in obj) result+= n + "=" + obj[n] + "\n";
   return result;
 }
 
@@ -242,9 +239,8 @@ age=25
 					<h2>break</h2>
 					<p>Provoque la fin de l'instruction <code>while, do-while, for,</code> ou <code>switch</code> dans laquelle il est inscrit (la plus imbriquée).</p>
 					<br/><pre><code class="javascript">var tab = ["toto","titi","tata"];
-var i;
 
-for (i=0; i&lt;tab.length; i++) {
+for (let i=0; i&lt;tab.length; i++) {
   if (a[i] == "tata") break;
   console.log(a[i]);
 }
@@ -463,8 +459,7 @@ chargerImage("monImage1.png",function() {
 
 				<section>
 					<h2>Promesses</h2>
-					<p>Norme ECMAScript 6 mais implémentées dans les navigateurs récents ou grâce à une <a target="liens" href="https://github.com/jakearchibald/es6-promise">prothèse
-					d'émulation</a> (polyfill).</p>
+					<h3>Norme ECMAScript 6</h3>
 					<pre><code class="javascript" style="max-height:1000px">function chargerImage(src) {
   return new Promise(function(resolve) {
     var img = new Image();
@@ -488,6 +483,35 @@ chargerImage("monImage1.png")
 					<a href="http://www.html5rocks.com/fr/tutorials/es6/promises/" target="liens">
 						<small>http://www.html5rocks.com/fr/tutorials/es6/promises/</small>
 					</a>
+				</section>
+
+				<section>
+					<h2>Async / await</h2>
+					<h3>Norme ECMAScript 8 (2017)</h3>
+					<pre><code class="javascript" style="max-height:1000px">function chargerImage(src) {
+  return new Promise(function(resolve) {
+    var img = new Image();
+    img.src = "http://monServeur/"+src;
+    img.onload = resolve;
+  });
+}
+
+function attendre(s) {
+  return new Promise(function(resolve) {
+    window.setTimeout(resolve,s*1000);
+  });
+}
+
+async function chargerTout() {
+  await chargerImage("monImage1.png")
+  await attendre(5)
+  await chargerImage("monImage2.png")
+  await attendre(5)
+  await chargerImage("monImage3.png")
+  await attendre(5)
+}
+
+chargerTout()</code></pre>
 				</section>
 
 			</div>

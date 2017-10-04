@@ -14,25 +14,18 @@
     
     "use strict";
     
-    function DragNdrop(elmt) {
+    class DragNdrop {
         
-        this.elmt = elmt;
-    }
-    
-    DragNdrop.prototype = {
-        
-        constructor : DragNdrop, 
-    	
-    	onstart : null,
-    	
-    	ondrag : null,
-    	
-    	onend : null,
-    	
-    	_attachedFunction : null,
-        
-        enable : function() {
-            
+        constructor(elmt) {   
+            this.elmt = elmt;
+            this.onstart = null;
+            this.ondrag = null;
+            this.onend = null;
+            this._attachedFunction = null;
+        }
+
+        enable() {
+
             this.disable();
             
             var that = this,
@@ -73,17 +66,17 @@
             this._attachedFunction = onmousedown;
             
             elmt.addEventListener("mousedown",onmousedown);
-        },
-        
-        disable : function() {
+        }
+
+        disable() {
             
             if (!this._attachedFunction) return;
             
             this.elmt.removeEventListener("mousedown",this._attachedFunction);
             this._attachedFunction = null;
         }
-    };
-    
+
+    }
     
     
     

@@ -191,8 +191,7 @@ getJSON('http://mpfc/back/modeles/instruction/liste/?page=1')
         </section>
         <section>
           <h2>fetch</h2>
-          <p>API qui remplacera à terme XMLHttpRequest.</p>
-          <p>Spécification non finalisée mais utilisable grâce à une <a href="https://github.com/github/fetch" target="liens">prothèse d'émulation.</a></p>
+          <p>API vouée à remplacer XMLHttpRequest, utilisable dans les navigateurs récents (spécification non finalisée).</p>
           <br/>
           <pre><code class="javascript">fetch('http://mpfc/back/modeles/instruction/liste/?page=1')
 .then(function(response) { return response.json(); })
