@@ -48,30 +48,55 @@
 					<h1>Javascript</h1>
 					<h3>Points divers</h3>
 				</section>
-                
-                <section>
-                    <h2>Document DSI</h2>
-                    <a href="http://gedmf/share/page/document-details?nodeRef=workspace://SpacesStore/b5f0f088-972a-49e2-b6d0-c8bb1795fd73" target="liens">
-                        Règles de codage javascript
-                    </a>
-                </section>
+
+        <section>
+          <h2>Modules</h2>
+          Une des fonctionnalités les plus importante de la norme ES6, mais qui tarde à être intégrée aux navigateurs.
+          <pre><code class="html" >&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;&lt;/head&gt;
+    &lt;body&gt;
+      &lt;script src="index.js" type="module"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+          <p><small>index.js</small></p>
+          <pre><code>import monModule, { maFonction } from "./monModule.js";</code></pre>
+          <p><small>monModule.js</small></p>
+          <pre><code>export function maFonction() { /* ... */ }
+
+export default {
+  tata : "tata",
+  toto : "toto"
+}</code></pre>
+<p>Chaque module possède son contexte (inutile d'écrire des IIFE).</p>
+
+          </code></pre>
+      </section>
+
+      <section>
+          <h2>Document DSI</h2>
+          <a href="http://gedmf/share/page/document-details?nodeRef=workspace://SpacesStore/b5f0f088-972a-49e2-b6d0-c8bb1795fd73" target="liens">
+              Règles de codage javascript
+          </a>
+      </section>
 
 				<section>
 					<h2>Reconnaître une bonne bibliothèque</h2>
 					<ul>
 						<li>pas d'autre variable globale que l'espace de nom</li>
 						<li>pas de browser sniffing</li>
-						<li>pas d'extension des prototypes natifs ou hôtes</li>
+						<li>pas d'extension des objets natifs ou hôtes</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>Frameworks et bibliothèques</h2>
 					<ul>
-                        <li><a href="http://facebook.github.io/react/" target="liens">React</a> (Facebook)</li>
-                        <li><a href="https://angularjs.org/" target="liens">Angular</a> (<a href="https://angular.io/" target="liens">2</a>) (Google)</li>
-                        <li><a href="http://getbootstrap.com/" target="liens">Bootstrap</a> (Twitter)</li>
-                        <li><a href="http://jquery.com/" target="liens">jQuery</a> (DOM, ajax, etc)</li>
+            <li><a href="https://angular.io/" target="liens">Angular</a> (Google)</li>
+            <li><a href="http://facebook.github.io/react/" target="liens">React</a> (Facebook)</li>
+            <li><a href="http://getbootstrap.com/" target="liens">Bootstrap</a> (Twitter)</li>
+            <li><a href="http://jquery.com/" target="liens">jQuery</a> (DOM, ajax, etc)</li>
 					</ul>
 				</section>
 
@@ -91,58 +116,55 @@
 				<section>
 					<h2>Boite à outils</h2>
 					<ul>
-                        <li>
-                            <a href="http://openlayers.org/" target="liens">OpenLayers</a>,
-                            <a href="http://leafletjs.com/" target="liens">Leaflet</a> (cartographie)
-                        </li>
-                        <li>
-                            <a href="http://d3js.org/" target="liens">D3</a> (visualisation de données)
-                        </li>
-                        <li>
-                            <a href="http://www.highcharts.com/" target="liens">Highcharts</a> (graphiques)
-                        </li>
-                        <li>
-                            <a href="http://linkedin.github.io/hopscotch/" target="liens">Hopscotch</a> (aide intéractive)
-                        </li>
-                        <li>
-                            <a href="http://ckeditor.com/" target="liens">CKEditor</a>,
-                            <a href="http://www.tinymce.com/" target="liens">TinyMCE</a> (éditeurs riches)
-                        </li>
-                        <li>
-                            <a href="https://highlightjs.org/" target="liens">HighlightJS</a>,
-                            <a href="http://prismjs.com/" target="liens">Prism</a> (coloration syntaxique)
-                        </li>
-                        <li>
-                            <a href="http://ace.c9.io" target="liens">Ace editor</a>,
-                            <a href="https://codemirror.net/" target="liens">Code Mirror</a> (éditeurs de code)
-                        </li>
-                        <li>
-                            <a href="http://momentjs.com/" target="liens">Moment</a> (gestion des dates)
-                        </li>
-                        <li>
-                            <a href="https://github.com/mozilla/localForage" target="liens">LocalForage</a>,
-                            <a href="http://www.dexie.org/" target="liens">Dexie</a>
-                            (stockage client)
-                        </li>
-                        <li>
-                            <a href="https://lodash.com/" target="liens">Lodash</a> (fonctions utiles)
-                        </li>
-                        <li>
-                            <a href="http://threejs.org/" target="liens">ThreeJS</a> (WebGL)
-                        </li>
-                        <li>
-                            <a href="http://lab.hakim.se/reveal-js" target="liens">Reveal</a> (présentations)
-                        </li>
+            <li>
+                <a href="http://openlayers.org/" target="liens">OpenLayers</a>,
+                <a href="http://leafletjs.com/" target="liens">Leaflet</a> (cartographie)
+            </li>
+            <li>
+                <a href="http://d3js.org/" target="liens">D3</a> (visualisation de données)
+            </li>
+            <li>
+                <a href="http://www.highcharts.com/" target="liens">Highcharts</a> (graphiques)
+            </li>
+            <li>
+                <a href="http://linkedin.github.io/hopscotch/" target="liens">Hopscotch</a> (aide intéractive)
+            </li>
+            <li>
+                <a href="http://ckeditor.com/" target="liens">CKEditor</a>,
+                <a href="http://www.tinymce.com/" target="liens">TinyMCE</a> (éditeurs riches)
+            </li>
+            <li>
+                <a href="https://highlightjs.org/" target="liens">HighlightJS</a>,
+                <a href="http://prismjs.com/" target="liens">Prism</a> (coloration syntaxique)
+            </li>
+            <li>
+                <a href="http://ace.c9.io" target="liens">Ace editor</a>,
+                <a href="https://codemirror.net/" target="liens">Code Mirror</a> (éditeurs de code)
+            </li>
+            <li>
+                <a href="http://momentjs.com/" target="liens">Moment</a> (gestion des dates)
+            </li>
+            <li>
+                <a href="https://lodash.com/" target="liens">Lodash</a> (fonctions utiles)
+            </li>
+            <li>
+                <a href="http://threejs.org/" target="liens">ThreeJS</a> (WebGL)
+            </li>
+            <li>
+                <a href="http://lab.hakim.se/reveal-js" target="liens">Reveal</a> (présentations)
+            </li>
 
 					</ul>
 				</section>
-				
+
 				<section>
-					<h2>Environnements de développement</h2>
+          <h2>Environnements de dev</h2>
+          <br/>
 					<ul>
-						<li><a href="https://code.visualstudio.com/" target="liens">Visual studio code</a></li>
-						<li><a href="http://brackets.io/" target="liens">Brackets</a></li>
-						<li><a href="https://atom.io/" target="liens">Atom</a></li>
+						<li><h3><a href="https://code.visualstudio.com/" target="liens">Visual studio code</a></h3></li>
+            <br/>
+            <li><a href="http://brackets.io/" target="liens">Brackets</a></li>
+            <li><a href="https://atom.io/" target="liens">Atom</a></li>
 						<li><a href="https://www.sublimetext.com/" target="liens">Sublime Text</a></li>
 						<li><a href="http://www.eclipse.org/downloads/packages/eclipse-ide-javascript-web-developers/indigosr2" target="liens">Eclipse</a></li>
 						<li><a href="https://netbeans.org/downloads/" target="liens">Netbeans</a></li>
@@ -158,16 +180,6 @@
 						<li><a href="http://www.echojs.com/" target="liens">Echo JS</a> (actualité javascript)</li>
 						<li><a href="http://tympanus.net/codrops/" target="liens">Codrops</a> (web design)</li>
 					</ul>
-				</section>
-
-				<section>
-                    <h2>Sites à éviter</h2>
-                    <h3>(pour le javascript)</h3>
-                    <ul>
-                        <li><a href="http://www.toutjavascript.com" target="liens">Tout Javascript</a></li>
-                        <li><a href="http://www.commentcamarche.net/" target="liens">Comment ça marche</a></li>
-                        <li><a href="http://www.w3schools.com" target="liens">W3 schools</a>
-                    </ul>
 				</section>
 
 			</div>

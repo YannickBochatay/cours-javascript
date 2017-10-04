@@ -137,44 +137,6 @@ i++;</code>
 </qcm>
 
 <qcm>
-    <code>function toto() { }
-
-typeof toto.bind(null);</code>
-    <question>Cette expression renvoie</question>
-    <choix>"undefined"</choix>
-    <choix>"object"</choix>
-    <choix correct>"function"</choix>
-    <choix>je ne sais pas</choix>
-</qcm>
-
-<qcm>
-    <code>function toto() { }
-
-typeof toto.call(null);</code>
-    <question>Cette expression renvoie</question>
-    <choix>Error</choix>
-    <choix correct>"undefined"</choix>
-    <choix>"object"</choix>
-    <choix>"function"</choix>
-    <choix>je ne sais pas</choix>
-</qcm>
-
-<qcm>
-    <code>var toto = {
-    nom : "toto",
-    age : 25,
-    renaitre : function() { this.age = 0; }
-};
-
-var boutonMagique = document.getElementById("monBoutonMagique");
-boutonMagique.addEventListener("click",toto.renaitre);</code>
-    <question>En cliquant sur le bouton magique, <code>toto.age</code> passera à 0</question>
-    <choix>vrai</choix>
-    <choix correct>faux</choix>
-    <choix>je ne sais pas</choix>
-</qcm>
-
-<qcm>
     <code>var x = 1;
 if (true) {
     var x = 2;
@@ -257,24 +219,6 @@ typeof Personne.prototype;
     this.age = age;
 }
 
-var toto = new Personne("Toto",26);
-
-typeof toto.prototype;
-    </code>
-    <question>L'instruction renvoie</question>
-    <choix>"null"</choix>
-    <choix correct>"undefined"</choix>
-    <choix>"function"</choix>
-    <choix>"object"</choix>
-    <choix>je ne sais pas</choix>
-</qcm>
-
-<qcm>
-    <code>function Personne(nom,age) {
-    this.nom = nom;
-    this.age = age;
-}
-
 Personne.prototype.vieillir = function() { this.age++ };
 
 var toto = new Personne("Toto",25);
@@ -287,18 +231,5 @@ typeof toto.vieillir;
     <choix>"null"</choix>
     <choix correct>"function"</choix>
     <choix>je ne sais pas</choix>
-</qcm>
-
-<qcm>
-    <code>var module = (function() {
-    var x = 2;
-    return {
-        getX : function() { return x; }
-    };
-}());
-    </code>
-    <question>Cette écriture vous est familière</question>
-    <choix correct>oui</choix>
-    <choix>non</choix>
 </qcm>
 
