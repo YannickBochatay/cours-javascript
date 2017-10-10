@@ -87,12 +87,11 @@ tab.length; //3</code></pre>
 					<p>Il n'y a <u>pas de tableaux associatifs</u> en javascript.</p>
 					<p>La confusion vient de la notation avec crochets qui rappelle les tableaux associatifs d'autres langages.</p>
 					<pre><code class="javascript">var tab = [];
-var n;
 
 tab["nom"] = "Toto";
 tab["age"] = 25;
 
-for (n in tab) console.log(n + ' = ' + tab[n]);
+for (let n in tab) console.log(n + ' = ' + tab[n]);
 
 //J'arrive à mes fins et je crois utiliser un tableau associatif.
 </code></pre>
@@ -114,12 +113,11 @@ console.log( tab.length ); //0
 						<h3>Solution</h3>
 						<p>Utiliser tout simplement les objets.
 						<pre><code class="javascript">var tab = {};
-var n;
 
 tab.nom = "Toto"; // strictement équivalent à tab["nom"] = "Toto"
 tab.age = 25; // strictement équivalent à tab["age"] = 25
 
-for (n in tab) console.log(n + ' = ' + tab[n]);
+for (let n in tab) console.log(n + ' = ' + tab[n]);
 </code></pre>
 					</section>
 				</section>
@@ -128,9 +126,8 @@ for (n in tab) console.log(n + ' = ' + tab[n]);
 						<h2>Enumération</h2>
 						<h3>Classique</h3>
 						<pre><code class="javascript">var tab = ["tata","toto","titi"];
-var i;
 
-for (i=0 ; i&lttab.length ; i++) {
+for (let i=0 ; i&lttab.length ; i++) {
     console.log(tab[i]);
 }</code></pre>
 						<div class="fragment">
@@ -145,7 +142,7 @@ tab.forEach(function(item, i) {
 							<h4>avec une fonction fléchée (ES6)</h4>
 							<pre><code class="javascript">var tab = ["tata","toto","titi"];
 
-tab.forEach(item => console.log("item n°" + item) );
+tab.forEach((item,i) => console.log("item n°"+i+" : "+item));
 </code></pre>
 						</div>
 					</section>
@@ -155,9 +152,8 @@ tab.forEach(item => console.log("item n°" + item) );
 						<h3><del>for...in</del></h3>
 						<p>Ne jamais utiliser la boucle <code>for...in</code> pour énumérer un tableau !
 						<pre><code class="javascript">var tab = ["tata","toto","titi"];
-var n;
 
-for (n in tab) console.log(tab[n]);
+for (let n in tab) console.log(tab[n]);
 
 //Pourquoi puisque ça marche ?!
 </code></pre>
@@ -166,11 +162,10 @@ for (n in tab) console.log(tab[n]);
 						<h2>Enumération</h2>
 						<h3><del>for...in</del></h3>
 						<pre><code class="javascript">var tab = ["tata","toto","titi"];
-var n;
 
 tab.nom = "Mes prénoms";
 
-for (n in tab) console.log(tab[n]);
+for (let n in tab) console.log(tab[n]);
 
 //ça ne fonctionne plus
 </code></pre>
