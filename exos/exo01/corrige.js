@@ -4,9 +4,9 @@ var obj = {
 	sexe : null
 };
 
-var str="", n;
+var str="";
 
-for (n in obj) {
+for (let n in obj) {
 	obj[n] = prompt(n+" : ");
 	str = str + n + " : " + obj[n] + "\n";
 }
