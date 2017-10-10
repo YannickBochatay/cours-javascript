@@ -71,22 +71,15 @@ toto.nom = "Toto";
 toto.age = 25;</code></pre>
 					<div/>
 
-                                        <div class="fragment">
+          <div class="fragment">
 					<p>Notation littérale (initialisateur d'objet)<br/>
 						<small>La plus répandue et conseillée.</small></p>
 					<pre><code class="javascript">var toto = {
-    nom : "Toto",
-    age : 25
+    "nom" : "Toto",
+    "age" : 25
 };</code></pre>
-                                        </div>
-
-					<div class="fragment">
-					<p>Object.create<br/>
-						<small>Utilisé dans des cas bien précis</small></p>
-					<pre><code class="javascript">var toto = Object.create(null);
-toto.nom = "Toto";
-toto.age = 25;</code></pre>
-					<div/>
+           </div>
+					
 				</section>
 
 				<section>
@@ -106,7 +99,7 @@ var titi = {
     "activites" : null
 };
 
-var personnes = { "titi" : titi, "tata" : tata };
+var personnes = { "toto" : toto, "titi" : titi };
 </code></pre>
 				</section>
 				<section>
