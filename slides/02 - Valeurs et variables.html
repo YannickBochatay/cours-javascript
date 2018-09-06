@@ -110,7 +110,18 @@ parseFloat("a"); // NaN
 						<pre><code>
   "toto";
   'toto';
-							</code></pre>
+            </code></pre>
+            <br/>
+            <div class="fragment">
+            <p>
+              Délimitée par des guillements obliques, la chaîne peut être écrite sur plusieurs lignes et intégrer des variables.
+            </p>
+            <pre><code class="javascript">
+    let nom = "Toto";
+
+    alert(`Bonjour ${nom},
+    comment vas-tu ?`);
+            </code></pre>
 					  </section>
 
 					  <section>
@@ -178,26 +189,13 @@ parseFloat("a"); // NaN
                             </table>
 						</section>
 
-                        <section>
-                        <h3>Littéraux de gabarits</h3>
-						<h3>Nouveauté ES6</h3>
-						<p>
-						Délimitées par les guillements obliques, ils permettent d'intégrer des expressions et de définir des chaînes sur plusieurs lignes.
-						</p>
-						<pre><code class="javascript">
-  var nom = "Toto";
-  
-  alert(`Bonjour ${nom},
-  comment vas-tu ?`);
-							</code></pre>
-					  </section>
 					</section>
-                
+
 
 						<section>
 							<h3>Undefined</h3>
 							Valeur utilisée lorsqu'aucune valeur n'a été attribuée à une variable.
-							<pre><code class="javascript">var toto;
+							<pre><code class="javascript">let toto;
 
 toto; //undefined</code></pre>
 						</section>
@@ -205,8 +203,8 @@ toto; //undefined</code></pre>
 						<section>
 							<h3>null</h3>
 							Valeur qui représente l'absence intentionnelle de valeur.
-							<pre><code>
-  var toto = null;
+							<pre><code class="javascript">
+let toto = null;
 								</code></pre>
 
 					</section>
@@ -216,20 +214,20 @@ toto; //undefined</code></pre>
 					Obligatoire en mode strict
 					<pre><code>"use strict";
 
-var tata; //déclaration
-var toto = "titi"; //déclaration + affectation
-var titi, tutu; //déclaration de 2 variables avec un seul mot clé var.
+let tata; //déclaration
+let toto = "titi"; //déclaration + affectation
+let titi, tutu; //déclaration de 2 variables avec un seul mot clé var.
 
 toto; // "titi"
 titi; // undefined
 tutu; // undefined
 tyty; // ReferenceError: tyty is not defined</code></pre>
 				</section>
-				
+
 				<section>
 					<h2>Typage dynamique</h2>
 					On ne spécifie pas le type de données.
-					<pre><code>var reponse = 42;
+					<pre><code>let reponse = 42;
 
 reponse = "toto";
 					</code></pre>
@@ -254,7 +252,7 @@ reponse = "toto";
 						</ul>
 						<br/>
 						<br/>
-						<pre><code>var maVariable = new MonConstructeur();</code></pre>
+						<pre><code class="javascript">let maVariable = new MonConstructeur();</code></pre>
 					</section>
 					<section>
 						<h2>Mots réservés</h2>
@@ -277,7 +275,7 @@ reponse = "toto";
 							<li><code>for</code></li>
 							<li><code>function</code></li>
 							<li><code>if</code></li>
-							<li><code>implements</code></li>
+							<li><code>implements</code>*</li>
 							<li><code>import</code></li>
 							<li><code>in</code></li>
 							<li><code>instanceof</code></li>
@@ -309,7 +307,6 @@ reponse = "toto";
 				</section>
 
 				<section>
-					<section>
 						<h2>Portée des variables</h2>
 						<h3>Variables globales</h3>
 						<p>En dehors des fonctions, on parle d'espace global.<br/>
@@ -318,86 +315,100 @@ reponse = "toto";
 						<h3>Variables locales</h3>
 						<p>Lorsqu'une variable est déclarée dans une fonction, elle est appelée variable locale car elle n'est disponible qu'au sein de cette fonction.
 						</p>
-					</section>
+          </section>
 
+          <section>
+              <h2>Variables globales</h2>
+              <h3>Dans un navigateur web</h3>
+              Différents fichiers javascript partagent le <u>même</u> espace global.
+              </p>
+              <pre><code>&lt;!doctype html&gt;
+  &lt;html&gt;
+     &lt;head&gt;&lt;/head&gt;
+     &lt;body&gt;
+        &lt;script src="script1.js"&gt;&lt;/script&gt;
+        &lt;script src="script2.js"&gt;&lt;/script&gt;
+        &lt;script&gt;
+           alert(maVariable); //tata
+        &lt;/script&gt;
+     &lt;/body&gt;
+  &lt;/html&gt;</code></pre>
+              <p><small>script1.js</small></p>
+              <pre><code>let maVariable = "toto";</code></pre>
+              <p><small>script2.js</small></p>
+              <pre><code>let maVariable = "tata";</code></pre>
+          </section>
 
-
-					<section>
-						<h2>Variables globales</h2>
-						<h3>Dans un navigateur web</h3>
-						Différents fichiers javascript partagent le <u>même</u> espace global.
-						</p>
-						<pre><code>&lt;!doctype html&gt;
-&lt;html&gt;
-   &lt;head&gt;&lt;/head&gt;
-   &lt;body&gt;
-      &lt;script&gt;
-         var maVariable = "toto";
-      &lt;/script&gt;
-      &lt;script src="script1.js"&gt;&lt;/script&gt;
-      &lt;script src="script2.js"&gt;&lt;/script&gt;
-   &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
-						<p><small>script1.js</small></p>
-						<pre><code>maVariable; //"toto"
-var maVariable2 = "tata";</code></pre>
-						<p><small>script2.js</small></p>
-						<pre>
-<code>maVariable; //"toto"
-maVariable2; //tata</code></pre>
-					</section>
-				</section>
-
-			</section>
-
-			<section>
-			
-				<h2>Ecrasement des variables</h2>
-				<pre><code>function maFonction() {
-
-    var toto = "tata";
+          <section>
+            <h2>Portée des variables</h2>
+            <h3>Avant ES6</h3>
+            <pre><code class="javascript">
+    var x = 3;
 
     if (true) {
-		var toto = "titi";
-		
-		toto; // ?
+      var x = 2;
+      x; //2
     }
 
-    var toto = "tutu";
+    x; //2, pas d'erreur générée
+    </code></pre>
+          <p>La portée de bloc n'existait pas.</p>
+          <p>L'écrasement des variables est possible.</p>
+          </section>
 
-    toto; // ?
-}</code></pre>
-	<p>Pour éviter toute ambiguïté, il est conseillé de déclarer TOUTES les variables en début de fonction.</p>
-	</section>
+          <section>
+              <h2>Portée des variables</h2>
+              <h3>Aujourd'hui</h3>
+            <pre><code class="javascript">
+    let x = 3;
+
+    if (true) {
+      let x = 2;
+      x; //2
+    }
+
+    x; //3
+    </code></pre>
+            Le mot clé <code>let</code> permet la portée de bloc.
+          </section>
 
 				<section>
-					<h2>EcmaScript 6</h2>
-					<h3>Constantes</h3>
-					<pre><code class="javascript">const x = 2;
-	
+
+          <section>
+					  <h2>Constantes</h2>
+<pre><code class="javascript">const x = 2;
+
 x = 3; //TypeError: invalid assignment to const `x'
 </code></pre>
-			</section>
+            <br/>
+            <p>Les constantes ont une portée de bloc.</p>
+            <p>Si la valeur est un objet, l'objet peut être modifié, mais la val</p>
+          </section>
 
-			<section>
-				<h2>EcmaScript 6</h2>
-				<h3>Portée de bloc</h3>
-				<pre><code class="javascript">
-if (true) {
-    let x = 2;
-}
-
-x; //ReferenceError: x is not defined
+          <section>
+            <h2>Constantes</h2>
+            Les constantes ont une portée de bloc.
+  <pre><code class="javascript">const x = 2;
 
 if (true) {
-    const y = 2;
+  const x = 3;
 }
 
-y; //ReferenceError: y is not defined
-</code></pre>
-				<p>En EcmaScript 6, on peut se passer complètement du mot clé <code>var</code>.
-				</section>
+x; //2</code></pre>
+          </section>
+
+          <section>
+              <h2>Constantes</h2>
+              Si la valeur est un objet, celui-ci peut être modifié, c'est la variable qui ne peut pas être réaffectée.
+    <pre><code class="javascript">const obj = { nom : "Toto", age : 26 };
+
+obj.age = 27; //ok
+
+obj = "toto"; //TypeError: invalid assignment to const 'obj'</code></pre>
+            </section>
+
+       </section>
+
 
 
 				<section>

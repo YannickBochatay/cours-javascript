@@ -88,7 +88,7 @@ window.toto;</code>
 </qcm>
 
 <qcm>
-    <code>var obj = {
+    <code>let obj = {
     _prop1 : "toto",
     $prop2 : "tata"
 };</code>
@@ -99,7 +99,7 @@ window.toto;</code>
 </qcm>
 
 <qcm>
-    <code>var toto = " tata ";
+    <code>let toto = " tata ";
 toto.trim();
 toto == "tata";</code>
     <question>L'égalité est </question>
@@ -114,18 +114,18 @@ toto == "tata";</code>
     return obj;
 }
 
-var monObjet = { tata : "toto" };
+let monObjet = { tata : "toto" };
 supprObj(monObjet);
 
 monObjet;</code>
-    <question>Le variable monObjet renvoie</question>
+    <question>La variable monObjet renvoie</question>
     <choix correct>object { tata : "toto" }</choix>
     <choix>null</choix>
     <choix>je ne sais pas</choix>
 </qcm>
 
 <qcm>
-    <code>var i=0;
+    <code>let i=0;
 
 window.setTimeout(function() { alert(i); },1000);
 
@@ -137,9 +137,9 @@ i++;</code>
 </qcm>
 
 <qcm>
-    <code>var x = 1;
+    <code>let x = 1;
 if (true) {
-    var x = 2;
+    let x = 2;
 }
 console.log(x);</code>
     <question>la console affichera </question>
@@ -150,8 +150,8 @@ console.log(x);</code>
 </qcm>
 
 <qcm>
-    <code>var toto = {"nom":"Toto"};
-var toto2 = {"nom":"Toto"};
+    <code>let toto = {"nom":"Toto"};
+let toto2 = {"nom":"Toto"};
 
 toto == toto2;</code>
     <question>l'égalité est</question>
@@ -161,7 +161,7 @@ toto == toto2;</code>
 </qcm>
 
 <qcm>
-    <code>var x = true || null;</code>
+    <code>let x = true || null;</code>
     <question>x vaut</question>
     <choix correct>true</choix>
     <choix>false</choix>
@@ -170,7 +170,7 @@ toto == toto2;</code>
 </qcm>
 
 <qcm>
-    <code>var x = true && null;</code>
+    <code>let x = true && null;</code>
     <question>x vaut</question>
     <choix>true</choix>
     <choix>false</choix>
@@ -179,7 +179,7 @@ toto == toto2;</code>
 </qcm>
 
 <qcm>
-    <code>var toto = [];
+    <code>let toto = [];
 
 console.log(toto instanceof Object);</code>
     <question>la console affichera</question>
@@ -189,7 +189,7 @@ console.log(toto instanceof Object);</code>
 </qcm>
 
 <qcm>
-    <code>var toto = new NOP.Composant();</code>
+    <code>let toto = new NOP.Composant();</code>
     <question>ce code</question>
     <choix>génère une erreur de syntaxe</choix>
     <choix>instancie un objet NOP et exécute aussitôt sa méthode Composant.</choix>
@@ -221,7 +221,7 @@ typeof Personne.prototype;
 
 Personne.prototype.vieillir = function() { this.age++ };
 
-var toto = new Personne("Toto",25);
+let toto = new Personne("Toto",25);
 
 typeof toto.vieillir;
     </code>

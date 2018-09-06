@@ -60,6 +60,7 @@
                         <li>changement du processus de normalisation en 2016</li>
                         <li>7è édition en juin 2016</li>
                         <li>8è édition en juin 2017</li>
+                        <li>etc...</li>
                     </ul>
                 </section>
                 <section>
@@ -72,23 +73,10 @@
                 <section>
                     <h2>Aujourd'hui</h2>
                     <ul>
-                        <li><a target="liens" href="http://plus360degrees.com/">plus360degrees.com</a></li>
-                        <li><a target="liens" href="https://www.blend4web.com">blend4web.com</a></li>
+                        <li><a target="liens" href="http://www.plus360degrees.com/uxcars/">plus360degrees.com</a></li>
+                        <li><a target="liens" href="https://www.blend4web.com/en/demo/webvr_game/">blend4web.com</a></li>
                         <li><a target="liens" href="http://earth.nullschool.net/">earth.nullschool.net</a></li>
                         <li><a target="liens" href="http://acko.net/">acko.net</a></li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>
-                        Un langage incompris
-                    </h2>
-                    <h4>(<a target="liens" href="http://www.crockford.com/">Douglas Crockford</a>)</h4>
-                    <ul>
-                        <li>nom ambigü</li>
-                        <li>domaine d'action méconnu</li>
-                        <li>utilisation (trop) répandue</li>
-                        <li>confusion avec le DOM</li>
-                        <li>etc</li>
                     </ul>
                 </section>
 
@@ -114,24 +102,31 @@
                     <br/>
                     <ul>
                         <li><a href="http://nodejs.org/" target="liens">Node.js</a> (javascript côté serveur)</li>
-                        <li><a href="http://couchdb.apache.org/" target="liens">Apache CouchDB</a> (SGBD)</li>
-                        <li><a href="https://support.mozilla.org/t5/Firefox-OS/ct-p/Firefox-OS-fr" target="liens">Firefox OS</a> (système d'exploitation pour objets connectés)</li>
-                        <li>Windows (<b>W</b>indows <b>S</b>cripting <b>H</b>ost)</li>
                         <li>Flash (ActionScript)</li>
-                        <li>Suite Adobe (Photoshop, Illustrator, etc)</li>
                         <li>Extensions des logiciels Mozilla (Firefox, Thunderbird)</li>
+                        <li>Suite Adobe (Photoshop, Illustrator, etc)</li>
+                        <li>Windows (<b>W</b>indows <b>S</b>cripting <b>H</b>ost)</li>
                         <li>etc</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2>Confusion entre Javascript et DOM</h2>
-                    <p>Le DOM (<b>D</b>ocument <b>O</b>bject <b>M</b>odel) est très critiqué,
-                        mais c'est une bibliothèque implémentée dans les navigateurs, elle ne fait pas
-                        partie du coeur du langage.
-                    </p>
-                    <br/>
-                    <p>Contrairement aux idées reçues, Internet Explorer s'est très vite conformé à la norme ECMAScript 3 (mais pas au DOM du W3C).</p>
+                  <h2>
+                      Compatibilité des navigateurs
+                  </h2>
+                  <p>Longtemps problématique, beaucoup moins maintenant, mais...</p>
+                  <p class="fragment">
+                    Le contenu de ce stage n'est plus compatible avec Internet Explorer.
+                  </p>
+                </section>
+
+                <section>
+                  <h2>
+                      Editeur de code
+                  </h2>
+                  <br/>
+                  <a target="liens" href="https://code.visualstudio.com/">Visual Studio Code</a> s'impose comme le meilleur
+                  <br/>(open source et portable).
                 </section>
 
                 <section>
@@ -147,8 +142,8 @@
                 <section>
                     <h2>Aperçu syntaxique</h2>
                     <h3>Sensibilité à la casse</h3>
-                    <pre><code class="javascript">var toto = "toto";
-var Toto = "tata";
+                    <pre><code class="javascript">let toto = "toto";
+let Toto = "tata";
 
 //toto et Toto sont 2 variables distinctes.
 </code></pre>
@@ -161,26 +156,26 @@ var Toto = "tata";
                         <p>Malgré un mécanisme d'<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Grammaire_lexicale#Insertion_automatique_de_points-virgules">
                                 insertion automatique de points-virgules
                             </a>, il est fortement conseillé de terminer toutes les instructions par un point virgule.</p>
-                        <pre><code class="javascript">var toto = "toto"
-var Toto = "tata"
+                        <pre><code class="javascript">let toto = "toto"
+let Toto = "tata"
 console.log(Toto)
 //ok mais déconseillé
 </code></pre>
                         <p>Ecriture préconisée</p>
-                        <pre><code class="javascript">var toto = "toto";
-var Toto = "tata";
+                        <pre><code class="javascript">let toto = "toto";
+let Toto = "tata";
 console.log(Toto);
 </code></pre>
                     </section>
                     <section>
                         <h2>Point-virgules</h2>
                         <h3>Exemple de piège</h3>
-                        <pre><code class="javascript">var toto = "toto";
+                        <pre><code class="javascript">let toto = "toto";
 
 [1,2,3,4].forEach(function(nb) { console.log(nb); });
 
 //écrit 1, 2, 3 et 4 dans la console de debuggage</code></pre>
-                        <pre><code class="javascript">var toto = "toto"
+                        <pre><code class="javascript">let toto = "toto"
 
 [1,2,3,4].forEach(function(nb) { console.log(nb); });
 
@@ -194,7 +189,7 @@ de points-virgule
                 <section>
                     <h2>Aperçu syntaxique</h2>
                     <h3>commentaires</h3>
-                    <pre><code class="javascript">var toto; //commentaire sur une seule ligne
+                    <pre><code class="javascript">let toto; //commentaire sur une seule ligne
 
 /* commentaire
 sur
@@ -227,7 +222,7 @@ lignes
 toto = "toto";
 //Exception: assignment to undeclared variable toto
 
-var tata = {
+let tata = {
     nom : "tata",
     age : 25,
     nom : "tata"

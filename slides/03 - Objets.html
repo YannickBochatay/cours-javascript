@@ -66,7 +66,7 @@
 					<p>Constructeur<br/>
 						<small>Peu utilisé</small>
 					</p>
-					<pre><code class="javascript">var toto = new Object();
+					<pre><code class="javascript">let toto = new Object();
 toto.nom = "Toto";
 toto.age = 25;</code></pre>
 					<div/>
@@ -74,19 +74,19 @@ toto.age = 25;</code></pre>
           <div class="fragment">
 					<p>Notation littérale (initialisateur d'objet)<br/>
 						<small>La plus répandue et conseillée.</small></p>
-					<pre><code class="javascript">var toto = {
+					<pre><code class="javascript">let toto = {
     "nom" : "Toto",
     "age" : 25
 };</code></pre>
            </div>
-					
+
 				</section>
 
 				<section>
 					<section>
 						<h2>Notation littérale</h2>
 						<h3>Exemple</h3>
-						<pre><code class="javascript">var toto = {
+						<pre><code class="javascript">let toto = {
     "nom" : "Toto",
     "activites" : { //la propriété activites est elle-même un objet
         "jour" : "travail",
@@ -94,12 +94,12 @@ toto.age = 25;</code></pre>
     }
 };
 
-var titi = {
+let titi = {
     "nom" : "Titi",
     "activites" : null
 };
 
-var personnes = { "toto" : toto, "titi" : titi };
+let personnes = { "toto" : toto, "titi" : titi };
 </code></pre>
 				</section>
 				<section>
@@ -116,19 +116,25 @@ var personnes = { "toto" : toto, "titi" : titi };
 						<h2>Notation littérale</h2>
 						<h3>Noms de propriétés</h3>
 						<p>Si les noms de propriétés respectent les règles des identifiants en javascript, les guillemets (simples ou doubles) sont optionnels.</p>
-						<pre><code class="javascript">var toto = {
+						<pre><code class="javascript">let toto = {
     "nom" : "Toto",
     'age' : 25,
-    sexe : "M"
-};
+    genre : "M"
+}; //ok</code></pre>
+          <div class="fragment">
+            <p>Cela peut conduire à des écritures un peu déroutantes :</p>
+<pre><code class="javascript">let toto = { nom : "Toto", age : 25 };
+let tata = { nom : "Tata", age : 22 };
 
-//ok</code></pre>
-<p>Cela peut conduire à des écritures un peu déroutantes :</p>
-<pre><code class="javascript">var toto = { nom : "Toto", age : 25 };
+let personnes = { toto : toto, tata : tata };</code></pre>
+          </div>
+          <div class="fragment">
+            <p>Depuis ES6, cela peut s'écrire :</p>
+<pre><code class="javascript">let toto = { nom : "Toto", age : 25 };
+let tata = { nom : "Tata", age : 22 };
 
-var tata = { nom : "Tata", age : 22 };
-
-var personnes = { toto : toto, tata : tata };</code></pre>
+let personnes = { toto, tata };</code></pre>
+          </div>
 				</section>
 				<section>
 					<h2>Notation littérale</h2>
@@ -146,19 +152,6 @@ var personnes = { toto : toto, tata : tata };</code></pre>
 
 //ok</code></pre>
 				</section>
-				
-				<section>
-						<h2>Notation littérale</h2>
-						<h3>EcmaScript 6</h3>
-	<pre><code class="javascript">var nom = "Toto";
-var age = 26;
-
-var toto = { nom, age };
-
-// équivalent à 
-var toto = { "nom" : nom, "age" : age };
-</code></pre>
-				</section>
 
 				</section>
 
@@ -169,7 +162,7 @@ var toto = { "nom" : nom, "age" : age };
 							J<small>ava</small>S<small>cript</small> O<small>ject</small> N<small>otation</small>
 						</h3>
 						<p>La clarté et la concision de la notation littérale des objets en javascript ont donné naissance
-						au format JSON, devenant (devenu ?) le format d'échange de données le plus répandu dans le monde du web.</p>
+						au format JSON, devenu le format d'échange de données le plus répandu dans le monde du web.</p>
 					</section>
 					<section>
 						<h2>Notation littérale vs JSON</h2>
@@ -186,7 +179,7 @@ var toto = { "nom" : nom, "age" : age };
 				<section>
 					<h2>Accès aux propriétés</h2>
 					<h3>Notation avec point</h3>
-					<pre><code class="javascript">var toto = {
+					<pre><code class="javascript">let toto = {
     nom : "Toto",
     age : 25
 };
@@ -196,88 +189,93 @@ toto.age; //25</code></pre>
 				<section>
 					<h2>Accès aux propriétés</h2>
 					<h3>Notation avec crochets</h3>
-					<pre><code class="javascript">var toto = {
+					<pre><code class="javascript">let toto = {
     nom : "Toto",
     age : 25
 };
 
 toto["age"]; //25</code></pre>
 					<p>Les noms de propriétés peuvent dans ce cas ne pas respecter les règles des identifiants de variables.
-					<pre><code class="javascript">var toto = {
+					<pre><code class="javascript">let toto = {
     "1-nom" : "Toto",
     "2-age" : 25
 };
 
 toto["2-age"]; //25</code></pre>
-				</section>
+        </section>
 
 				<section>
 					<h2>Accès aux propriétés</h2>
 					<p>Une tentative d'accès à une propriété non définie ne renvoie pas d'erreur mais la valeur primitive <code>undefined</code> :</p>
-					<pre><code class="javascript">var toto = { nom : "Toto", age : 25 };
+					<pre><code class="javascript">let toto = { nom : "Toto", age : 25 };
 
 toto.nbEnfants; //undefined</code></pre>
 				<div class="fragment">
 					<p>On peut également tester l'existence d'une propriété par l'opérateur <code>in</code> :</p>
-					<pre><code class="javascript">var toto = { nom : "Toto", age : 25 };
+					<pre><code class="javascript">let toto = { nom : "Toto", age : 25 };
 
 "nbEnfants" in toto; //false</code></pre>
 				</div>
 				</section>
 
+        <section>
+            <h2>Affectation par décomposition</h2>
+            <br/>
+            <pre><code class="javascript">let toto = {
+  nom : "Toto",
+  age : 25
+};
+
+let { nom, age } = toto;
+
+age; // "Toto"
+nom; // 25</code></pre>
+Equivalent à :
+<pre><code class="javascript">let toto = {
+  nom : "Toto",
+  age : 25
+};
+
+let age = toto.age;
+let nom = toto.nom;</code></pre>
+          </section>
 
 				<section>
 					<section>
 						<h2>Enumération des propriétés</h2>
 						<h3>boucle for...in</h3>
-						<pre><code class="javascript">var toto = {
-    nom : "Toto",
-    age : 25,
-    sexe : "M"
+						<pre><code class="javascript">let toto = {
+  nom : "Toto",
+  age : 25,
+  genre : "M"
 };
 
-var n;
-
-for (n in toto) {
-    console.log(n, toto[n]);
+for (let n in toto) {
+  console.log(n, toto[n]);
 }
 
 </code></pre>
 					</section>
 
-					<section>
-					<h2>Enumération des propriétés</h2>
-					<h3>EcmaScript 6</h3>
-					<pre><code class="javascript">var toto = {
-    nom : "Toto",
-    age : 25,
-    sexe : "M"
-};
-
-for (let n in toto) {
-    console.log(n, toto[n]);
-}</code></pre>
-					</section>
-				</section>
-
                 <section>
 					<h2>Enumération des propriétés</h2>
 					<h3>Object.keys</h3>
                                         Renvoie un tableau des noms de propriétés
-					<pre><code class="javascript">var toto = {
+					<pre><code class="javascript">let toto = {
     nom : "Toto",
     age : 25,
-    sexe : "M"
+    genre : "M"
 };
 
-var message = 'Description de Toto \n';
+let message = 'Description de Toto \n';
 
-var tab = Object.keys(toto);
+let tab = Object.keys(toto);
 
-console.log(tab); //"nom,age,sexe"
+console.log(tab); //"nom,age,genre"
 </code></pre>
                     <p>Les tableaux font l'objet d'un chapitre dédié.</p>
 
+          </section>
 				</section>
 
 				<section>
@@ -336,9 +334,9 @@ console.log(tab); //"nom,age,sexe"
 					<p>Dans l'environnement d'un navigateur web, cet objet global est <code><strong>window</strong></code>.</p>
 					<pre><code>typeof window; //"object"
 
-var toto = "tata";
+window.toto = "tata";
 
-window.toto; //"tata"
+toto; //"tata"
 
 function add(a,b) { return a+b; }
 
@@ -349,12 +347,12 @@ window.add(2,1); //3</code></pre>
                              <section>
                                 <h2>Références</h2>
                                 <p>Contrairement aux valeurs primitives, une variable à laquelle on affecte un objet contient une référence vers cet objet</p>
-                                <pre><code class="javascript">var toto = {  //toto contient une référence vers l'objet
+                                <pre><code class="javascript">let toto = {  //toto contient une référence vers l'objet
   nom:"Toto",
   age:26
 };
 
-var tata = toto; //tata contient une copie de la référence vers l'objet
+let tata = toto; //tata contient une copie de la référence vers l'objet
 
 tata.nom = "Tata";
 toto.nom; //Tata
