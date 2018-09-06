@@ -1,13 +1,13 @@
 
     		<qcm important>
-    			<code>var obj = {
-	"prop1" : "toto",
-	"prop2" : "tata"
+    			<code>let obj = {
+  "prop1" : "toto",
+  "prop2" : "tata"
 };
 
-var obj = {
-	prop1 : "toto",
-	prop2 : "tata"
+let obj = {
+  prop1 : "toto",
+  prop2 : "tata"
 };</code>
     			<question>Les deux écritures sont strictement équivalentes</question>
     			<choix correct>vrai</choix>
@@ -16,8 +16,8 @@ var obj = {
     		</qcm>
 
     		<qcm>
-    			<code>var obj = {
-	_prop1 : "toto"
+    			<code>let obj = {
+  _prop1 : "toto"
 };</code>
     			<question>Ce code génère une erreur</question>
     			<choix>vrai</choix>
@@ -26,8 +26,8 @@ var obj = {
     		</qcm>
 
     		<qcm>
-    			<code>var obj = {
-	@prop1 : "tata"
+    			<code>let obj = {
+  @prop1 : "tata"
 };</code>
     			<question>Ce code génère une erreur</question>
     			<choix correct>vrai</choix>
@@ -36,8 +36,8 @@ var obj = {
     		</qcm>
 
     		<qcm>
-    			<code>var obj = {
-	"@prop1" : "toto"
+    			<code>let obj = {
+  "@prop1" : "toto"
 };</code>
     			<question>Ce code génère une erreur</question>
     			<choix>vrai</choix>
@@ -68,8 +68,8 @@ window["alert"]("toto");
     		</qcm>-->
 
 			<qcm>
-    			<code>var toto = { "nom" : "toto", "age" : 26 };
-var prop = "nom";
+    			<code>let toto = { "nom" : "toto", "age" : 26 };
+let prop = "nom";
 
 toto[prop];
 </code>
@@ -81,20 +81,21 @@ toto[prop];
     		</qcm>
 
 			<qcm>
-    			<code>var toto = { nom : "toto", age : 26 };
-var prop = "nom";
+    			<code>let toto = { nom : "toto", age : 26 };
+let tata = { nom : "tata", age : 28 };
+let personnes = { toto, tata };
 
-toto[prop];
+personnes.toto.nom;
 </code>
-    			<question>La valeur renvoyée est </question>
-    			<choix correct>"toto"</choix>
-    			<choix>"nom"</choix>
-    			<choix>erreur de syntaxe</choix>
-				<reponse>Si les noms de propriétés respectent les règles des identifiants, les guillements sont optionnels.</reponse>
+          <question>La valeur renvoyée est </question>
+          <choix correct>"toto"</choix>
+          <choix>undefined</choix>
+          <choix>le code génère une erreur</choix>
+				<reponse>l'expression { toto, tata } crée un objet avec les clés "toto" et "tata" dont les valeurs sont les objets tata et toto</reponse>
     		</qcm>
 
     		<qcm important>
-    			<code>var toto = { nom : "toto", age : 26 };
+    			<code>let toto = { nom : "toto", age : 26 };
 
 toto.prenom;
 </code>
@@ -106,7 +107,7 @@ toto.prenom;
     		</qcm>
 
     		<qcm>
-    			<code>var obj = { prop1 : null };
+    			<code>let obj = { prop1 : null };
 
 if ("prop1" in obj) console.log("oui");
 </code>
@@ -116,16 +117,19 @@ if ("prop1" in obj) console.log("oui");
 				<reponse>La propriété contient la valeur spéciale null, mais elle est bel et bien définie.</reponse>
     		</qcm>
 
-    		<!--<qcm>
-    			<code>var obj = {
-  prop1 : 'tata',
-  prop2 : 'toto',
-};</code>
-    			<question>Cette écriture </question>
-    			<choix>est tout à fait correcte</choix>
-    			<choix>est incorrecte</choix>
-    			<choix correct>peut poser des problèmes selon l'environnement</choix>
-    		</qcm>-->
+    		<qcm>
+          <code>let toto = { nom : "toto", age : 26 };
+
+let { age } = toto;
+
+age;
+</code>
+          <question>La valeur renvoyée est </question>
+          <choix>{ nom : "toto", age : 26 }</choix>
+          <choix correct>26</choix>
+          <choix>erreur de syntaxe</choix>
+        <reponse>Il s'agit d'une affectation par décomposition. On affecte à la variable "age" la valeur de la propriété "age" de toto.</reponse>
+        </qcm>
 
     		<qcm>
     			<code>window.toto = "tata";
@@ -138,20 +142,9 @@ toto;</code>
 				<reponse>Définir une propriété de l'objet global revient à déclarer une variable globale.</reponse>
     		</qcm>
 
-    		<qcm>
-    			<code>var toto = "tata";
-
-window.toto;</code>
-    			<question>Quelle est la valeur renvoyée ?</question>
-    			<choix correct>"tata"</choix>
-    			<choix>Error</choix>
-    			<choix>undefined</choix>
-				<reponse>Déclarer une variable globale revient à définir une propriété de l'objet global.</reponse>
-    		</qcm>
-
                 <qcm>
-    			<code>var toto = { nom : "Toto", age : 26 };
-var tata = toto;
+    			<code>let toto = { nom : "Toto", age : 26 };
+let tata = toto;
 tata.nom = "Tata";
 
 toto.nom;</code>
@@ -164,8 +157,8 @@ toto.nom;</code>
     		</qcm>
 <!--
         <qcm>
-    			<code>var toto = { nom : "Toto", age : 26 };
-var tata = toto;
+    			<code>let toto = { nom : "Toto", age : 26 };
+let tata = toto;
 tata = null;
 
 toto;</code>
@@ -175,8 +168,8 @@ toto;</code>
     		</qcm>
 
         <qcm>
-    			<code>var toto = { nom : "Toto", age : 26 };
-var tata = toto;
+    			<code>let toto = { nom : "Toto", age : 26 };
+let tata = toto;
 toto = null;
 
 tata;</code>

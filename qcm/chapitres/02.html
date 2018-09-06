@@ -20,10 +20,46 @@
     			<question>Les deux chaînes sont interprétées exactement de la même façon</question>
     			<choix correct>oui</choix>
     			<choix>non</choix>
-    		</qcm>
+        </qcm>
+
+        <qcm>
+            <code>"toto";
+`toto`;</code>
+            <question>Les deux chaînes sont interprétées exactement de la même façon</question>
+            <choix>oui</choix>
+            <choix correct>non</choix>
+            <reponse>les guillements obliques permettent de définir une chaîne sur plusieurs lignes et d'y intégrer des variables</reponse>
+        </qcm>
+
+        <qcm>
+            <code>let presentation = "mon nom est
+toto";</code>
+            <question>Ce code est correct</question>
+            <choix>oui</choix>
+            <choix correct>non</choix>
+            <reponse>seuls les guillements obliques permettent de définir une chaîne sur plusieurs lignes</reponse>
+        </qcm>
+
+        <qcm>
+            <code>let nom = "Toto";
+
+"je m'appelle ${nom}";</code>
+            <question>Cette expression renvoie la chaîne :</question>
+            <choix>je m'appelle Toto</choix>
+            <choix correct>je m'appelle ${nom}</choix>
+            <reponse>seuls les guillements obliques permettent d'intégrer des variables</reponse>
+        </qcm>
+
+        <qcm>
+            <code>"je m\'appelle Toto";</code>
+            <question>Cette expression renvoie la chaîne :</question>
+            <choix correct>je m'appelle Toto</choix>
+            <choix>je m\'appelle Toto</choix>
+            <reponse>\' est le caractère spécial représentant l'apostrophe quel que soit le caractère délimitant la chaîne. Il est optionnel s'il ne pose pas de problème de syntaxe</reponse>
+        </qcm>
 
     		<qcm important>
-    			<code>var toto;</code>
+    			<code>let toto;</code>
     			<question>La valeur de la variable toto est</question>
     			<choix correct>undefined</choix>
     			<choix>null</choix>
@@ -41,7 +77,7 @@
     		</qcm>
 
         <qcm>
-          <code>var $maVariable;</code>
+          <code>let $maVariable;</code>
           <question>Ce nom de variable est toléré</question>
           <choix correct>oui</choix>
           <choix>non</choix>
@@ -49,7 +85,7 @@
         </qcm>
 
         <qcm>
-          <code>var @maVariable;</code>
+          <code>let @maVariable;</code>
           <question>Ce nom de variable est toléré</question>
           <choix>oui</choix>
           <choix correct>non</choix>
@@ -57,7 +93,7 @@
         </qcm>
 
         <qcm>
-          <code>var 1ereVariable;</code>
+          <code>let 1ereVariable;</code>
           <question>Ce nom de variable est toléré</question>
           <choix>oui</choix>
           <choix correct>non</choix>
@@ -65,7 +101,7 @@
         </qcm>
 
         <qcm>
-          <code>var _maVariable;</code>
+          <code>let _maVariable;</code>
           <question>Ce nom de variable est toléré</question>
           <choix correct>oui</choix>
           <choix>non</choix>
@@ -73,14 +109,55 @@
         </qcm>
 
     		<qcm>
-    			<code>var ma_variable, maVariable, MaVariable, Ma_variable;</code>
+    			<code>let ma_variable, maVariable, MaVariable, Ma_variable;</code>
     			<question>Quelle est la version conseillée ?</question>
     			<choix>1</choix>
     			<choix correct>2</choix>
     			<choix>3</choix>
     			<choix>4</choix>
 					<reponse>Le style CamelCase est habituellement utilisé en javascript.</reponse>
-    		</qcm>
+        </qcm>
+
+        <qcm>
+            <code>let x = 3;
+
+if (true) { let x = 2; }
+
+x;</code>
+            <question>Que vaut x ?</question>
+            <choix>2</choix>
+            <choix correct>3</choix>
+            <choix>undefined</choix>
+            <reponse>Le mot clé "let" implique une portée de bloc</reponse>
+        </qcm>
+
+        <qcm>
+            <code>const x = 3;
+
+if (true) { const x = 2; }
+
+x;</code>
+            <question>Que vaut x ?</question>
+            <choix>2</choix>
+            <choix correct>3</choix>
+            <choix>undefined</choix>
+            <choix>Le code génère une erreur</choix>
+            <reponse>Le mot clé "const" implique une portée de bloc</reponse>
+        </qcm>
+
+        <qcm>
+            <code>const x = 3;
+
+if (true) { var x = 2; }
+
+x;</code>
+            <question>Que vaut x ?</question>
+            <choix>2</choix>
+            <choix>3</choix>
+            <choix>undefined</choix>
+            <choix correct>Le code génère une erreur</choix>
+            <reponse>le mot clé "var" n'a pas de portée de bloc. Il a donc la même portée que la constante définie plus haut, qui ne peut être redéfinie puisque déclarée comme constante.</reponse>
+        </qcm>
 
     		<qcm important>
     			<code>5 + '7';</code>
