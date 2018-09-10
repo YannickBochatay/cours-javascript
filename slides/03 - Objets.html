@@ -140,12 +140,12 @@ let personnes = { toto, tata };</code></pre>
 					<h2>Notation littérale</h2>
 					<h3>Noms de propriétés</h3>
 					<p>Si les noms de propriétés <u>ne</u> respectent <u>pas</u> les règles des identifiants en javascript, les guillemets (simples ou doubles) sont <u>obligatoires</u>.</p>
-<pre><del><code class="javascript">var toto = {
+<pre><del><code class="javascript">let toto = {
     1-nom : "Toto"
     2-age : 25
 };
 </code><del></pre>
-<pre><code class="javascript">var toto = {
+<pre><code class="javascript">let toto = {
     "1-nom" : "Toto"
     '2-age' : 25
 };
@@ -238,6 +238,40 @@ Equivalent à :
 
 let age = toto.age;
 let nom = toto.nom;</code></pre>
+          </section>
+
+          <section>
+              <h2>Affectation par décomposition</h2>
+              <br/>
+              <pre><code class="javascript">let toto = {
+    nom : "Toto",
+    age : 25
+  };
+
+  let { nom, age } = toto;
+
+  age; // "Toto"
+  nom; // 25</code></pre>
+  Equivalent à :
+  <pre><code class="javascript">let toto = {
+    nom : "Toto",
+    age : 25
+  };
+
+  let age = toto.age;
+  let nom = toto.nom;</code></pre>
+            </section>
+
+        <section>
+            <h2>Noms de propriétés calculés</h2>
+            <br/>
+            <pre><code class="javascript">let prop = "nom";
+
+let monObjet = {
+  [prop] : "Toto"
+};
+
+monObjet.nom; // Toto</code></pre>
           </section>
 
 				<section>

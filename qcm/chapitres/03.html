@@ -104,7 +104,24 @@ toto.prenom;
     			<choix>null</choix>
     			<choix correct>undefined</choix>
 				<reponse>L'accès à une propriété non définie ne génère pas d'erreur mais renvoie la valeur undefined</reponse>
-    		</qcm>
+        </qcm>
+
+        <qcm>
+            <code>let prop = "nom";
+
+let monObjet = {
+  [prop] : "Toto"
+};
+
+monObjet.nom;</code>
+            <question>La valeur renvoyée est </question>
+            <choix>Error</choix>
+            <choix>undefined</choix>
+            <choix>nom</choix>
+            <choix>prop</choix>
+            <choix correct>"Toto"</choix>
+          <reponse>Le nom de la clé est la valeur de la variable prop. La valeur de cette clé est "Toto".</reponse>
+          </qcm>
 
     		<qcm>
     			<code>let obj = { prop1 : null };

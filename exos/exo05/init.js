@@ -4,7 +4,7 @@ function modifObjet( objAModifier, propsAModifier ) {
 }
 
 //exemple
-var obj = { nom : "Toto" };
+let obj = { nom : "Toto" };
 
 modifObjet( obj, { age : 26, nom : "Tata" } );
 

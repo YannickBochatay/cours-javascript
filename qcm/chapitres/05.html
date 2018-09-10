@@ -11,7 +11,7 @@ function somme(a,b) { return a+b; }</code>
     		<qcm>
     			<code>fct();
 
-var fct = function() {};</code>
+let fct = function() {};</code>
     			<question>Ce code génère une erreur</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
@@ -47,7 +47,7 @@ somme(3,5,8);</code>
         <qcm>
           <code>function modifChaine(str) { str.trim(); }
 
-var chaine = " toto ";
+let chaine = " toto ";
 modifChaine(chaine);
 
 chaine; //?
@@ -61,7 +61,7 @@ chaine; //?
     		<qcm>
     			<code>function modifChaine(str) { str = str.trim(); }
 
-var chaine = " toto ";
+let chaine = " toto ";
 modifChaine(chaine);
 
 chaine; //?
@@ -76,7 +76,7 @@ chaine; //?
         <qcm>
           <code>function modifChaine(str) { return str.trim(); }
 
-var chaine = " toto ";
+let chaine = " toto ";
 chaine = modifChaine(chaine);
 
 chaine; //?
@@ -90,7 +90,7 @@ chaine; //?
     		<qcm>
     			<code>function modifObj(obj) { obj.x = 50;  }
 
-var monObjet = {x:15,y:20};
+let monObjet = {x:15,y:20};
 modifObj(monObjet);
 
 monObjet.x; //?</code>
@@ -106,7 +106,7 @@ monObjet.x; //?</code>
         <!--<qcm>
           <code>function modifObj(obj) { obj = {x:50,y:100};  }
 
-var monObjet = {x:15,y:20};
+let monObjet = {x:15,y:20};
 modifObj(monObjet);
 
 monObjet.x; //?</code>
@@ -189,7 +189,7 @@ fct2();
     		</qcm>
 
     		<!--<qcm important>
-    			<code>var i=0;
+    			<code>let i=0;
 window.setTimeout(function() { alert(i); },1000);
 i++;</code>
     			<question>Ce code affichera 0</question>
@@ -201,7 +201,7 @@ i++;</code>
     		</qcm>-->
 
         <qcm>
-          <code>var toto = {
+          <code>let toto = {
   nom : "toto",
   age : 25,
   renaitre : function() { this.age = 0; }
@@ -219,7 +219,7 @@ toto.age; // ?</code>
         </qcm>
 
 				<!--<qcm>
-          <code>var toto = {
+          <code>let toto = {
   nom : "toto",
   age : 25,
   disBonjour : function() { alert("bonjour"); }
@@ -235,7 +235,7 @@ window.setTimeout(toto.disBonjour, 1000 );</code>
         </qcm>
 
 				<qcm>
-          <code>var toto = {
+          <code>let toto = {
   nom : "toto",
   age : 25,
   renaitre : function() { this.age = 0; }
@@ -252,7 +252,7 @@ window.setTimeout(toto.renaitre, 1000 );</code>
         </qcm>
 
 				<qcm>
-          <code>var toto = {
+          <code>let toto = {
   nom : "toto",
   age : 25,
   renaitre : function() { this.age = 0; }

@@ -44,7 +44,7 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
+		  		<section>
 					<h1>Javascript</h1>
 					<h3>Les fonctions</h3>
 				</section>
@@ -65,15 +65,25 @@
 						<h2>Déclaration</h2>
   						<p>Instruction <code>function</code></p>
 	   					<pre><code>function round(nb,nbDecimales) {
-    var pow = Math.pow(10,nbDecimales);
-    return Math.round(nb*pow)/pow;
+  let pow = Math.pow(10,nbDecimales);
+  return Math.round(nb*pow)/pow;
 }</code></pre>
-              <br/>
-              <p>Expression de fonction</p>
-              <pre><code>var round = function(nb,nbDecimales) {
-    var pow = Math.pow(10,nbDecimales);
-    return Math.round(nb*pow)/pow;
+              <div class="fragment">
+                <br/>
+                <p>Expression de fonction</p>
+                <pre><code>let round = function(nb,nbDecimales) {
+  let pow = Math.pow(10,nbDecimales);
+  return Math.round(nb*pow)/pow;
 };</code></pre>
+              </div>
+              <div class="fragment">
+                <br/>
+                <p>Fonction fléchée</p>
+                <pre><code>let round = (nb,nbDecimales) => {
+  let pow = Math.pow(10,nbDecimales);
+  return Math.round(nb*pow)/pow;
+};</code></pre>
+              </div>
 					</section>
 					<section>
 						<h2>Différences</h2>
@@ -83,8 +93,8 @@
 typeof round; //"function"
 
 function round(nb,nbDecimales) {
-    var pow = Math.pow(10,nbDecimales);
-    return Math.round(nb*pow)/pow;
+  let pow = Math.pow(10,nbDecimales);
+  return Math.round(nb*pow)/pow;
 }</code></pre>
 <br/>
 							<p>Expression de fonction</p>
@@ -92,9 +102,9 @@ function round(nb,nbDecimales) {
 
 typeof round; //"undefined"
 
-var round = function(nb,prec) {
-    var pow = Math.pow(10,nbDecimales);
-    return Math.round(nb*pow)/pow;
+let round = function(nb,prec) {
+  let pow = Math.pow(10,nbDecimales);
+  return Math.round(nb*pow)/pow;
 }
 </code></pre>
 
@@ -102,24 +112,24 @@ var round = function(nb,prec) {
 
 			<section>
 				<h2>Fonctions fléchées</h2>
-				<h3>Nouveauté ES6</h3>
 				<p>Syntaxe plus courte pour créer des fonctions.</p>
-				<pre><code class="javascript">//ES5
-var length = function(str) { return str.length; }
-var somme = function(x,y) { return x + y; }
+				<pre><code class="javascript">//Sans fonction fléchée
+let length = function(str) { return str.length; }
+let somme = function(x,y) { return x + y; }
 
 
-//ES6
-var length = str => str.length;
-var somme = (x,y) => x + y;</code></pre>
+//Avec
+let length = str => str.length;
+let somme = (x,y) => x + y;</code></pre>
+<p>Si la fonction ne contient qu'une seule instruction, les accolades sont optionnelles et le mot clé <code>return</code> est omis.</p>
 			</section>
 
-			
+
 
           <section>
             <h2>Constructeur Function</h2>
             <p>Il est également possible de passer par le constructeur <code>Function</code> pour créer une fonction. Mais cette écriture n'est <u>jamais</u> utilisée.
-            <pre><code class="javascript">var round = new Function(nb,nbDecimales,"var pow = Math.pow(10,nbDecimales); return Math.round(nb*pow)/pow;");
+            <pre><code class="javascript">let round = new Function(nb,nbDecimales,"let pow = Math.pow(10,nbDecimales); return Math.round(nb*pow)/pow;");
             </code></pre>
 		</section>
       </section>
@@ -132,7 +142,7 @@ var somme = (x,y) => x + y;</code></pre>
     //un argument omis à la valeur undefined
     if (nbDecimales === undefined) nbDecimales = 0;
 
-    var pow = Math.pow(10,nbDecimales);
+    let pow = Math.pow(10,nbDecimales);
     return Math.round(nb*pow)/pow;
 }
 
@@ -163,7 +173,7 @@ somme( somme(2,3), somme(3,8) ); //équivalent à somme(5,11)</code></pre>
   return texte;
 }
 
-var mess = "Bonjour, bla bla bla.";
+let mess = "Bonjour, bla bla bla.";
 
 ajoutSignature(mess); //Bonjour, bla bla bla.\n\nMr Dupont\nMétéo-France"
 
@@ -179,7 +189,7 @@ mess; // "Bonjour, bla bla bla."</code></pre>
             <p><small>Les modifications sur les propriétés d'un argument ont des effets sur l'objet externe.</small></p>
             <pre><code class="javascript">function changeProp(obj) { obj.x = 5; }
 
-var monObjet = { x:0, y:0 };
+let monObjet = { x:0, y:0 };
 changeProp(monObjet);
 console.log(monObjet); // { x:5, y:0 }</code></pre>
           </div>
@@ -188,16 +198,26 @@ console.log(monObjet); // { x:5, y:0 }</code></pre>
             <p><small>Mais une nouvelle valeur peut être assignée à l'argument sans influence sur l'objet externe.</small></p>
             <pre><code class="javascript">function changeProp(obj) { obj = null; }
 
-var monObjet = { x:0, y:0 };
+let monObjet = { x:0, y:0 };
 changeObj(monObjet);
 console.log(monObjet); // { x:0, y:0 }</code></pre>
           </div>-->
 				</section>
 
 				<section>
+            <section>
+                <h2>Arguments : valeurs par défaut</h2>
+                <h3>Introduites dans la norme ES6</h3>
+                <pre><code class="javascript">function maFonction(a = "toto", b = "tata", c = "tutu") {
+
+    /* blah blah */
+
+}
+      </code></pre>
+              </section>
 				  <section>
 					<h2>Arguments : valeurs par défaut</h2>
-					<p>Dans la norme ECMAScript 5, il n'est pas possible de définir des valeurs par défaut pour les arguments.</p>
+					<p>Dans la norme ECMAScript 5, il n'était pas possible de définir des valeurs par défaut pour les arguments.</p>
 					Solution de contournement :
 					<pre><code class="javascript">function maFonction(a,b,c) {
     a = a || "toto";
@@ -217,29 +237,18 @@ maFonction("titi");
 </code></pre>
 				</section>
 
-				<section>
-					<h2>Arguments : valeurs par défaut</h2>
-					<h3>Introduites dans la norme ES6</h3>
-					<pre><code class="javascript">function maFonction(a = "toto", b = "tata", c = "tutu") {
-
-    /* blah blah */
-
-}
-</code></pre>
-				</section>
 			  </section>
 
-				
+
 
 				<section>
 
 				  <section>
 					<h2>Objet arguments</h2>
 					<pre><code class="javascript">function multiAlert() {
-    var i;
-    for (i=0;i&lt;arguments.length;i++) {
-        window.alert(arguments[i]);
-    }
+  for (let i=0;i&lt;arguments.length;i++) {
+    window.alert(arguments[i]);
+  }
 }
 
 multiAlert("J'aime","abuser","des","messages","d'alerte","en","javascript");
@@ -248,13 +257,11 @@ multiAlert("J'aime","abuser","des","messages","d'alerte","en","javascript");
 
 				  <section>
 					<h2>Paramètres du reste</h2>
-					<h3>Nouveauté ES6</h3>
 					<p>Cette écriture permet d'obtenir dans un tableau des paramètres "supplémentaires"</p>
 					<pre><code class="javascript">function maFonction(paramRequis1, paramRequis2, ...paramsOptionnels) {
-    var i;
-    for (i=0;i&lt;paramsOptionnels.length;i++) {
-        window.alert(paramsOptionnels[i]);
-    }
+  for (let i=0;i&lt;paramsOptionnels.length;i++) {
+    window.alert(paramsOptionnels[i]);
+  }
 }
 
 maFonction("toto","tata","et","plus","encore");
@@ -273,13 +280,13 @@ maFonction("toto","tata","et","plus","encore");
 					<h2>Hash d'arguments</h2>
 					<h3>Problème</h3>
 					<pre><code>function changeStyle(obj,color,fontSize,fontFamily,fontWeight) {
-    if (color) obj.style.color = color;
-    if (fontSize) obj.style.fontSize = fontSize;
-    if (fontFamily) obj.style.fontFamily = fontFamily;
-    if (fontWeight) obj.style.fontWeight = fontWeight;
+  if (color) obj.style.color = color;
+  if (fontSize) obj.style.fontSize = fontSize;
+  if (fontFamily) obj.style.fontFamily = fontFamily;
+  if (fontWeight) obj.style.fontWeight = fontWeight;
 }
 
-var div = document.getElementById("maDiv");
+let div = document.getElementById("maDiv");
 
 changeStyle(div,null,"12px",null,"bold");</code></pre>
 					<ul>
@@ -292,14 +299,14 @@ changeStyle(div,null,"12px",null,"bold");</code></pre>
 					<section>
 						<h2>Hash d'arguments</h2>
 						<h3>Solution</h3>
-						<pre><code>function changeStyle(obj,options) {
-    if (options.color) obj.style.color = options.color;
-    if (options.fontSize) obj.style.fontSize = options.fontSize;
-    if (options.fontFamily) obj.style.fontFamily = options.fontFamily;
-    if (options.fontWeight) obj.style.fontWeight = options.fontWeight;
+						<pre><code class="javascript">function changeStyle(obj,options) {
+  if (options.color) obj.style.color = options.color;
+  if (options.fontSize) obj.style.fontSize = options.fontSize;
+  if (options.fontFamily) obj.style.fontFamily = options.fontFamily;
+  if (options.fontWeight) obj.style.fontWeight = options.fontWeight;
 }
 
-var div = document.getElementById("maDiv");
+let div = document.getElementById("maDiv");
 
 changeStyle(div,{fontSize:"12px",fontWeight:"bold"});</code></pre>
 						<ul>
@@ -309,37 +316,20 @@ changeStyle(div,{fontSize:"12px",fontWeight:"bold"});</code></pre>
 						</ul>
 					</section>
 
-					<section>
-							<h2>Hash d'arguments</h2>
-							<h3>Solution avec ES6</h3>
-							<pre><code class="javascript">function changeStyle(obj, { color, fontSize, fontFamily, fontWeight }) {
-  
-  if (color) obj.style.color = color;
-  if (fontSize) obj.style.fontSize = fontSize;
-  if (fontFamily) obj.style.fontFamily = fontFamily;
-  if (fontWeight) obj.style.fontWeight = fontWeight;
-}
-
-var div = document.getElementById("maDiv");
-
-changeStyle(div,{fontSize:"12px",fontWeight:"bold"});</code></pre>
-					</section>
-
 					<!--<section>
 						<h2>Hash d'arguments</h2>
 						<h3>Piège</h3>
 						<pre><code>function changeStyle(obj,options) {
-    var n;
     options.color = options.color || "green";
     options.fontSize = options.fontSize || "12px";
     options.fontFamily = options.fontFamily || "verdana";
     options.fontWeight = options.fontWeight || "bold";
 
-    for (n in options) obj.style[n] = options[n];
+    for (let n in options) obj.style[n] = options[n];
 }
 
-var options = {fontSize:"12px",fontWeight:"bold"};
-var div = document.getElementById("maDiv");
+let options = {fontSize:"12px",fontWeight:"bold"};
+let div = document.getElementById("maDiv");
 
 changeStyle(div,options);
 
@@ -350,24 +340,39 @@ console.log(options);</code></pre>
 							<h3>Solution</h3>
 							<pre><code class="javascript">function changeStyle(obj,options) {
     //crée un nouvel objet sur le modèle de "options"
-    var opt = Object.create(options);
-    var n;
+    let opt = Object.create(options);
 
     opt.color = opt.color || "green";
     opt.fontSize = opt.fontSize || "12px";
     opt.fontFamily = opt.fontFamily || "verdana";
     opt.fontWeight = opt.fontWeight || "bold";
 
-    for (n in options) obj.style[n] = opt[n];
+    for (let n in options) obj.style[n] = opt[n];
 }
 
-var options = {fontSize:"12px",fontWeight:"bold"};
-var div = document.getElementById("maDiv");
+let options = {fontSize:"12px",fontWeight:"bold"};
+let div = document.getElementById("maDiv");
 
 changeStyle(div,options);</code></pre>
 						</section>-->
 
-				</section>
+        </section>
+
+        <section>
+            <h2>Hash d'arguments</h2>
+            <h3>Avec affectation par décomposition</h3>
+            <pre><code class="javascript">function changeStyle(obj, { color, fontSize, fontFamily, fontWeight }) {
+
+  if (color) obj.style.color = color;
+  if (fontSize) obj.style.fontSize = fontSize;
+  if (fontFamily) obj.style.fontFamily = fontFamily;
+  if (fontWeight) obj.style.fontWeight = fontWeight;
+}
+
+let div = document.getElementById("maDiv");
+
+changeStyle(div,{fontSize:"12px",fontWeight:"bold"});</code></pre>
+        </section>
 
 				<section>
 					<section>
@@ -381,7 +386,7 @@ window.setTimeout(logMessage,3000);
 //la fonction setTimeout attend en premier argument une fonction,
 //qui sera executée après 3000 millisecondes.
 
-var lien = document.getElementById("monLien");
+let lien = document.getElementById("monLien");
 lien.addEventListener("click",logMessage);
 //la fonction addEventListener attend un nom d'évènement
 //et une fonction qui sera exécutée au déclenchement de l'évènement.
@@ -405,15 +410,23 @@ est passée en argument de la fonction setTimeout.</p>
 					<h2>Fonctions anonymes</h2>
 					<p>L'exemple précédent peut s'écrire de la manière suivante :</p>
 <pre><code class="javascript">window.setTimeout(function() {
-    console.log("coucou");
+  console.log("coucou");
 },3000);
 
-var lien = document.getElementById("monLien");
+let lien = document.getElementById("monLien");
 lien.addEventListener("click",function() {
-    console.log("hello");
+  console.log("hello");
 });
 </code></pre>
-				</section>
+<div class="fragment">
+<p>Avec des fonctions fléchées :</p>
+<pre><code class="javascript">window.setTimeout(() => console.log("coucou"),3000);
+
+let lien = document.getElementById("monLien");
+lien.addEventListener("click",() => console.log("hello"));
+</code></pre>
+</div>
+        </section>
 
 				<section>
 					<h2>Fonctions imbriquées</h2>
@@ -442,7 +455,7 @@ lien.addEventListener("click",function() {
 						<p>Les fonctions internes ont accès à toutes les variables de la fonction externe.</p>
 						<pre><code class="javascript">function valideFormulaire() {
 
-  var test = true;
+  let test = true;
 
   function valideChampNom() { test = false; }
 
@@ -460,7 +473,7 @@ valideFormulaire();</code></pre>
 						<p>L'inverse n'est évidemment pas vrai.</p>
 <pre><code class="javascript">function valideFormulaire() {
 
-  function valideChampNom() { var nom = "Toto"; }
+  function valideChampNom() { let nom = "Toto"; }
 
   valideChampNom();
 
@@ -473,11 +486,11 @@ valideFormulaire();</code></pre>
 						<h3>Conflits de nom</h3>
 <pre><code class="javascript">function valideFormulaire() {
 
-  var test = true;
+  let test = true;
 
   function valideChampNom() {
     test; //??
-    var test = false;
+    let test = false;
     test; //??
   }
 
@@ -515,6 +528,14 @@ window.setTimeout( log("coucou") , 3000);
 window.setTimeout(function() {
   log("coucou");
 },3000);</code></pre>
+<div class="fragment">
+  <p>Avec une fonction fléchée</p>
+  <pre><code class="javascript">function log(message) {
+  console.log("Voici le message :\n" + message);
+}
+
+window.setTimeout(() => log("coucou"),3000);</code></pre>
+</div>
 				</section>
 
 				<!--<section>
@@ -524,10 +545,9 @@ window.setTimeout(function() {
 &lt;div id="maDiv2"&gt;ou ici !&lt;/div&gt;
 &lt;div id="maDiv3"&gt;ou ici !&lt;/div&gt;</code></pre>
 					<small>js</small>
-					<pre><code class="javascript">var div;
-var i;
+					<pre><code class="javascript">let div;
 
-for (i=1;i&lt;=3;i++) {
+for (let i=1;i&lt;=3;i++) {
 
   div = document.getElementById("maDiv"+i);
 
@@ -550,15 +570,13 @@ for (i=1;i&lt;=3;i++) {
                                 <section>
                                     <section>
 					<h2>Solution : méthode bind</h2>
-					<pre><code class="javascript">var i, div, fct;
-
-function affiche(cpt) {
+					<pre><code class="javascript">function affiche(cpt) {
   window.alert("Je suis la div n°"+cpt);
 }
 
-for (i=1;i&lt;=3;i++) {
-  div = document.getElementById("maDiv"+i);
-  fct = affiche.bind(null,i);
+for (let i=1;i&lt;=3;i++) {
+  let div = document.getElementById("maDiv"+i);
+  let fct = affiche.bind(null,i);
   div.addEventListener("click",fct);
 }</code></pre>
 <p>Les fonctions étant des objets, elles ont aussi leurs propriétés et méthodes.
@@ -569,17 +587,15 @@ for (i=1;i&lt;=3;i++) {
                                     <section>
 					<h2>Autre solution : les fermetures</h2>
                                         <p>Avant la normalisation de la méthode <code>bind</code>, il fallait coder l'équivalent par une fermeture (closure).</p>
-					<pre><code class="javascript">var i, div;
-
-function creeFonctionAffiche(cpt) {
+					<pre><code class="javascript">function creeFonctionAffiche(cpt) {
   function affiche() {
     window.alert("Je suis la div n°"+cpt);
   }
   return affiche;
 }
 
-for (i=1;i&lt;=3;i++) {
-  div = document.getElementById("maDiv"+i);
+for (let i=1;i&lt;=3;i++) {
+  let div = document.getElementById("maDiv"+i);
   div.addEventListener("click",creeFonctionAffiche(i));
 }</code></pre>
 <p>Une fonction s'exécute toujours dans le contexte dans lequel elle a été créée.</p>
@@ -598,15 +614,13 @@ for (i=1;i&lt;=3;i++) {
 					<h3>Immediately Invoked Function Expression</h3>
 					<pre><code class="javascript">(function() {
 
-  var i, div, fct;
-
   function affiche(cpt) {
     window.alert("Je suis la div n°"+cpt);
   }
 
-  for (i=1;i&lt;=3;i++) {
-    div = document.getElementById("maDiv"+i);
-    fct = affiche.bind(null,i);
+  for (let i=1;i&lt;=3;i++) {
+    let div = document.getElementById("maDiv"+i);
+    let fct = affiche.bind(null,i);
     div.addEventListener("click",fct);
   }
 
@@ -630,9 +644,10 @@ for (i=1;i&lt;=3;i++) {
 
 
 					<section>
-					<h2>Méthodes</h2>
-					<p>Une méthode d'un objet est une propriété de type <code>function</code>.</p>
-					<pre><code class="javascript">var toto = {
+            <section>
+              <h2>Méthodes</h2>
+              <p>Une méthode d'un objet est une propriété de type <code>function</code>.</p>
+              <pre><code class="javascript">let toto = {
   nom : "toto",
   age : 25,
   vieillir : function() { this.age++; }
@@ -645,19 +660,28 @@ toto.age; //26
 //attention
 typeof toto.vieillir(); //"undefined"
 toto.age; //27</code></pre>
-					<p>Dans la méthode d'un objet, le mot clé <code>this</code> fait référence à l'objet lui-même.</p>
-				</section>
-
+					    <p>Dans la méthode d'un objet, le mot clé <code>this</code> fait référence à l'objet lui-même.</p>
+            </section>
+            <section>
+                <h2>Méthodes</h2>
+                Raccourci possible
+                <pre><code class="javascript">let toto = {
+  nom : "toto",
+  age : 25,
+  vieillir() { this.age++; }
+};</code></pre>
+              </section>
+          </section>
 				<!--<section>
 					<h2>Méthodes</h2>
 					<h3>Piège : perte du contexte</h3>
-					<pre><code class="javascript">var toto = {
+					<pre><code class="javascript">let toto = {
   nom : "toto",
   age : 25,
   vieillir : function() { this.age++; }
 };
 
-var anneeEnMs = 1000 * 3600 * 24 * 365;
+let anneeEnMs = 1000 * 3600 * 24 * 365;
 
 window.setInterval(toto.vieillir,anneeEnMs);
 
@@ -668,13 +692,13 @@ window.setInterval(toto.vieillir,anneeEnMs);
 				<section>
 					<h2>Solution 1</h2>
 					<h3>Encapsulation</h3>
-					<pre><code class="javascript">var toto = {
+					<pre><code class="javascript">let toto = {
   nom : "toto",
   age : 25,
   vieillir : function() { this.age++; }
 };
 
-var anneeEnMs = 1000 * 3600 * 24 * 365;
+let anneeEnMs = 1000 * 3600 * 24 * 365;
 
 window.setInterval(function() { toto.vieillir(); },anneeEnMs);</code></pre>
 				</section>
@@ -682,15 +706,15 @@ window.setInterval(function() { toto.vieillir(); },anneeEnMs);</code></pre>
 				<section>
 					<h2>Solution 2</h2>
 					<h3>Binding</h3>
-					<pre><code class="javascript">var toto = {
+					<pre><code class="javascript">let toto = {
   nom : "toto",
   age : 25,
   vieillir : function() { this.age++; }
 };
 
-var anneeEnMs = 1000 * 3600 * 24 * 365;
+let anneeEnMs = 1000 * 3600 * 24 * 365;
 
-var totoVieillit = toto.vieillir.bind(toto);
+let totoVieillit = toto.vieillir.bind(toto);
 
 window.setInterval(totoVieillit,anneeEnMs);</code></pre>
 <p>Le 1er argument de la méthode <code>bind</code> force la valeur de <code>this</code>.</p>

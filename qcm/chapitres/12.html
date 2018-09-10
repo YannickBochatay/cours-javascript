@@ -3,7 +3,7 @@
   constructor() { this.nom = "toto"; }
 }
 
-var obj = new Personne();
+let obj = new Personne();
 typeof obj;</code>
     			<question>La dernière instruction renvoie</question>
     			<choix>Error</choix>
@@ -18,7 +18,7 @@ typeof obj;</code>
   constructor() { this.nom = "toto"; }
 }
 
-var obj = new Personne();
+let obj = new Personne();
 typeof obj.nom;</code>
     			<question>La dernière instruction renvoie</question>
     			<choix>Error</choix>
@@ -33,7 +33,7 @@ typeof obj.nom;</code>
   constructor(age) { this.age = age; }
 }
 
-var toto = new Personne();
+let toto = new Personne();
 typeof toto.age;</code>
     			<question>La dernière instruction renvoie</question>
     			<choix>Error</choix>
@@ -51,7 +51,7 @@ typeof toto.age;</code>
   }
 }
 
-var toto = new Personne();
+let toto = new Personne();
 toto._activiteSecrete;</code>
           <question>La dernière instruction renvoie</question>
           <choix>Error</choix>
@@ -66,7 +66,7 @@ toto._activiteSecrete;</code>
   static test(obj) { return obj instanceof Personne; }
 }
 
-var toto = new Personne("Toto");
+let toto = new Personne("Toto");
 typeof toto.test;</code>
     			<question>La dernière instruction renvoie</question>
     			<choix>Error</choix>
@@ -98,7 +98,7 @@ class Anxieux extends Personne {
   }
 }
 
-var toto = new Anxieux("Toto",25);
+let toto = new Anxieux("Toto",25);
 toto.vieillir();
 toto.age;</code>
             <question>La dernière instruction renvoie</question>
@@ -112,7 +112,7 @@ toto.age;</code>
   constructor(nom) { this.nom = nom; }
 }
 
-var toto = new Personne("Toto");
+let toto = new Personne("Toto");
 toto.toString();
 </code>
     			<question>La dernière instruction renvoie</question>
@@ -128,7 +128,7 @@ toto.toString();
   toString() { return "[object Personne]"; }
 }
 
-var toto = new Personne("Toto");
+let toto = new Personne("Toto");
 toto.toString();
 </code>
     			<question>La dernière instruction renvoie</question>
@@ -144,7 +144,7 @@ toto.toString();
   toString() { return "[object Personne]"; }
 }
 
-var toto = new Personne("Toto");
+let toto = new Personne("Toto");
 console.log("toto : " + toto);
 </code>
     			<question>La dernière instruction renvoie</question>
@@ -170,7 +170,7 @@ console.log("toto : " + toto);
   }
 }
 
-var toto = new Homme("Toto",25);
+let toto = new Homme("Toto",25);
 toto.age;
 </code>
     			<question>La dernière instruction renvoie</question>
@@ -195,7 +195,7 @@ toto.age;
   }
 }
 
-var toto = new Homme("Toto",25);
+let toto = new Homme("Toto",25);
 toto.age = "titi";</code>
             <question>La dernière instruction renvoie</question>
             <choix>true</choix>

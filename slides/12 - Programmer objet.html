@@ -61,7 +61,7 @@
 Personne.prototype.vieillir = function() { this.age++; }
 
 
-var toto = new Personne("Toto", 25);
+let toto = new Personne("Toto", 25);
 toto.vieillir();</code></pre>
 <small>
 <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Le_mod%C3%A8le_objet_JavaScript_en_d%C3%A9tails" target="liens">
@@ -83,7 +83,7 @@ toto.vieillir();</code></pre>
   }
 }
 
-var toto = new Personne("Toto", 25);
+let toto = new Personne("Toto", 25);
 toto.vieillir();</code></pre>
 				</section>
 
@@ -96,7 +96,7 @@ toto.vieillir();</code></pre>
   constructor() {
     this._propPrivee = true;
   }
-	
+
   _methodePrivee() {
     /* ... */
   }
@@ -111,14 +111,14 @@ toto.vieillir();</code></pre>
     this.nom = nom || "inconnu";
     this.age = age || 0;
   }
-				
+
   static test(obj) {
     return obj instanceof Personne;
   }
 }
-				
-var toto = {nom:"Toto",age:26};
-				
+
+let toto = {nom:"Toto",age:26};
+
 Personne.test(toto); //false</code></pre>
 				</section>
 
@@ -163,7 +163,7 @@ class Alzheimer extends Personne {
   }
 }
 
-var totoMalade = new Alzheimer("Toto",60);
+let totoMalade = new Alzheimer("Toto",60);
 totoMalade.vieillir();</code></pre>
 </section>
 
@@ -178,7 +178,7 @@ totoMalade.vieillir();</code></pre>
   toJSON() { return '{"nom":"'+this.nom+'"}'; }
 }
 
-var toto = new Personne("Toto",25);
+let toto = new Personne("Toto",25);
 
 console.log("je m'appelle " + toto); //je m'appelle Toto
 console.log( JSON.stringify(toto) ); //'{"nom":"Toto"}'
@@ -196,14 +196,14 @@ console.log( JSON.stringify(toto) ); //'{"nom":"Toto"}'
   get age() {
     return this._age;
   }
-	
+
   set age(val) {
     if (typeof val !== "number") throw new TypeError("pas un nombre");
     this._age = val;
   }
 }
 
-var toto = new Personne("Toto");
+let toto = new Personne("Toto");
 toto.age; // 0
 toto.age = 25;
 toto.age = "titi"; // TypeError
@@ -212,7 +212,7 @@ toto.age = "titi"; // TypeError
 				<section>
 					<h2>Espaces de noms</h2>
 					<p>Il n'y a pas d'espace de noms à proprement parler en javascript. On utilise les objets.</p>
-					<pre><code class="javascript">var MABIBLIO = {};
+					<pre><code class="javascript">let MABIBLIO = {};
 
 MABIBLIO.maConstante = "toto";
 
@@ -223,11 +223,11 @@ MABIBLIO.MaClasse = class {
   constructor() {
     this.maPropriete1 = "";
   }
-	
+
   maMethode1() { /*...*/ }
 }
 
-var toto = new MABIBLIO.MaClasse();</code></pre>
+let toto = new MABIBLIO.MaClasse();</code></pre>
 				</section>
 
 
@@ -235,25 +235,25 @@ var toto = new MABIBLIO.MaClasse();</code></pre>
 					<h2>En résumé</h2>
 					<pre><code class="javascript" style="max-height:1500px">(function(root) { "use strict";
 
-  var BIBLIO = {};
-	
+  let BIBLIO = {};
+
   BIBLIO.MaClasse = class {
-		
+
     constructor() {
       this.maProprietePublique = ""
       this._maProprietePrivee = ""
     }
-			
+
     maMethodePublique() { /*...*/ }
 
     _maMethodePrivee() { /*...*/ }
-		
+
     get maPropriete() { return this._maProprietePrivee; }
     set maPropriete(val) { this._maProprietePrivee = val; }
 
     static maMethodeStatique() { /*...*/ }
   }
-	
+
   BIBLIO.maFonctionGenerique = function() { /*...*/ }
 
   BIBLIO.maConstante = 25;

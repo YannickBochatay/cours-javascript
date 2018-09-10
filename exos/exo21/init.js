@@ -3,7 +3,7 @@
  *
  */
 
-var calculatrice = new Calculatrice();
+let calculatrice = new Calculatrice();
 
 calculatrice.ajouter(3,5); //8
 calculatrice.soustraire(3,5); //-2
