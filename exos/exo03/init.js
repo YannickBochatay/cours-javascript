@@ -1,1 +1,1 @@
-var prix;
+let prix;

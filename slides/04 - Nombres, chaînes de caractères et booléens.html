@@ -47,33 +47,33 @@
 
 				<section>
 					<h1>Javascript</h1>
-					<h3>Nombres, chaînes de caractères et booléens</h3>
+					<h3>Nombres, chaînes et booléens</h3>
 				</section>
 
 
 				<section>
 					<h2>Valeurs primitives ou objets ?</h2>
           <p>Ce sont des valeurs primitives que nous définissons</p>
-          <pre><code class="javascript">var age = 25;
+          <pre><code class="javascript">let age = 25;
 typeof age; //number
 
-var nom = "toto";
+let nom = "toto";
 typeof nom; //string
 
-var bool = true;
+let bool = true;
 typeof bool; //boolean
 
-var obj = {};
+let obj = {};
 typeof obj; //object</code></pre>
 				</section>
 
         <section>
           <h2>Valeurs primitives ou objets ?</h2>
           <p>Mais on peut appeler des méthodes comme s'il s'agissait d'objets</p>
-          <pre><code class="javascript">var age = 25;
+          <pre><code class="javascript">let age = 25;
 age.toFixed(2); //"25.00"
 
-var nom = "toto";
+let nom = "toto";
 nom.toUpperCase(); //"TOTO"</code></pre>
 <p class="fragment">Javascript effectue automatiquement les conversions</p>
         </section>
@@ -82,14 +82,14 @@ nom.toUpperCase(); //"TOTO"</code></pre>
           <h2>Valeurs primitives ou objets ?</h2>
           <p>Les constructeurs <code>String, Boolean, Number</code> existent, mais on ne les utilise pas pour créer des chaînes, booléens et des nombres. C'est inutile et source d'erreurs.</p>
           <pre><code class="javascript">//sans les conversions automatiques, il faudrait écrire
-var age = 25;
-var objTmp = new Number(age);
-var str = objTmp.toFixed(2);
+let age = 25;
+let objTmp = new Number(age);
+let str = objTmp.toFixed(2);
 delete objTmp;
 
 //en pratique on écrit
-var age = 25;
-var str = age.toFixed(2);</code></pre>
+let age = 25;
+let str = age.toFixed(2);</code></pre>
         </section>
 
 				<section>
@@ -141,7 +141,7 @@ Boolean(0); //false
               <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/toPrecision" target="liens"><code>toPrecision</code></a> : renvoie une chaîne de caractères avec un nombre spécifié de chiffres significatifs</li>
             </ul>
             <br/><br/>
-            <pre><code class="javascript">var num = 2.4567887899;
+            <pre><code class="javascript">let num = 2.4567887899;
 num.toFixed(2); // "2.46"
 num.toPrecision(2); // "2.5"
 
@@ -157,11 +157,11 @@ num.toPrecision(3); // "0.0500"</code></pre>
 					<section>
 						<h2>Méthodes usuelles</h2>
 						<p>Toutes ces méthodes ne modifient pas la variable elle-même mais renvoient une nouvelle valeur primitive.</p>
-						<pre><code class="javascript">var nom = "Toto";
+						<pre><code class="javascript">let nom = "Toto";
 nom.toUpperCase();
 console.log(nom); //Toto
 
-var nomModifie = nom.toUpperCase();
+let nomModifie = nom.toUpperCase();
 console.log( nomModifie ); //TOTO</code></pre>
 				  </section>
 
@@ -185,35 +185,88 @@ encodeURIComponent("toto&tata?titi");
 
           <section>
             <section>
-                <h2>Quelques fonctions globales</h2>
+                <h2>Quelques fonctions</h2>
                 <h3>Nombres</h3>
                 <ul>
-                <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/parseInt" target="liens"><code>parseInt</code></a> : convertit une variable en nombre entier</li>
-                <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/parseFloat" target="liens"><code>parseFloat</code></a> : convertit une variable en nombre décimal</li>
-                <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/isFinite" target="liens"><code>isFinite</code></a> : détermine si l'argument est un nombre fini</li>
-                <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/isFinite" target="liens"><code>isNaN</code></a> : détermine si l'argument est <code>NaN</code> (not a number)</li>
+                <li>
+                  <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/parseInt" target="liens">
+                    <code>parseInt</code>
+                  </a>
+                  : convertit une variable en nombre entier
+                </li>
+                <li>
+                  <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/parseFloat" target="liens">
+                    <code>parseFloat</code>
+                  </a>
+                  : convertit une variable en nombre décimal
+                </li>
+                <li>
+                  <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/isFinite" target="liens">
+                    <code>isFinite</code>
+                  </a>
+                  : détermine si l'argument est un nombre fini
+                </li>
+                <li>
+                  <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Number/isNaN" target="liens">
+                    <code>isNaN</code>
+                  </a>
+                  : détermine si l'argument est <code>NaN</code> (not a number)
+                </li>
                 </ul>
                 <br/><br/>
-                <pre><code class="javascript">parseInt("25.5°C"); //25 les décimaux sont tronqués
-parseFloat("25.5°C"); //25.5
+                <pre><code class="javascript">Number.parseInt("25.5°C"); //25 les décimaux sont tronqués
+Number.parseFloat("25.5°C"); //25.5
 Number("25.5°C"); //NaN
 
-isFinite(2/3); //true
-isFinite(Infinity); //false
-isFinite(NaN); //false
+Number.isFinite(2/3); //true
+Number.isFinite(Infinity); //false
+Number.isFinite(NaN); //false
 
-isNaN(3/0); //false
-isNaN( parseInt("a") ); //true</code></pre>
+Number.isNaN(3/0); //false
+Number.isNaN( parseInt("a") ); //true</code></pre>
                 </section>
                 <section>
-                    <h2>Changement dans ES6</h2>
-                    <p>Ces fonctions ont été rattachées au constructeur <code>Number</code> en tant que méthodes statiques.</p>
-                    <pre><code class="javascript">Number.parseInt("25.5°C"); //25 les décimaux sont tronqués
-Number.parseFloat("25.5°C"); //25.5
-Number.isFinite(2/3);
-Number.isNaN( Number.parseInt("a") ); //true</code></pre>
+                    <h2>Quelques fonctions</h2>
+                    <h3>Nombres</h3>
+                    <p>Pour des raisons historiques, ces fonctions sont aussi disponibles dans l'espace global.</p>
+                    <pre><code class="javascript">parseInt("25.5°C"); //25 les décimaux sont tronqués
+parseFloat("25.5°C"); //25.5
+isFinite(2/3);
+isNaN( Number.parseInt("a") ); //true</code></pre>
                 </section>
               </section>
+              </section>
+
+              <section>
+                <section>
+                <h2>Modèles de libellés</h2>
+                <h3>(gabarits de chaînes, template strings)</h3>
+                Ce sont les chaînes définies par les guillemets obliques qui permettent d'y inclure des expressions javascript.
+                <pre><code class="javascript">let nom = "Toto";
+`Mon nom est ${nom}`; // Mon nom est Toto
+
+let age = 32;
+`Mon âge sera ${ age+1 } ans` //Mon âge sera 33 ans</code></pre>
+
+              </section>
+
+              <section>
+                  <h2>Modèles balisés</h2>
+                  <h3>(tagged templates)</h3>
+                  Les modèles de libellés peuvent être traités par une fonction.
+                  <pre><code class="javascript">function ajoutUnites(chaines, t, rr) {
+  let str0 = chaines[0]; //"Il fait "
+  let str1 = chaines[1]; //" et il a plu "
+  return `${ chaines[0] }${t}°C${ chaines[1] }${rr}mm`
+}
+
+let t = 30;
+let rr = 0.8;
+
+ajoutUnites`Il fait ${t} et il a plu ${rr}`;
+/*Il fait 30°C et il a plu 0.8mm*/
+</code></pre>
+                </section>
               </section>
 			</div>
 

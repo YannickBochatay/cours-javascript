@@ -1,5 +1,5 @@
 <qcm>
-  <code>var toto = "tata";
+  <code>let toto = "tata";
 typeof toto;</code>
   <question>Ce code renvoie</question>
   <choix correct>"string"</choix>
@@ -8,8 +8,8 @@ typeof toto;</code>
 </qcm>
 
 <qcm>
-  <code>var toto = " tata ";
-var tata = toto.trim(); //la méthode trim supprime les blancs en début et fin de chaîne
+  <code>let toto = " tata ";
+let tata = toto.trim(); //la méthode trim supprime les blancs en début et fin de chaîne
 typeof tata;</code>
   <question>Ce code renvoie</question>
   <choix correct>"string"</choix>
@@ -18,7 +18,7 @@ typeof tata;</code>
 </qcm>
 
 <qcm>
-  <code>var toto = " tata ";
+  <code>let toto = " tata ";
 typeof toto.trim();</code>
   <question>Ce code renvoie</question>
   <choix correct>"string"</choix>
@@ -27,7 +27,7 @@ typeof toto.trim();</code>
 </qcm>
 
 <qcm>
-  <code>var toto = " tata ";
+  <code>let toto = " tata ";
 toto.trim();</code>
 	<question>Après exécution de ce code, la variable toto vaut</question>
 	<choix>"tata"</choix>
@@ -36,8 +36,8 @@ toto.trim();</code>
 </qcm>
 
 <qcm>
-  <code>var toto = " tata ";
-var tata = toto.trim();</code>
+  <code>let toto = " tata ";
+let tata = toto.trim();</code>
   <question>Après exécution de ce code, la variable tata vaut</question>
   <choix correct>"tata"</choix>
   <choix>" tata "</choix>
@@ -45,7 +45,20 @@ var tata = toto.trim();</code>
 </qcm>
 
 <qcm>
-  <code>var nb = 25;
+  <code>let toto = "tata";
+
+`Mon nom est ${  toto + 1  }`;</code>
+  <question>La chaîne renvoie</question>
+  <choix>Error</choix>
+  <choix>"Mon nom est 2"</choix>
+  <choix>"Mon nom est ${ toto + 1 }"</choix>
+  <choix correct>"Mon nom est tata1"</choix>
+  <choix>"Mon nom est&nbsp;&nbsp;&nbsp;tata1&nbsp;&nbsp;"</choix>
+  <reponse>La méthode renvoie une nouvelle valeur primitive dont les blancs ont été supprimés en début et fin de chaîne.</reponse>
+</qcm>
+
+<qcm>
+  <code>let nb = 25;
 nb.toFixed(2);</code>
   <question>Après exécution de ce code, la variable nb vaut</question>
   <choix correct>25</choix>
@@ -54,8 +67,8 @@ nb.toFixed(2);</code>
 </qcm>
 
 <qcm>
-  <code>var nb = 25;
-var str = nb.toFixed(2);</code>
+  <code>let nb = 25;
+let str = nb.toFixed(2);</code>
   <question>Après exécution de ce code, la variable str vaut</question>
   <choix>25</choix>
   <choix correct>"25.00"</choix>
@@ -63,7 +76,7 @@ var str = nb.toFixed(2);</code>
 </qcm>
 
 <qcm>
-  <code>var age = new Number(25);</code>
+  <code>let age = new Number(25);</code>
   <question>Cette écriture peut s'avérer utile</question>
   <choix>oui</choix>
   <choix correct>non</choix>
@@ -73,7 +86,7 @@ Les conversions automatiques de javascript permettent une écriture plus intuiti
 </qcm>
 
 <qcm>
-  <code>var age = Number("25");</code>
+  <code>let age = Number("25");</code>
   <question>Cette écriture peut s'avérer utile</question>
   <choix correct>oui</choix>
   <choix>non</choix>
@@ -81,7 +94,7 @@ Les conversions automatiques de javascript permettent une écriture plus intuiti
 </qcm>
 
 <qcm>
-  <code>var age = Number(25);
+  <code>let age = Number(25);
 typeof age;</code>
   <question>Ce code renvoie</question>
   <choix>"string"</choix>
@@ -92,7 +105,7 @@ typeof age;</code>
 </qcm>
 
 <qcm>
-  <code>var age = Number("25");
+  <code>let age = Number("25");
 typeof age;</code>
   <question>Ce code renvoie</question>
   <choix>"string"</choix>
@@ -102,7 +115,7 @@ typeof age;</code>
 </qcm>
 
 <qcm>
-  <code>var age = Number(true);</code>
+  <code>let age = Number(true);</code>
   <question>La variable age vaut</question>
   <choix>Error</choix>
   <choix>NaN</choix>
@@ -112,7 +125,7 @@ typeof age;</code>
 </qcm>
 
 <qcm>
-  <code>var bool = Boolean("toto");</code>
+  <code>let bool = Boolean("toto");</code>
   <question>La variable bool vaut</question>
   <choix>Error</choix>
   <choix correct>true</choix>
@@ -121,7 +134,7 @@ typeof age;</code>
 </qcm>
 
 <qcm>
-  <code>var tempe = "25.5°C";
+  <code>let tempe = "25.5°C";
 Number(tempe);</code>
   <question>Ce code renvoie</question>
   <choix>"25.5"</choix>
@@ -132,8 +145,8 @@ Number(tempe);</code>
 </qcm>
 
 <qcm>
-  <code>var tempe = "25.5°C";
-parseInt(tempe);</code>
+  <code>let tempe = "25.5°C";
+Number.parseInt(tempe);</code>
   <question>Ce code renvoie</question>
   <choix>"25.5"</choix>
   <choix>25.5</choix>
@@ -145,8 +158,8 @@ parseInt(tempe);</code>
 </qcm>
 
 <qcm>
-  <code>var tempe = "25.5°C";
-parseFloat(tempe);</code>
+  <code>let tempe = "25.5°C";
+Number.parseFloat(tempe);</code>
   <question>Ce code renvoie</question>
   <choix>"25.5"</choix>
   <choix correct>25.5</choix>

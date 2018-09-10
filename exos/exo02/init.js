@@ -1,2 +1,2 @@
 
-var str;
+let str;
