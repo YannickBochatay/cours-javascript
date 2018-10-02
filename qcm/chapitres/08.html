@@ -44,8 +44,8 @@ x;</code>
 
 
 <qcm>
-	<code>var toto = {"nom":"Toto"};
-var toto2 = {"nom":"Toto"};
+	<code>let toto = {"nom":"Toto"};
+let toto2 = {"nom":"Toto"};
 toto == toto2;</code>
 	<question>l'égalité est</question>
 	<choix>vrai</choix>
@@ -57,8 +57,8 @@ toto == toto2;</code>
 
 
 <qcm>
-	<code>var toto = {"nom":"Toto"};
-var toto2 = toto;
+	<code>let toto = {"nom":"Toto"};
+let toto2 = toto;
 toto == toto2;</code>
 	<question>l'égalité est</question>
 	<choix correct>vrai</choix>
@@ -70,8 +70,8 @@ toto == toto2;</code>
 
 
 <qcm>
-	<code>var toto = {"nom":"Toto"};
-var toto2 = toto;
+	<code>let toto = {"nom":"Toto"};
+let toto2 = toto;
 toto === toto2;</code>
 	<question>l'égalité est</question>
 	<choix correct>vrai</choix>
@@ -106,7 +106,7 @@ toto === toto2;</code>
 
 
 <qcm>
-	<code>var i=0;
+	<code>let i=0;
 console.log(++i);</code>
 	<question>la console affichera</question>
 	<choix>0</choix>
@@ -118,7 +118,7 @@ console.log(++i);</code>
 
 
 <qcm>
-	<code>var i=0;
+	<code>let i=0;
 console.log(i++);</code>
 	<question>la console affichera</question>
 	<choix correct>0</choix>
@@ -165,7 +165,7 @@ console.log( recupAge() );</code>
     return personne && personne.age;
 }
 
-var individu = { nom : "Toto" };
+let individu = { nom : "Toto" };
 
 console.log( recupAge(individu) );</code>
     <question>la console affiche</question>
@@ -183,7 +183,7 @@ console.log( recupAge(individu) );</code>
     return personne.surnom || personne.nom;
 }
 
-var individu = { nom : "Bernard", surnom : "Nanard" };
+let individu = { nom : "Bernard", surnom : "Nanard" };
 
 console.log( recupNomCourant(individu) );</code>
     <question>la console affiche</question>
@@ -202,7 +202,7 @@ console.log( recupNomCourant(individu) );</code>
     return personne.surnom || personne.nom;
 }
 
-var individu = { nom : "Bernard" };
+let individu = { nom : "Bernard" };
 
 console.log( recupNomCourant(individu) );</code>
     <question>la console affiche</question>
@@ -262,7 +262,7 @@ console.log( recupNomCourant() );</code>
 
 
 <qcm>
-	<code>var x = !0;</code>
+	<code>let x = !0;</code>
 	<question>x vaut</question>
 	<choix>0</choix>
 	<choix>1</choix>
@@ -272,7 +272,7 @@ console.log( recupNomCourant() );</code>
 
 
 <qcm>
-	<code>var toto = {nom:"Toto",age:null};
+	<code>let toto = {nom:"Toto",age:null};
 console.log("age" in toto);</code>
 	<question>la console affichera</question>
 	<choix correct>true</choix>
@@ -281,7 +281,7 @@ console.log("age" in toto);</code>
 </qcm>
 
 <qcm>
-	<code>var toto = [];
+	<code>let toto = [];
 console.log(toto instanceof Array);</code>
 	<question>la console affichera</question>
 	<choix correct>true</choix>
@@ -290,7 +290,7 @@ console.log(toto instanceof Array);</code>
 </qcm>
 
 <qcm>
-	<code>var toto = [];
+	<code>let toto = [];
 console.log(toto instanceof Object);</code>
 	<question>la console affichera</question>
 	<choix correct>true</choix>
@@ -299,7 +299,7 @@ console.log(toto instanceof Object);</code>
 </qcm>
 
 <qcm>
-	<code>var toto = [];
+	<code>let toto = [];
 console.log(typeof toto);</code>
 	<question>la console affichera</question>
 	<choix>"array"</choix>
@@ -310,7 +310,7 @@ console.log(typeof toto);</code>
 </qcm>
 
 <qcm>
-	<code>var toto = function() {};
+	<code>let toto = function() {};
 console.log(typeof toto);</code>
 	<question>la console affichera</question>
 	<choix correct>"function"</choix>
@@ -321,7 +321,7 @@ console.log(typeof toto);</code>
 </qcm>
 
 <qcm>
-	<code>var toto = null;
+	<code>let toto = null;
 console.log(typeof toto);</code>
 	<question>la console affichera</question>
 	<choix>"null"</choix>

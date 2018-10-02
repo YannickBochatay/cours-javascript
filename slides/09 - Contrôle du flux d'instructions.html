@@ -90,14 +90,14 @@
 					<code class="syntaxe">condition ? expr1 : expr2 </code>
 					<br/>
 					<p>Exemples</p>
-					<pre><code class="javascript">var autorisation = true;
+					<pre><code class="javascript">let autorisation = true;
 
 console.log( autorisation ? "autorisé" : "interdit" ); //autorisé</code></pre>
-<pre><code class="javascript">var toto = { nom : "Toto", age : 25};
+<pre><code class="javascript">let toto = { nom : "Toto", age : 25};
 
 console.log( toto.age > 18 ? "majeur" : "mineur" ); //majeur</code></pre>
 				</section>
-					
+
 				<section>
 					<h2>Valeurs équivalentes à false</h2>
 					<p>Lors d'une conversion en booléen, les valeurs suivantes renvoient false (falsy values) :</p>
@@ -110,15 +110,15 @@ console.log( toto.age > 18 ? "majeur" : "mineur" ); //majeur</code></pre>
 					 <li><code>""</code></li>
 					</ul>
 					<p>Les autres valeurs, dont les objets, renvoient true.</p>
-					<pre><code>Boolean(5) //true
-Boolean(-1) //true
-Boolean(0) //false
-Boolean({}) //true
-Boolean([]) //true
-Boolean(5/0) // Infinity => true
-Boolean( Number("toto") ) // NaN => false
-Boolean("true") //true
-Boolean("false") //true</code></pre>
+					<pre><code>Boolean(5); //true
+Boolean(-1); //true
+Boolean(0); //false
+Boolean({}); //true
+Boolean([]); //true
+Boolean(5/0); // Infinity => true
+Boolean( Number("toto") ); // NaN => false
+Boolean("true"); //true
+Boolean("false"); //true</code></pre>
 				</section>
 
 				<section>
@@ -135,7 +135,7 @@ Boolean("false") //true</code></pre>
 	<p>Exemple</p>
 						<pre><code class="javascript">function prixDesFruits(fruits) {
 
-var prix;
+  let prix;
 
   switch (fruits) {
     case "Oranges" : prix = 0.59; break;
@@ -175,7 +175,7 @@ var prix;
 }
 						</code></pre>
 						</p>
-					
+
 				</section>
 
 				<section>
@@ -194,8 +194,8 @@ var prix;
 						<p>Dans le deuxième cas, l'instruction sera exécutée au moins une fois, même si la condition est fausse.</p>
 						<br/>
 						<p>Exemple</p>
-						<pre><code class="javascript">var n = 0;
-var x = 0;
+						<pre><code class="javascript">let n = 0;
+let x = 0;
 
 while (n < 3) {
   n++;
@@ -212,7 +212,7 @@ while (n < 3) {
 					<code class="syntaxe">for (variable in objet) instruction</code>
 					<p>Exemple</p>
 					<pre><code class="javascript">function afficherProps(obj) {
-  var result = "";
+  let result = "";
   for (let n in obj) result+= n + "=" + obj[n] + "\n";
   return result;
 }
@@ -238,7 +238,7 @@ age=25
 				<section>
 					<h2>break</h2>
 					<p>Provoque la fin de l'instruction <code>while, do-while, for,</code> ou <code>switch</code> dans laquelle il est inscrit (la plus imbriquée).</p>
-					<br/><pre><code class="javascript">var tab = ["toto","titi","tata"];
+					<br/><pre><code class="javascript">let tab = ["toto","titi","tata"];
 
 for (let i=0; i&lt;tab.length; i++) {
   if (a[i] == "tata") break;
@@ -249,8 +249,8 @@ for (let i=0; i&lt;tab.length; i++) {
 				<section>
 					<h2>continue</h2>
 					<p>Termine l'itération courante de la boucle (la plus imbriquée) et passe à l'exécution de la prochaine itération.</p>
-					<br/><pre><code class="javascript">var i = 0;
-var n = 0;
+					<br/><pre><code class="javascript">let i = 0;
+let n = 0;
 
 while (i < 5) {
   i++;
@@ -375,7 +375,7 @@ catch(e) {
 }
 catch(e) {
   console.log(e.message);
-  var toto = "toto";
+  let toto = "toto";
 }
 toto; //"toto";
 e; //Exception : e is not defined;
@@ -386,7 +386,7 @@ e; //Exception : e is not defined;
 				<section>
 					<h2>Asynchronisme</h2>
 					<h3>Exemple</h3>
-					<pre><code class="javascript">var i=0;
+					<pre><code class="javascript">let i=0;
 
 window.setTimeout(function() { i++; },1000);
 
@@ -396,7 +396,7 @@ console.log(i); //?</code></pre>
 				<section>
 					<h2>Asynchronisme</h2>
 					<h3>évènements</h3>
-					<pre><code class="javascript">var img = new Image();
+					<pre><code class="javascript">let img = new Image();
 
 img.src = "http://www.meteofrance.com/integration/sim-portail/generated/integration/img/vigilance/mn.gif";
 
@@ -404,9 +404,7 @@ console.log(img.width); //0
 //car l'image est chargée de manière asynchrone
 
 //mais
-img.onload = function() {
-  console.log(img.width); //71
-};
+img.onload = function() { console.log(img.width); //71 }
 
 //quand l'image est chargée, l'évènement "load" est déclenché
 //et les fonctions liées à l'évènement sont exécutées.
@@ -418,15 +416,15 @@ img.onload = function() {
 					<h3>Callback hell</h3>
 					<pre><code class="javascript" style="max-height:1000px">//Supposons que nous voulions charger une série d'images,
 //les unes après les autres, avec une pause de 5 secondes entre chaque
-var img = new Image();
+let img = new Image();
 img.src = "http://monServeur/monImage1.png";
 img.onload = function() {
   window.setTimeout(function() {
-    var img = new Image();
+    let img = new Image();
     img.src = "http://monServeur/monImage2.png";
     img.onload = function() {
       window.setTimeout(function() {
-        var img = new Image();
+        let img = new Image();
         img.src = "http://monServeur/monImage3.png";
         img.onload = function() {
           //etc etc
@@ -441,16 +439,14 @@ img.onload = function() {
 					<h2>Asynchronisme</h2>
 					<h3>Callback hell, tentative d'amélioration</h3>
 					<pre><code class="javascript" style="max-height:1000px">function chargerImage(src,callback) {
-  var img = new Image();
+  let img = new Image();
   img.src = "http://monServeur/"+src;
-  img.onload = function() {
-    window.setTimeout(callback,5000);
-  }
+  img.onload = function() { window.setTimeout(callback,5000); }
 }
 
-chargerImage("monImage1.png",function() {
-  chargerImage("monImage2.png",function() {
-    chargerImage("monImage3.png",function() {
+chargerImage("monImage1.png", () => {
+  chargerImage("monImage2.png", () => {
+    chargerImage("monImage3.png", () => {
       //etc etc
     });
   });
@@ -459,29 +455,26 @@ chargerImage("monImage1.png",function() {
 
 				<section>
 					<h2>Promesses</h2>
-					<h3>Norme ECMAScript 6</h3>
 					<pre><code class="javascript" style="max-height:1000px">function chargerImage(src) {
-  return new Promise(function(resolve) {
-    var img = new Image();
+  return new Promise(resolve => {
+    let img = new Image();
     img.src = "http://monServeur/"+src;
     img.onload = resolve;
   });
 }
 
 function attendre(s) {
-  return new Promise(function(resolve) {
-    window.setTimeout(resolve,s*1000);
-  });
+  return new Promise(resolve => window.setTimeout(resolve,s*1000));
 }
 
 chargerImage("monImage1.png")
-.then(function() { return attendre(5); })
-.then(function() { return chargerImage("monImage2.png"); })
-.then(function() { return attendre(5); })
-.then(function() { return chargerImage("monImage3.png"); })
-.then(function() { return attendre(5); })</code></pre>
-					<a href="http://www.html5rocks.com/fr/tutorials/es6/promises/" target="liens">
-						<small>http://www.html5rocks.com/fr/tutorials/es6/promises/</small>
+.then(() => attendre(5))
+.then(() => chargerImage("monImage2.png"))
+.then(() => attendre(5))
+.then(() => chargerImage("monImage3.png"))
+.then(() => attendre(5));</code></pre>
+					<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Utiliser_les_promesses" target="liens">
+						<small>https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Utiliser_les_promesses</small>
 					</a>
 				</section>
 
@@ -489,17 +482,15 @@ chargerImage("monImage1.png")
 					<h2>Async / await</h2>
 					<h3>Norme ECMAScript 8 (2017)</h3>
 					<pre><code class="javascript" style="max-height:1000px">function chargerImage(src) {
-  return new Promise(function(resolve) {
-    var img = new Image();
+  return new Promise(resolve => {
+    let img = new Image();
     img.src = "http://monServeur/"+src;
     img.onload = resolve;
   });
 }
 
 function attendre(s) {
-  return new Promise(function(resolve) {
-    window.setTimeout(resolve,s*1000);
-  });
+  return new Promise(resolve => window.setTimeout(resolve,s*1000));
 }
 
 async function chargerTout() {
@@ -511,7 +502,7 @@ async function chargerTout() {
   await attendre(5)
 }
 
-chargerTout()</code></pre>
+chargerTout();</code></pre>
 				</section>
 
 			</div>

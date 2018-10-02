@@ -18,6 +18,22 @@ let fct = function() {};</code>
     		</qcm>-->
 
         <qcm>
+          <code>let somme = (a,b) => return a + b;</code>
+          <question>Ce code est correct</question>
+          <choix>oui</choix>
+          <choix correct>non</choix>
+					<reponse>Dans une fonction fléchée, si les accolades sont omises, le mot clef return est omis également.</reponse>
+        </qcm>
+
+        <qcm>
+          <code>let modifChaine = str => str.trim();</code>
+          <question>Ce code est correct</question>
+          <choix>oui</choix>
+          <choix correct>non</choix>
+					<reponse>Si une fonction fléchée n'attend qu'un paramètre, les parenthèses autour de celui-ci sont facultatives.</reponse>
+        </qcm>
+
+        <qcm>
           <code>function somme(a,b) { return a + b; }
 
 somme(3);</code>
@@ -101,6 +117,20 @@ monObjet.x; //?</code>
 						L'objet n'est présent qu'une seule fois en mémoire, mais possède alors deux références (monObjet et obj).<br/>
 						Modifier une propriété par l'une ou l'autre modifie donc le même objet en mémoire.<br/>
 						On dit que la fonction a un effet de bord (qui n'est généralement pas souhaitable).</reponse>
+        </qcm>
+
+        <qcm>
+    			<code>function maFonction(a, b, ...rest) {
+  console.log(rest);
+}
+
+somme(3,5,6,7)</code>
+    			<question>Que contient la variable <code>rest</code> ? </question>
+          <choix>6</choix>
+          <choix>7</choix>
+          <choix correct>un tableau contenant les valeurs 6 et 7</choix>
+          <choix>un tableau contenant les valeurs 3, 5, 6 et 7</choix>
+					<reponse>Le paramètre du reste est un tableau contenant tous les arguments supplémentaires passés à la fonction.</reponse>
     		</qcm>
 
         <!--<qcm>

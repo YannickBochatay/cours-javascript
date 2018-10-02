@@ -81,9 +81,9 @@
           Définir une variable globale revient à définir une propriété de l'objet global.</p>
           <pre><code class="javascript">typeof window; //"object"
 
-var toto = "tata";
+window.toto = "tata";
 
-window.toto; //"tata"
+toto; //"tata"
 
 function add(a,b) { return a+b; }
 
@@ -149,7 +149,7 @@ document.getElementById("maDiv"); //nœud par id
 document.querySelector("div.maClasse"); //nœud par selecteur css
 
 //création d'un nœud
-var div = document.createElement("div");
+let div = document.createElement("div");
 
 //insertion de l'objet DOM dans le corps de la page
 document.body.appendChild(div);</code></pre>
@@ -202,7 +202,7 @@ document.body.appendChild(div);</code></pre>
     &lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-          <pre><code class="javascript">var div = document.getElementById("maDiv");
+          <pre><code class="javascript">let div = document.getElementById("maDiv");
 div.parentNode == document.body; //true
 div.classList.remove("maClasse");</code></pre>
         </section>
@@ -292,13 +292,13 @@ div.classList.remove("maClasse");</code></pre>
                                         <div class="fragment">
                                             <p>Vieille école &#8680; à éviter</p>
                                             <pre><code class="html">&lt;a href="#" id="monLien"&gt;Cliquez ici&lt;/a&gt;</code></pre>
-                                            <pre><code class="javascript">var lien = document.getElementById("monLien");
+                                            <pre><code class="javascript">let lien = document.getElementById("monLien");
 lien.onclick = function() { alert('toto'); return false; };</code></pre>
                                         </div>
                                         <div class="fragment">
                                             <p>Méthode actuelle</p>
                                             <pre><code class="html">&lt;a href="#" id="monLien"&gt;Cliquez ici&lt;/a&gt;</code></pre>
-                                            <pre><code class="javascript">var lien = document.getElementById("monLien");
+                                            <pre><code class="javascript">let lien = document.getElementById("monLien");
 lien.addEventListener("click", function(e) {
   e.preventDefault();
   alert('toto');
@@ -314,7 +314,7 @@ lien.addEventListener("click", function(e) {
 A l'intérieur des fonctions enregistrées, <code>this</code> fait référence à l'élément DOM
 sur lequel l'écouteur a été enregistré.
 </p>
-          <pre><code class="javascript">var lien = document.getElementById("monLien");
+          <pre><code class="javascript">let lien = document.getElementById("monLien");
 
 lien.addEventListener("click", function(e) {
   console.log(this == lien); //true
@@ -337,13 +337,13 @@ document.getElementById("monLien2").addEventListener("click",afficheLien);</code
           <pre><code class="html"><div id="maDiv">
   Ceci est un <span>exemple</span>.
 </div></code></pre>
-            <pre><code class="javascript">var div = document.getElementById("maDiv");
-div.addEventListener("click",function() { alert("toto"); });
+            <pre><code class="javascript">let div = document.getElementById("maDiv");
+div.addEventListener("click", function() { alert("toto") });
 
-var span = div.querySelector("span");
-span.addEventListener("click",function() { alert("tata"); });
+let span = div.querySelector("span");
+span.addEventListener("click", function() { alert("tata") });
 
-document.addEventListener("click",function() { alert("titi"); });
+document.addEventListener("click", function() { alert("titi") });
 </code></pre>
                                         <p class="fragment">En cliquant sur <em>span</em>, l'événement se déclenche sur <em>span</em>
                                             puis se propage sur <em>div</em> puis sur <em>document</em>.<br/>
@@ -370,19 +370,19 @@ car peu utilisé (ou compris).</p>
   Ceci est un <span>exemple</span>.
 </div></code></pre>
 <small>bouillonnement</small>
-<pre><code class="javascript">var div = document.getElementById("maDiv");
-div.addEventListener("click",function() { alert("toto"); },false);
+<pre><code class="javascript">let div = document.getElementById("maDiv");
+div.addEventListener("click", function() { alert("toto") }, false);
 
-var span = div.querySelector("span");
-span.addEventListener("click",function() { alert("tata"); },false);
+let span = div.querySelector("span");
+span.addEventListener("click",  function() { alert("tata") }, false);
 
 //un clic sur span affiche "tata" puis "toto"</code></pre>
 <small>capture</small>
-<pre><code class="javascript">var div = document.getElementById("maDiv");
-div.addEventListener("click",function() { alert("toto"); },true);
+<pre><code class="javascript">let div = document.getElementById("maDiv");
+div.addEventListener("click", function() { alert("toto") }, true);
 
-var span = div.querySelector("span");
-span.addEventListener("click",function() { alert("tata"); },true);
+let span = div.querySelector("span");
+span.addEventListener("click", function() { alert("tata") }, true);
 
 //un clic sur span affiche "toto" puis "tata"</code></pre>
           </section>
@@ -391,7 +391,7 @@ span.addEventListener("click",function() { alert("tata"); },true);
         <section>
           <h2>L'objet Event</h2>
           <p>C'est la nature de l'objet passé en argument de la fonction enregistrée.</p>
-          <pre><code class="javascript">var lien = document.getElementById("monLien");
+          <pre><code class="javascript">let lien = document.getElementById("monLien");
 
 lien.addEventListener("click", function(e) {
 
@@ -418,7 +418,7 @@ lien.addEventListener("click", function(e) {
   console.log( e.target.tagName ); //"div" ou "span"
 }
 
-var div = document.getElementById("maDiv");
+let div = document.getElementById("maDiv");
 
 div.addEventListener("click",afficheCible);
 
@@ -436,7 +436,7 @@ div.addEventListener("click",afficheCible);
   window.location = "http://duckduckgo.com";
 }
 
-var lien = document.getElementById("monLien");
+let lien = document.getElementById("monLien");
 lien.addEventListener("click",changeLien);
 </code></pre>
         </section>
@@ -448,11 +448,11 @@ lien.addEventListener("click",changeLien);
           <pre><code class="html"><div id="maDiv">
   Ceci est un <span>exemple</span>.
 </div></code></pre>
-          <pre><code class="javascript">var div = document.getElementById("maDiv");
-div.addEventListener("click",function() { alert("toto"); });
+          <pre><code class="javascript">let div = document.getElementById("maDiv");
+div.addEventListener("click", function() { alert("toto") });
 
-var span = div.querySelector("span");
-span.addEventListener("click",function(e) {
+let span = div.querySelector("span");
+span.addEventListener("click", function(e) {
 
   e.stopPropagation();
   //l'événement ne se propagera pas vers la div parente
@@ -465,7 +465,7 @@ span.addEventListener("click",function(e) {
         <section>
           <h2>L'objet MouseEvent</h2>
                                         <p>Dérivation de l'objet Event pour les événements de pointage (<em>click, dblclick, contextmenu, mousedown, mouseup, mousemove, mouseover, mouseout</em>, etc)</p>
-          <pre><code class="javascript">var lien = document.getElementById("monLien");
+          <pre><code class="javascript">let lien = document.getElementById("monLien");
 
 lien.addEventListener("click", function(e) {
 
@@ -511,14 +511,14 @@ lien.addEventListener("click", function(e) {
                                 <small>Mauvaise méthode</small>
                                 <pre><code class="javascript">function afficheContenuLien() { alert(this.href); }
 
-var links = document.querySelectorAll("a");
-var i;
+let links = document.querySelectorAll("a");
+let i;
 for (i=0;i&lt;links.length;i++) {
     links[i].addEventListener("click",afficheContenuLien);
 }</code></pre>
                                 <small>Bonne méthode</small>
                                 <pre><code class="javascript">document.body.addEventListener("click",function(e) {
-    var target = e.target;
+    let target = e.target;
     if (target.tagName == "A") alert(target.href);
 });</code></pre>
                             </section>-->
@@ -532,7 +532,7 @@ for (i=0;i&lt;links.length;i++) {
         <section>
           <h2>Gérer la compatibilité</h2>
           <h3>Répartition des navigateurs</h3>
-          <img alt="graphique" src="img/StatCounter-browser_version_partially_combined-ww-monthly-201608-201709-bar.png">
+          <img alt="graphique" src="img/StatCounter-browser_version_partially_combined-ww-monthly-201708-201809-bar.png">
         </section>
 
         <section>
@@ -590,7 +590,7 @@ addListener(div,"click",function() { alert("hello world"); });
           <p>Face à ces problèmes de compatibilité, mais également à la verbosité du DOM, une bibliothèque a rapidement conquis le monde du web, <a href="http://jquery.com/" target="liens">jQuery</a>.
           <br/>Elle est écrite en javascript, c'est un fichier à inclure dans chaque page dans une balise script.
           <pre><code class="html"><!-- inclusion depuis un serveur CDN -->
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script></code></pre>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script></code></pre>
           </p>
         </section>
 
@@ -604,7 +604,7 @@ addListener(div,"click",function() { alert("hello world"); });
           <h2>Principes de jQuery</h2>
           <h3>Concision</h3>
           <small>javascript pur</small>
-          <pre><code class="javascript">var div = document.getElementById("maDiv");
+          <pre><code class="javascript">let div = document.getElementById("maDiv");
 div.parentNode.removeChild(div);</code></pre>
           <small>jQuery</small>
           <pre><code class="javascript">$('#maDiv').detach();</code></pre>
@@ -624,7 +624,7 @@ function helloWorld(e) {
   alert("hello world");
 }
 
-var div = document.getElementById("maDiv");
+let div = document.getElementById("maDiv");
 addListener(div,"click",function() { alert("hello world"); });</code></pre>
 <small>jQuery</small>
 <pre><code class="javascript">$("#maDiv").on("click",function(e) {

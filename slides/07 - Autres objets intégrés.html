@@ -168,10 +168,10 @@ new Date(2015, 02, 25, 15, 36);</code></pre>
 					<h2>Expressions rationnelles</h2>
 					<h3>Création</h3>
 					<p>Constructeur</p>
-					<pre><code class="javascript">var regToto = new RegExp('toto','i');</code></pre>
+					<pre><code class="javascript">let regToto = new RegExp('toto','i');</code></pre>
 					<br/>
 					<p>Notation littérale</p>
-					<pre><code class="javascript">var regToto = /toto/i;</code></pre>
+					<pre><code class="javascript">let regToto = /toto/i;</code></pre>
 					<br/>
 					<p>Le deuxième argument est optionnel, il précise un mode de recherche (dans notre exemple, <code>i</code> permet d'ignorer la casse).
 				</section>
@@ -186,7 +186,7 @@ new Date(2015, 02, 25, 15, 36);</code></pre>
 "MonNomEstToto".replace(/to/ig,'ta'); //"MonNomEsttata"
 
 //renvoie les chaînes et sous-chaînes
-var matches = /^MonNomEst(\w+)$/i.exec("MonNomEstToto");
+let matches = /^MonNomEst(\w+)$/i.exec("MonNomEstToto");
 matches[0]; //"MonNomEstToto"
 matches[1]; //"Toto" (entre parenthèses capturantes)
 </code></pre>
@@ -205,13 +205,13 @@ Liens :<br/>
 					<ul>
 						<li>
 							<code>parse</code> : convertit une chaîne de caractères JSON en objet.
-							<pre><code class="javascript">var toto = JSON.parse('{"nom":"Toto","age":25}');
+							<pre><code class="javascript">let toto = JSON.parse('{"nom":"Toto","age":25}');
 toto.age; //25</code></pre>
 						</li>
 						<br/>
 						<li>
 							<code>stringify</code> : convertit un objet en chaîne JSON.
-							<pre><code class="javascript">var str = JSON.stringify({"nom":"Toto","age":25});
+							<pre><code class="javascript">let str = JSON.stringify({"nom":"Toto","age":25});
 //'{"nom":"Toto","age":25}'</code></pre>
 						</li>
 					</ul>

@@ -1,4 +1,4 @@
-function somme(tab) {
+function somme() {
 
 	/* votre code */
 }

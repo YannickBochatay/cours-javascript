@@ -1,4 +1,4 @@
-function somme(tab) {
+function somme(...args) {
 
-    return tab.reduce(function(a,b){ return a+b; });
+    return args.reduce((a,b) => a+b);
 }

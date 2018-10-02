@@ -12,7 +12,7 @@ console.log(x);</code>
     		</qcm>
 
     		<qcm>
-    			<code>var x = 1;
+    			<code>let x = 1;
 if (true) {
   let x = 2;
 }
@@ -20,7 +20,7 @@ console.log(x);</code>
     			<question>la console affichera </question>
     			<choix correct>1</choix>
     			<choix>2</choix>
-                <reponse>Le mot clé <code>let</code>, introduit dans ES6, permet une portée de bloc. En sortant du bloc, la variable x égale à 2 n'existe plus.</reponse>
+                <reponse>Le mot clé <code>let</code> permet une portée de bloc. En sortant du bloc, la variable x égale à 2 n'existe plus.</reponse>
     		</qcm>
 
     		<qcm>
@@ -37,7 +37,7 @@ console.log(x);</code>
     		</qcm>
 
         <qcm>
-          <code>var x;
+          <code>let x;
 if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix correct>oui</choix>
@@ -46,7 +46,7 @@ if (!x) console.log("falsy value");</code>
         </qcm>
 
         <qcm>
-          <code>var x = null;
+          <code>let x = null;
 if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix correct>oui</choix>
@@ -55,7 +55,7 @@ if (!x) console.log("falsy value");</code>
         </qcm>
 
         <qcm>
-          <code>var x = 0;
+          <code>let x = 0;
 if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix correct>oui</choix>
@@ -64,7 +64,7 @@ if (!x) console.log("falsy value");</code>
         </qcm>
 
         <qcm>
-          <code>var x = -1;
+          <code>let x = -1;
 if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix>oui</choix>
@@ -73,7 +73,7 @@ if (!x) console.log("falsy value");</code>
         </qcm>
 
         <qcm>
-          <code>var x = "";
+          <code>let x = "";
 if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix correct>oui</choix>
@@ -82,7 +82,7 @@ if (!x) console.log("falsy value");</code>
         </qcm>
 
         <qcm>
-          <code>var x = "0";
+          <code>let x = "0";
 if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix>oui</choix>
@@ -91,7 +91,7 @@ if (!x) console.log("falsy value");</code>
         </qcm>
 
         <qcm>
-          <code>var x = {};
+          <code>let x = {};
 if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix>oui</choix>
@@ -100,7 +100,7 @@ if (!x) console.log("falsy value");</code>
         </qcm>
 
         <qcm>
-          <code>var x = [];
+          <code>let x = [];
 if (!x) console.log("falsy value");</code>
           <question>la console affichera le message</question>
           <choix>oui</choix>
@@ -109,7 +109,7 @@ if (!x) console.log("falsy value");</code>
         </qcm>
 
     		<qcm>
-    			<code>var test = true;
+    			<code>let test = true;
 console.log( test ? "toto" : "tata" );</code>
     			<question>la console affichera</question>
     			<choix>SyntaxError</choix>
@@ -119,9 +119,9 @@ console.log( test ? "toto" : "tata" );</code>
     		</qcm>
 
     		<qcm>
-    			<code>var x = 1;
-var y = 2;
-var toto = x == y ? "toto" : "tata";</code>
+    			<code>let x = 1;
+let y = 2;
+let toto = x == y ? "toto" : "tata";</code>
     			<question>la variable toto vaut</question>
     			<choix>SyntaxError</choix>
     			<choix>"toto"</choix>
@@ -131,7 +131,7 @@ var toto = x == y ? "toto" : "tata";</code>
     		</qcm>
 
     		<qcm>
-    			<code>var test = false;
+    			<code>let test = false;
 console[ test ? "log" : "error" ]("coucou");</code>
     			<question>ce code provoque </question>
     			<choix>une erreur de syntaxe</choix>
@@ -143,8 +143,8 @@ console[ test ? "log" : "error" ]("coucou");</code>
     		</qcm>
 
     		<qcm>
-    			<code>var test = 2;
-var str;
+    			<code>let test = 2;
+let str;
 switch(test) {
 	case 1 : str = "tata";
 	case 2 : str = "toto";
@@ -162,7 +162,7 @@ str;</code>
     		</qcm>
 
     		<qcm>
-    			<code>var test = null;
+    			<code>let test = null;
 switch(test) {
 	case false : console.log("false"); break;
 	case undefined : console.log("undefined"); break;
@@ -176,8 +176,8 @@ switch(test) {
     		</qcm>
 
     		<qcm>
-    			<code>var i;
-for (i=0;i<5;i++) { }
+          <code>for (var i=0;i<5;i++) { }
+
 i;</code>
     			<question>la variable i vaut</question>
     			<choix>undefined</choix>
@@ -202,8 +202,8 @@ i;</code>
     		</qcm>
 
     		<qcm>
-    			<code>var tab = ["toto","tata","titi"];
-var i = tab.length;
+    			<code>let tab = ["toto","tata","titi"];
+let i = tab.length;
 while(i--) console.log(tab[i]);</code>
     			<question>la console affichera</question>
     			<choix>"toto", "tata", "titi"</choix>
@@ -218,7 +218,7 @@ while(i--) console.log(tab[i]);</code>
     		</qcm>
 
     		<qcm>
-    			<code>var angeGaby = { nom : "Gabriel", age : null, sexe : null };
+    			<code>let angeGaby = { nom : "Gabriel", age : null, sexe : null };
 
 for (let n in angeGaby) console.log(angeGaby[n]);</code>
     			<question>la console affichera</question>
@@ -245,9 +245,9 @@ catch(e) {
     		</qcm>
 
     		<qcm>
-    			<code>var i=0;
+    			<code>let i=0;
 
-window.setTimeout(function() { i++; },1000);
+window.setTimeout(() => i++, 1000);
 
 console.log(i);</code>
     			<question>la console affiche</question>
@@ -259,9 +259,9 @@ console.log(i);</code>
     		</qcm>
 
     		<qcm>
-    			<code>var i=0;
+    			<code>let i=0;
 
-window.setTimeout(function() { console.log(i); },1000);
+window.setTimeout(() => console.log(i), 1000);
 
 i++;</code>
     			<question>la console affichera</question>
@@ -271,10 +271,10 @@ i++;</code>
     		</qcm>
 
     		<qcm>
-    			<code>var i=0;
+    			<code>let i=0;
 
 function delai() {
-	window.setTimeout(function() { i++; },1000);
+	window.setTimeout(() => i++, 1000);
 }
 
 delai();

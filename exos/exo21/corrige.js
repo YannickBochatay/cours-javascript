@@ -9,13 +9,13 @@ class Calculatrice {
   }
 
   ajouter(a,b) {
-    const val = a+b;
+    let val = a+b;
     this._stockeEnMemoire(val);
     return val;
   }
 
   soustraire(a,b) {
-    const val = a-b;
+    let val = a-b;
     this._stockeEnMemoire(val);
     return val;
   }

@@ -1,6 +1,6 @@
   <qcm>
-    			<code>var tab1 = [];
-var tab1 = new Array();</code>
+    			<code>let tab1 = [];
+let tab1 = new Array();</code>
     			<question>L'écriture est strictement équivalente</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
@@ -35,7 +35,7 @@ console.log(monTableau.length);</code>
 	tab.push("toto");
 }
 
-var monTableau = ["toto"];
+let monTableau = ["toto"];
 modifTableau(monTableau);
 console.log(monTableau.length);</code>
     			<question>La console affiche 2</question>
@@ -45,7 +45,7 @@ console.log(monTableau.length);</code>
     		</qcm>
 
     		<qcm>
-    			<code>var tab = [];
+    			<code>let tab = [];
 tab[0] = "toto";
 console.log(tab.length);</code>
     			<question>La console affiche 1</question>
@@ -55,7 +55,7 @@ console.log(tab.length);</code>
     		</qcm>
 
     		<qcm>
-    			<code>var tab = [];
+    			<code>let tab = [];
 tab[5] = "toto";
 console.log(tab.length);</code>
     			<question>La console affiche 1</question>
@@ -65,7 +65,7 @@ console.log(tab.length);</code>
     		</qcm>
 
     		<qcm>
-    			<code>var tab = [];
+    			<code>let tab = [];
 tab["toto"] = "tata";
 console.log(tab.length);</code>
     			<question>La console affiche 1</question>
@@ -75,7 +75,7 @@ console.log(tab.length);</code>
     		</qcm>
 
     		<qcm>
-    			<code>var tab = ["tata","toto","titi"];
+    			<code>let tab = ["tata","toto","titi"];
 for (let i=0,N=tab.length ; i&lt;N ; i++) console.log(tab[i]);</code>
     			<question>La console affiche</question>
     			<choix>0, 1, 2</choix>
@@ -85,7 +85,7 @@ for (let i=0,N=tab.length ; i&lt;N ; i++) console.log(tab[i]);</code>
     		</qcm>
 
     		<qcm>
-    			<code>var tab = ["tata","toto","titi"];
+    			<code>let tab = ["tata","toto","titi"];
 typeof tab.forEach;</code>
     			<question>L'expression renvoie</question>
     			<choix>undefined</choix>
@@ -96,7 +96,7 @@ typeof tab.forEach;</code>
     		</qcm>
 
         <qcm>
-          <code>var tab = ["tata","toto","titi"];
+          <code>let tab = ["tata","toto","titi"];
 tab.forEach(function(a) {
   console.log(a);
 });</code>
@@ -108,7 +108,7 @@ tab.forEach(function(a) {
         </qcm>
 
     		<qcm>
-    			<code>var tab = ["tata","toto","titi"];
+    			<code>let tab = ["tata","toto","titi"];
 tab.forEach(function(a,b) {
 	console.log(b);
 });</code>
@@ -117,7 +117,56 @@ tab.forEach(function(a,b) {
     			<choix>"tata","toto","titi"</choix>
     			<choix>undefined,undefined,undefined</choix>
 				<reponse>Le deuxième argument de la fonction de rappel correspond à l'indice de l'élément</reponse>
-    		</qcm>
+        </qcm>
+
+        <qcm>
+          <code>function recupPosition() {
+  return [0.25, 45.56];
+}
+
+let [lon, lat] = recupPosition();
+
+lat; // ?</code>
+          <question>La valeur de lat est </question>
+          <choix>0.25</choix>
+          <choix correct>45.56</choix>
+          <choix>[45.56]</choix>
+          <choix>[null, 45.56]</choix>
+          <reponse>La fonction renvoie un tableau, dont la première valeur est affectée à la variable lon, la deuxième à la variable lat.</reponse>
+        </qcm>
+
+        <qcm>
+            <code>function transformePosition(lon, lat) {
+  return [lon + 2, lat + 3];
+}
+
+let coord = [0.25, 45.56];
+
+let [lon, lat] = transformePosition(...coord);
+
+lat; // ?</code>
+            <question>La valeur de lat est </question>
+            <choix>0.25</choix>
+            <choix>45.56</choix>
+            <choix correct>48.56</choix>
+            <choix>[45.56]</choix>
+            <choix>[48.56]</choix>
+            <reponse>les valeurs du tableau coord sont passées en argument de la fonction transformePosition, qui renvoie un tableau dont les valeurs sont affectées aux variables lon et lat.</reponse>
+          </qcm>
+
+        <qcm>
+          <code>let tab1 = [1, 2, 3];
+let tab2 = [4, 5, 6];
+
+tab1.push(...tab2);
+
+tab1[4]; // ?</code>
+            <question>La valeur est : </question>
+            <choix>4</choix>
+            <choix correct>5</choix>
+            <choix>undefined</choix>
+            <reponse>L'indice 4 correspond au 5ème élément, donc 5.</reponse>
+          </qcm>
 
     		<!--<qcm important>
     			<code>var tab = ["tata","toto","titi"];

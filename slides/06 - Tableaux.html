@@ -59,21 +59,21 @@
 				<section>
 					<h2>Création</h2>
                                         <p>Constructeur</p>
-					<pre><code class="javascript">var tab = new Array(); //Création d'un tableau vide;
-var tab2 = new Array("toto","tata","titi"); //éléments du tableau
-var tab3 = new Array(12); //longueur du tableau</code></pre>
+					<pre><code class="javascript">let tab = new Array(); //Création d'un tableau vide;
+let tab2 = new Array("toto","tata","titi"); //éléments du tableau
+let tab3 = new Array(12); //longueur du tableau</code></pre>
 					<br/>
                                         <div class="fragment">
 					<p>Notation littérale<br/><small>A privilégier</small></p>
-					<pre><code class="javascript">var tab = []; //Création d'un tableau vide;
-var tab2 = ["toto","tata","titi"]; //éléments du tableau</code></pre>
+					<pre><code class="javascript">let tab = []; //Création d'un tableau vide;
+let tab2 = ["toto","tata","titi"]; //éléments du tableau</code></pre>
                                         </div>
 				</section>
 				<section>
 					<h2>Accès aux éléments</h2>
 					<p>Les tableaux javascript sont des objets possédant des noms de propriété numériques et une propriété <code>length</code>.</p>
 					<p>La notation avec point ne permettant pas un nom commençant par un chiffre, on utilise la notation avec crochets.</p>
-					<pre><code class="javascript">var tab = ["tata","toto","titi"];
+					<pre><code class="javascript">let tab = ["tata","toto","titi"];
 tab.0; //erreur de syntaxe
 tab[0]; //accès à la propriété 0 => "tata"
 tab[1]; //accès à la propriété 1 => "toto"
@@ -86,7 +86,7 @@ tab.length; //3</code></pre>
 					<h3>Illusion</h3>
 					<p>Il n'y a <u>pas de tableaux associatifs</u> en javascript.</p>
 					<p>La confusion vient de la notation avec crochets qui rappelle les tableaux associatifs d'autres langages.</p>
-					<pre><code class="javascript">var tab = [];
+					<pre><code class="javascript">let tab = [];
 
 tab["nom"] = "Toto";
 tab["age"] = 25;
@@ -100,7 +100,7 @@ for (let n in tab) console.log(n + ' = ' + tab[n]);
 						<h2>Tableaux associatifs ?</h2>
 						<h3>Risques</h3>
 						<p></p>
-						<pre><code class="javascript">var tab = [];
+						<pre><code class="javascript">let tab = [];
 tab["nom"] = "Toto";
 tab["age"] = 25;
 
@@ -112,7 +112,7 @@ console.log( tab.length ); //0
 						<h2>Tableaux associatifs ?</h2>
 						<h3>Solution</h3>
 						<p>Utiliser tout simplement les objets.
-						<pre><code class="javascript">var tab = {};
+						<pre><code class="javascript">let tab = {};
 
 tab.nom = "Toto"; // strictement équivalent à tab["nom"] = "Toto"
 tab.age = 25; // strictement équivalent à tab["age"] = 25
@@ -125,14 +125,14 @@ for (let n in tab) console.log(n + ' = ' + tab[n]);
 					<section>
 						<h2>Enumération</h2>
 						<h3>Classique</h3>
-						<pre><code class="javascript">var tab = ["tata","toto","titi"];
+						<pre><code class="javascript">let tab = ["tata","toto","titi"];
 
 for (let i=0 ; i&lttab.length ; i++) {
     console.log(tab[i]);
 }</code></pre>
 						<div class="fragment">
 							<h3>forEach</h3>
-							<pre><code class="javascript">var tab = ["tata","toto","titi"];
+							<pre><code class="javascript">let tab = ["tata","toto","titi"];
 
 tab.forEach(function(item, i) {
     console.log("item n°"+i+" : "+item);
@@ -140,7 +140,7 @@ tab.forEach(function(item, i) {
 						</div>
 						<div class="fragment">
 							<h4>avec une fonction fléchée (ES6)</h4>
-							<pre><code class="javascript">var tab = ["tata","toto","titi"];
+							<pre><code class="javascript">let tab = ["tata","toto","titi"];
 
 tab.forEach((item,i) => console.log("item n°"+i+" : "+item));
 </code></pre>
@@ -151,7 +151,7 @@ tab.forEach((item,i) => console.log("item n°"+i+" : "+item));
 						<h2>Enumération</h2>
 						<h3><del>for...in</del></h3>
 						<p>Ne jamais utiliser la boucle <code>for...in</code> pour énumérer un tableau !
-						<pre><code class="javascript">var tab = ["tata","toto","titi"];
+						<pre><code class="javascript">let tab = ["tata","toto","titi"];
 
 for (let n in tab) console.log(tab[n]);
 
@@ -161,7 +161,7 @@ for (let n in tab) console.log(tab[n]);
 					<section>
 						<h2>Enumération</h2>
 						<h3><del>for...in</del></h3>
-						<pre><code class="javascript">var tab = ["tata","toto","titi"];
+						<pre><code class="javascript">let tab = ["tata","toto","titi"];
 
 tab.nom = "Mes prénoms";
 
@@ -289,15 +289,82 @@ for (n in tab) console.log(tab[n]);
 				<section>
 						<h2>Reconnaître un tableau</h2>
 						<h3>Array.isArray</h3>
-						<pre><code class="javascript">var tab = ["tata","toto","titi"];
+						<pre><code class="javascript">let tab = ["tata","toto","titi"];
 
-var tab2 = { "0" : "tata", "1" : "toto", "2" : "titi", length : 3 };
+let tab2 = { "0" : "tata", "1" : "toto", "2" : "titi", length : 3 };
 
 Array.isArray(tab); //true;
 
 Array.isArray(tab2); //false;
 </code></pre>
-				</section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Syntaxe de décomposition</h2>
+            <h3>Affecter par décomposition</h3>
+						<pre><code class="javascript">let coord = [0.25, 45.56];
+
+let [lon, lat] = coord;
+
+lon; //0.25
+lat; //45.56</code></pre>
+Equivalent à :
+<pre><code class="javascript">let coord = [0.25, 45.56];
+
+let lon = tab[0];
+let lat = tab[1];</code></pre>
+          </section>
+          <section>
+              <h2>Syntaxe de décomposition</h2>
+              <h3>Affecter par décomposition</h3>
+              <pre><code class="javascript">let chaine = "jacques;durand;23;12;1967";
+
+let tab = chaine.split(";");
+
+let [prenom, nom, ...naissance] = tab;
+
+prenom; //jacques
+nom; //durand
+naissance; //["23", "12", "1967"]
+</code></pre>
+            </section>
+        </section>
+        <section>
+            <h2>Syntaxe de décomposition</h2>
+            <h3>Appels de fonction</h3>
+						<pre><code class="javascript">function translateCoord(lon, lat) {
+    return [lon + 10, lat + 5];
+}
+
+let coord = [0.25, 45.56];
+
+let newCoord = convertCoord(...coord);</code></pre>
+          </section>
+          <section>
+              <h2>Syntaxe de décomposition</h2>
+              <h3>Concaténation de tableaux</h3>
+              <pre><code class="javascript">
+let articulations = ["épaules", "genoux"];
+
+let corps = ["têtes", ...articulations, "bras", "pieds"];
+
+corps; // ["tête", "épaules", "genoux", "bras", "pieds"]</code></pre>
+            </section>
+            <section>
+                <h2>Syntaxe de décomposition</h2>
+                <h3>Copie de tableau</h3>
+                Rappel
+                <pre><code class="javascript">let coord = [0.25, 45.56];
+let newCoord = coord;
+newCoord[0] = 0.5;
+coord[0]; // 0.5</code></pre>
+Solution
+<pre><code class="javascript">let coord = [0.25, 45.56];
+let newCoord = [...coord];
+newCoord[0] = 0.5;
+coord[0]; // 0.25</code></pre>
+              </section>
 			</div>
 
 		</div>

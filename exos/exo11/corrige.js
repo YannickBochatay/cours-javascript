@@ -1,13 +1,13 @@
 function lanceChrono() {
-	
-    var tempsEcoule=0, timer;
+
+    let tempsEcoule=0, timer;
 
     function logEtIncremente() {
-        
+
         console.log(tempsEcoule);
-        
+
         if (tempsEcoule==10) return window.clearInterval(timer);
-        
+
         tempsEcoule++;
     }
 

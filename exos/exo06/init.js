@@ -4,6 +4,6 @@ function keys2str(obj) {
 }
 
 //exemple
-var obj = { nom : "Toto", age : 26, sexe : "M" };
+let obj = { nom : "Toto", age : 26, sexe : "M" };
 
 keys2str(obj); // affiche "age,nom,sexe"

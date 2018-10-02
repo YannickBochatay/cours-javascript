@@ -1,45 +1,45 @@
 (function() {
-	
+
     "use strict";
-    
-    var ul = document.querySelector("#listeDesInstructions");
-    var ex = document.querySelector("#exemple");
+
+    let ul = document.querySelector("#listeDesInstructions");
+    let ex = document.querySelector("#exemple");
 
     ul.removeChild(ex);
-    
+
     function ajoutInstruction(instruction) {
 
-        var li, a;
-        
+      let li, a;
+
         a = document.createElement("a");
         a.href = "http://mpfc.meteo.fr/#/instructions/"+instruction.id;
         a.textContent = instruction.action;
 
         li = document.createElement("li");
         li.appendChild(a);
-        
+
         ul.appendChild(li);
     }
-                
+
     function recupInstructions() {
-            
-        var req = new XMLHttpRequest();
 
-        req.open('GET','http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc');
+      let req = new XMLHttpRequest();
 
-        req.onload = function() {
+      req.open('GET','http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc');
 
-          if (this.status != 200) throw new Error("Erreur "+this.status+" : "+this.responseText);
+      req.onload = function() {
 
-          var instructions = JSON.parse(this.responseText);
+        if (this.status != 200) throw new Error(`Erreur ${this.status} : ${this.responseText}`);
 
-          instructions.forEach(ajoutInstruction);
+        let instructions = JSON.parse(this.responseText);
 
-        };
+        instructions.forEach(ajoutInstruction);
 
-        req.send();
+      };
+
+      req.send();
     }
-    
+
     recupInstructions();
-    
+
 }());

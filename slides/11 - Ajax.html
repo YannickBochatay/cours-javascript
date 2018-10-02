@@ -46,10 +46,10 @@
       <div class="slides">
         <section>
           <h1>Javascript</h1>
-          <h3>Ajax</h3>
+          <h3>Communication avec un serveur</h3>
         </section>
         <section>
-          <h2>Définition</h2>
+          <h2>AJAX</h2>
           <h3>A<small>synchronous</small> J<small>avascript</small> A<small>nd</small> X<small>ML</small></h3>
           <p>Architecture informatique à l'origine des sites web dynamiques interactifs, regroupant : </p>
           <ul>
@@ -98,13 +98,11 @@
         <section>
           <h2>XMLHttpRequest</h2>
                                         <h3>Exemples</h3>
-          <pre><code class="javascript">var req = new XMLHttpRequest();
+          <pre><code class="javascript">let req = new XMLHttpRequest();
 
 req.open('GET','http://mpfc/back/modeles/instruction/liste/?page=1');
 
-req.onload = function() {
-  console.log(this.status,this.responseText);
-};
+req.onload = function() { console.log(this.status,this.responseText); }
 
 req.send();
 </code></pre>
@@ -114,7 +112,7 @@ req.send();
           <h2>XMLHttpRequest</h2>
           <h3>Exemples</h3>
           <h4>Envoi de données de formulaire</h4>
-          <pre><code class="javascript" style="max-height:1000px">var form = document.querySelector("form"),
+          <pre><code class="javascript" style="max-height:1000px">let form = document.querySelector("form"),
     formData = new FormData(form),
     req = new XMLHttpRequest();
 
@@ -123,7 +121,7 @@ req.open('POST','http://mpfc/back/modeles/instruction/');
 req.onload = function() {
 
   if (this.status != 200)
-    throw new Error("Erreur "+this.status+" : "+this.responseText);
+    throw new Error(`Erreur ${this.status} : ${this.responseText}`);
 
   window.alert("Instruction sauvegardée.");
 };
@@ -136,16 +134,17 @@ req.send(formData);
           <h3>Création d'une fonction générique</h3>
           <pre><code class="javascript" style="max-height:1000px">function getJSON(url,onload) {
 
-  var req = new XMLHttpRequest();
+  let req = new XMLHttpRequest();
 
   req.open('GET',url);
 
   req.onload = function() {
 
-    if (this.status != 200)
-      throw new Error("Erreur "+this.status+" : "+this.responseText);
+    if (this.status != 200) {
+      throw new Error(`Erreur ${this.status} : ${this.responseText}`);
+    }
 
-    var dataObj = JSON.parse(this.responseText);
+    let dataObj = JSON.parse(this.responseText);
 
     onload(dataObj);
   };
@@ -154,8 +153,8 @@ req.send(formData);
 }
 
 
-var url = 'http://mpfc/back/modeles/instruction/liste/?page=1';
-var callback = function(data) { console.log(data); };
+let url = 'http://mpfc/back/modeles/instruction/liste/?page=1';
+let callback = function(data) { console.log(data); };
 getJSON(url,callback);
 </code></pre>
         </section>
@@ -164,18 +163,19 @@ getJSON(url,callback);
           <h3>Avec une promesse</h3>
           <pre><code class="javascript" style="max-height:1000px">function getJSON(url) {
 
-  return new Promise(function(resolve,reject) {
+  return new Promise((resolve,reject) => {
 
-    var req = new XMLHttpRequest();
+    let req = new XMLHttpRequest();
 
     req.open('GET',url);
 
     req.onload = function() {
 
-      if (this.status != 200)
-        reject( new Error("Erreur "+this.status+" : "+this.responseText) );
+      if (this.status != 200) {
+        reject(`Erreur ${this.status} : ${this.responseText}`);
+      }
 
-      var dataObj = JSON.parse(this.responseText);
+      let dataObj = JSON.parse(this.responseText);
 
       resolve(dataObj);
     };
@@ -185,21 +185,21 @@ getJSON(url,callback);
 }
 
 getJSON('http://mpfc/back/modeles/instruction/liste/?page=1')
-.then(function(data) { console.log(data); })
-.catch(function(e) { alert(e); });
+.then(data => console.log(data))
+.catch(e => alert(e));
 </code></pre>
         </section>
         <section>
           <h2>fetch</h2>
-          <p>API vouée à remplacer XMLHttpRequest, utilisable dans les navigateurs récents (spécification non finalisée).</p>
+          <p>Nouvelle API pour remplacer XMLHttpRequest</p>
           <br/>
           <pre><code class="javascript">fetch('http://mpfc/back/modeles/instruction/liste/?page=1')
-.then(function(response) { return response.json(); })
-.then(function(dataObj) { console.log(dataObj); })
-.catch(function(e) { console.error(e); });
+.then(response => response.json())
+.then(dataObj => console.log(dataObj))
+.catch(e => console.error(e));
 </code></pre>
 <br/>
-<pre><code class="javascript">var form = document.querySelector('form');
+<pre><code class="javascript">let form = document.querySelector('form');
 
 fetch('http://mpfc/back/modeles/instruction/', {
   method: 'post',
@@ -207,6 +207,22 @@ fetch('http://mpfc/back/modeles/instruction/', {
 });
 </code></pre>
         </section>
+
+        <section>
+            <h2>fetch</h2>
+            <h3>avec Async/Await (ES2017)</h3>
+            <br/>
+            <pre><code class="javascript">async function fetchData() {
+  try {
+    let response = await fetch('http://mpfc/back/modeles/instruction/liste/?page=1');
+    let dataObj = await response.json();
+    console.log(dataObj);
+  } catch(e) {
+    console.log(e);
+  }
+}
+  </code></pre>
+          </section>
       </div>
 
     </div>

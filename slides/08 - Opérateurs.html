@@ -570,14 +570,14 @@
 			<section>
 				<h2>Opérateurs relationnels</h2>
 				<p><code>in</code> : renvoie true si la propriété donnée appartient à l'objet</p>
-				<pre><code class="javascript">var toto = { nom : "Toto", age : 25, activites : null };
+				<pre><code class="javascript">let toto = { nom : "Toto", age : 25, activites : null };
 "nom" in toto; //true
 "Toto" in toto; //false
 "activites" in toto; //true
 </code></pre>
 				<br/>
 				<p><code>instanceof</code> : renvoie true si l'objet donné est du type spécifié</p>
-				<pre><code class="javascript">var date = new Date();
+				<pre><code class="javascript">let date = new Date();
 date instanceof Date; //true
 date instanceof Object; //true
 date instanceof Array; //false</code></pre>
@@ -646,7 +646,7 @@ date instanceof Array; //false</code></pre>
 						<br/>
 						<p>
 						Pour tester si une variable est un tableau, il faut utiliser la méthode statique <code>isArray</code> du constructeur <code>Array</code> : </p>
-						<pre><code class="javascript">var toto = [];
+						<pre><code class="javascript">let toto = [];
 
 Array.isArray(toto); //true</code></pre>
 					</section>
@@ -974,7 +974,7 @@ Array.isArray(toto); //true</code></pre>
 				<section>
 					<h2>Opérateur de groupement</h2>
 					<p>L'opérateur de groupement consiste en une paire de parenthèses encadrant une expression et permettant de surcharger la précédence normale des opérateurs.</p>
-					<pre><code class="javascript">var a = 1, b = 2, c = 3;
+					<pre><code class="javascript">let a = 1, b = 2, c = 3;
 
 a + b * c; //7
 (a + b) * c;   // 9

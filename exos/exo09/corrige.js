@@ -1,4 +1,4 @@
-var regEmail = /^[\w.-]+@[\w-]+\.[a-z]{2,6}$/;
+const regEmail = /^[\w.-]+@[\w-]+\.[a-z]{2,6}$/;
 
 function verifEmail_v1(email) {
 
@@ -16,13 +16,12 @@ function verifEmail_v3(email) {
 }
 
 function testPerf(fctVerifEmail) {
-    
-    var start = Date.now(),
-        email = "yannick.bochatay@meteo.fr",
-        i;
-   
-    for (i=0;i<1e7;i++) fctVerifEmail(email);
-    
+
+    const start = Date.now();
+    const email = "yannick.bochatay@meteo.fr";
+
+    for (let i=0;i<1e7;i++) fctVerifEmail(email);
+
     return Date.now() - start;
 }
 

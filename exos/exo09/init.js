@@ -1,4 +1,4 @@
-var regEmail = /^[\w.-]+@[\w-]+\.[a-z]{2,6}$/;
+const regEmail = /^[\w.-]+@[\w-]+\.[a-z]{2,6}$/;
 
 function verifEmail_v1(email) {
 
@@ -16,6 +16,6 @@ function verifEmail_v3(email) {
 }
 
 function testPerf(fctVerifEmail) {
-    
+
     /* votre code */
 }
