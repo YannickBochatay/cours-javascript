@@ -26,9 +26,9 @@
 
     req.onload = function() {
 
-      if (this.status != 200) throw new Error(`Erreur ${this.status} : ${this.responseText}`);
+      if (req.status != 200) throw new Error(`Erreur ${req.status} : ${req.responseText}`);
 
-      onload(this.responseText);
+      onload(req.responseText);
     };
 
     req.send();

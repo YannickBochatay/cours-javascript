@@ -42,7 +42,6 @@
 
     <div class="reveal">
 
-      <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
           <h1>Javascript</h1>
@@ -102,7 +101,7 @@
 
 req.open('GET','http://mpfc/back/modeles/instruction/liste/?page=1');
 
-req.onload = function() { console.log(this.status,this.responseText); }
+req.onload = function() { console.log(req.status,req.responseText); }
 
 req.send();
 </code></pre>
@@ -120,8 +119,8 @@ req.open('POST','http://mpfc/back/modeles/instruction/');
 
 req.onload = function() {
 
-  if (this.status != 200)
-    throw new Error(`Erreur ${this.status} : ${this.responseText}`);
+  if (req.status != 200)
+    throw new Error(`Erreur ${req.status} : ${req.responseText}`);
 
   window.alert("Instruction sauvegardée.");
 };
@@ -140,11 +139,11 @@ req.send(formData);
 
   req.onload = function() {
 
-    if (this.status != 200) {
-      throw new Error(`Erreur ${this.status} : ${this.responseText}`);
+    if (req.status != 200) {
+      throw new Error(`Erreur ${req.status} : ${req.responseText}`);
     }
 
-    let dataObj = JSON.parse(this.responseText);
+    let dataObj = JSON.parse(req.responseText);
 
     onload(dataObj);
   };
@@ -171,11 +170,11 @@ getJSON(url,callback);
 
     req.onload = function() {
 
-      if (this.status != 200) {
-        reject(`Erreur ${this.status} : ${this.responseText}`);
+      if (req.status != 200) {
+        reject(`Erreur ${req.status} : ${req.responseText}`);
       }
 
-      let dataObj = JSON.parse(this.responseText);
+      let dataObj = JSON.parse(req.responseText);
 
       resolve(dataObj);
     };

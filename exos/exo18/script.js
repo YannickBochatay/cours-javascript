@@ -9,16 +9,14 @@
 
     function ajoutInstruction(instruction) {
 
-      let li, a;
+      let a = document.createElement("a");
+      a.href = "http://mpfc.meteo.fr/#/instructions/"+instruction.id;
+      a.textContent = instruction.action;
 
-        a = document.createElement("a");
-        a.href = "http://mpfc.meteo.fr/#/instructions/"+instruction.id;
-        a.textContent = instruction.action;
+      let li = document.createElement("li");
+      li.appendChild(a);
 
-        li = document.createElement("li");
-        li.appendChild(a);
-
-        ul.appendChild(li);
+      ul.appendChild(li);
     }
 
     function recupInstructions() {
@@ -29,9 +27,9 @@
 
       req.onload = function() {
 
-        if (this.status != 200) throw new Error(`Erreur ${this.status} : ${this.responseText}`);
+        if (req.status != 200) throw new Error(`Erreur ${req.status} : ${req.responseText}`);
 
-        let instructions = JSON.parse(this.responseText);
+        let instructions = JSON.parse(req.responseText);
 
         instructions.forEach(ajoutInstruction);
 

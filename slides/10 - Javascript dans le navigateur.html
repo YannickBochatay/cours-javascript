@@ -308,27 +308,45 @@ lien.addEventListener("click", function(e) {
         </section>
 
         <section>
-          <h2>Gestionnaires d'événements</h2>
-          <h3>mot clé this</h3>
-          <p>
-A l'intérieur des fonctions enregistrées, <code>this</code> fait référence à l'élément DOM
-sur lequel l'écouteur a été enregistré.
-</p>
-          <pre><code class="javascript">let lien = document.getElementById("monLien");
+            <section>
+            <h2>Gestionnaires d'événements</h2>
+            <h3>mot clé this</h3>
+            <p>
+  A l'intérieur des fonctions enregistrées, <code>this</code> fait référence à l'élément DOM
+  sur lequel l'écouteur a été enregistré.
+  </p>
+            <pre><code class="javascript">let lien = document.getElementById("monLien");
 
 lien.addEventListener("click", function(e) {
-  console.log(this == lien); //true
+  console.log(this === lien); //true
 });</code></pre>
-<div class="fragment">
-<p>L'emploi de <code>this</code> permet une utilisation plus générique de la fonction.</p>
-<pre><code class="javascript">function afficheLien() {
-    alert(this.href);
+  <div class="fragment">
+  <p>L'emploi de <code>this</code> permet une utilisation plus générique de la fonction.</p>
+  <pre><code class="javascript">function afficheLien() {
+  alert(this.href);
 }
 
 document.getElementById("monLien1").addEventListener("click",afficheLien);
 document.getElementById("monLien2").addEventListener("click",afficheLien);</code></pre>
-</div>
-        </section>
+  </div>
+          </section>
+          <section>
+              <h2>Gestionnaires d'événements</h2>
+              <h3>Piège avec fonction fléchée</h3>
+              <p>
+    Les fonctions fléchées ne créant pas de nouveau contexte, <code>this</code> dans la fonction de rappel ne fait pas référence à l'élément DOM.
+    </p>
+              <pre><code class="javascript">let lien = document.getElementById("monLien");
+
+lien.addEventListener("click", function(e) {
+  console.log(this === lien); //true
+});
+
+lien.addEventListener("click", e => {
+  console.log(this === lien); //false !
+});</code></pre>
+            </section>
+      </section>
 
         <section>
           <section>

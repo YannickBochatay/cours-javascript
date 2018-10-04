@@ -1,4 +1,3 @@
-/*
 //Sans jQuery
 (function() {
 
@@ -21,15 +20,14 @@
         let target = e.target,
             str = "";
 
-        for (let n in target) str+= n+" : "+target[n]+"\n";
+        for (let n in target) str+= `${n} : ${target[n]}\n`;
 
         descriptElmt.textContent = str;
     });
 
 }());
-//*/
 
-//*
+/*
 //Avec jQuery
 $(function() {
     "use strict";
@@ -53,11 +51,11 @@ $(function() {
             let target = e.target,
                 str = "";
 
-            for (let n in target) str+= n+" : "+target[n]+"\n";
+            for (let n in target) str+= `${n} : ${target[n]}\n`;
 
             descriptElmt.text(str);
         }
     });
 
 });
-//*/
+*/

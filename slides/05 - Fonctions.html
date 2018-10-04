@@ -667,6 +667,20 @@ toto.age; //27</code></pre>
   vieillir() { this.age++; }
 };</code></pre>
               </section>
+              <section>
+                <h2>Méthodes</h2>
+                Piège avec fonction fléchée
+                <pre><code class="javascript">let toto = {
+  nom : "toto",
+  age : 25,
+  vieillir : () => this.age++
+};
+
+toto.vieillir(); // this.age est équivalent à window.age
+toto.age; // NaN
+</code></pre>
+<p>Les fonctions fléchées ne créent pas de nouveau contexte. La valeur de <code>this</code> est la même que dans le contexte parent.</p>
+              </section>
           </section>
 				<!--<section>
 					<h2>Méthodes</h2>
