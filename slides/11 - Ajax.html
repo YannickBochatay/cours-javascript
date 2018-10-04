@@ -212,11 +212,17 @@ fetch('http://mpfc/back/modeles/instruction/', {
             <h3>avec Async/Await (ES2017)</h3>
             <br/>
             <pre><code class="javascript">async function fetchData() {
+
   try {
-    let response = await fetch('http://mpfc/back/modeles/instruction/liste/?page=1');
+
+    let response = await fetch('http://mpfc/instruction/?page=1');
+
     let dataObj = await response.json();
+
     console.log(dataObj);
+
   } catch(e) {
+
     console.log(e);
   }
 }

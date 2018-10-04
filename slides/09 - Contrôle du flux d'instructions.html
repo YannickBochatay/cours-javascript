@@ -398,13 +398,15 @@ console.log(i); //?</code></pre>
 					<h3>évènements</h3>
 					<pre><code class="javascript">let img = new Image();
 
-img.src = "http://www.meteofrance.com/integration/sim-portail/generated/integration/img/vigilance/mn.gif";
+img.src = "http://www.meteofrance.com/vigilance/mn.gif";
 
 console.log(img.width); //0
 //car l'image est chargée de manière asynchrone
 
 //mais
-img.onload = function() { console.log(img.width); //71 }
+img.onload = function() {
+  console.log(img.width); //71
+}
 
 //quand l'image est chargée, l'évènement "load" est déclenché
 //et les fonctions liées à l'évènement sont exécutées.
@@ -494,12 +496,12 @@ function attendre(s) {
 }
 
 async function chargerTout() {
-  await chargerImage("monImage1.png")
-  await attendre(5)
-  await chargerImage("monImage2.png")
-  await attendre(5)
-  await chargerImage("monImage3.png")
-  await attendre(5)
+  await chargerImage("monImage1.png");
+  await attendre(5);
+  await chargerImage("monImage2.png");
+  await attendre(5);
+  await chargerImage("monImage3.png");
+  await attendre(5);
 }
 
 chargerTout();</code></pre>
