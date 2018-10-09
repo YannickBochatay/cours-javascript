@@ -614,11 +614,9 @@ for (let i=1;i&lt;=3;i++) {
     window.alert("Je suis la div n°"+cpt);
   }
 
-  for (let i=1;i&lt;=3;i++) {
-    let div = document.getElementById("maDiv"+i);
-    let fct = affiche.bind(null,i);
-    div.addEventListener("click",fct);
-  }
+  let div = document.getElementById("maDiv");
+  
+  div.addEventListener("click", affiche);
 
 }());</code></pre>
 						<p>On encapsule notre code dans une fonction anonyme aussitôt exécutée, ce qui protège nos variables de l'espace global.</p>
