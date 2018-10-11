@@ -12,7 +12,7 @@ function verifEmail_v2(email) {
 
 function verifEmail_v3(email) {
 
-    return new RegExp("^[\w.-]+@[\w-]+\.[a-z]{2,6}$").test(email);
+    return new RegExp("^[\\w.-]+@[\\w-]+\\.[a-z]{2,6}$").test(email);
 }
 
 function testPerf(fctVerifEmail) {
