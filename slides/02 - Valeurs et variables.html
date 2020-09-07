@@ -67,16 +67,9 @@
 							<li>nombre</li>
 							<li>chaîne de caractère</li>
 							<li>undefined</li>
-							<li>null</li>
+              <li>null</li>
+              <li>Symbol</li>
 						</ul>
-					</section>
-					<section>
-						<h2>Symbol</h2>
-						<h3>Nouveau type primitif en ES6</h3>
-						<p>Valeur unique et immuable qui peut être utilisée comme clé d'une propriété d'un objet.</p>
-						<pre><code data-trim class="javascript">let sym = Symbol("toto");
-let obj = {};
-obj[sym] = "titi";</code></pre>
 					</section>
 				</section>
 				<section>
@@ -207,6 +200,15 @@ toto; //undefined</code></pre>
 let toto = null;
 								</code></pre>
 
+          </section>
+
+          <section>
+						<h3>Symbol</h3>
+						<p>Valeur unique et immuable qui peut être utilisée comme clé d'une propriété d'un objet.</p>
+						<pre><code data-trim class="javascript">let sym = Symbol("toto");
+let obj = {};
+obj[sym] = "titi";</code></pre>
+<p>=> Utilisation avancée de javascript.</p>
 					</section>
 
 				<section>
@@ -222,6 +224,7 @@ toto; // "titi"
 titi; // undefined
 tutu; // undefined
 tyty; // ReferenceError: tyty is not defined</code></pre>
+        <p>Les variables se déclarent avec les mots clés let</p>
 				</section>
 
 				<section>

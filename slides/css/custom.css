@@ -48,8 +48,21 @@ code.syntaxe {
     color:white;
 }
 code.flow {
-	
+
 }
 .barre {
 	text-decoration: line-through;
+}
+.breaking_news {
+  transform:rotate(-30deg);
+  width:300px;
+  position:absolute;
+  left:-100px;
+  top:-150px;
+}
+.breaking_news > span {
+  position:relative;
+  font-weight:bold;
+  top:-75px;
+  color:rgb(230, 217, 217);
 }

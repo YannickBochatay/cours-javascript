@@ -216,11 +216,12 @@ toto.nbEnfants; //undefined</code></pre>
 
 "nbEnfants" in toto; //false</code></pre>
 				</div>
-				</section>
+        </section>
           <section>
-              <h2>Affectation par décomposition</h2>
-              <br/>
-              <pre><code class="javascript">let toto = {
+            <section>
+                <h2>Affectation par décomposition</h2>
+                <br/>
+                <pre><code class="javascript">let toto = {
   nom : "Toto",
   age : 25
 };
@@ -229,7 +230,7 @@ let { age, nom } = toto;
 
 nom; // "Toto"
 age; // 25</code></pre>
-  Equivalent à :
+Equivalent à :
   <pre><code class="javascript">let toto = {
   nom : "Toto",
   age : 25
@@ -238,6 +239,51 @@ age; // 25</code></pre>
 let age = toto.age;
 let nom = toto.nom;</code></pre>
             </section>
+            <section>
+              <h2>Affectation par décomposition</h2>
+              <h3>Avec un nom différent</h3>
+              <pre><code class="javascript">let toto = {
+  nom : "Toto",
+  age : 25
+};
+
+let { age : ageToto, nom : nomToto } = toto;
+
+ageToto; //25
+nomToto; //"Toto"</code></pre>
+            </section>
+            <section>
+              <h2>Affectation par décomposition</h2>
+              <h3>A plusieurs niveaux</h3>
+              <pre><code class="javascript">let toto = {
+  nom : "Toto",
+  age : 25,
+  telephone : {
+    portable : "06 25 32 XX XX",
+    pro : "05 61 07 XX XX"
+  }
+};
+
+let { telephone : { portable } } = toto;
+
+portable; //"05 61 07 XX XX";
+telephone; // ReferenceError: telephone is not defined</code></pre>
+            </section>
+            <section>
+              <h2>Affectation par décomposition</h2>
+              <h3>Affecter le reste</h3>
+              <pre><code class="javascript">let toto = {
+  nom : "Toto",
+  age : 25,
+  adresse : "24 rue Mozart",
+  profession : "informaticien"
+};
+
+let { nom, age, ...autres } = toto;
+
+autres; //{ adresse : "24 rue Mozart", profession : "informaticien" };</code></pre>
+            </section>
+          </section>
 
         <section>
             <h2>Noms de propriétés calculés</h2>

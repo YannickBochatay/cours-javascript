@@ -74,9 +74,8 @@
                     <h2>Aujourd'hui</h2>
                     <ul>
                         <li><a target="liens" href="http://www.plus360degrees.com/uxcars/">plus360degrees.com</a></li>
-                        <li><a target="liens" href="https://www.blend4web.com/en/demo/webvr_game/">blend4web.com</a></li>
+                        <li><a target="liens" href="https://iss-sim.spacex.com/">iss-sim.spacex.com</a></li>
                         <li><a target="liens" href="http://earth.nullschool.net/">earth.nullschool.net</a></li>
-                        <li><a target="liens" href="http://acko.net/">acko.net</a></li>
                     </ul>
                 </section>
 
@@ -102,8 +101,8 @@
                     <br/>
                     <ul>
                         <li><a href="http://nodejs.org/" target="liens">Node.js</a> (javascript côté serveur)</li>
-                        <li>Flash (ActionScript)</li>
                         <li>Extensions des logiciels Mozilla (Firefox, Thunderbird)</li>
+                        <li>Flash (ActionScript)</li>
                         <li>Suite Adobe (Photoshop, Illustrator, etc)</li>
                         <li>Windows (<b>W</b>indows <b>S</b>cripting <b>H</b>ost)</li>
                         <li>etc</li>
@@ -114,9 +113,10 @@
                   <h2>
                       Compatibilité des navigateurs
                   </h2>
-                  <p>Longtemps problématique, beaucoup moins maintenant, mais...</p>
-                  <p class="fragment">
-                    Le contenu de ce stage n'est plus compatible avec Internet Explorer.
+                  <p>Problématique à l'époque d'Internet Explorer, beaucoup moins maintenant.</p>
+                  <p>
+                    Microsoft Edge s'appuie désormais sur Chromium, la même base que Google Chrome.
+                    Les différences entre Chromium et Firefox sont mineures.
                   </p>
                 </section>
 
@@ -131,13 +131,29 @@
 
                 <section>
                     <h2>
-                        Outils Firefox
+                        Outils intégrés au navigateur
                     </h2>
                     <ul>
-                        <li>Console Web <code>(Ctrl+Maj+I)</code></li>
-                        <li>Ardoise javascript <code>(Maj+F4)</code></li>
+                        <li>Console Web <code>(F12)</code></li>
                     </ul>
                 </section>
+
+                <section>
+                  <h2>
+                      Outils de développement
+                  </h2>
+                  <ul>
+                      <li>
+                        <a target="liens" href="https://nodejs.org/fr/">Node.js</a> pour gérer les dépendances (NPM)
+                        et installer d'autres outils.
+                      </li>
+                      <li>
+                        <a target="liens" href="https://webpack.js.org/">Webpack</a> pour empaqueter les fichiers javascript
+                        et autres (images, css, etc) de manière optimisée.
+                        <a target="liens" href="https://fr.parceljs.org/">Parcel</a> est à mentionner quant à sa simplicité d'utilisation.
+                      </li>
+                  </ul>
+              </section>
 
                 <section>
                     <h2>Aperçu syntaxique</h2>
@@ -153,9 +169,9 @@ let Toto = "tata";
                     <section>
                         <h2>Aperçu syntaxique</h2>
                         <h3>Points-virgules</h3>
-                        <p>Malgré un mécanisme d'<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Grammaire_lexicale#Insertion_automatique_de_points-virgules">
+                        <p>Malgré un mécanisme d'<a target="liens" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Grammaire_lexicale#Insertion_automatique_de_points-virgules">
                                 insertion automatique de points-virgules
-                            </a>, il est fortement conseillé de terminer toutes les instructions par un point virgule.</p>
+                            </a>, il est conseillé pour débuter de terminer toutes les instructions par un point virgule.</p>
                         <pre><code class="javascript">let toto = "toto"
 let Toto = "tata"
 console.log(Toto)

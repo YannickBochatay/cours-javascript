@@ -19,7 +19,7 @@
                     resolve(this.responseText);
                 };
 
-                req.onerror = reject;
+                req.onerror = e => reject(new Error("Error loading file " + url));
 
                 req.send(null);
             });
@@ -44,7 +44,7 @@
 
                     document.title = "QCM "+this.current;
 
-                    return get("chapitres/"+num+".html").then(this._init.bind(this)).catch(alert);
+                    return get("./chapitres/"+num+".html").then(this._init.bind(this)).catch(alert);
                 },
 
                 _getNomStorage : function() {
@@ -90,7 +90,7 @@
                             label.classList.remove("ko");
                         });
 
-                        if (donnees[i] != undefined && donnees[i] != -1) inputs[ donnees[i] ].checked = true;
+                        if (inputs[ donnees[i] ]) inputs[ donnees[i] ].checked = true;
                     });
                 },
 
@@ -162,7 +162,7 @@
                         var response = document.createElement("div");
                         response.classList.add("response");
                         response.style.display = "none";
-                        
+
                         var icon = document.createElement("i");
                         icon.className = "fa fa-lightbulb-o fa-lg";
                         response.appendChild(icon);

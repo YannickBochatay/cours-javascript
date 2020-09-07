@@ -148,6 +148,50 @@ age;
         <reponse>Il s'agit d'une affectation par décomposition. On affecte à la variable "age" la valeur de la propriété "age" de toto.</reponse>
         </qcm>
 
+        <qcm>
+          <code>let toto = { nom : "toto", age : 26 };
+
+let { age : x } = toto;
+
+x;
+</code>
+          <question>La valeur renvoyée est </question>
+          <choix>undefined</choix>
+          <choix correct>26</choix>
+          <choix>erreur de syntaxe</choix>
+        <reponse>Il s'agit d'une affectation par décomposition avec renommage. On affecte à la variable "x" la valeur de la propriété "age" de toto.</reponse>
+        </qcm>
+
+        <qcm>
+          <code>let toto = { nom : "toto", age : 26 };
+
+let { age : { x } } = toto;
+
+x;
+</code>
+          <question>La valeur renvoyée est </question>
+          <choix correct>undefined</choix correct>
+          <choix>26</choix>
+          <choix>erreur de syntaxe</choix>
+        <reponse>Il s'agit d'une affectation par décomposition à plusieurs niveaux.
+          On affecte à la variable "x" la valeur de la propriété "x" de l'objet "age" lui-même propriété de toto.</reponse>
+        </qcm>
+
+        <qcm>
+          <code>let toto = { nom : "toto", age : 26 };
+
+let { age, ...autres } = toto;
+
+autres;
+</code>
+          <question>La valeur renvoyée est </question>
+          <choix>"toto"</choix correct>
+          <choix correct>{ nom : "Toto" }</choix>
+          <choix>erreur de syntaxe</choix>
+        <reponse>Il s'agit de l'affectation du reste.
+          On affecte à la variable "autres" un objet des propriétés autres que "age".</reponse>
+        </qcm>
+
     		<qcm>
     			<code>window.toto = "tata";
 

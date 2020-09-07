@@ -332,6 +332,18 @@ nom; //durand
 naissance; //["23", "12", "1967"]
 </code></pre>
             </section>
+            <section>
+              <h2>Syntaxe de décomposition</h2>
+              <h3>Omettre certaines valeurs</h3>
+              <pre><code class="javascript">let chaine = "jacques;durand;23;12;1967";
+
+let tab = chaine.split(";");
+
+let [,, ...naissance] = tab;
+
+naissance; //["23", "12", "1967"]
+</code></pre>
+            </section>
         </section>
         <section>
             <h2>Syntaxe de décomposition</h2>

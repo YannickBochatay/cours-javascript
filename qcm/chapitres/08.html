@@ -1,5 +1,5 @@
 <qcm>
-	<code>x = 10;
+	<code>let x = 10;
 x/=5;
 x;</code>
 	<question>x vaut</question>
@@ -12,7 +12,7 @@ x;</code>
 
 
 <qcm>
-	<code>x = 10;
+	<code>let x = 10;
 x%=5;
 x;</code>
 	<question>x vaut</question>
@@ -157,7 +157,18 @@ console.log( recupAge() );</code>
     <reponse>La première expression n'étant pas convertible à true, elle est renvoyée sans que la deuxième ne soit évaluée.</reponse>
 </qcm>
 
+<qcm>
+  <code>function recupAge(personne) {
+  return personne?.age;
+}
 
+console.log( recupAge() );</code>
+  <question>la console affiche</question>
+  <choix>TypeError: personne is undefined</choix>
+  <choix correct>undefined</choix>
+  <choix>null</choix>
+  <reponse>L'opérateur de chaînage optionnel court-circuite la chaîne dès qu'une référence est null ou undefined.</reponse>
+</qcm>
 
 
 <qcm>
@@ -175,28 +186,6 @@ console.log( recupAge(individu) );</code>
     <reponse>L'accès à une propriété non définie d'un objet ne renvoie pas d'erreur mais la valeur undefined</reponse>
 </qcm>
 
-
-
-
-<qcm>
-    <code>function recupNomCourant(personne) {
-    return personne.surnom || personne.nom;
-}
-
-let individu = { nom : "Bernard", surnom : "Nanard" };
-
-console.log( recupNomCourant(individu) );</code>
-    <question>la console affiche</question>
-    <choix>"Bernard"</choix>
-    <choix correct>"Nanard"</choix>
-    <choix>"NanardBernard"</choix>
-    <choix>null</choix>
-    <reponse>La première expression étant convertible à true, elle est renvoyée.<reponse>
-</qcm>
-
-
-
-
 <qcm>
     <code>function recupNomCourant(personne) {
     return personne.surnom || personne.nom;
@@ -211,55 +200,6 @@ console.log( recupNomCourant(individu) );</code>
     <choix>null</choix>
     <reponse>La première expression n'étant pas convertible à true, c'est la deuxième qui est renvoyée.<reponse>
 </qcm>
-
-
-
-<qcm>
-    <code>function recupNomCourant(personne) {
-    return personne.surnom || personne.nom;
-}
-
-console.log( recupNomCourant() );</code>
-    <question>la console affiche</question>
-    <choix correct>TypeError: personne is undefined</choix>
-    <choix>undefined</choix>
-    <choix>null</choix>
-    <reponse>La première expression (nécessairement évaluée) renvoie une erreur.<reponse>
-</qcm>
-
-
-
-
-<qcm>
-    <code>function recupNomCourant(personne) {
-    return personne && personne.surnom || personne.nom;
-}
-
-console.log( recupNomCourant() );</code>
-    <question>la console affiche</question>
-    <choix correct>TypeError: personne is undefined</choix>
-    <choix>undefined</choix>
-    <choix>null</choix>
-    <reponse>Le "ET" logique étant prioritaire sur le "OU", cela revient à <code>(personne && personne.surnom) || personne.nom</code>
-    La première expression n'étant pas convertible à true, la deuxième est évaluée et génère une erreur.
-</qcm>
-
-
-
-<qcm>
-    <code>function recupNomCourant(personne) {
-    return personne && (personne.surnom || personne.nom);
-}
-
-console.log( recupNomCourant() );</code>
-    <question>la console affiche</question>
-    <choix>TypeError: personne is undefined</choix>
-    <choix correct>undefined</choix>
-    <choix>null</choix>
-    <reponse>C'est la bonne solution pour prévoir tous les cas de figures</reponse>
-</qcm>
-
-
 
 <qcm>
 	<code>let x = !0;</code>

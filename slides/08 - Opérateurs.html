@@ -431,7 +431,28 @@
 	        				<li>Renvoie <b>false</b>.</li>
 	      				</ol>
 					</section>
-				</section>
+        </section>
+
+        <section>
+
+          <h2>Egalité simple / stricte</h2>
+          <br/>
+          <p>Pour éviter toute ambigüité, il est conseillé de <b>toujours</b> utiliser l'égalité stricte.</p>
+          <br/>
+          <div class="fragment">
+            <p>Il existe une exception, le test d'égalité avec la valeur <code>null</code>, vrai lorsque la valeur testée est <code>null</code> ou <code>undefined</code>.</p>
+            <pre><code class="javascript">function aucunArgument(arg) {
+  return arg == null;
+}
+
+aucunArgument(); // true
+aucunArgument(null); // true
+aucunArgument(undefined); // true
+
+aucunArgument(0); // false
+aucunArgument(""); // false</code></pre>
+          </div>
+        </section>
 
 			<section>
 				<h2>Opérateurs arithmétiques</h2>
@@ -484,56 +505,6 @@
 			</section>
 
 			<section>
-				<h2>Opérateurs binaires</h2>
-				<table class="compact">
-				 <thead>
-				  <tr>
-				   <th scope="col">Opérateur</th>
-				   <th scope="col">Utilisation</th>
-				   <th scope="col">Description</th>
-				  </tr>
-				 </thead>
-				 <tbody>
-				  <tr>
-				   <td>AND (ET) binaire</td>
-				   <td><code>a &amp; b</code></td>
-				   <td>Renvoie un 1 à chaque position binaire pour laquelle les bits des deux opérandes sont à 1.</td>
-				  </tr>
-				  <tr>
-				   <td>OR (OU) binaire</td>
-				   <td><code>a | b</code></td>
-				   <td>Renvoie un zéro à chaque position binaire pour laquelle au moins un des bits des deux opérandes est à 0.</td>
-				  </tr>
-				  <tr>
-				   <td>XOR (OU exclusif) binaire</td>
-				   <td><code>a ^ b</code></td>
-				   <td>Renvoie un zéro à chaque position binaire pour laquelle les bits sont les mêmes (et un 1 pour chacun des bits qui est différent).</td>
-				  </tr>
-				  <tr>
-				   <td>NOT (NON) binaire</td>
-				   <td><code>~ a</code></td>
-				   <td>Inverse les bits de l'opérande.</td>
-				  </tr>
-				  <tr>
-				   <td>Décalage binaire à gauche></td>
-				   <td><code>a &lt;&lt; b</code></td>
-				   <td>Décale la représentation binaire de <code>b</code> bits sur la gauche et complète avec des zéros à droite.</td>
-				  </tr>
-				  <tr>
-				   <td>Décalage binaire à droite</td>
-				   <td><code>a &gt;&gt; b</code></td>
-				   <td>Décale la représentation binaire de <code>b</code> bits sur la droite en ignorant les bits perdus.</td>
-				  </tr>
-				  <tr>
-				   <td>Décalage binaire à droite en complétant avec des zéros</td>
-				   <td><code>a &gt;&gt;&gt; b</code></td>
-				   <td>Décale la représentation binaire de <code>b</code> bits sur la droite en ignorant les bits perdus et ajoute des zéros sur la gauche.</td>
-				  </tr>
-				 </tbody>
-				</table>
-			</section>
-
-			<section>
 				<h2>Opérateurs logiques</h2>
 				<table class="compact">
 				 <thead>
@@ -562,10 +533,84 @@
 				   <td><code>!</code></td>
 				   <td><code>!expr</code></td>
 				   <td>Renvoie <code>true</code> si son unique opérande peut être converti à <code>false</code>, sinon renvoie <code>false</code>.</td>
-				  </tr>
+          </tr>
+          <tr style="color:rgb(206, 137, 9)">
+            <td>Opérateur de coalescence des nuls<br/>(ES2020)</td>
+            <td><code>??</code></td>
+            <td><code>expr1&nbsp;??&nbsp;expr2</code></td>
+            <td>Renvoie <code>expr1</code> s'il est différent de <code>null</code> et <code>undefined</code>, sinon renvoie <code>expr2</code>.</td>
+           </tr>
 				 </tbody>
 				</table>
-			</section>
+      </section>
+
+      <section>
+        <section>
+          <h2>Opérateurs Logiques</h2>
+          <h3>ET logique</h3>
+          <br/>
+          <p>Utile pour accéder à la propriété d'un objet potentiellement inexistant.</p>
+          <pre><code class="javascript">let age = toto && toto.age; // undefined si toto n'existe pas</code></pre>
+        </section>
+        <section>
+          <div class="breaking_news">
+            <img
+              src="./img/breaking_news.jpg"
+              alt="breking news"
+            />
+            <span>ES2020</span>
+          </div>
+          <h2>Chaînage optionnel</h2>
+<br/>
+          <p>Il permet d'éviter l'emploi du ET logique dans ce cas.</p>
+          <pre><code class="javascript">let age = toto?.age;
+// renvoie undefined si une référence est null ou undefined</code></pre>
+<br/>
+          <div class="fragment">
+            <p>On peut l'utiliser avec la notation crochet et les fonctions.</p>
+            <pre><code class="javascript">let age = toto?.["age"];
+// renvoie undefined si toto n'existe pas
+
+toto?.renaître?.()
+// renvoie undefined si toto n'existe pas ou s'il ne possède pas de méthode renaître.
+            </code></pre>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>Opérateurs Logiques</h2>
+          <h3>OU logique</h3>
+          <br/>
+          <p>Utile pour définir une valeur par défaut</p>
+          <pre><code class="javascript">let age = toto.age || 25; // 25 si toto n'a pas de propriété age</code></pre>
+        </section>
+        <section>
+          <h2>Opérateurs Logiques</h2>
+          <h3>OU logique</h3>
+          <br/>
+          <p>Attention si la première expression est une
+<a href="https://developer.mozilla.org/fr/docs/Glossaire/Falsy" target="liens">valeur de type fausse</a></p>
+          <pre><code class="javascript">let toto = { age : 0 }
+let age = toto.age || 25; // 25</code></pre>
+        </section>
+        <section>
+          <div class="breaking_news">
+            <img
+              src="./img/breaking_news.jpg"
+              alt="breking news"
+            />
+            <span>ES2020</span>
+          </div>
+          <h2>Opérateurs Logiques</h2>
+          <h3>Opérateur de coalescence des nuls</h3>
+          <p>Pour pallier ce problème, l'opérateur <code>??</code> a été inventé.</p>
+          <pre><code class="javascript">let toto = { age : 0 }
+let age = toto.age ?? 25; // 0
+// Renvoie le 2ème opérande seulement si le premier est null ou undefined</code></pre>
+        </section>
+    </section>
 
 			<section>
 				<h2>Opérateurs relationnels</h2>
