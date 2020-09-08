@@ -1,5 +1,3 @@
-//*
-//Sans jQuery
 (function() {
 
     "use strict";
@@ -19,27 +17,3 @@
     afficheTaille();
 
 }());
-//*/
-
-//*
-//Avec jQuery
-$(function() {
-
-    "use strict";
-
-    let tdHeure = $("#heure"),
-        tdHauteur = $("#hauteur"),
-        tdLargeur = $("#largeur");
-
-    function afficheTaille() {
-        tdHeure.text( new Date().toLocaleTimeString() );
-        tdLargeur.text( window.innerWidth );
-        tdHauteur.text( window.innerHeight );
-    }
-
-    $(window).on("resize",afficheTaille);
-
-    afficheTaille();
-
-});
-//*/

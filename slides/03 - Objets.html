@@ -317,22 +317,35 @@ for (let n in toto) {
                 <section>
 					<h2>Enumération des propriétés</h2>
 					<h3>Object.keys</h3>
-                                        Renvoie un tableau des noms de propriétés
+          Renvoie un tableau des noms de propriétés
 					<pre><code class="javascript">let toto = {
     nom : "Toto",
     age : 25,
     genre : "M"
 };
 
-let message = 'Description de Toto \n';
-
 let tab = Object.keys(toto);
 
 console.log(tab); //"nom,age,genre"
 </code></pre>
-                    <p>Les tableaux font l'objet d'un chapitre dédié.</p>
-
           </section>
+
+          <section>
+            <h2>Enumération des propriétés</h2>
+            <h3>Object.values</h3>
+            Renvoie un tableau des valeurs de propriétés
+            <pre><code class="javascript">let toto = {
+      nom : "Toto",
+      age : 25,
+      genre : "M"
+  };
+
+  let tab = Object.values(toto);
+
+  console.log(tab); //"Toto,25,M"
+  </code></pre>
+            <p>Les tableaux font l'objet d'un chapitre dédié.</p>
+            </section>
 				</section>
 
 				<section>

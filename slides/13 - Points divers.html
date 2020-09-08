@@ -51,7 +51,7 @@
 
         <section>
           <h2>Modules</h2>
-          Une des fonctionnalités les plus importante de la norme ES6, mais qui commence seulement à être intégrée aux navigateurs.
+          Une des fonctionnalités les plus importante de la norme ES6, mais qui est intégrée aux navigateurs seulement depuis peu (et nécessite un serveur de développement).
           <pre><code class="html" >&lt;!doctype html&gt;
 &lt;html&gt;
     &lt;head&gt;&lt;/head&gt;
@@ -82,7 +82,8 @@ export default {
       </section>
 
 				<section>
-					<h2>Reconnaître une bonne bibliothèque</h2>
+          <h2>Reconnaître une bonne bibliothèque</h2>
+          <p>Ecrite sous forme de module ES6, ou alors vérifier qu'il n'y a:</p>
 					<ul>
 						<li>pas d'autre variable globale que l'espace de nom</li>
 						<li>pas de browser sniffing</li>
@@ -91,25 +92,28 @@ export default {
 				</section>
 
 				<section>
-					<h2>Frameworks et bibliothèques</h2>
+          <h2>Frameworks et bibliothèques</h2>
+          <br/>
 					<ul>
             <li><a href="https://angular.io/" target="liens">Angular</a> (Google)</li>
             <li><a href="http://facebook.github.io/react/" target="liens">React</a> (Facebook)</li>
             <li><a href="http://getbootstrap.com/" target="liens">Bootstrap</a> (Twitter)</li>
-            <li><a href="http://jquery.com/" target="liens">jQuery</a> (DOM, ajax, etc)</li>
-					</ul>
+          </ul>
+          <br/>
+          <br/>
+          <p>Sans oublier <a href="http://jquery.com/" target="liens">jQuery</a> qui peut être suffisant pour un projet simple.</p>
 				</section>
 
                 <section>
                 <h2>Outils de développement</h2>
+                <br/>
                 <ul>
                     <li><a href="https://nodejs.org/" target="liens">NodeJS</a> et <a href="https://www.npmjs.com/" target="liens">NPM</a> (gestion des paquets)</li>
                     <li><a href="http://webpack.github.io/" target="liens">Webpack</a> (packaging)</li>
+                    <li><a href="https://parceljs.org/" target="liens">Parcel</a> (packaging ultrasimple)</li>
                     <li><a href="https://babeljs.io/" target="liens">Babel</a> (transpilation ES6 => ES5)</li>
                     <li><a href="http://eslint.org/" target="liens">ESLint</a> (qualité de code)</li>
-                    <li><a href="http://closure-compiler.appspot.com/home" target="liens">Closure compiler</a> (minification de code)</li>
-                <li><a href="" target="liens">Mocha</a>, <a href="" target="liens">Jasmine</a> (frameworks de test)</li>
-                    <li><a href="https://karma-runner.github.io/" target="liens">Karma</a> (serveur de test)</li>
+                    <li><a href="https://www.typescriptlang.org/" target="liens">TypeScript</a> (javascript typé)</li>
                 </ul>
                 </section>
 
@@ -125,9 +129,6 @@ export default {
             </li>
             <li>
                 <a href="http://www.highcharts.com/" target="liens">Highcharts</a> (graphiques)
-            </li>
-            <li>
-                <a href="http://linkedin.github.io/hopscotch/" target="liens">Hopscotch</a> (aide intéractive)
             </li>
             <li>
                 <a href="http://ckeditor.com/" target="liens">CKEditor</a>,

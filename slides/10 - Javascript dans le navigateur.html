@@ -368,7 +368,7 @@ document.addEventListener("click", function() { alert("titi") });
 Les 3 messages seront donc affichés, dans l'ordre suivant :<br/>
 "tata" puis "toto" puis "titi".</p>
           </section>
-          <section>
+          <!-- <section>
             <h2>Propagation des événements</h2>
             <h3>Précision</h3>
 <p>En fait, la propagation des événements est plus compliquée que cela. Il y a 2 phases :
@@ -403,7 +403,7 @@ let span = div.querySelector("span");
 span.addEventListener("click", function() { alert("tata") }, true);
 
 //un clic sur span affiche "toto" puis "tata"</code></pre>
-          </section>
+          </section> -->
         </section>
 
         <section>
@@ -542,18 +542,23 @@ for (i=0;i&lt;links.length;i++) {
                             </section>-->
 
         <section>
-          <h2>Gérer la compatibilité</h2>
-<p>Microsoft n'ayant suivi le DOM du W3C qu'à partir de la version 9 d'IE, rendre son code compatible avec des versions antérieures est un enfer.</p>
-<p>En négligeant ces anciennes versions, la situation s'est nettement améliorée, mais on reste régulièrement confronté à des problèmes de compatibilité (ex : dernières nouveautés HTML5).</p>
+          <h2>Compatibilité des navigateurs</h2>
+          <h3>Longtemps problématique, aujourd'hui anecdotique</h3>
+          <br/>
+<p>Depuis la fin d'Internet Explorer, la généralisation des
+  "<a href="https://www.techopedia.com/definition/31094/evergreen-browser" target="liens">evergreen browsers</a>" (Firefox, Chrome, Safari, Edge, etc),
+  et l'utilisation courante de <a href="https://fr.wikipedia.org/wiki/Framework" target="liens">frameworks</a> (Angular, React), il est devenu rare d'avoir à s'en soucier.
+</p>
         </section>
 
         <section>
           <h2>Gérer la compatibilité</h2>
           <h3>Répartition des navigateurs</h3>
-          <img alt="graphique" src="img/StatCounter-browser_version_partially_combined-ww-monthly-201708-201809-bar.png">
+          <img alt="graphique" src="img/StatCounter-browser_version_partially_combined-ww-monthly-201908-202008-bar.png">
         </section>
 
         <section>
+          <section>
           <h2>Gérer la compatibilité</h2>
           <h3>La mauvaise méthode : browser sniffing</h3>
           <pre><code class="javascript">var browser = navigator.userAgent.matches(/MSIE/) ? "IE" : "autre";
@@ -602,110 +607,34 @@ var div = document.getElementById("maDiv");
 addListener(div,"click",function() { alert("hello world"); });
 </code></pre>
         </section>
+      </section>
 
         <section>
           <h2>Introduction à jQuery</h2>
-          <p>Face à ces problèmes de compatibilité, mais également à la verbosité du DOM, une bibliothèque a rapidement conquis le monde du web, <a href="http://jquery.com/" target="liens">jQuery</a>.
-          <br/>Elle est écrite en javascript, c'est un fichier à inclure dans chaque page dans une balise script.
+          <p>Aujourd'hui supplantée par des frameworks comme Angular ou React,
+            <a href="http://jquery.com/" target="liens">jQuery</a> est une bibliothèque qui a dominé le monde du web pendant de nombreuses années et reste très présente.
+          </p>
+          <p>Elle est écrite en javascript, c'est un fichier à inclure dans chaque page dans une balise script.</p>
           <pre><code class="html"><!-- inclusion depuis un serveur CDN -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script></code></pre>
           </p>
         </section>
 
         <section>
-          <h2>Principes de jQuery</h2>
-          <h3>Pas de pollution de l'espace global</h3>
-          Une seule variable globale <code>jQuery</code> (et son alias <code>$</code>).
-        </section>
-
-        <section>
-          <h2>Principes de jQuery</h2>
-          <h3>Concision</h3>
-          <small>javascript pur</small>
-          <pre><code class="javascript">let div = document.getElementById("maDiv");
-div.parentNode.removeChild(div);</code></pre>
-          <small>jQuery</small>
-          <pre><code class="javascript">$('#maDiv').detach();</code></pre>
-        </section>
-
-        <section>
-          <h2>Principes de jQuery</h2>
-          <h3>Compatibilité entre navigateurs</h3>
-          <small>javascript pur</small>
-          <pre><code class="javascript">function addListener(elmt,type,fct) {
-  if (elmt.addEventListener) elmt.addEventListener(type,fct,false);
-  else if (elmt.attachEvent) elmt.attachEvent('on'+type,fct);
-}
-
-function helloWorld(e) {
-  e.preventDefault();
-  alert("hello world");
-}
-
-let div = document.getElementById("maDiv");
-addListener(div,"click",function() { alert("hello world"); });</code></pre>
-<small>jQuery</small>
-<pre><code class="javascript">$("#maDiv").on("click",function(e) {
-  e.preventDefault();
-  alert("hello world");
-});</code></pre>
-        </section>
-
-        <section>
-          <h2>Principes de jQuery</h2>
-          <h3>les objets sont des collections d'éléments DOM</h3>
-          <pre><code class="javascript">//log l'adresse de chaque lien
-$('a').each(function() {
-
-  //this représente l'élément DOM natif
-  this instanceof HTMLElement; //true
-  console.log(this.href);
-
-});</code></pre>
-        </section>
-
-        <section>
-          <h2>Principes de jQuery</h2>
-          <h3>les méthodes s'appliquent à tous les éléments</h3>
-          <pre><code class="javascript">$('a').hide(); //masque tous les liens de la page</code></pre>
-        </section>
-
-        <section>
-          <h2>Principes de jQuery</h2>
-          <h3>Chaînage</h3>
-          <p>Les méthodes renvoient toujours la collection jQuery, ce qui permet de chaîner les opérations.</p>
-          <pre><code class="javascript">$('a')
-.css("color","red")
-.show()
-.on("click",function() { alert("toto"): });</code></pre>
-        </section>
-
-        <section>
-          <h2>Principes de jQuery</h2>
-          <h3>les objets jQuery ne sont pas des objets DOM !</h3>
-
-          <pre><code class="javascript" style="max-height:1200px">var lien = document.querySelector('a');
-var jLien = $('a');
-
-jLien == lien; //false
-
-document.querySelector('a') == document.querySelector('a'); //true
-//car les 2 méthodes renvoient une référence vers le même objet existant
-
-$('a') == $('a'); //false
-//car on crée deux nouvelles instances du constructeur jQuery,
-//et deux instances ne sont jamais égales
-
-lien instanceof Element; //true
-lien instanceof jQuery; //false
-lien.appendChild; //function
-lien.fadeOut; //undefined
-
-jLien instanceof Element; //false
-jLien instanceof jQuery; //true
-jLien.appendChild; //undefined
-jLien.fadeOut; //function</code></pre>
-        </section>
+          <h2>Quelques principes de jQuery</h2>
+          <br/>
+          <ul>
+            <li class="fragment">Pas de pollution de l'espace global (Une seule variable globale <code>jQuery</code> et son alias <code>$</code>)</li>
+            <li class="fragment">Compatibilité entre navigateurs</li>
+            <li class="fragment">Concision
+              <pre><code class="javascript">for (let elmt of document.querySelectorAll(".classe")) { elmt.remove(); }
+// versus
+$('.classe').detach();</code></pre>
+            </li>
+            <li class="fragment">Les méthodes renvoient toujours la collection jQuery, ce qui permet de chaîner les opérations
+              <pre><code class="javascript">$('a').css("color","red").show();</code></pre>
+            </li>
+          </ul>
 
       </div>
 

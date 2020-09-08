@@ -1,4 +1,3 @@
-//Sans jQuery
 (function() {
 
     "use strict";
@@ -26,36 +25,3 @@
     });
 
 }());
-
-/*
-//Avec jQuery
-$(function() {
-    "use strict";
-
-    let tdX = $("#abcisse"),
-        tdY = $("#ordonnee"),
-        tdTag = $("#balise"),
-        descriptElmt = $("#descriptElmt");
-
-    $(document).on({
-
-        mousemove : function(e) {
-
-            tdX.text(e.clientX);
-            tdY.text(e.clientY);
-            tdTag.text(e.target.tagName);
-        },
-
-        click : function(e) {
-
-            let target = e.target,
-                str = "";
-
-            for (let n in target) str+= `${n} : ${target[n]}\n`;
-
-            descriptElmt.text(str);
-        }
-    });
-
-});
-*/

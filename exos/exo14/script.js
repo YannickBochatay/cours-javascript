@@ -1,5 +1,3 @@
-//*
-//Sans jQuery
 (function() {
 
     "use strict";
@@ -16,26 +14,3 @@
     checkScroll();
 
 }());
-//*/
-
-/*
-//Avec jQuery
-$(function() {
-
-    "use strict";
-
-    let lien = $("#hautDePage");
-
-    function checkScroll() {
-
-        let methode = (window.scrollY > 500 ? "removeClass" : "addClass");
-
-        lien[methode]("hidden");
-    }
-
-    $(window).on("scroll",checkScroll);
-
-    checkScroll();
-
-});
-//*/

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Cours javascript : communication avec un serveur</title>
+
+    <meta name="description" content="cours de javascript">
+    <meta name="author" content="Yannick Bochatay">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/hemisu-light.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+        window.print();
+      }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+        <section>
+          <h1>Javascript</h1>
+          <h3>Communication avec un serveur</h3>
+        </section>
+        <section>
+          <h2>Historique</h2>
+          <h3>XMLHttpRequest</h3>
+          <p>Créé par Microsoft puis adopté par Mozilla puis standardisé par le W3C.</p>
+          <p>A sa création, le XML était le format standard d'échange de données, d'où son nom.</p>
+          <p>C'est un constructeur d'objets permettant d'interagir avec des serveurs sans rafraîchir entièrement la page.</p>
+          <p></p>
+          <pre><code class="javascript">let req = new XMLHttpRequest();
+
+req.open('GET','http://mpfc/back/modeles/instruction/liste/?page=1');
+
+req.onload = function() { console.log(req.status,req.responseText); }
+
+req.onerror = function(e) { console.error(e); }
+
+req.send();
+</code></pre>
+
+        </section>
+        <section>
+          <h2>fetch</h2>
+          <h3>API qui succède à XMLHttpRequest</h3>
+          <br/>
+          <pre><code class="javascript">fetch('http://mpfc/back/modeles/instruction/liste/?page=1')
+.then(response => response.json())
+.then(dataObj => console.log(dataObj))
+.catch(e => console.error(e));
+</code></pre>
+<small>Exemple d'envoi de données</small>
+<pre><code class="javascript">let form = document.querySelector('form');
+
+fetch('http://mpfc/back/modeles/instruction/', {
+  method: 'post',
+  body: new FormData(form)
+});
+</code></pre>
+        </section>
+
+        <section>
+            <h2>fetch</h2>
+            <h3>avec Async/Await</h3>
+            <br/>
+            <pre><code class="javascript">async function fetchData() {
+
+  try {
+
+    let response = await fetch('http://mpfc/instruction/?page=1');
+
+    let dataObj = await response.json();
+
+    console.log(dataObj);
+
+  } catch(e) {
+
+    console.error(e);
+  }
+}
+  </code></pre>
+          </section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script src="js/initialize.js"></script>
+
+  </body>
+</html>

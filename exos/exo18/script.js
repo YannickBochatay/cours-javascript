@@ -5,7 +5,7 @@
     let ul = document.querySelector("#listeDesInstructions");
     let ex = document.querySelector("#exemple");
 
-    ul.removeChild(ex);
+    ex.remove();
 
     function ajoutInstruction(instruction) {
 
@@ -19,23 +19,12 @@
       ul.appendChild(li);
     }
 
-    function recupInstructions() {
+    async function recupInstructions() {
 
-      let req = new XMLHttpRequest();
+      let res = await fetch('http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc');
+      let instructions = await res.json();
 
-      req.open('GET','http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc');
-
-      req.onload = function() {
-
-        if (req.status != 200) throw new Error(`Erreur ${req.status} : ${req.responseText}`);
-
-        let instructions = JSON.parse(req.responseText);
-
-        instructions.forEach(ajoutInstruction);
-
-      };
-
-      req.send();
+      instructions.forEach(ajoutInstruction);
     }
 
     recupInstructions();

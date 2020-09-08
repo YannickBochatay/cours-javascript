@@ -18,22 +18,6 @@
     tbody.appendChild(tr);
   }
 
-  function requeteAjax(url,onload) {
-
-    let req = new XMLHttpRequest();
-
-    req.open('GET',url);
-
-    req.onload = function() {
-
-      if (req.status != 200) throw new Error(`Erreur ${req.status} : ${req.responseText}`);
-
-      onload(req.responseText);
-    };
-
-    req.send();
-  }
-
   function traiteDate(champ) {
 
     let strDate = champ.replace(" ","T");
@@ -65,27 +49,26 @@
     return tab;
   }
 
-  function creeUrl(options) {
+  function creeUrl({ id, dpivot }) {
 
     let url = "http://nihoa-v27b.meteo.fr/cdp1/q_p?";
-    url+= "id="+options.id.join();
-    url+= "&dpivot="+options.dpivot.join();
+    url+= "id="+id.join();
+    url+= "&dpivot="+dpivot.join();
     url+= "&param=tn,tx&meta=id,commune,dvalid";
 
     return url;
   }
 
-  function recupTnTx(options) {
+  async function recupTnTx(options) {
 
       let url = creeUrl(options);
-
-      requeteAjax(url, resul => {
-          let previsions = csv2tab(resul);
-          previsions.forEach(insertLigneTableau);
-      });
+      let res = await fetch(url);
+      let resText = await res.text();
+      let previsions = csv2tab(resText);
+      previsions.forEach(insertLigneTableau);
   }
 
-  tbody.removeChild(trModele);
+  trModele.remove();
 
   recupTnTx({
     id : [290190,315570],

@@ -206,10 +206,11 @@ while (n < 3) {
 
 				<section>
 					<section>
-					<h2>Instruction for...in</h2>
+          <h2>Instruction for...in</h2>
 					<p>Itération sur les propriétés énumérables d'un objet.</p>
 					<p>Syntaxe</p>
-					<code class="syntaxe">for (variable in objet) instruction</code>
+          <code class="syntaxe">for (variable in objet) instruction</code>
+          <br/>
 					<p>Exemple</p>
 					<pre><code class="javascript">function afficherProps(obj) {
   let result = "";
@@ -232,7 +233,38 @@ age=25
 							<li>ne parcourt que les propriétés énumérables</li>
 						</ul>
 					</section>
-				</section>
+        </section>
+
+        <section>
+					<section>
+					<h2>Instruction for...of</h2>
+					<p>Boucle sur les valeurs des itérables (tableaux, chaînes, listes, etc)</p>
+					<p>Syntaxe</p>
+          <code class="syntaxe">for (variable of iterable) instruction</code>
+          <br/>
+					<p>Exemple</p>
+					<pre><code class="javascript">function enumere(obj) {
+  let result = ""
+  for (let value of obj) result += value + ";";
+  return result;
+}
+
+enumere([1, 2, 3]);
+// 1;2;3;
+
+enumere("toto");
+// t;o;t;o;
+</code></pre>
+          </section>
+          <section>
+						<h2>Instruction for...of</h2>
+						<ul>
+              <li>ne fonctionne que sur les objets itérables</li>
+              <li>parcourt les propriétés de manière ordonnée</li>
+							<li>affecte la valeur à la variable et non la clé</li>
+						</ul>
+					</section>
+        </section>
 
 
 				<section>
@@ -456,6 +488,7 @@ chargerImage("monImage1.png", () => {
 				</section>
 
 				<section>
+          <section>
 					<h2>Promesses</h2>
 					<pre><code class="javascript" style="max-height:1000px">function chargerImage(src) {
   return new Promise(resolve => {
@@ -478,23 +511,36 @@ chargerImage("monImage1.png")
 					<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Utiliser_les_promesses" target="liens">
 						<small>https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Utiliser_les_promesses</small>
 					</a>
-				</section>
+        </section>
 
-				<section>
-					<h2>Async / await</h2>
-					<h3>Norme ECMAScript 8 (2017)</h3>
-					<pre><code class="javascript" style="max-height:1000px">function chargerImage(src) {
-  return new Promise(resolve => {
+        <section>
+          <h2>Promesses</h2>
+          <h3>Gestion des erreurs</h3>
+          <pre><code class="javascript" style="max-height:1000px">function chargerImage(src) {
+  return new Promise((resolve, reject) => {
     let img = new Image();
     img.src = "http://monServeur/"+src;
     img.onload = resolve;
+    img.onerror = reject
   });
 }
 
-function attendre(s) {
-  return new Promise(resolve => window.setTimeout(resolve,s*1000));
-}
+chargerImage("monImage1.png")
+.then(() => attendre(5))
+.then(() => chargerImage("monImage2.png"))
+.then(() => attendre(5))
+// exécuté si une erreur se produit dans un des blocs précédents
+.catch(e => console.error(e))
+// exécuté dans tous les cas
+.then(() => console.log("traitement terminé"));</code></pre>
+				</section>
+      </section>
 
+				<section>
+          <section>
+          <h2>Async / await</h2>
+          <p>Norme ES2017, façon la plus aboutie et la plus claire de gérer l'asynchronisme.</p>
+          <pre><code class="javascript" style="max-height:1000px">
 async function chargerTout() {
   await chargerImage("monImage1.png");
   await attendre(5);
@@ -505,7 +551,28 @@ async function chargerTout() {
 }
 
 chargerTout();</code></pre>
-				</section>
+        </section>
+
+        <section>
+          <h2>Async / await</h2>
+          <h3>Gestion des erreurs</h3>
+					<pre><code class="javascript" style="max-height:1000px">
+async function chargerTout() {
+  try {
+    await chargerImage("monImage1.png");
+    await attendre(5);
+    await chargerImage("monImage2.png");
+    await attendre(5);
+    await chargerImage("monImage3.png");
+    await attendre(5);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+chargerTout();</code></pre>
+        </section>
+      </section>
 
 			</div>
 

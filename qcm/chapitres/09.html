@@ -161,7 +161,7 @@ str;</code>
                 <reponse>Si on oublie l'instruction <code>break</code> en fin de cas, tout le reste du code est éxécuté.</reponse>
     		</qcm>
 
-    		<qcm>
+    		<!-- <qcm>
     			<code>let test = null;
 switch(test) {
 	case false : console.log("false"); break;
@@ -173,10 +173,10 @@ switch(test) {
     			<choix>"undefined"</choix>
     			<choix correct>"null"</choix>
                 <reponse>C'est l'égalité stricte qui est testée.</reponse>
-    		</qcm>
+    		</qcm> -->
 
     		<qcm>
-          <code>for (var i=0;i<5;i++) { }
+          <code>for (var i=0;i&lt;5;i++) { }
 
 i;</code>
     			<question>la variable i vaut</question>
@@ -198,10 +198,10 @@ i;</code>
     			<choix correct>ReferenceError : i is not defined</choix>
     			<choix>4</choix>
     			<choix correct>5</choix>
-                <reponse>L'instruction <code>let</code> donne une portée de bloc à la variable <code>i</code> (ES6)</reponse>
+                <reponse>L'instruction <code>let</code> donne une portée de bloc à la variable <code>i</code></reponse>
     		</qcm>
 
-    		<qcm>
+    		<!-- <qcm>
     			<code>let tab = ["toto","tata","titi"];
 let i = tab.length;
 while(i--) console.log(tab[i]);</code>
@@ -215,7 +215,7 @@ while(i--) console.log(tab[i]);</code>
                 Au premier passage, on affiche donc le dernier élément du tableau.<br/>
                 Lorsque <code>i</code> est égal à 1, <code>i--</code> renvoie <code>1</code> mais <code>i</code> vaut alors 0, la première valeur du tableau est affichée.<br/>
                 Au tour suivant, <code>i</code> est égal à <code>0</code>, <code>i--</code> renvoie <code>0</code> donc la condition est fausse.</reponse>
-    		</qcm>
+    		</qcm> -->
 
     		<qcm>
     			<code>let angeGaby = { nom : "Gabriel", age : null, sexe : null };
@@ -227,6 +227,28 @@ for (let n in angeGaby) console.log(angeGaby[n]);</code>
     			<choix>"Gabriel"</choix>
     			<choix correct>"Gabriel", null, null</choix>
                 <reponse><code>n</code> itère sur les noms de propriétés. <code>angeGaby[n]</code> est donc la valeur de la propriété correspondante.</reponse>
+        </qcm>
+
+        <qcm>
+    			<code>let angeGaby = { nom : "Gabriel", age : null, sexe : null };
+
+for (let value of angeGaby) console.log(value);</code>
+          <question>la console affichera</question>
+          <choix>"nom", "age", "sexe"</choix>
+    			<choix>"Gabriel", null, null</choix>
+    			<choix correct>TypeError: angeGaby is not iterable</choix>
+          <reponse><code>for...of</code> ne fonctionne qu'avec les objets itérables (tableaux, chaînes, listes)</reponse>
+        </qcm>
+
+        <qcm>
+    			<code>let angeGaby = { nom : "Gabriel", age : null, sexe : null };
+
+for (let value of angeGaby) console.log(value);</code>
+          <question>la console affichera</question>
+          <choix>"nom", "age", "sexe"</choix>
+    			<choix>"Gabriel", null, null</choix>
+    			<choix correct>TypeError: angeGaby is not iterable</choix>
+          <reponse><code>for...of</code> ne fonctionne qu'avec les objets itérables (tableaux, chaînes, listes)</reponse>
     		</qcm>
 
     		<qcm>
