@@ -15,14 +15,19 @@ function verifEmail_v3(email) {
     return new RegExp("^[\w.-]+@[\w-]+\.[a-z]{2,6}$").test(email);
 }
 
-function testPerf(fctVerifEmail) {
+function testPerf(fct) {
 
-    const start = Date.now();
-    const email = "yannick.bochatay@meteo.fr";
-
-    for (let i=0;i<1e7;i++) fctVerifEmail(email);
+    let start = Date.now();
+    
+    for (let i=0;i<1e7;i++) fct();
 
     return Date.now() - start;
 }
 
-console.log( testPerf(verifEmail_v1), testPerf(verifEmail_v2), testPerf(verifEmail_v3) );
+const email = "yannick.bochatay@meteo.fr";
+
+let test1 = testPerf(() => verifEmail_v1(email));
+let test2 = testPerf(() => verifEmail_v2(email));
+let test3 = testPerf(() => verifEmail_v3(email));
+
+console.log(test1, test2, test3);
