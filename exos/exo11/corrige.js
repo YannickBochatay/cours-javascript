@@ -1,19 +1,9 @@
-function lanceChrono() {
+let tempsEcoule=0;
+let timer = window.setInterval(logEtIncremente,1000);
 
-    let tempsEcoule=0, timer;
+function logEtIncremente() {
 
-    function logEtIncremente() {
+	console.log(++tempsEcoule);
 
-        console.log(tempsEcoule);
-
-        if (tempsEcoule==10) return window.clearInterval(timer);
-
-        tempsEcoule++;
-    }
-
-    timer = window.setInterval(logEtIncremente,1000);
-
-    logEtIncremente();
+	if (tempsEcoule===10) window.clearInterval(timer);
 }
-
-lanceChrono();
