@@ -70,8 +70,7 @@ req.send();
           <h2>fetch</h2>
           <h3>API qui succède à XMLHttpRequest</h3>
           <br/>
-          <pre><code class="javascript">async function fetchData() {
-  const response = await fetch('http://mpfc/back/modeles/instruction/liste/?page=1')
+          <pre><code class="javascript">fetch('http://mpfc/back/modeles/instruction/liste/?page=1')
 .then(response => response.json())
 .then(dataObj => console.log(dataObj))
 .catch(e => console.error(e));
@@ -93,17 +92,16 @@ fetch('http://mpfc/back/modeles/instruction/', {
             <pre><code class="javascript">async function fetchData() {
 
   try {
-
+  
     let response = await fetch('http://mpfc/instruction/?page=1');
 	
-	if (!response.ok) throw new Error("erreur " + response.status);
+    if (!response.ok) throw new Error("erreur " + response.status);
 
-	let dataObj = await response.json();
+    let dataObj = await response.json();
 
-	console.log(dataObj);
+    console.log(dataObj);
 
   } catch(e) {
-
     console.error(e);
   }
 }
