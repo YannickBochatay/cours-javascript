@@ -2,18 +2,15 @@
 
     "use strict";
 
-    let tdHeure = document.getElementById("heure"),
-        tdHauteur = document.getElementById("hauteur"),
-        tdLargeur = document.getElementById("largeur");
+    let lien = document.getElementById("hautDePage");
 
-    function afficheTaille() {
-        tdHeure.textContent = new Date().toLocaleTimeString();
-        tdLargeur.textContent = window.innerWidth;
-        tdHauteur.textContent = window.innerHeight;
+    function checkScroll() {
+
+        lien.classList[ (window.scrollY > 500) ? "remove" : "add" ]("hidden");
     }
 
-    window.addEventListener("resize",afficheTaille);
+    window.addEventListener("scroll",checkScroll);
 
-    afficheTaille();
+    checkScroll();
 
 }());
