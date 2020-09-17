@@ -2,11 +2,18 @@
 
     "use strict";
 
-    let input = document.getElementById("titrePage");
+    let tdHeure = document.getElementById("heure"),
+        tdHauteur = document.getElementById("hauteur"),
+        tdLargeur = document.getElementById("largeur");
 
-    input.addEventListener("input",function() {
+    function afficheTaille() {
+        tdHeure.textContent = new Date().toLocaleTimeString();
+        tdLargeur.textContent = window.innerWidth;
+        tdHauteur.textContent = window.innerHeight;
+    }
 
-        document.title = this.value;
-    });
+    window.addEventListener("resize",afficheTaille);
+
+    afficheTaille();
 
 }());
