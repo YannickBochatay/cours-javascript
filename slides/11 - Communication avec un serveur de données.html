@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/custom.css">
 
     <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="lib/css/hemisu-light.css">
+    <link rel="stylesheet" href="lib/css/vs.css">
 
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <script>
@@ -92,9 +92,9 @@ fetch('http://mpfc/back/modeles/instruction/', {
             <pre><code class="javascript">async function fetchData() {
 
   try {
-  
+
     let response = await fetch('http://mpfc/instruction/?page=1');
-	
+
     if (!response.ok) throw new Error("erreur " + response.status);
 
     let dataObj = await response.json();
