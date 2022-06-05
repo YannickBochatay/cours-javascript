@@ -397,12 +397,13 @@ console.log(tab); //"nom,age,genre"
 				</section>
 
 				<section>
-					<h2>Objet global</h2>
-					<p>Objet intrinsèque qui représente l'espace global dans un environnement javascript.
-					Il est créé lors de l'initialisation du moteur de script.</p>
-					<p>Définir une variable globale revient à définir une propriété de l'objet global.</p>
-					<p>Dans l'environnement d'un navigateur web, cet objet global est <code><strong>window</strong></code>.</p>
-					<pre><code>typeof window; //"object"
+          <section>
+            <h2>Objet global</h2>
+            <p>Objet intrinsèque qui représente l'espace global dans un environnement javascript.
+            Il est créé lors de l'initialisation du moteur de script.</p>
+            <p>Définir une variable globale revient à définir une propriété de l'objet global.</p>
+            <p>Dans l'environnement d'un navigateur web, cet objet global est <code><strong>window</strong></code>.</p>
+            <pre><code>typeof window; //"object"
 
 window.toto = "tata";
 
@@ -412,6 +413,20 @@ function add(a,b) { return a+b; }
 
 add(2,1); //3
 window.add(2,1); //3</code></pre>
+          </section>
+          <section>
+            <!-- <div class="breaking_news">
+              <img
+                src="./img/breaking_news.jpg"
+                alt="breaking news"
+              />
+              <span>ES2020</span>
+            </div> -->
+            <h2>Objet global</h2>
+            <h3>globalThis</h3>
+            <p>Référence vers l'objet global de l'environnement, et donc indépendamment de celui-ci.</p>
+            <p>Dans l'environnement d'un navigateur web, <code><strong>globalThis</strong></code> et <code><strong>window</strong></code> sont le même objet.</p>
+          </section>
 				</section>
 
                              <section>
