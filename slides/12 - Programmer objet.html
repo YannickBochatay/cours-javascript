@@ -88,8 +88,8 @@ toto.vieillir();</code></pre>
 				</section>
 
 				<section>
+          <section>
 					<h2>Propriétés/méthodes privées</h2>
-<p>Elles n'existent pas en tant que telles.</p>
 <p>Par convention on commence les noms de variables par "_".</p>
 <pre><code class="javascript">class MaClasse {
 
@@ -102,6 +102,30 @@ toto.vieillir();</code></pre>
   }
 }</code></pre>
 				</section>
+        <section>
+          <div class="breaking_news">
+            <img
+              src="./img/breaking_news.jpg"
+              alt="breaking news"
+            />
+            <span>ES2022</span>
+          </div>
+          <br/>
+					<h2>Propriétés/méthodes privées</h2>
+<p>Avec ES2022, on utilise le préfixe "#</p>
+<pre><code class="javascript">class MaClasse {
+  #propPrivee
+
+  #methodePrivee() {
+    /* ... */
+  }
+}
+
+let monObjet = new MaClasse()
+monObjet.#propPrivee // Error
+</code></pre>
+				</section>
+      </section>
 
 				<section>
 						<h2>Méthodes statiques</h2>
@@ -139,8 +163,7 @@ class Homme extends Personne {
     super(nom,age); //appel du constructeur parent
     this.sexe="M";
   }
-}
-						</code></pre>
+}</code></pre>
 					</section>
 
 				<section>

@@ -70,6 +70,7 @@ let tab2 = ["toto","tata","titi"]; //éléments du tableau</code></pre>
                                         </div>
 				</section>
 				<section>
+          <section>
 					<h2>Accès aux éléments</h2>
 					<p>Les tableaux javascript sont des objets possédant des noms de propriété numériques et une propriété <code>length</code>.</p>
 					<p>La notation avec point ne permettant pas un nom commençant par un chiffre, on utilise la notation avec crochets.</p>
@@ -79,6 +80,24 @@ tab[0]; //accès à la propriété 0 => "tata"
 tab[1]; //accès à la propriété 1 => "toto"
 
 tab.length; //3</code></pre>
+</section>
+<section>
+  <div class="breaking_news">
+    <img
+      src="./img/breaking_news.jpg"
+      alt="breaking news"
+    />
+    <span>ES2022</span>
+  </div>
+<h2>Accès aux éléments</h2>
+					<p>La méthode <code>at</code> permet d'obtenir un élément du tableau en partant de la fin si l'argument est négatif.</p>
+					<pre><code class="javascript">let tab = ["tata","toto","titi"];
+
+tab.at(0); //accès à la propriété 0 => "tata"
+tab.at(-1); //accès à la dernière propriété => "titi"
+
+tab[tab.length - 1]; // équivalent sans la méthode at</code></pre>
+</section>
 				</section>
 				<section>
 					<section>
