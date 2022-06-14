@@ -1,4 +1,3 @@
-assert( typeof testPerf((function() {})) == "number" , "Le résultat est un nombre" );
-
-var perf = testPerf(verifEmail_v1);
-assert( perf > 200 && perf < 1000 , "L'ordre de grandeur est respecté" );
+assert( clip(-1,0,100) == 0 , "1er exemple" );
+assert( clip(5,0,100) == 5, "2ème exemple" );
+assert( clip(101,0,100) == 100 , "3ème exemple" );
