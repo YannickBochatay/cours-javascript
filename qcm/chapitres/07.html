@@ -15,8 +15,9 @@ new Date(1422828900000);
     			<code>new Date("2015");
 new Date("2015-02");
 new Date("2015-02-01");
+new Date("2015-02-01T23:15");
 </code>
-    			<question>Les 3 dates sont valides</question>
+    			<question>Les 4 dates sont valides</question>
     			<choix correct>vrai</choix>
     			<choix>faux</choix>
                 <reponse>Appelé avec une chaîne de caractères, celle-ci doit être conforme à l'ISO8601.<br/>
@@ -24,54 +25,6 @@ new Date("2015-02-01");
                 Si le jour n'est pas précisé, la date sera calée au 1er du mois.<br/>
                 Si l'heure n'est pas précisé, la date sera calée à 00h locale.<br/>
                 </reponse>
-    		</qcm>
-
-    		<qcm>
-    			<code>new Date("2015-02-01 23:15");
-new Date("2015-02-01T23:15");
-new Date("2015-02-01T23:15Z");
-</code>
-    			<question>Les 3 dates sont valides</question>
-    			<choix>vrai</choix>
-          <choix correct>faux</choix>
-          <reponse>La norme ISO8601 exige un "T" entre la date et l'heure. Le Z final indique que l'heure est en UTC.</reponse>
-    		</qcm>
-
-    		<qcm>
-    			<code>new Date(2015).getFullYear();</code>
-    			<question>La valeur renvoyée est </question>
-    			<choix>2015</choix>
-    			<choix>"2015"</choix>
-    			<choix correct>1970</choix>
-    			<choix>"1970"</choix>
-                <reponse>Attention au piège. Si on passe un nombre et non une chaîne de caractères, l'argument est considéré comme un timestamp.<br/>
-                    2015 représente donc le nombre de millisecondes écoulées depuis le 1er janvier 1970.<br/>
-                    La méthode <code>getFullYear</code> renvoie un nombre.
-                </reponse>
-    		</qcm>
-
-    		<qcm>
-    			<code>new Date(2015,2).getMonth();</code>
-    			<question>La valeur renvoyée est </question>
-    			<choix>1</choix>
-    			<choix correct>2</choix>
-    			<choix>"01"</choix>
-    			<choix>"02"</choix>
-                <reponse>Si on passe plusieurs arguments, alors le constructeur attend une structure <code>année, mois[, jour[, heures[, minutes[, secondes[, millisecondes]]]]]</code>.
-                    <br/>
-                    La méthode <code>getMonth</code> renvoie un nombre.<br/>
-                    <strong>Attention</strong>, les mois vont de 0 à 11 !
-                </reponse>
-    		</qcm>
-
-    		<qcm>
-    			<code>new Date(2015,13).getMonth();</code>
-    			<question>La valeur renvoyée est </question>
-    			<choix>Error</choix>
-    			<choix>0</choix>
-    			<choix correct>1</choix>
-    			<choix>2</choix>
-                <reponse>Javascript gère les dépassements de ce type. La date représentée sera le 1er février 2016.</reponse>
     		</qcm>
 
     		<qcm>
