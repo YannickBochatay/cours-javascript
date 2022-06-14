@@ -284,7 +284,9 @@ var hljs=function(){"use strict";function e(n){Object.freeze(n)
   e.useBR&&(console.warn("'useBR' option is deprecated and will be removed entirely in v11.0"),
   console.warn("Please see https://github.com/highlightjs/highlight.js/issues/2559")),
   d=T(d,e)},initHighlighting:x,initHighlightingOnLoad:function(){
-  window.addEventListener("DOMContentLoaded",x,!1)},
+    if (["complete","interactive"].includes(document.readyState)) x()
+    else window.addEventListener("DOMContentLoaded",x,!1)
+  },
   registerLanguage:function(e,n){var r=null;try{r=n(t)}catch(n){
   if(console.error("Language definition for '{}' could not be registered.".replace("{}",e)),
   !o)throw n;console.error(n),r=g}
