@@ -140,7 +140,7 @@ let somme = (x,y) => x + y;</code></pre>
 				<pre><code class="javascript">function round(nb,nbDecimales) {
 
     //un argument omis à la valeur undefined
-    if (nbDecimales === undefined) nbDecimales = 0;
+    if (typeof nbDecimales === "undefined") nbDecimales = 0;
 
     let pow = Math.pow(10,nbDecimales);
     return Math.round(nb*pow)/pow;
@@ -613,8 +613,8 @@ for (let i=1;i&lt;=3;i++) {
 					<h3>Immediately Invoked Function Expression</h3>
 					<pre><code class="javascript">(function() {
 
-  function affiche(cpt) {
-    window.alert("Je suis la div n°"+cpt);
+  function affiche() {
+    window.alert("un clic s'est produit');
   }
 
   let div = document.getElementById("maDiv");
