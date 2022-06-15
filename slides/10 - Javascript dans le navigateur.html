@@ -203,7 +203,7 @@ document.body.appendChild(div);</code></pre>
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
           <pre><code class="javascript">let div = document.getElementById("maDiv");
-div.parentNode == document.body; //true
+div.parentNode === document.body; //true
 div.classList.remove("maClasse");</code></pre>
         </section>
 
@@ -287,7 +287,7 @@ div.classList.remove("maClasse");</code></pre>
 
         <section>
           <h2>Gestionnaires d'événements</h2>
-          <p>Très vieille école &#8680; à éviter</p>
+          <p>Très vieille école &#8680; à bannir</p>
           <pre><code class="html">&lt;a href="#" onclick="alert('toto'); return false;"&gt;Cliquez ici&lt;/a&gt;</code></pre>
                                         <div class="fragment">
                                             <p>Vieille école &#8680; à éviter</p>
@@ -307,7 +307,7 @@ lien.addEventListener("click", function(e) {
                                         </div>
         </section>
 
-        <section>
+        <!-- <section>
             <section>
             <h2>Gestionnaires d'événements</h2>
             <h3>mot clé this</h3>
@@ -346,10 +346,9 @@ lien.addEventListener("click", e => {
   console.log(this === lien); //false !
 });</code></pre>
             </section>
-      </section>
+      </section> -->
 
-        <section>
-          <section>
+          <!-- <section>
           <h2>Propagation des événements</h2>
           <p>Par défaut, les fonctions enregistrées s'exécutent de la cible vers la racine du document (bubbling ou bouillonnement).</p>
           <pre><code class="html"><div id="maDiv">
@@ -367,7 +366,7 @@ document.addEventListener("click", function() { alert("titi") });
                                             puis se propage sur <em>div</em> puis sur <em>document</em>.<br/>
 Les 3 messages seront donc affichés, dans l'ordre suivant :<br/>
 "tata" puis "toto" puis "titi".</p>
-          </section>
+          </section> -->
           <!-- <section>
             <h2>Propagation des événements</h2>
             <h3>Précision</h3>
@@ -404,7 +403,6 @@ span.addEventListener("click", function() { alert("tata") }, true);
 
 //un clic sur span affiche "toto" puis "tata"</code></pre>
           </section> -->
-        </section>
 
         <section>
           <h2>L'objet Event</h2>
@@ -459,7 +457,7 @@ lien.addEventListener("click",changeLien);
 </code></pre>
         </section>
 
-        <section>
+        <!-- <section>
           <h2>L'objet Event</h2>
           <h3>Méthode <a target="liens" href="https://developer.mozilla.org/fr/docs/Web/API/Event/stopPropagation">stopPropagation</a></h3>
           Stoppe la propagation de l'événement.
@@ -478,7 +476,7 @@ span.addEventListener("click", function(e) {
   alert("tata");
 });
 </code></pre>
-        </section>
+        </section> -->
 
         <section>
           <h2>L'objet MouseEvent</h2>
@@ -631,7 +629,8 @@ addListener(div,"click",function() { alert("hello world"); });
             <li class="fragment">Pas de pollution de l'espace global (Une seule variable globale <code>jQuery</code> et son alias <code>$</code>)</li>
             <li class="fragment">Compatibilité entre navigateurs</li>
             <li class="fragment">Concision
-              <pre><code class="javascript">for (let elmt of document.querySelectorAll(".classe")) { elmt.remove(); }
+              <pre><code class="javascript">let list = document.querySelectorAll(".classe");
+for (let i=0;i&lt;list.length;i++) { list[i].remove(); }
 // versus
 $('.classe').detach();</code></pre>
             </li>
