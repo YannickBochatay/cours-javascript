@@ -18,13 +18,6 @@
     tbody.appendChild(tr);
   }
 
-  function traiteDate(champ) {
-
-    let strDate = champ.replace(" ","T");
-
-    return new Date(strDate);
-  }
-
   function csv2tab(csv) {
 
     let tab = [];
@@ -38,9 +31,9 @@
 
       obj.id = champs[0];
       obj.commune = champs[1];
-      obj.dvalid = traiteDate(champs[2]);
-      obj.tn = champs[3];
-      obj.tx = champs[4];
+      obj.dvalid = new Date(champs[2]);
+      obj.tn = Number(champs[3]);
+      obj.tx = Number(champs[4]);
 
       tab.push(obj);
 
@@ -49,11 +42,11 @@
     return tab;
   }
 
-  function creeUrl({ id, dpivot }) {
+  function creeUrl({ ids, echs }) {
 
     let url = "http://nihoa-v27b.meteo.fr/cdp1/q_p?";
-    url+= "id="+id.join();
-    url+= "&dpivot="+dpivot.join();
+    url+= "id="+ids.join();
+    url+= "&dpivot="+echs.join();
     url+= "&param=tn,tx&meta=id,commune,dvalid";
 
     return url;
@@ -71,8 +64,8 @@
   trModele.remove();
 
   recupTnTx({
-    id : [290190,315570],
-    dpivot : [0,24]
+    ids : ["290190","315570"],
+    echs : [0,24]
   });
 
 }());
