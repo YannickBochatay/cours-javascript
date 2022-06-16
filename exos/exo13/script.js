@@ -4,9 +4,9 @@
 
     let input = document.getElementById("titrePage");
 
-    input.addEventListener("input",function() {
+    input.addEventListener("input",function(e) {
 
-        document.title = this.value;
+        document.title = e.target.value;
     });
 
 }());

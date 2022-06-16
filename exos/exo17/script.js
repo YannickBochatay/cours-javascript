@@ -4,9 +4,9 @@
 
     let textarea = document.querySelector("textarea[name=monTexte]");
 
-    textarea.addEventListener("input",function() {
+    textarea.addEventListener("input",function(e) {
 
-        localStorage.setItem("maSaisie", this.value);
+        localStorage.setItem("maSaisie", e.target.value);
     });
 
     textarea.value = localStorage.getItem("maSaisie");
