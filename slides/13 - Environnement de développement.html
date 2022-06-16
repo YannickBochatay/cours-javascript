@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="fr">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Cours javascript : environnement de développement</title>
+
+		<meta name="description" content="cours de javascript">
+		<meta name="author" content="Yannick Bochatay">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+        <link rel="stylesheet" href="css/custom.css">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/vs.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+        window.print();
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Javascript</h1>
+					<h3>Environnement de développement</h3>
+				</section>
+
+        <section>
+          <h2>Introduction</h2>
+          <p>Autrefois apprécié pour sa simplicité d'utilisation (un bloc-notes est suffisant), <code>javascript</code>
+          possède désormais un large éventail d'outils d'aide au développement, devenus indispensables pour réaliser des
+          applications riches.</p>
+          <br/>
+          <p>Dans ce chapitre est présenté un exemple d'environnement de développement portable sous Windows.</p>
+        </section>
+
+        <section>
+            <h2>Git</h2>
+            <h3>Logiciel de gestion de versions</h3>
+            <ul>
+              <li>
+                télécharger la version portable sur le <a href="https://git-scm.com/download/win" target="liens">site officiel</a>
+              </li>
+              <li>
+                lancer l'exécutable, créer et choisir le dossier d'installation de votre choix (un répertoire spécifique n'est pas créé automatiquement)
+              </li>
+            </ul>
+        </section>
+
+        <section>
+          <h2>Node.js</h2>
+          <h3>Environnement d'exécution javascript</h3>
+          <ul>
+            <li>
+              télécharger la version Windows Binary (.zip) sur le <a href="https://nodejs.org/en/download/" target="liens">site officiel</a>
+            </li>
+            <li>
+              l'extraire dans <code>usr/bin</code> du répertoire d'installation de git
+            </li>
+            <li>
+              ouvrir le fichier <code>/etc/bash.bashrc</code> dans le répertoire git avec un éditeur de texte
+              et ajouter en fin de fichier :
+              <pre><code class="shell">export PATH=$PATH:/usr/bin/nom_du_repertoire_node/</code></pre>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Visual Studio Code</h2>
+          <ul>
+            <li>
+              télécharger le zip sur le <a href="https://code.visualstudio.com/#alt-downloads" target="liens">site officiel</a>
+              et l'extraire dans le répertoire de votre choix
+            </li>
+            <li>
+              ouvrir VSCode (exécutable <code>code.exe</code>)
+            </li>
+            <li>
+              taper F1 pour ouvrir la console de commandes
+            </li>
+            <li>
+              taper <code>settings json</code> et cliquer sur :
+              <pre><code>Préférences: Afficher les paramètres (en JSON)</code></pre>
+            </li>
+            <li>
+              ajouter :
+              <pre><code class="json">{
+  "git.path": "C:\\Users\\MonProfil\\Chemin\\vers\\Git\\bin\\git.exe",
+  "files.eol" : "\n",
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "terminal.integrated.profiles.windows": {
+    "GitBash": {
+      "path": ["C:\\Users\\MonProfil\\Chemin\\vers\\Git\\bin\\bash.exe"],
+      "icon": "terminal-bash"
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "GitBash"
+}</code></pre>
+            </li>
+          </ul>
+        </section>
+
+      <section>
+        <h2>Extension <code>eslint</code></h2>
+        <h3>Outil de qualité de code</h3>
+        <br/>
+        <p>Dans VSCode : </p>
+
+        <ul>
+          <li>
+            Menu <code>Affichage / Extensions</code>
+          </li>
+          <li>
+            Taper <code>eslint</code> dans le champ de recherche et installer l'extension correspondante.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Création d'un nouveau projet</h2>
+        <h3>Création du répertoire</h3>
+        <ul>
+          <li>créer un répertoire pour votre projet et l'ouvrir dans VSCode par le menu <code>Fichier / Ouvrir le dossier</code></li>
+          <li>
+            dans VSCode, ouvrir un terminal par le menu <code>Terminal</code> ou <code>Ctrl+ù</code>
+          </li>
+        </ul>
+        </section>
+        <section>
+          <h2>Création d'un nouveau projet</h2>
+          <h3>Initialisation de Git</h3>
+          <ul>
+            <li>
+              Dans le terminal taper :
+              <pre><code class="shell">git init</code></pre>
+            </li>
+            <li>
+              créer un fichier <code>.gitignore</code> à la racine du projet et ajouter ces lignes :
+              <pre><code class="shell">node_modules/
+build/</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Création d'un nouveau projet</h2>
+          <h3>Initialisation NPM et ESLint</h3>
+          <ul>
+            <li>
+              Dans le terminal taper la commande suivante et répondre aux questions :
+              <pre><code class="shell">npm init</code></pre>
+            </li>
+            <li>
+              taper ensuite la commande suivante :
+              <pre><code class="shell">npm init @eslint/config</code></pre>
+              <div style="text-align:center">
+                <img src="./img/eslint_init.png" alt="eslint config"/>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Création d'un nouveau projet</h2>
+          <h3>Parcel.js</h3>
+          <ul>
+            <li>
+              Taper la commande suivante pour installer
+              <a href="https://parceljs.org/" target="liens">Parcel.js</a>
+              <pre><code class="shell">npm install --save-dev parcel</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Création d'un nouveau projet</h2>
+          <h3>Ecriture des premiers fichiers</h3>
+          <ul>
+            <li>
+              créer un répertoire <code>src</code> à la racine du projet
+            </li>
+            <li>
+              créer à l'intérieur le fichier <code>index.html</code> suivant :
+              <pre><code class="html">&lt;!doctype html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"/&gt;
+    &lt;title&gt;Mon projet JS&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css" /&gt;
+    &lt;script type="module" src="app.js"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Bonjour le monde&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Création d'un nouveau projet</h2>
+          <h3>Ecriture des premiers fichiers</h3>
+          <ul>
+            <li>
+              créer le fichier <code>styles.css</code> suivant :
+              <pre><code class="css">h1 {
+  color: hotpink;
+}</code></pre>
+            </li>
+            <li>
+              créer le fichier <code>app.js</code> suivant :
+              <pre><code class="javascript">console.log('Ça fonctionne');</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Création d'un nouveau projet</h2>
+          <h3>Lancement de l'application</h3>
+          <ul>
+            <li>
+              Dans le fichier <code>package.json</code> ajouter dans la section <code>scripts</code>
+              <pre><code class="json">"start": "parcel src/index.html"</code></pre>
+            </li>
+            <li>
+              Dans le terminal, taper :
+              <pre><code class="shell">npm start</code></pre>
+            </li>
+            <li>
+              Ouvrir le navigateur à l'adresse <a href="http://localhost:1234" target="liens">http://localhost:1234</a>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Inclusion d'une bibliothèque</h2>
+          <h3>Exemple avec lodash</h3>
+          <ul>
+            <li>
+              Dans le terminal taper la commande suivante
+              <pre><code class="shell">npm install lodash</code></pre>
+            </li>
+            <li>
+              Dans le fichier <code>app.js</code> taper :
+              <pre><code class="javascript">import isEqual from "lodash/isEqual"
+
+console.log(isEqual)</code></pre>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Inclusion d'un fichier JS</h2>
+          <ul>
+            <li>
+              Créer un fichier <code>src/module1.js</code>
+              <pre><code class="javascript">export const MY_CONST = "toto"</code></pre>
+            </li>
+            <li>
+              Dans le fichier <code>app.js</code> taper :
+              <pre><code class="javascript">import { MY_CONST } from "./module1"
+
+console.log(MY_CONST)</code></pre>
+            </li>
+          </ul>
+        </section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/initialize.js"></script>
+
+	</body>
+</html>
