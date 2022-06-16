@@ -348,6 +348,21 @@ console.log(tab); //"nom,age,genre"
             </section>
 				</section>
 
+        <section>
+          <h2>Suppression d'une propriété</h2>
+          <h3>Opérateur <code>delete</code></h3>
+          <pre><code class="javascript">let toto = {
+  nom : "Toto",
+  age : 25,
+  genre : "M"
+};
+
+delete toto.genre;
+delete toto.prenom; // ne génère pas d'erreur
+
+console.log("genre" in toto); //false</code></pre>
+        </section>
+
 				<section>
 					<section>
 						<h2>Objets intégrés</h2>
