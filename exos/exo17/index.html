@@ -7,29 +7,21 @@
     </head>
     <body>
 
-        <h1>localStorage</h1>
+        <h1>Requête fetch simple</h1>
 
         <section class="intitule">
-
-            <p>Le texte saisi dans le champ ci-dessous doit etre sauvegardé coté client à chaque modification de l'utilisateur.
-                <br/>Au rechargement de la page, l'utilisateur doit retrouver sa saisie.
-            </p>
-
-            <p>
-                Eléments à utiliser :
-                <ul>
-                    <li>l'objet <code>localStorage</code> qui permet de stocker des données sur le client.</li>
-                    <li>les méthodes <code>getItem</code> et <code>setItem</code> de l'objet <code>localStorage</code></li>
-                </ul>
-            </p>
+            <p>Récupérer la liste des instructions (format JSON) à l'url <a href="http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc" target="_blank">http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc</a>
+                et afficher cette liste dans le tableau ci-dessous.
+                <br/><br/>
+                Le champ action doit etre un lien vers la page de l'instruction (ex : <a href="http://mpfc.meteo.fr/#/instructions/507" target="_blank">http://mpfc.meteo.fr/#/instructions/507</a> pour l'instruction d'id 507).</p>
         </section>
 
         <section>
-
-            <form>
-                <textarea name="monTexte">Saisir du texte ici...</textarea>
-            </form>
-
+            <ul id="listeDesInstructions">
+                <li id="exemple">
+                    <a href="http://mpfc.meteo.fr/#/instructions/507">Exemple à reproduire</a>
+                </li>
+            </ul>
         </section>
 
     	<script src="script.js"></script>

@@ -1,32 +1,78 @@
 (function() {
 
-    "use strict";
+  "use strict";
 
-    let ul = document.querySelector("#listeDesInstructions");
-    let ex = document.querySelector("#exemple");
+  let tbody = document.querySelector("#tableauPrevisions tbody");
+  let trModele = tbody.querySelector(".modele");
 
-    ex.remove();
+  function insertLigneTableau(prevision) {
 
-    function ajoutInstruction(instruction) {
+    let tr = trModele.cloneNode(true);
+    let tds = tr.children;
 
-      let a = document.createElement("a");
-      a.href = "http://mpfc.meteo.fr/#/instructions/"+instruction.id;
-      a.textContent = instruction.action;
+    tds[0].textContent = prevision.commune;
+    tds[1].textContent = prevision.dvalid.toLocaleDateString();
+    tds[2].textContent = Math.round(prevision.tn/10) + "°C";
+    tds[3].textContent = Math.round(prevision.tx/10) + "°C";
 
-      let li = document.createElement("li");
-      li.appendChild(a);
+    tbody.appendChild(tr);
+  }
 
-      ul.appendChild(li);
-    }
+  function traiteDate(champ) {
 
-    async function recupInstructions() {
+    let strDate = champ.replace(" ","T");
 
-      let res = await fetch('http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc');
-      let instructions = await res.json();
+    return new Date(strDate);
+  }
 
-      instructions.forEach(ajoutInstruction);
-    }
+  function csv2tab(csv) {
 
-    recupInstructions();
+    let tab = [];
+
+    csv.trim().split("\n").forEach(ligne => {
+
+      let obj = {};
+      let champs = ligne.split(";");
+
+      if (champs.length < 5) return;
+
+      obj.id = champs[0];
+      obj.commune = champs[1];
+      obj.dvalid = traiteDate(champs[2]);
+      obj.tn = champs[3];
+      obj.tx = champs[4];
+
+      tab.push(obj);
+
+    });
+
+    return tab;
+  }
+
+  function creeUrl({ id, dpivot }) {
+
+    let url = "http://nihoa-v27b.meteo.fr/cdp1/q_p?";
+    url+= "id="+id.join();
+    url+= "&dpivot="+dpivot.join();
+    url+= "&param=tn,tx&meta=id,commune,dvalid";
+
+    return url;
+  }
+
+  async function recupTnTx(options) {
+
+      let url = creeUrl(options);
+      let res = await fetch(url);
+      let resText = await res.text();
+      let previsions = csv2tab(resText);
+      previsions.forEach(insertLigneTableau);
+  }
+
+  trModele.remove();
+
+  recupTnTx({
+    id : [290190,315570],
+    dpivot : [0,24]
+  });
 
 }());

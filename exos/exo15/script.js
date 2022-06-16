@@ -2,15 +2,26 @@
 
     "use strict";
 
-    let lien = document.getElementById("hautDePage");
+    let tdX = document.getElementById("abcisse"),
+        tdY = document.getElementById("ordonnee"),
+        tdTag = document.getElementById("balise"),
+        descriptElmt = document.getElementById("descriptElmt");
 
-    function checkScroll() {
+    document.addEventListener("mousemove",function(e) {
 
-        lien.classList[ (window.scrollY > 500) ? "remove" : "add" ]("hidden");
-    }
+        tdX.textContent = e.clientX;
+        tdY.textContent = e.clientY;
+        tdTag.textContent = e.target.tagName;
+    });
 
-    window.addEventListener("scroll",checkScroll);
+    document.addEventListener("click",function(e) {
 
-    checkScroll();
+        let target = e.target,
+            str = "";
+
+        for (let n in target) str+= `${n} : ${target[n]}\n`;
+
+        descriptElmt.textContent = str;
+    });
 
 }());

@@ -2,50 +2,32 @@
 <html>
     <head>
     	<meta charset="UTF-8"/>
-        <title>Exercice 13</title>
+        <title>Exercice 14</title>
         <link rel="stylesheet" type="text/css" href="styles.css"/>
     </head>
     <body>
 
-        <h1>Détecter les redimensionnements de la fenetre</h1>
+        <h1>Bouton haut de page</h1>
 
         <section class="intitule">
-            <p>Le but de cet exercice est de détecter les redimensionnements de la fenetre et
-                d'afficher les nouvelles dimensions dans le tableau ci-dessous, ainsi que l'heure de modification.
+            <p>Le but de cet exercice est de créer un bouton "Retour en haut de page" lorsqu'on descend à plus de 500px du haut de page.
+               Dans le cas contraire, le bouton est masqué.<br/>
+               En cliquant sur le bouton, on revient en haut de page.
             </p>
 
             <p>
                 Eléments à utiliser :
                 <ul>
-                    <li>l'évènement <code>resize</code> déclenché par l'objet window</li>
-                    <li>la méthode <code>addEventListener</code> de l'objet window</li>
-                    <li>les propriétés <code>innerWidth</code> et <code>innerHeight</code></li>
-                    <li>le constructeur <code>Date</code></li>
-                    <li>la méthode <code>toLocaleTimeString</code> des instances de Date</li>
-                    <li>la méthode <code>getElementById</code> de l'objet <code>document</code></li>
-                    <li>la propriété <code>textContent</code> des éléments HTML</li>
+                    <li>l'évènement <code>scroll</code> déclenché par l'objet <code>window</code></li>
+                    <li>la méthode <code>addEventListener</code> de l'objet <code>window</code></li>
+                    <li>la propriété <code>scrollY</code> de l'objet <code>window</code></li>
+                    <li>la propriété <code>classList</code> des éléments HTML</li>
+					<li>la classe css "hidden" définie dans le fichier styles.css</li>
                 </ul>
             </p>
         </section>
 
-        <section>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Heure de modification</th>
-                        <th>Largeur de la fenetre</th>
-                        <th>Hauteur de la fenetre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="heure"></td>
-                        <td id="largeur"></td>
-                        <td id="hauteur"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <a id="hautDePage" href="#" role="button">Retour en haut de page</a>
 
     	<script src="script.js"></script>
 
