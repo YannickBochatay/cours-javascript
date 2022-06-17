@@ -159,7 +159,7 @@ console.log("toto : " + toto);
     			<code>class Personne {
   constructor(nom, age) {
     this.nom = nom;
-    this.age = age;
+    this._age = age;
   }
   get age() {
     return this._age;
@@ -170,7 +170,7 @@ console.log("toto : " + toto);
   }
 }
 
-let toto = new Homme("Toto",25);
+let toto = new Personne("Toto",25);
 toto.age;
 </code>
     			<question>La dernière instruction renvoie</question>
@@ -184,7 +184,7 @@ toto.age;
             <code>class Personne {
   constructor(nom, age) {
     this.nom = nom;
-    this.age = age;
+    this._age = age;
   }
   get age() {
     return this._age;
@@ -195,7 +195,7 @@ toto.age;
   }
 }
 
-let toto = new Homme("Toto",25);
+let toto = new Personne("Toto",25);
 toto.age = "titi";</code>
             <question>La dernière instruction renvoie</question>
             <choix>true</choix>
