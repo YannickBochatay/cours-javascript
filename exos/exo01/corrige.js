@@ -6,9 +6,9 @@ let obj = {
 
 let str="";
 
-for (let n in obj) {
-	obj[n] = prompt(n + " : ");
-	str += `${n} : ${obj[n]} \n`;
+for (let key in obj) {
+	obj[key] = prompt(key + " : ");
+	str += `${key} : ${obj[key]} \n`;
 }
 
 alert(str);
