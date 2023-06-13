@@ -671,22 +671,60 @@ toto.age; //27</code></pre>
   vieillir() { this.age++; }
 };</code></pre>
               </section>
+            </section>
+            <section>
               <section>
                 <h2>Méthodes</h2>
-                Piège avec fonction fléchée
+                Piège : perte du contexte
+                <pre><code class="javascript">let toto = {
+  nom : "toto",
+  age : 0,
+  naitre() {
+    setInterval(function() { this.age++; }, 5000);
+    // this ne fait ici plus référence à l'objet toto
+    // ce code ne fonctionne pas
+  }
+};</code></pre>
+<p>Chaque fonction redéfinit la valeur de <code>this</code>.</p>
+              </section>
+              <section>
+                <h2>Méthodes</h2>
+                Perte du contexte : solution historique
+                <pre><code class="javascript">let toto = {
+  nom : "toto",
+  age : 0,
+  naitre() {
+    let that = this;
+    setInterval(function() { that.age++; }, 5000);
+  }
+};</code></pre>
+<p>On garde une référence vers la valeur de <code>this</code> qui nous intéresse.</p>
+              </section>
+              <section>
+                <h2>Méthodes</h2>
+                Perte du contexte : solution avec fonction fléchée
+                <pre><code class="javascript">let toto = {
+  nom : "toto",
+  age : 0,
+  naitre() {
+    setInterval(() => this.age++, 5000);
+  }
+};</code></pre>
+<p>Les fonctions fléchées ne créent pas de nouveau contexte. La valeur de <code>this</code> est la même que dans le contexte parent.</p>
+              </section>
+            </section>
+              <!--<section>
+                <h2>Méthodes</h2>
+                Attention au piège !
                 <pre><code class="javascript">let toto = {
   nom : "toto",
   age : 25,
   vieillir : () => this.age++
 };
-
-toto.vieillir(); // this.age est équivalent à window.age
-toto.age; // 25
 </code></pre>
-<p>Les fonctions fléchées ne créent pas de nouveau contexte. La valeur de <code>this</code> est la même que dans le contexte parent.</p>
+<p>La fonction fléchée ne créant pas de nouveau contexte, <code>this</code> ne fait pas référence .</p>
               </section>
-          </section>
-				<!--<section>
+				<section>
 					<h2>Méthodes</h2>
 					<h3>Piège : perte du contexte</h3>
 					<pre><code class="javascript">let toto = {
