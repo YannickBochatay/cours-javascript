@@ -1,12 +1,15 @@
-function modifObjet( objAModifier, propsAModifier ) {
+function recupProps(props, propsDefaut) {
 
 	/* votre code */
 }
 
 //exemple
-let obj = { nom : "Toto" };
+let propsDefaut = { age : 26, nom : "Toto", sexe : "M" }
+let obj = { nom : "Tata" }
+let props = recupProps(obj, propsDefaut);
 
-modifObjet( obj, { age : 26, nom : "Tata" } );
+props.age; //26
+props.nom; //Tata (la propriété existait déjà, elle n'est pas modifiée)
 
-obj.age; //26
-obj.nom; //Toto (la propriété existait déjà, elle n'est pas modifiée)
+props; // { nom : "Tata" } Les objets initiaux ne sont pas modifiés
+propsDefaut; // { age : 26, nom : "Toto", sexe : "M" }
