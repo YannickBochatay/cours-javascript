@@ -307,7 +307,7 @@ n; //1 + 2 + 4 + 5</code></pre>
     return false;
   }
 
-  return tableau[tableau.length - 1];
+  return tableau.at(-1);
 }
 					</code></pre>
 <p>Ce code n'est pas très bon pour plusieurs raisons</p>
@@ -420,7 +420,7 @@ e; //Exception : e is not defined;
 					<h3>Exemple</h3>
 					<pre><code class="javascript">let i=0;
 
-window.setTimeout(function() { i++; },1000);
+window.setTimeout(() => i++, 1000);
 
 console.log(i); //?</code></pre>
 				</section>
@@ -436,9 +436,7 @@ console.log(img.width); //0
 //car l'image est chargée de manière asynchrone
 
 //mais
-img.onload = function() {
-  console.log(img.width); //71
-}
+img.addEventListener("load", () => console.log(img.width) /* 71 */);
 
 //quand l'image est chargée, l'évènement "load" est déclenché
 //et les fonctions liées à l'évènement sont exécutées.
@@ -452,21 +450,21 @@ img.onload = function() {
 //les unes après les autres, avec une pause de 5 secondes entre chaque
 let img = new Image();
 img.src = "http://monServeur/monImage1.png";
-img.onload = function() {
-  window.setTimeout(function() {
+img.addEventListener("load", () => {
+  window.setTimeout(() => {
     let img = new Image();
     img.src = "http://monServeur/monImage2.png";
-    img.onload = function() {
-      window.setTimeout(function() {
+    img.addEventListener("load", () => {
+      window.setTimeout(() => {
         let img = new Image();
         img.src = "http://monServeur/monImage3.png";
-        img.onload = function() {
+        img.addEventListener("load", () => {
           //etc etc
-        };
+        });
       },5000);
-    };
-  },5000)
-};</code></pre>
+    });
+  },5000);
+});</code></pre>
 				</section>
 
 				<section>
@@ -475,7 +473,7 @@ img.onload = function() {
 					<pre><code class="javascript" style="max-height:1000px">function chargerImage(src,callback) {
   let img = new Image();
   img.src = "http://monServeur/"+src;
-  img.onload = function() { window.setTimeout(callback,5000); }
+  img.addEventListener("load", () => window.setTimeout(callback, 5000));
 }
 
 chargerImage("monImage1.png", () => {
@@ -494,7 +492,7 @@ chargerImage("monImage1.png", () => {
   return new Promise(resolve => {
     let img = new Image();
     img.src = "http://monServeur/"+src;
-    img.onload = () => resolve(img);
+    img.addEventListener("load", () => resolve(img));
   });
 }
 
@@ -520,8 +518,8 @@ chargerImage("monImage1.png")
   return new Promise((resolve, reject) => {
     let img = new Image();
     img.src = "http://monServeur/"+src;
-    img.onload = () => resolve(img);
-    img.onerror = () => reject(new Error("erreur de chargement"));
+    img.addEventListener("load", () => resolve(img));
+    img.addEventListener("error, () => reject(new Error("erreur de chargement")));
   });
 }
 
