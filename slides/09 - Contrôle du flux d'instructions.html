@@ -325,7 +325,7 @@ n; //1 + 2 + 4 + 5</code></pre>
 
   if (tableau.length === 0) throw new Error("Le tableau est vide");
 
-  return tableau[tableau.length - 1];
+  return tableau.at(-1);
 }</code></pre>
 					<p>C'est à l'appel de la fonction que l'on décide comment gérer l'erreur.</p>
 					<pre><code class="javascript">try { dernierElement([]); }
