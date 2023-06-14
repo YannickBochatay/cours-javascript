@@ -1,9 +1,11 @@
-let tempsEcoule=0;
-let timer = window.setInterval(logEtIncremente,1000);
-
-function logEtIncremente() {
-
-	console.log(++tempsEcoule);
-
-	if (tempsEcoule===10) window.clearInterval(timer);
+function lanceChrono() {
+  
+  let cpt = 0;
+  
+  let timer = setInterval(() => {
+    console.log(++cpt);
+    if (cpt === 10) clearInterval(timer);
+  }, 1000);
 }
+
+lanceChrono();
