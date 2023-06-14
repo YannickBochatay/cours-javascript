@@ -1,10 +1,10 @@
 function lanceChrono() {
   
-  let cpt = 0;
+  let tempsEcoule = 0;
   
-  let timer = setInterval(() => {
-    console.log(++cpt);
-    if (cpt === 10) clearInterval(timer);
+  let id = setInterval(() => {
+    console.log(++tempsEcoule);
+    if (tempsEcoule === 10) clearInterval(id);
   }, 1000);
 }
 
