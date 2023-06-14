@@ -519,7 +519,7 @@ chargerImage("monImage1.png")
     let img = new Image();
     img.src = "http://monServeur/"+src;
     img.addEventListener("load", () => resolve(img));
-    img.addEventListener("error, () => reject(new Error("erreur de chargement")));
+    img.addEventListener("error", () => reject(new Error("erreur de chargement")));
   });
 }
 
