@@ -30,7 +30,7 @@
 
         var path = "exos/"+exo+"/";
         
-        var scriptVierge = ";(function() {\n\n    \"use strict\";\n\n    /*\n    * votre code\n    */\n\n}());";
+        var scriptVierge = "(function() {\n\n    \"use strict\";\n\n    /*\n    * votre code\n    */\n\n}());";
         
         Promise
         .all( [ get(path+"index.html"), get(path+"styles.css"), type == "correction" ? get(path+"script.js") : scriptVierge ] )
