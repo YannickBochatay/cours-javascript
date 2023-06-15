@@ -44,7 +44,7 @@
 
   function creeUrl({ ids, echs }) {
 
-    let url = "http://nihoa-v27b.meteo.fr/cdp1/q_p?";
+    let url = "http://base-cdp.meteo.fr/cdp1/q_p?";
     url+= "id="+ids.join();
     url+= "&dpivot="+echs.join();
     url+= "&param=tn,tx&meta=id,commune,dvalid";
