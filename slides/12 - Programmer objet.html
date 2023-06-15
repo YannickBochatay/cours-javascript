@@ -90,39 +90,33 @@ toto.vieillir();</code></pre>
 				<section>
           <section>
 					<h2>Propriétés/méthodes privées</h2>
-<p>Par convention on commence les noms de variables par "_".</p>
+            <h3>Introduites dans la norme ES2022</h3>
 <pre><code class="javascript">class MaClasse {
-
-  constructor() {
-    this._propPrivee = true;
-  }
-
-  _methodePrivee() {
-    /* ... */
-  }
-}</code></pre>
-				</section>
-        <section>
-          <div class="breaking_news">
-            <img
-              src="./img/breaking_news.jpg"
-              alt="breaking news"
-            />
-            <span>ES2022</span>
-          </div>
-          <br/>
-					<h2>Propriétés/méthodes privées</h2>
-<p>Avec ES2022, on utilise le préfixe "#</p>
-<pre><code class="javascript">class MaClasse {
-  #propPrivee
+  #propPrivee = true;
 
   #methodePrivee() {
     /* ... */
   }
 }
+let obj = new MaClasse();
+obj.#propPrivee; // SyntaxError
+obj.#methodePrivee(); // SyntaxError
+</code></pre>
+				</section>
+        <section>
+					<h2>Propriétés/méthodes privées</h2>
+<p>Avant ES2022, on utilisait par convention "_"</p>
+<pre><code class="javascript">class MaClasse {
+  _propPrivee = true;
 
-let monObjet = new MaClasse()
-monObjet.#propPrivee // Error
+  _methodePrivee() {
+    /* ... */
+  }
+}
+
+let obj = new MaClasse();
+obj._propPrivee; // true
+obj._methodePrivee(); // pas d'erreur
 </code></pre>
 				</section>
       </section>
