@@ -86,6 +86,22 @@ toto.vieillir();</code></pre>
 let toto = new Personne("Toto", 25);
 toto.vieillir();</code></pre>
 				</section>
+        
+        <section>
+          <section>
+					<h2>Déclaration des propriétés</h2>
+<pre><code class="javascript">class MaClasse {
+  
+  propPublique = "coucou";
+
+  constructor(msg) {
+    if (msg) this.propPublique = msg;
+  }
+}
+let obj = new MaClasse();
+obj.propPublique; // "coucou"
+</code></pre>
+				</section>
 
 				<section>
           <section>
