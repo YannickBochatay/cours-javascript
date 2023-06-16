@@ -205,9 +205,11 @@ console.log( JSON.stringify(toto) ); //'{"nom":"Toto"}'
 				<section>
 						<h2>Accesseurs et mutateurs</h2>
 						<pre><code class="javascript" style="max-height:1000px">class Personne {
+  
+  #age = 0;
+  
   constructor(nom) {
     this.nom = nom;
-    this.#age = 0;
   }
 
   get age() {
@@ -256,10 +258,8 @@ let toto = new MABIBLIO.MaClasse();</code></pre>
 
   BIBLIO.MaClasse = class {
 
-    constructor() {
-      this.maProprietePublique = ""
-      this.#maProprietePrivee = ""
-    }
+    #maProprietePrivee = "";
+    maProprietePublique = "";
 
     maMethodePublique() { /*...*/ }
 
