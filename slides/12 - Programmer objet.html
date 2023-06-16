@@ -207,16 +207,16 @@ console.log( JSON.stringify(toto) ); //'{"nom":"Toto"}'
 						<pre><code class="javascript" style="max-height:1000px">class Personne {
   constructor(nom) {
     this.nom = nom;
-    this._age = 0;
+    this.#age = 0;
   }
 
   get age() {
-    return this._age;
+    return this.#age;
   }
 
   set age(val) {
     if (typeof val !== "number") throw new TypeError("pas un nombre");
-    this._age = val;
+    this.#age = val;
   }
 }
 
@@ -258,15 +258,15 @@ let toto = new MABIBLIO.MaClasse();</code></pre>
 
     constructor() {
       this.maProprietePublique = ""
-      this._maProprietePrivee = ""
+      this.#maProprietePrivee = ""
     }
 
     maMethodePublique() { /*...*/ }
 
-    _maMethodePrivee() { /*...*/ }
+    #maMethodePrivee() { /*...*/ }
 
-    get maPropriete() { return this._maProprietePrivee; }
-    set maPropriete(val) { this._maProprietePrivee = val; }
+    get maPropriete() { return this.#maProprietePrivee; }
+    set maPropriete(val) { this.#maProprietePrivee = val; }
 
     static maMethodeStatique() { /*...*/ }
   }
