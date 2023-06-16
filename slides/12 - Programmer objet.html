@@ -87,7 +87,6 @@ let toto = new Personne("Toto", 25);
 toto.vieillir();</code></pre>
 				</section>
         
-        <section>
           <section>
 					<h2>Déclaration des propriétés</h2>
 <pre><code class="javascript">class MaClasse {
@@ -108,12 +107,14 @@ obj.propPublique; // "coucou"
 					<h2>Propriétés/méthodes privées</h2>
             <p>Introduites dans la norme ES2022</p>
 <pre><code class="javascript">class MaClasse {
+
   #propPrivee = true;
 
   #methodePrivee() {
     /* ... */
   }
 }
+
 let obj = new MaClasse();
 obj.#propPrivee; // SyntaxError
 obj.#methodePrivee(); // SyntaxError
@@ -123,6 +124,7 @@ obj.#methodePrivee(); // SyntaxError
 					<h2>Propriétés/méthodes privées</h2>
 <p>Avant ES2022, on utilisait par convention "_"</p>
 <pre><code class="javascript">class MaClasse {
+
   _propPrivee = true;
 
   _methodePrivee() {
