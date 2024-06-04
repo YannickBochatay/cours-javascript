@@ -191,9 +191,7 @@ window.setTimeout(coucou, 3000);</code>
     		</qcm>
 
         <qcm important>
-          <code>window.setTimeout( function() {
-  console.log("coucou")
-}, 3000);</code>
+          <code>window.setTimeout(() => console.log("coucou"), 3000);</code>
           <question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
           <choix correct>vrai</choix>
           <choix>faux</choix>
@@ -234,7 +232,7 @@ i++;</code>
           <code>let toto = {
   nom : "toto",
   age : 25,
-  renaitre : function() { this.age = 0; }
+  renaitre() { this.age = 0; }
 };
 
 toto.renaitre();

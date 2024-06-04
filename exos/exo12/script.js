@@ -1,12 +1,6 @@
-(function() {
+let input = document.getElementById("titrePage");
 
-    "use strict";
+input.addEventListener("input",function(e) {
 
-    let input = document.getElementById("titrePage");
-
-    input.addEventListener("input",function(e) {
-
-        document.title = e.target.value;
-    });
-
-}());
+    document.title = e.target.value;
+});

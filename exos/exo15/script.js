@@ -1,27 +1,21 @@
-(function() {
+let tdX = document.getElementById("abcisse"),
+    tdY = document.getElementById("ordonnee"),
+    tdTag = document.getElementById("balise"),
+    descriptElmt = document.getElementById("descriptElmt");
 
-    "use strict";
+document.addEventListener("mousemove",function(e) {
 
-    let tdX = document.getElementById("abcisse"),
-        tdY = document.getElementById("ordonnee"),
-        tdTag = document.getElementById("balise"),
-        descriptElmt = document.getElementById("descriptElmt");
+    tdX.textContent = e.clientX;
+    tdY.textContent = e.clientY;
+    tdTag.textContent = e.target.tagName;
+});
 
-    document.addEventListener("mousemove",function(e) {
+document.addEventListener("click",function(e) {
 
-        tdX.textContent = e.clientX;
-        tdY.textContent = e.clientY;
-        tdTag.textContent = e.target.tagName;
-    });
+    let target = e.target,
+        str = "";
 
-    document.addEventListener("click",function(e) {
+    for (let n in target) str+= `${n} : ${target[n]}\n`;
 
-        let target = e.target,
-            str = "";
-
-        for (let n in target) str+= `${n} : ${target[n]}\n`;
-
-        descriptElmt.textContent = str;
-    });
-
-}());
+    descriptElmt.textContent = str;
+});

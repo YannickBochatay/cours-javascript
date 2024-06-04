@@ -1,3 +1,3 @@
-function recupProps(props, propsDefaut) {
-  return { ...propsDefault, ...props }
+function initProps(props, propsDefaut) {
+  return { ...propsDefaut, ...props }
 }

@@ -165,21 +165,6 @@ x;
         <qcm>
           <code>let toto = { nom : "toto", age : 26 };
 
-let { age : { x } } = toto;
-
-x;
-</code>
-          <question>La valeur renvoyée est </question>
-          <choix correct>undefined</choix correct>
-          <choix>26</choix>
-          <choix>erreur de syntaxe</choix>
-        <reponse>Il s'agit d'une affectation par décomposition à plusieurs niveaux.
-          On affecte à la variable "x" la valeur de la propriété "x" de l'objet "age" lui-même propriété de toto.</reponse>
-        </qcm>
-
-        <qcm>
-          <code>let toto = { nom : "toto", age : 26 };
-
 let { age, ...autres } = toto;
 
 autres;

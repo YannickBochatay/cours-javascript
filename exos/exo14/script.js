@@ -1,16 +1,10 @@
-(function() {
+let lien = document.getElementById("hautDePage");
 
-    "use strict";
+function checkScroll() {
 
-    let lien = document.getElementById("hautDePage");
+    lien.classList[ (window.scrollY > 500) ? "remove" : "add" ]("hidden");
+}
 
-    function checkScroll() {
+window.addEventListener("scroll",checkScroll);
 
-        lien.classList[ (window.scrollY > 500) ? "remove" : "add" ]("hidden");
-    }
-
-    window.addEventListener("scroll",checkScroll);
-
-    checkScroll();
-
-}());
+checkScroll();

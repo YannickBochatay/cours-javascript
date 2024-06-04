@@ -18,8 +18,8 @@ function verifEmail_v3(email) {
 function testPerf(fct) {
 
     let start = Date.now();
-    
-    for (let i=0;i<1e7;i++) fct();
+
+    for (let i=0;i<10_000_000;i++) fct();
 
     return Date.now() - start;
 }

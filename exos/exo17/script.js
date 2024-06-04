@@ -1,32 +1,26 @@
-(function() {
+let ul = document.querySelector("#listeDesInstructions");
+let ex = document.querySelector("#exemple");
 
-    "use strict";
+ex.remove();
 
-    let ul = document.querySelector("#listeDesInstructions");
-    let ex = document.querySelector("#exemple");
+function ajoutInstruction(instruction) {
 
-    ex.remove();
+  let a = document.createElement("a");
+  a.href = "http://mpfc.meteo.fr/#/instructions/"+instruction.id;
+  a.textContent = instruction.action;
 
-    function ajoutInstruction(instruction) {
+  let li = document.createElement("li");
+  li.appendChild(a);
 
-      let a = document.createElement("a");
-      a.href = "http://mpfc.meteo.fr/#/instructions/"+instruction.id;
-      a.textContent = instruction.action;
+  ul.appendChild(li);
+}
 
-      let li = document.createElement("li");
-      li.appendChild(a);
+async function recupInstructions() {
 
-      ul.appendChild(li);
-    }
+  let res = await fetch('http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc');
+  let instructions = await res.json();
 
-    async function recupInstructions() {
+  instructions.forEach(ajoutInstruction);
+}
 
-      let res = await fetch('http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc');
-      let instructions = await res.json();
-
-      instructions.forEach(ajoutInstruction);
-    }
-
-    recupInstructions();
-
-}());
+recupInstructions();

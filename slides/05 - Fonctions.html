@@ -220,7 +220,7 @@ console.log(monObjet); // { x:0, y:0 }</code></pre>
 					<h2>Paramètres du reste</h2>
 					<p>Cette écriture permet d'obtenir dans un tableau des paramètres "supplémentaires"</p>
 					<pre><code class="javascript">function maFonction(paramRequis1, paramRequis2, ...paramsOptionnels) {
-  for (let i=0;i&lt;paramsOptionnels.length;i++) {
+  for (let param of paramsOptionnels) {
     window.alert(paramsOptionnels[i]);
   }
 }
@@ -408,23 +408,12 @@ est passée en argument de la fonction setTimeout.</p>
 				<section>
 					<h2>Fonctions anonymes</h2>
 					<p>L'exemple précédent peut s'écrire de la manière suivante :</p>
-<pre><code class="javascript">window.setTimeout(function() {
-  console.log("coucou");
-},3000);
-
-let lien = document.getElementById("monLien");
-lien.addEventListener("click",function() {
-  console.log("hello");
-});
-</code></pre>
-<div class="fragment">
-<p>Avec des fonctions fléchées :</p>
-<pre><code class="javascript">window.setTimeout(() => console.log("coucou"),3000);
+<pre><code class="javascript">window.setTimeout(() => console.log("coucou"), 3000);
 
 let lien = document.getElementById("monLien");
 lien.addEventListener("click",() => console.log("hello"));
 </code></pre>
-</div>
+<p>Pour les fonctions anonymes, on privilégie en général l'emploi des fonctions fléchées.</p>
         </section>
 
 				<section>
@@ -524,17 +513,7 @@ window.setTimeout( log("coucou") , 3000);
   console.log("Voici le message :\n" + message);
 }
 
-window.setTimeout(function() {
-  log("coucou");
-},3000);</code></pre>
-<div class="fragment">
-  <p>Avec une fonction fléchée</p>
-  <pre><code class="javascript">function log(message) {
-  console.log("Voici le message :\n" + message);
-}
-
 window.setTimeout(() => log("coucou"),3000);</code></pre>
-</div>
 				</section>
 
 				<!--<section>
@@ -601,7 +580,7 @@ for (let i=1;i&lt;=3;i++) {
                                     </section>
                                 </section>-->
 
-				<section>
+				<!-- <section>
 					<h2>Autre problème</h2>
 <p>Mes variables ont des noms très génériques et une portée globale.
 <br/>Que se passe-t-il si j'écris une autre portion de code avec des noms semblables ?
@@ -641,16 +620,15 @@ for (let i=1;i&lt;=3;i++) {
 <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Modules" target="liens">modules javascript</a>
 (mais ils nécessitent un serveur de développement).</p>
 				</section>
-
+ -->
 
 					<section>
-            <section>
               <h2>Méthodes</h2>
               <p>Une méthode d'un objet est une propriété de type <code>function</code>.</p>
               <pre><code class="javascript">let toto = {
   nom : "toto",
   age : 25,
-  vieillir : function() { this.age++; }
+  vieillir() { this.age++; }
 };
 
 typeof toto.vieillir; //"function"
@@ -661,16 +639,6 @@ toto.age; //26
 typeof toto.vieillir(); //"undefined"
 toto.age; //27</code></pre>
 					    <p>Dans la méthode d'un objet, le mot clé <code>this</code> fait référence à l'objet lui-même.</p>
-            </section>
-            <section>
-                <h2>Méthodes</h2>
-                Raccourci possible
-                <pre><code class="javascript">let toto = {
-  nom : "toto",
-  age : 25,
-  vieillir() { this.age++; }
-};</code></pre>
-              </section>
             </section>
             <section>
               <section>

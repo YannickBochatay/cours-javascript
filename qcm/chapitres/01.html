@@ -1,61 +1,50 @@
 <qcm>
-    			<code>"use strict";
-function maFonction() {
-	"suis-je en mode strict ?";
-}</code>
-    			<question>L'affirmation est vraie</question>
-    			<choix correct>oui</choix>
-    			<choix>non</choix>
-				<reponse>Déclaré en début de fichier, le mode strict s'applique à tout le script</reponse>
-    		</qcm>
-    	
-    		<qcm>
-    			<code>"use strict";
-function maFonction() {
-	function maSousFonction() {
-		"suis-je en mode strict ?";
-	}
-}</code>
-    			<question>L'affirmation est vraie</question>
-    			<choix correct>oui</choix>
-    			<choix>non</choix>
-				<reponse>Déclaré en début de fichier, le mode strict s'applique à tout le script</reponse>
-    		</qcm>
-    		
-    		<qcm>
-    			<code>function maFonction() {
-	"use strict";
-	function maSousFonction() {
-		"suis-je en mode strict ?";
-	}
-}</code>
-    			<question>L'affirmation est vraie</question>
-    			<choix correct>oui</choix>
-    			<choix>non</choix>
-				<reponse>Déclaré en début de fonction, le mode strict s'applique à toute la fonction, y compris les sous-fonctions</reponse>
-    		</qcm>
-		
-			<qcm>
-    			<code>function maFonction() {
-	"use strict";
-}
-"suis-je en mode strict ?";</code>
-    			<question>L'affirmation est vraie</question>
+  <question>Javascript a été inventé par Microsoft pour Internet Explorer</question>
+  <choix>vrai</choix>
+  <choix correct>faux</choix>
+<reponse>Javascript a été inventé par Brendan Eich de Netscape Communications.</reponse>
+</qcm>
+
+<qcm>
+  <question>Javascript est dérivé de Java</question>
+  <choix>vrai</choix>
+  <choix correct>faux</choix>
+<reponse>Javascript et Java n'ont en commun que leur nom.</reponse>
+</qcm>
+
+<qcm>
+  <question>Après les navigateurs web, le principal environnement d'exécution de javascript est </question>
+  <choix>Flash</choix>
+  <choix>Extensions de Firefox</choix>
+  <choix>Photoshop</choix>
+  <choix correct>Node.js</choix>
+<reponse>Node.js est devenu une plateforme très populaire pour le développement côté serveur.</reponse>
+</qcm>
+
+  <qcm>
+    			<code>let toto = "tata";
+let Toto = "tata";
+          </code>
+    			<question>Ce code génère une erreur</question>
     			<choix>oui</choix>
     			<choix correct>non</choix>
-				<reponse>Déclaré en début de fonction, le mode strict s'applique à la fonction mais pas en dehors</reponse>
+				<reponse>Javascript est sensible à la casse, les deux variables sont distinctes.</reponse>
     		</qcm>
-    		
+
+        <qcm>
+    			<question>Un point virgule est obligatoire après chaque instruction</question>
+    			<choix>vrai</choix>
+    			<choix correct>faux</choix>
+				<reponse>En l'absence d'un outil de qualité de code, il est conseillé mais pas toujours obligatoire
+          de mettre un point virgule en fin d'instruction.
+        </reponse>
+    		</qcm>
+
+
     		<qcm>
-    			<code>function maFonction() {
-	
-	function maSousFonction() {
-		"use strict";
-	}
-	"suis-je en mode strict ?";
-}</code>
-    			<question>L'affirmation est vraie</question>
+    			<code>#ceci est un commentaire</code>
+    			<question>Cette ligne est un commentaire ignoré par l'interpréteur</question>
     			<choix>oui</choix>
     			<choix correct>non</choix>
-				<reponse>Déclaré en début de fonction, le mode strict s'applique à la fonction mais pas en dehors</reponse>
+				<reponse>Les commentaires s'insèrent par // ou la séquence /* */</reponse>
     		</qcm>

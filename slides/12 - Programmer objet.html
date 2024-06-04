@@ -86,11 +86,11 @@ toto.vieillir();</code></pre>
 let toto = new Personne("Toto", 25);
 toto.vieillir();</code></pre>
 				</section>
-        
+
           <section>
 					<h2>Déclaration des propriétés</h2>
 <pre><code class="javascript">class MaClasse {
-  
+
   propPublique = "coucou";
 
   constructor(msg) {
@@ -106,7 +106,6 @@ obj.propPublique; // "coucou"
 				<section>
           <section>
 					<h2>Propriétés/méthodes privées</h2>
-            <p>Introduites dans la norme ES2022</p>
 <pre><code class="javascript">class MaClasse {
 
   #propPrivee = true;
@@ -224,9 +223,9 @@ console.log( JSON.stringify(toto) ); //'{"nom":"Toto"}'
 				<section>
 						<h2>Accesseurs et mutateurs</h2>
 						<pre><code class="javascript" style="max-height:1000px">class Personne {
-  
+
   #age = 0;
-  
+
   constructor(nom) {
     this.nom = nom;
   }
@@ -246,7 +245,7 @@ toto.age; // 0
 toto.age = 25;
 toto.age = "titi"; // TypeError
 </code></pre></section>
-
+<!--
 				<section>
 					<h2>Espaces de noms</h2>
 					<p>Il n'y a pas d'espace de noms à proprement parler en javascript. On utilise les objets.</p>
@@ -268,7 +267,7 @@ MABIBLIO.MaClasse = class {
 let toto = new MABIBLIO.MaClasse();</code></pre>
 				</section>
 
-
+ -->
 				<!-- <section>
 					<h2>En résumé</h2>
 					<pre><code class="javascript" style="max-height:1500px">(function(root) { "use strict";

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="fr">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Cours javascript : Modules</title>
+
+		<meta name="description" content="cours de javascript">
+		<meta name="author" content="Yannick Bochatay">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+        <link rel="stylesheet" href="css/custom.css">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/vs.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+        window.print();
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>Javascript</h1>
+					<h3>Modules</h3>
+				</section>
+
+				<section>
+          <section>
+            <h2>Généralités</h2>
+            <p>L'écriture en modules permet une meilleure organisation du code en le scindant en différents fichiers, qui échangent des
+              fonctionnalités via les instructions <code>import</code> et <code>export</code>.
+            </p>
+            <ul>
+              <li>Nécessite un serveur de développement (ex :
+                <a href="https://ritwickdey.github.io/vscode-live-server/" target="liens">Live Server</a>)
+              </li>
+              <li>
+                Exécution en
+                <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Strict_mode" target="liens">
+                  mode strict
+                </a>
+              </li>
+              <li>
+                Chargement en parallèle de l'analyse de la page, exécution ensuite (équivalent à la propriété
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer" target="liens">
+                  <code>defer</code></a>)
+              </li>
+              <li>
+                Les différents modules ne partagent pas le même contexte
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>Généralités</h2>
+            <p>Avant l'introduction des modules, tous les scripts partageaient le même espace global</p>
+            <pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="UTF-8"/&gt;
+      &lt;title&gt;Ma page&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;script src="script1.js"&gt;&lt;/script&gt;
+      &lt;script src="script2.js"&gt;&lt;/script&gt;
+      &lt;script&gt;
+          alert(maVariable); //tata
+      &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                          <p><small>script1.js</small></p>
+                          <pre><code>var maVariable = "toto";</code></pre>
+                          <p><small>script2.js</small></p>
+                          <pre><code>var maVariable = "tata";</code></pre>
+          </section>
+          <section>
+              <h2>Généralités</h2>
+              <p>Pour pallier ce problème, on utilisait des IIFE (Immediately Invoked Function Expression).</p>
+              <pre><code class="javascript">(function() {
+  "use strict";
+
+  function affiche() {
+    window.alert("un clic s'est produit");
+  }
+
+  let div = document.getElementById("maDiv");
+
+  div.addEventListener("click", affiche);
+
+  window.variableApartager = "quelque chose à partager";
+
+}());</code></pre>
+                <p>Le code est encapsulé dans une fonction anonyme aussitôt exécutée, ce qui protège les variables de l'espace global.</p>
+            </section>
+        </section>
+
+				<section>
+					<h2>Exemple d'utilisation</h2>
+          <pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+      &lt;meta charset="UTF-8"/&gt;
+      &lt;title&gt;Ma page&lt;/title&gt;
+      &lt;script type="module" src="script1.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;!-- Contenu de la page --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <p><small>script1.js</small></p>
+        <pre><code class="javascript">import { test, nom, nom2 } from "./script2.js"</code></pre>
+        <p><small>script2.js</small></p>
+					<pre><code class="javascript">const nom = "une valeur à partager";
+export { nom };
+
+export const nom2 = "autre valeur à partager";
+
+export function test() { /* une fonctionnalité à partager */ }</code></pre>
+				</section>
+
+        <section>
+					<h2>Export par défaut</h2>
+          <p><small>script1.js</small></p>
+          <pre><code class="javascript">export const nom = "valeur à partager";
+
+export default function test() { /* une fonctionnalité à partager */ }</code></pre>
+          <p><small>script2.js</small></p>
+          <pre><code class="javascript">import testFct from "./script1.js"</code></pre>
+				</section>
+
+        <section>
+					<h2>Renommage</h2>
+          <p><small>script1.js</small></p>
+          <pre><code class="javascript">export function test() { /* une fonctionnalité à partager */ }</code></pre>
+          <p><small>script2.js</small></p>
+          <pre><code class="javascript">import { test as monChoixDeNom } from "./script1.js"</code></pre>
+				</section>
+
+        <section>
+					<h2>Objet module</h2>
+          <p><small>script1.js</small></p>
+          <pre><code class="javascript">export const nom = "une valeur à partager";
+
+export function test() { /* une fonctionnalité à partager */ }</code></pre>
+          <p><small>script2.js</small></p>
+          <pre><code class="javascript">import * as Module from "./script1.js"
+
+Module.nom // "une valeur à partager"
+Module.test()</code></pre>
+				</section>
+
+        <section>
+					<h2>Aggrégation de modules</h2>
+          <p><small>utils/fct1.js</small></p>
+          <pre><code class="javascript">export default function fct() { /* ... */ }</code></pre>
+          <p><small>utils/fct2.js</small></p>
+          <pre><code class="javascript">export default function fct() { /* ... */ }</code></pre>
+          <p><small>utils/index.js</small></p>
+          <pre><code class="javascript">export { default as fct1 } from "./utils/fct1.js"
+export { default as fct2 } from "./utils/fct2.js"</code></pre>
+          <p><small>script.js</small></p>
+          <pre><code class="javascript">import { fct1, fct2 } from "./utils/index.js"</code></pre>
+				</section>
+
+        <section>
+					<h2>Chargement dynamique</h2>
+          Permet de charger la ressource uniquement si besoin
+          <p><small>script1.js</small></p>
+          <pre><code class="javascript">export function fct() { /* ... */ }</code></pre>
+          <p><small>script2.js</small></p>
+          <pre><code class="javascript">const button = document.getElementById("monBouton");
+
+button.addEventListener("click", async() => {
+  const Module = await import("./script1.js");
+  Module.fct();
+})</code></pre>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script src="js/initialize.js"></script>
+
+	</body>
+</html>

@@ -1,8 +1,7 @@
 function concat(...args) {
+  let str = "";
 
-  let str ='';
-
-  for (let i=0;i<args.length;i++) str+=args[i];
+  for (let arg of args) str += args;
 
   return str;
 }

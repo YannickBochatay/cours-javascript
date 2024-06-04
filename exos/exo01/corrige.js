@@ -1,7 +1,7 @@
 let obj = {
 	nom : null,
-	age : null,
-	sexe : null
+  prenom : null,
+	age : null
 };
 
 for (let key in obj) {

@@ -65,17 +65,24 @@
                 </section>
                 <section>
                     <h2>Hier</h2>
-                    <ul>
-                        <li><a target="liens" href="http://toutjavascript.com">toutjavascript.com</a></li>
-                        <li><a target="liens" href="http://www.francaisfacile.com/">francaisfacile.com</a></li>
-                    </ul>
+                    <div style="display:flex">
+                          <a target="liens" href="https://www.webdesignmuseum.org/gallery/google-1998">
+                            <img src="img/google.bmp" alt="google"/>
+                          </a>
+                          <a target="liens" href="https://www.webdesignmuseum.org/all-websites/facebook-2004">
+                            <img src="img/facebook.bmp" alt="facebook"/>
+                          </a>
+                    </div>
                 </section>
                 <section>
                     <h2>Aujourd'hui</h2>
                     <ul>
-                        <li><a target="liens" href="http://www.plus360degrees.com/uxcars/">plus360degrees.com</a></li>
-                        <li><a target="liens" href="https://iss-sim.spacex.com/">iss-sim.spacex.com</a></li>
                         <li><a target="liens" href="http://earth.nullschool.net/">earth.nullschool.net</a></li>
+                        <li><a target="liens" href="https://iss-sim.spacex.com/">iss-sim.spacex.com</a></li>
+                        <li><a target="liens" href="https://www.bandlab.com/">bandlab.com</a></li>
+                        <li><a target="liens" href="https://pixlr.com/fr/express/">pixlr.com</a></li>
+                        <li><a target="liens" href="https://github.com/emscripten-core/emscripten">emscripten</a></li>
+                        <li><a target="liens" href="https://experiments.withgoogle.com/">experiments with Google</a></li>
                     </ul>
                 </section>
 
@@ -145,12 +152,13 @@
                   <ul>
                       <li>
                         <a target="liens" href="https://nodejs.org/fr/">Node.js</a> pour gérer les dépendances (NPM)
-                        et installer d'autres outils.
+                        et installer d'autres outils
                       </li>
                       <li>
-                        <a target="liens" href="https://webpack.js.org/">Webpack</a> pour empaqueter les fichiers javascript
-                        et autres (images, css, etc) de manière optimisée.
-                        <a target="liens" href="https://fr.parceljs.org/">Parcel</a> est à mentionner quant à sa simplicité d'utilisation.
+                        <a target="liens" href="https://eslint.org/">ESLint</a> pour la qualité de code
+                      </li>
+                      <li>
+                        <a target="liens" href="https://git-scm.com/">Git</a> pour la gestion des versions
                       </li>
                   </ul>
               </section>
@@ -170,8 +178,7 @@ let Toto = "tata";
                         <h2>Aperçu syntaxique</h2>
                         <h3>Points-virgules</h3>
                         <p>Malgré un mécanisme d'<a target="liens" href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Grammaire_lexicale#Insertion_automatique_de_points-virgules">
-                                insertion automatique de points-virgules
-                            </a>, il est conseillé pour débuter de terminer toutes les instructions par un point virgule.</p>
+                                insertion automatique de points-virgules</a>, en l'absence d'un outil de qualité de code il est conseillé de terminer toutes les instructions par un point virgule.</p>
                         <pre><code class="javascript">let toto = "toto"
 let Toto = "tata"
 console.log(Toto)
@@ -217,57 +224,20 @@ lignes
                 </section>
 
                 <section>
+                    <h2>Modules</h2>
+                    <p><small>index.js</small></p>
+                    <pre><code>import monModule, { maFonction } from "./monModule.js";</code></pre>
+                    <p><small>monModule.js</small></p>
+                    <pre><code>export function maFonction() { /* ... */ }
 
-                    <h2>Mode strict</h2>
-                    <h3>variante restrictive de javascript</h3>
-                    <ul>
-                        <li>élimine quelques erreurs silencieuses en les changeant en erreurs explicites (une exception sera levée).</li>
-                        <li>corrige les erreurs qui font qu'il est difficile pour les moteurs javascript d'effectuer des optimisations.</li>
-                        <li>interdit les mot-clés susceptibles d'être définis dans les futures versions de ECMAScript.</li>
-                    </ul>
-
-                    <br/><br/>
-                    <p><small><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Strict_mode">&#10152; Référence</a></small>
-                </section>
-                <section>
-                    <h2>Mode strict</h2>
-                    <h3>Usage</h3>
-                    <p>Simple chaîne de caractères, qui sera ignorée par le moteur javascript s'il n'implémente pas le mode strict.</p>
-                    <pre><code class="javascript">"use strict";
-
-toto = "toto";
-//Exception: assignment to undeclared variable toto
-
-let tata = {
-    nom : "tata",
-    age : 25,
-    nom : "tata"
-};
-//Exception: property name nom appears more than once in object literal
-</code></pre>
-                </section>
-                <section>
-                    <h2>Mode strict</h2>
-                    <h3>Où le placer ?</h3>
-                    <ul>
-                        <li>En dehors d'une fonction, il s'applique à tout le fichier.<br/>
-                            &#10152; bugs possibles si on concatène des fichiers pas tous écrits en mode strict.
-                        </li>
-                        <li>En début de fonction, il s'applique au contenu de la fonction (y compris les fonctions imbriquées).<br/>
-                            &#10152; c'est la méthode préconisée.
-                        </li>
-                        <pre><code class="javascript">function toto() {
-
-    "use strict";
-
-    //je suis en mode strict
-
-    function tata() {
-    	//je suis en mode strict
-    }
-}
-//je ne suis pas en mode strict</code></pre>
-                </section>
+export default {
+  tata : "tata",
+  toto : "toto"
+}</code></pre>
+<p>Chaque module possède son propre contexte d'exécution.</p>
+<p><u>Remarque</u> : On peut utiliser l'extension <a href="https://ritwickdey.github.io/vscode-live-server/">Live Server</a>
+  de VSCode pour utiliser facilement les modules.</p>
+              </section>
 
             </div>
         </div>

@@ -25,7 +25,7 @@ typeof obj.nom;</code>
     			<choix>"undefined"</choix>
     			<choix correct>"string"</choix>
           <choix>"object"</choix>
-          <reponse>La proriété nom définie à l'instanciation est de type chaîne</reponse>
+          <reponse>La propriété nom définie à l'instanciation est de type chaîne</reponse>
     		</qcm>
 
     		<qcm>
@@ -58,6 +58,23 @@ toto._activiteSecrete;</code>
           <choix correct>"espion"</choix>
           <choix>"undefined"</choix>
           <reponse>L'underscore était juste une convention de nommage avant la normalisation des variables privées en ES2022</reponse>
+        </qcm>
+
+        <qcm>
+          <code>class Personne {
+  constructor(age) {
+    this.age = age;
+    this.#activiteSecrete = "espion";
+  }
+}
+
+let toto = new Personne();
+toto.#activiteSecrete;</code>
+          <question>La dernière instruction renvoie</question>
+          <choix correct>Error</choix>
+          <choix>"espion"</choix>
+          <choix>"undefined"</choix>
+          <reponse>Les propriétés privées ne sont accessibles qu'à l'intérieur de la classe</reponse>
         </qcm>
 
     		<qcm>
@@ -159,14 +176,14 @@ console.log("toto : " + toto);
     			<code>class Personne {
   constructor(nom, age) {
     this.nom = nom;
-    this._age = age;
+    this.#age = age;
   }
   get age() {
-    return this._age;
+    return this.#age;
   }
   set age(val)  {
     if (typeof val !== "number") throw new TypeError("val n'est pas un nombre");
-    this._age = val;
+    this.#age = val;
   }
 }
 

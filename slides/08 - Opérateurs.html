@@ -93,36 +93,6 @@
 					   <td><code>x %= y</code></td>
 					   <td><code>x = x % y</code></td>
 					  </tr>
-					  <tr>
-					   <td>affectation après décalage à gauche</td>
-					   <td><code>x &lt;&lt;= y</code></td>
-					   <td><code>x = x &lt;&lt; y</code></td>
-					  </tr>
-					  <tr>
-					   <td>affectation après décalage à droite</td>
-					   <td><code>x &gt;&gt;= y</code></td>
-					   <td><code>x = x &gt;&gt; y</code></td>
-					  </tr>
-					  <tr>
-					   <td>affectation après décalage à droite non signé</td>
-					   <td><code>x &gt;&gt;&gt;= y</code></td>
-					   <td><code>x = x &gt;&gt;&gt; y</code></td>
-					  </tr>
-					  <tr>
-					   <td>affectation après ET binaire</td>
-					   <td><code>x &amp;= y</code></td>
-					   <td><code>x = x &amp; y</code></td>
-					  </tr>
-					  <tr>
-					   <td>affectation après OU exclusif binaire</td>
-					   <td><code>x ^= y</code></td>
-					   <td><code>x = x ^ y</code></td>
-					  </tr>
-					  <tr>
-					   <td>affectation après OU binaire</td>
-					   <td><code>x |= y</code></td>
-					   <td><code>x = x | y</code></td>
-					  </tr>
 					 </tbody>
 					</table>
 				</section>
@@ -500,6 +470,14 @@ aucunArgument(""); // false</code></pre>
 				    <p><code>+true</code> renvoie <code>1</code>.</p>
 				   </td>
 				  </tr>
+          <tr>
+            <td>Exponentiel</td>
+            <td><code>**</code></td>
+            <td>Opérateur d'exponentiation. Fournit le résultat obtenu lorsqu'on élève le premier opérande à la puissance indiquée par le second.</td>
+            <td>
+             <p><code>3**4</code> renvoie <code>81</code>.</p>
+            </td>
+           </tr>
 				 </tbody>
 				</table>
 			</section>
@@ -545,57 +523,49 @@ aucunArgument(""); // false</code></pre>
       </section>
 
       <section>
-        <section>
           <h2>Opérateurs Logiques</h2>
           <h3>ET logique</h3>
           <br/>
           <p>Utile pour accéder à la propriété d'un objet potentiellement inexistant.</p>
           <pre><code class="javascript">let age = toto && toto.age; // undefined si toto n'existe pas</code></pre>
-        </section>
+      </section>
+
+      <section>
+        <h2>Opérateurs Logiques</h2>
+        <h3>OU logique</h3>
+        <br/>
+        <p>Utile pour définir une valeur par défaut</p>
+        <pre><code class="javascript">let age = toto.age || 25; // 25 si toto n'a pas de propriété age</code></pre>
+      </section>
+
         <section>
-          <h2>Chaînage optionnel</h2>
+          <h2>Opérateurs Logiques</h2>
+          <h3>Opérateur de coalescence des nuls</h3>
+          <pre><code class="javascript">let toto = { age : 0 }
+
+// Attention si la première expression est une valeur de type fausse !
+let age = toto.age || 25; // 25
+
+let age = toto.age ?? 25; // 0
+// Renvoie le 2ème opérande seulement si le premier est null ou undefined</code></pre>
+        </section>
+
+    <section>
+      <h2>Chaînage optionnel</h2>
 <br/>
-          <p>Il permet d'éviter l'emploi du ET logique dans ce cas.</p>
-          <pre><code class="javascript">let age = toto?.age;
+      <p>Il permet d'éviter l'emploi du ET logique</p>
+      <pre><code class="javascript">let age = toto?.age;
 // renvoie undefined si une référence est null ou undefined</code></pre>
 <br/>
-          <div class="fragment">
-            <p>On peut l'utiliser avec la notation crochet et les fonctions.</p>
-            <pre><code class="javascript">let age = toto?.["age"];
+      <div class="fragment">
+        <p>On peut l'utiliser avec la notation crochet et les fonctions.</p>
+        <pre><code class="javascript">let age = toto?.["age"];
 // renvoie undefined si toto n'existe pas
 
 toto?.renaître?.()
 // renvoie undefined si toto n'existe pas ou s'il ne possède pas de méthode renaître.
-            </code></pre>
-          </div>
-        </section>
-      </section>
-
-      <section>
-        <section>
-          <h2>Opérateurs Logiques</h2>
-          <h3>OU logique</h3>
-          <br/>
-          <p>Utile pour définir une valeur par défaut</p>
-          <pre><code class="javascript">let age = toto.age || 25; // 25 si toto n'a pas de propriété age</code></pre>
-        </section>
-        <section>
-          <h2>Opérateurs Logiques</h2>
-          <h3>OU logique</h3>
-          <br/>
-          <p>Attention si la première expression est une
-<a href="https://developer.mozilla.org/fr/docs/Glossaire/Falsy" target="liens">valeur de type fausse</a></p>
-          <pre><code class="javascript">let toto = { age : 0 }
-let age = toto.age || 25; // 25</code></pre>
-        </section>
-        <section>
-          <h2>Opérateurs Logiques</h2>
-          <h3>Opérateur de coalescence des nuls</h3>
-          <p>Pour pallier ce problème, l'opérateur <code>??</code> a été inventé.</p>
-          <pre><code class="javascript">let toto = { age : 0 }
-let age = toto.age ?? 25; // 0
-// Renvoie le 2ème opérande seulement si le premier est null ou undefined</code></pre>
-        </section>
+        </code></pre>
+      </div>
     </section>
 
 			<section>

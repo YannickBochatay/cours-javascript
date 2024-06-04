@@ -58,16 +58,14 @@
     &lt;meta charset="UTF-8"/&gt;
     &lt;title&gt;maPage&lt;/title&gt;
     &lt;link rel="stylesheet" href="mesStyles.css"/&gt;
+    &lt;script type="module" src="monScript.js"&gt;&lt;/script&gt;
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;!-- Contenu de ma page -->
-    &lt;script src="monScript.js"&gt;&lt;/script&gt;
+    &lt;!-- Contenu de ma page --&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-          <ul>
-            <li>ne pas écrire le javascript directement dans des balises script mais dans un fichier à part (améliore la lisibilité)</li>
-            <li>inclure les fichiers javascript juste avant de fermer la balise body (affiche la page plus rapidement)</li>
-          </ul>
+          <p><code>type module</code> : permet de scinder le script en plusieurs fichiers à l'aide d'imports/exports.
+              Le script est exécuté après analyse de la page.</p>
         </section>
 
         <section>
@@ -248,6 +246,7 @@ div.classList.remove("maClasse");</code></pre>
           <h2>DOM Element</h2>
           <h3>Méthodes usuelles (1/2)</h3>
           <ul>
+            <li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/remove" target="liens">remove</a></code> : retire l'élément courant du DOM</li>
             <li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/appendChild" target="liens">appendChild</a></code> : insère un nœud comme dernier enfant</li>
             <li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/removeChild" target="liens">removeChild</a></code> : retire un nœud enfant</li>
             <li><code><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/replaceChild" target="liens">replaceChild</a></code> : remplace un nœud enfant par un autre</li>
@@ -551,12 +550,10 @@ for (i=0;i&lt;links.length;i++) {
 
         <section>
           <h2>Gérer la compatibilité</h2>
-          <h3>Répartition des navigateurs</h3>
-          <iframe
-            src="https://www.redditmedia.com/r/dataisbeautiful/comments/v3c9nv/oc_web_browsers_over_the_last_28_years/?ref_source=embed&amp;ref=share&amp;embed=true"
-            style="border: none;"
-            height="620" width="640" scrolling="no">
-        </iframe>
+          <br/>
+          <a href="https://www.redditmedia.com/r/dataisbeautiful/comments/v3c9nv/oc_web_browsers_over_the_last_28_years/?ref_source=embed&amp;ref=share&amp;embed=true">
+            Evolution de la répartition des navigateurs sur les 28 dernières années
+          </a>
         </section>
 
         <section>
@@ -614,11 +611,7 @@ addListener(div,"click",function() { alert("hello world"); });
         <section>
           <h2>Introduction à jQuery</h2>
           <p>Aujourd'hui supplantée par des frameworks comme Angular ou React,
-            <a href="http://jquery.com/" target="liens">jQuery</a> est une bibliothèque qui a dominé le monde du web pendant de nombreuses années et reste très présente.
-          </p>
-          <p>Elle est écrite en javascript, c'est un fichier à inclure dans chaque page dans une balise script.</p>
-          <pre><code class="html"><!-- inclusion depuis un serveur CDN -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script></code></pre>
+            <a href="http://jquery.com/" target="liens">jQuery</a> est une bibliothèque javascript qui a dominé le monde du web pendant de nombreuses années et reste très présente.
           </p>
         </section>
 
@@ -630,7 +623,7 @@ addListener(div,"click",function() { alert("hello world"); });
             <li class="fragment">Compatibilité entre navigateurs</li>
             <li class="fragment">Concision
               <pre><code class="javascript">let list = document.querySelectorAll(".classe");
-for (let i=0;i&lt;list.length;i++) { list[i].remove(); }
+for (let item of list) { list.remove(); }
 // versus
 $('.classe').detach();</code></pre>
             </li>

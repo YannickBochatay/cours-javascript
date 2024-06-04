@@ -68,7 +68,8 @@
 							<li>chaîne de caractère</li>
 							<li>undefined</li>
               <li>null</li>
-              <li>Symbol</li>
+              <li>symbol</li>
+              <li>bigint</li>
 						</ul>
 					</section>
 				</section>
@@ -78,18 +79,30 @@
 				</section>
 
 					<section>
-						<h3>Nombre</h3>
+            <section>
+              <h3>Nombre</h3>
 						<p>
-						Nombres à virgule flottante sur 64 bits.<br/>
-						Deux valeurs spéciales : <code>NaN</code> (not a number) et <code>Infinity</code>.
-						</p>
+						Nombres à virgule flottante sur 64 bits.</p>
+						<p>Deux valeurs spéciales : <code>NaN</code> (not a number) et <code>Infinity</code>.<br/>
+            Les chiffres d'un même nombre peuvent être séparés par des tirets bas.</p>
 						<pre>
-							<code data-trim class="javascript">
-3/0; //Infinity
+							<code data-trim class="javascript">3/0; //Infinity
 
 parseFloat("a"); // NaN
-							</code>
-						</pre>
+
+100_000; // 100000
+
+0.1 + 0.2; // ?</code></pre>
+            </section>
+              <section>
+                <h3>Bigint</h3>
+                <p>La représentation des nombres au format de virgule flottante sur 64 bits ne peut représenter
+                  avec certitude qu'un nombre entre -(2^53-1) et 2^53 -1.
+                  <br/>Au delà on peut utiliser les primitives bigint
+                  en ajoutant un n à la fin d'un littéral d'entier.
+                </p>
+                <pre><code data-trim class="javascript">const plusGrandEntier = 9007199254740991n;</code>
+              </section>
 					</section>
 
 					<section>
@@ -186,11 +199,19 @@ parseFloat("a"); // NaN
 
 
 						<section>
-							<h3>Undefined</h3>
-							Valeur utilisée lorsqu'aucune valeur n'a été attribuée à une variable.
-							<pre><code class="javascript">let toto;
+              <section>
+                <h3>Undefined</h3>
+                Valeur utilisée lorsqu'aucune valeur n'a été attribuée à une variable.
+                <pre><code class="javascript">let toto;
 
 toto; //undefined</code></pre>
+              </section>
+              <section>
+                <h3>Undefined</h3>
+                Bien que la valeur <code>undefined</code> soit manipulable, il est déconseillé de la faire apparaître dans le code.
+                <pre><code class="javascript">let toto = "toto";
+toto = undefined; // à éviter</code></pre>
+              </section>
 						</section>
 
 						<section>
@@ -211,7 +232,7 @@ obj[sym] = "titi";</code></pre>
 <p>=> Utilisation avancée de javascript.</p>
 					</section>
 
-				<section>
+        <section>
 					<h2>Déclaration</h2>
 					Obligatoire en mode strict
 					<pre><code>"use strict";
@@ -224,7 +245,7 @@ toto; // "titi"
 titi; // undefined
 tutu; // undefined
 tyty; // ReferenceError: tyty is not defined</code></pre>
-        <p>Les variables se déclarent avec les mots clés let</p>
+        <p>Les variables se déclarent de préférence avec le mot clé <code>let</code></p>
 				</section>
 
 				<section>
@@ -318,28 +339,6 @@ reponse = "toto";
 						<h3>Variables locales</h3>
 						<p>Lorsqu'une variable est déclarée dans une fonction, elle est appelée variable locale car elle n'est disponible qu'au sein de cette fonction.
 						</p>
-          </section>
-
-          <section>
-              <h2>Variables globales</h2>
-              <h3>Dans un navigateur web</h3>
-              Différents fichiers javascript partagent le <u>même</u> espace global.
-              </p>
-              <pre><code>&lt;!doctype html&gt;
-  &lt;html&gt;
-     &lt;head&gt;&lt;/head&gt;
-     &lt;body&gt;
-        &lt;script src="script1.js"&gt;&lt;/script&gt;
-        &lt;script src="script2.js"&gt;&lt;/script&gt;
-        &lt;script&gt;
-           alert(maVariable); //tata
-        &lt;/script&gt;
-     &lt;/body&gt;
-  &lt;/html&gt;</code></pre>
-              <p><small>script1.js</small></p>
-              <pre><code>let maVariable = "toto";</code></pre>
-              <p><small>script2.js</small></p>
-              <pre><code>let maVariable = "tata";</code></pre>
           </section>
 
           <section>

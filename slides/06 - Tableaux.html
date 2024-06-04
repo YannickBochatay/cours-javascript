@@ -92,20 +92,18 @@ tab.at(-1); //accès à la dernière propriété => "titi"
 tab[tab.length - 1]; // équivalent sans la méthode at</code></pre>
 </section>
 				</section>
-				<section>
+				<!-- <section>
 					<section>
 					<h2>Tableaux associatifs ?</h2>
 					<h3>Illusion</h3>
 					<p>Il n'y a <u>pas de tableaux associatifs</u> en javascript.</p>
-					<p>La confusion vient de la notation avec crochets qui rappelle les tableaux associatifs d'autres langages.</p>
+					<p>La notation avec crochets prête à confusion et rappelle les tableaux associatifs d'autres langages.</p>
 					<pre><code class="javascript">let tab = [];
 
 tab["nom"] = "Toto";
 tab["age"] = 25;
 
-for (let n in tab) console.log(n + ' = ' + tab[n]);
-
-//J'arrive à mes fins et je crois utiliser un tableau associatif.
+// pas d'erreur
 </code></pre>
 					</section>
 					<section>
@@ -132,29 +130,21 @@ tab.age = 25; // strictement équivalent à tab["age"] = 25
 for (let n in tab) console.log(n + ' = ' + tab[n]);
 </code></pre>
 					</section>
-				</section>
+				</section> -->
 				<section>
 					<section>
 						<h2>Enumération</h2>
-						<h3>Classique</h3>
+						<h3>for...of</h3>
 						<pre><code class="javascript">let tab = ["tata","toto","titi"];
 
-for (let i=0 ; i&lttab.length ; i++) {
-    console.log(tab[i]);
+for (let item of tab) {
+  console.log(item);
 }</code></pre>
 						<div class="fragment">
 							<h3>forEach</h3>
 							<pre><code class="javascript">let tab = ["tata","toto","titi"];
 
-tab.forEach(function(item, i) {
-    console.log("item n°"+i+" : "+item);
-});</code></pre>
-						</div>
-						<div class="fragment">
-							<h4>avec une fonction fléchée (ES6)</h4>
-							<pre><code class="javascript">let tab = ["tata","toto","titi"];
-
-tab.forEach((item,i) => console.log("item n°"+i+" : "+item));
+tab.forEach((item,i) => console.log(`item n°${i} : ${item}`));
 </code></pre>
 						</div>
 					</section>
@@ -162,7 +152,7 @@ tab.forEach((item,i) => console.log("item n°"+i+" : "+item));
 					<section>
 						<h2>Enumération</h2>
 						<h3><del>for...in</del></h3>
-						<p>Ne jamais utiliser la boucle <code>for...in</code> pour énumérer un tableau !
+						<p>Ne jamais utiliser la boucle <code>for...in</code> pour énumérer un tableau
 						<pre><code class="javascript">let tab = ["tata","toto","titi"];
 
 for (let n in tab) console.log(tab[n]);
@@ -205,39 +195,6 @@ for (n in tab) console.log(tab[n]);
 </code></pre>
 					</section>
 				</section>
-				<section>
-					<h2>Mutateurs</h2>
-						<p>Ces méthodes modifient le tableau.</p>
-						<br/>
-						<ul>
-							<li>
-								<code>pop</code> : supprime le dernier élément et retourne cet élément.
-							</li>
-							<li>
-								<code>push</code> : ajoute un ou des éléments à la fin du tableau.
-							</li>
-							<li>
-								<code>reverse</code> : renverse l'ordre des éléments.
-							</li>
-							<li>
-								<code>shift</code> : supprime le 1er élément et retourne cet élément.
-							</li>
-							<li>
-								<code>sort</code> : trie en place les éléments.
-							</li>
-							<li>
-								<code>splice</code> : supprime et/ou ajoute des éléments.
-							</li>
-							<li>
-								<code>unshift</code> : ajoute un ou des éléments au début du tableau.
-							</li>
-						</ul>
-						<br/><br/>
-						<p><small>
-							<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array#Les_mutateurs" target="liens">&#10152; Référence</a>
-							</small>
-						</p>
-					</section>
 					<section>
 						<h2>Accesseurs</h2>
 						<p>Ces méthodes ne modifient pas le tableau.</p>
@@ -262,12 +219,62 @@ for (n in tab) console.log(tab[n]);
 								<code>includes</code> : détermine si le tableau contient ou non un certain élément.
 							</li>
 						</ul>
-						<br/><br/>
-						<p><small>
-							<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array#Les_accesseurs" target="liens">&#10152; Référence</a>
-							</small>
-						</p>
 					</section>
+          <section>
+            <section>
+              <h2>Mutateurs</h2>
+                <p>Ces méthodes modifient le tableau.</p>
+                <br/>
+                <ul>
+                  <li>
+                    <code>pop</code> : supprime le dernier élément et retourne cet élément.
+                  </li>
+                  <li>
+                    <code>push</code> : ajoute un ou des éléments à la fin du tableau.
+                  </li>
+                  <li>
+                    <code>reverse</code> : renverse l'ordre des éléments.
+                  </li>
+                  <li>
+                    <code>shift</code> : supprime le 1er élément et retourne cet élément.
+                  </li>
+                  <li>
+                    <code>sort</code> : trie en place les éléments.
+                  </li>
+                  <li>
+                    <code>splice</code> : supprime et/ou ajoute des éléments.
+                  </li>
+                  <li>
+                    <code>unshift</code> : ajoute un ou des éléments au début du tableau.
+                  </li>
+                </ul>
+              </section>
+              <section>
+                <div class="breaking_news">
+                  <img
+                    src="./img/breaking_news.jpg"
+                    alt="breaking news"
+                  />
+                  <span>ES2023</span>
+                </div>
+                <h2>Equivalents sans mutation</h2>
+                <br/>
+                  <ul>
+                    <li>
+                      <code>toReversed</code> : renverse l'ordre des éléments.
+                    </li>
+                    <li>
+                      <code>toSorted</code> : trie en place les éléments.
+                    </li>
+                    <li>
+                      <code>toSpliced</code> : supprime et/ou ajoute des éléments.
+                    </li>
+                    <li>
+                      <code>with</code> : crée une copie du tableau en remplaçant un élément
+                    </li>
+                  </ul>
+                </section>
+            </section>
 					<section>
 						<h2>Itération</h2>
 						<ul>
@@ -358,6 +365,7 @@ naissance; //["23", "12", "1967"]
             </section>
         </section>
         <section>
+          <section>
             <h2>Syntaxe de décomposition</h2>
             <h3>Appels de fonction</h3>
 						<pre><code class="javascript">function translateCoord(lon, lat) {
@@ -392,6 +400,7 @@ let newCoord = [...coord];
 newCoord[0] = 0.5;
 coord[0]; // 0.25</code></pre>
               </section>
+            </section>
 			</div>
 
 		</div>

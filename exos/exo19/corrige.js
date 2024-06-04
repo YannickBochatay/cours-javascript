@@ -1,26 +1,28 @@
 class Calculatrice {
 
+  #memoire
+
   constructor() {
-    this._memoire = []
+    this.#memoire = [];
   }
 
-  _stockeEnMemoire(val) {
-    this._memoire.push(val);
+  #stockeEnMemoire(val) {
+    this.#memoire.push(val);
   }
 
   ajouter(a,b) {
     let val = a+b;
-    this._stockeEnMemoire(val);
+    this.#stockeEnMemoire(val);
     return val;
   }
 
   soustraire(a,b) {
     let val = a-b;
-    this._stockeEnMemoire(val);
+    this.#stockeEnMemoire(val);
     return val;
   }
 
   recupMemoire() {
-    return this._memoire.pop();
+    return this.#memoire.pop();
   }
 }

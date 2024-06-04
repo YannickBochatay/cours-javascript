@@ -1,14 +1,8 @@
-(function() {
+let textarea = document.querySelector("textarea[name=monTexte]");
 
-    "use strict";
+textarea.addEventListener("input",function(e) {
 
-    let textarea = document.querySelector("textarea[name=monTexte]");
+    localStorage.setItem("maSaisie", e.target.value);
+});
 
-    textarea.addEventListener("input",function(e) {
-
-        localStorage.setItem("maSaisie", e.target.value);
-    });
-
-    textarea.value = localStorage.getItem("maSaisie");
-
-}());
+textarea.value = localStorage.getItem("maSaisie");

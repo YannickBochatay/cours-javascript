@@ -1,19 +1,13 @@
-(function() {
+let tdHeure = document.getElementById("heure"),
+    tdHauteur = document.getElementById("hauteur"),
+    tdLargeur = document.getElementById("largeur");
 
-    "use strict";
+function afficheTaille() {
+    tdHeure.textContent = new Date().toLocaleTimeString();
+    tdLargeur.textContent = window.innerWidth;
+    tdHauteur.textContent = window.innerHeight;
+}
 
-    let tdHeure = document.getElementById("heure"),
-        tdHauteur = document.getElementById("hauteur"),
-        tdLargeur = document.getElementById("largeur");
+window.addEventListener("resize",afficheTaille);
 
-    function afficheTaille() {
-        tdHeure.textContent = new Date().toLocaleTimeString();
-        tdLargeur.textContent = window.innerWidth;
-        tdHauteur.textContent = window.innerHeight;
-    }
-
-    window.addEventListener("resize",afficheTaille);
-
-    afficheTaille();
-
-}());
+afficheTaille();
