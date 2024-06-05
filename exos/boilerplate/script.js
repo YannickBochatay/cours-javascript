@@ -1,9 +1,3 @@
-(function() {
-	
-    "use strict";
-  
-    /*
-     * votre code
-     */
-	
-}());
+/*
+ * votre code
+ */

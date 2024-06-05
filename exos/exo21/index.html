@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice 21</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+    <h1>Réordonner le code de ce gestionnaire de tâches en modules</h1>
+    <form id="add-task-form">
+        <input type="text" id="task-name" placeholder="Enter task" required>
+        <button type="submit">Add Task</button>
+    </form>
+    <ul id="task-list"></ul>
+    <script>
+      // tasks.js
+
+let tasks = [];
+
+function addTask(taskName) {
+    const task = {
+        id: tasks.length + 1,
+        name: taskName,
+        completed: false
+    };
+    tasks.push(task);
+    renderTasks();
+}
+
+function deleteTask(taskId) {
+    tasks = tasks.filter(task => task.id !== taskId);
+    renderTasks();
+}
+
+function toggleTaskCompletion(taskId) {
+    const task = tasks.find(task => task.id === taskId);
+    if (task) {
+        task.completed = !task.completed;
+        renderTasks();
+    }
+}
+
+function renderTasks() {
+    const taskList = document.getElementById('task-list');
+    taskList.innerHTML = '';
+    tasks.forEach(task => {
+        const taskItem = document.createElement('li');
+        taskItem.textContent = task.name;
+        if (task.completed) {
+            taskItem.classList.add('completed');
+        }
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = () => deleteTask(task.id);
+        const toggleButton = document.createElement('button');
+        toggleButton.textContent = task.completed ? 'Undo' : 'Complete';
+        toggleButton.onclick = () => toggleTaskCompletion(task.id);
+        taskItem.appendChild(deleteButton);
+        taskItem.appendChild(toggleButton);
+        taskList.appendChild(taskItem);
+    });
+}
+
+document.getElementById('add-task-form').onsubmit = function (e) {
+    e.preventDefault();
+    const taskName = document.getElementById('task-name').value;
+    if (taskName) {
+        addTask(taskName);
+        document.getElementById('task-name').value = '';
+    }
+};
+
+renderTasks();
+
+    </script>
+</body>
+</html>

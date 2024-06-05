@@ -1,0 +1,55 @@
+<qcm>
+  <code>&lt;script type="module" src="monScript.js"&gt;&lt;/script&gt;</code>
+  <question>Le téléchargement de ce script se fera</question>
+  <choix correct>dès que l'analyseur html lira cette balise</choix>
+  <choix>une fois que l'analyse html sera terminée</choix>
+  <reponse>Le chargement se fait aussitôt mais l'exécution est retardée après l'analyse complète</reponse>
+</qcm>
+
+<qcm>
+  <code>&lt;script type="module" src="monScript.js"&gt;&lt;/script&gt;</code>
+  <question>L'exécution de ce script se fera</question>
+  <choix>dès que l'analyseur html lira cette balise, avant de lire la suivante</choix>
+  <choix correct>une fois que l'analyse html sera terminée</choix>
+  <reponse>Le chargement se fait aussitôt mais l'exécution est retardée après l'analyse complète</reponse>
+</qcm>
+
+<qcm>
+  <code>export default const toto = "tata";</code>
+  <question>Ce code est correct</question>
+  <choix>oui</choix>
+  <choix correct>non</choix>
+  <reponse>Cette écriture mélange un export nommé et un export par défaut</reponse>
+</qcm>
+
+<qcm>
+  <code>export const toto = "tata";
+export default toto;</code>
+  <question>Ce code est correct</question>
+  <choix correct>oui</choix>
+  <choix>non</choix>
+  <reponse>Une même variable peut à la fois être exportée par un export nommé et un export par défaut</reponse>
+</qcm>
+
+<qcm>
+  <code>import toto as tata from "./script.js"</code>
+  <question>Ce code va importer la variable toto en la nommant tata</question>
+  <choix>oui</choix>
+  <choix correct>non</choix>
+  <reponse>L'export par défaut s'importe directement avec le nom de variable de notre choix</reponse>
+</qcm>
+
+<qcm>
+  <code>import { toto : tata } from "./script.js"</code>
+  <question>Ce code va importer la variable toto en la nommant tata</question>
+  <choix>oui</choix>
+  <choix correct>non</choix>
+  <reponse>Contrairement au renommage dans les décompositions, le renommage d'une variable importée se fait avec le mot clé <code>as</code></reponse>
+</qcm>
+
+<qcm>
+  <code>import { toto as tata } from "./script.js"</code>
+  <question>Ce code va importer la variable toto en la nommant tata</question>
+  <choix correct>oui</choix>
+  <choix>non</choix>
+</qcm>
