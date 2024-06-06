@@ -451,10 +451,60 @@ tata.nom = "Tata";
 toto.nom; //Tata
 
 tata = null;
-toto; //{"nom"":"Tata",age:26}
-            </code></pre>
+toto; //{"nom"":"Tata",age:26}</code></pre>
 
                             </section>
+
+        <section>
+          <h2>Cloner un objet</h2>
+          <h3>Clonage superficiel <small>(shallow cloning)</small></h3>
+          <pre><code class="javascript">let toto = {
+  nom:"Toto",
+  age:26
+};
+
+let tata = { ...toto }; //tata contient une copie de la référence vers l'objet
+
+tata.nom = "Tata";
+toto.nom; //Toto</code></pre>
+
+        </section>
+        <section>
+          <h2>Cloner un objet</h2>
+          <h3>Problème</small></h3>
+          <pre><code class="javascript">let toto = {
+  nom:"Toto",
+  age:26,
+  activites : {
+    jour : "travail",
+    nuit : "dodo"
+  }
+};
+
+let tata = { ...toto };
+
+tata.activites.jour = "sport";
+toto.activites.jour; // sport</code></pre>
+        </section>
+        <section>
+          <h2>Cloner un objet</h2>
+          <h3>Clonage profond <small>(deep cloning)</small></h3>
+          <pre><code class="javascript">let toto = {
+  nom:"Toto",
+  age:26,
+  activites : {
+    jour : "travail",
+    nuit : "dodo"
+  }
+};
+
+let tata = structuredClone(toto);
+
+tata.activites.jour = "sport";
+toto.activites.jour; // travail</code></pre>
+<br/>
+<p><u>Remarque</u> : les fonctions ne sont pas clonables.</p>
+        </section>
 			</div>
 
 		</div>
