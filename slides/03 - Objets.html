@@ -416,18 +416,13 @@ console.log("genre" in toto); //false</code></pre>
             <h2>Objet global</h2>
             <p>Objet intrinsèque qui représente l'espace global dans un environnement javascript.
             Il est créé lors de l'initialisation du moteur de script.</p>
-            <p>Définir une variable globale revient à définir une propriété de l'objet global.</p>
+            <p>Définir une propriété de l'objet global revient à définir une variable globale.</p>
             <p>Dans l'environnement d'un navigateur web, cet objet global est <code><strong>window</strong></code>.</p>
             <pre><code>typeof window; //"object"
 
 window.toto = "tata";
 
-toto; //"tata"
-
-function add(a,b) { return a+b; }
-
-add(2,1); //3
-window.add(2,1); //3</code></pre>
+toto; //"tata";</code></pre>
           </section>
           <section>
             <h2>Objet global</h2>
@@ -463,7 +458,7 @@ toto; //{"nom"":"Tata",age:26}</code></pre>
   age:26
 };
 
-let tata = { ...toto }; //tata contient une copie de la référence vers l'objet
+let tata = { ...toto };
 
 tata.nom = "Tata";
 toto.nom; //Toto</code></pre>

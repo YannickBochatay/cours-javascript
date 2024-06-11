@@ -85,8 +85,7 @@
 						Nombres à virgule flottante sur 64 bits.</p>
 						<p>Deux valeurs spéciales : <code>NaN</code> (not a number) et <code>Infinity</code>.<br/>
             Les chiffres d'un même nombre peuvent être séparés par des tirets bas.</p>
-						<pre>
-							<code data-trim class="javascript">3/0; //Infinity
+						<pre><code data-trim class="javascript">3/0; //Infinity
 
 parseFloat("a"); // NaN
 
@@ -113,21 +112,17 @@ parseFloat("a"); // NaN
 						<br/>
 
 						</p>
-						<pre><code>
-  "toto";
-  'toto';
-            </code></pre>
+						<pre><code>"toto";
+'toto';</code></pre>
             <br/>
             <div class="fragment">
             <p>
               Délimitée par des guillements obliques, la chaîne peut être écrite sur plusieurs lignes et intégrer des expressions.
             </p>
-            <pre><code class="javascript">
-    let nom = "Toto";
+            <pre><code class="javascript">let nom = "Toto";
 
-    alert(`Bonjour ${nom},
-    comment vas-tu ?`);
-            </code></pre>
+alert(`Bonjour ${nom},
+comment vas-tu ?`);</code></pre>
 					  </section>
 
 					  <section>
@@ -233,19 +228,44 @@ obj[sym] = "titi";</code></pre>
 					</section>
 
         <section>
+			<section>
 					<h2>Déclaration</h2>
-					Obligatoire en mode strict
-					<pre><code>"use strict";
-
-let tata; //déclaration
+					<pre><code>let tata; //déclaration
 let toto = "titi"; //déclaration + affectation
 let titi, tutu; //déclaration de 2 variables avec un seul mot clé let.
 
 toto; // "titi"
 titi; // undefined
-tutu; // undefined
-tyty; // ReferenceError: tyty is not defined</code></pre>
+tutu; // undefined</code></pre>
         <p>Les variables se déclarent de préférence avec le mot clé <code>let</code></p>
+				</section>
+
+				<section>
+					<h2>Déclaration</h2>
+					<h3>Attention !</h3>
+					<p>En dehors des modules et du
+						<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Strict_mode" target="liens">mode strict</a>,
+						définir
+une variable sans mot clé revient à la définir comme globale.</p>
+					<pre><code>function maFonction() {
+  toto = "titi";
+}
+
+maFonction();
+
+toto; // titi
+</code></pre>
+				</section>
+
+				<section>
+					<h2>Typage dynamique</h2>
+					On ne spécifie pas le type de données.
+					<pre><code>let reponse = 42;
+
+reponse = "toto";
+					</code></pre>
+				</section>
+				
 				</section>
 
 				<section>

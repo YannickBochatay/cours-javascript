@@ -1,11 +1,11 @@
 let obj = {
-	nom : null,
+  nom : null,
   prenom : null,
-	age : null
+  age : null
 };
 
 for (let key in obj) {
 	obj[key] = prompt(key + " : ");
 }
 
-alert(JSON.stringify(str));
+alert(JSON.stringify(obj));
