@@ -261,16 +261,16 @@ for (n in tab) console.log(tab[n]);
                 <br/>
                   <ul>
                     <li>
-                      <code>toReversed</code> : renverse l'ordre des éléments.
+                      <code>toReversed</code> : copie le tableau en renversant l'ordre des éléments.
                     </li>
                     <li>
-                      <code>toSorted</code> : trie en place les éléments.
+                      <code>toSorted</code> : copie le tableau en triant les éléments.
                     </li>
                     <li>
-                      <code>toSpliced</code> : supprime et/ou ajoute des éléments.
+                      <code>toSpliced</code> : copie le tableau en supprimant et/ou en ajoutant des éléments.
                     </li>
                     <li>
-                      <code>with</code> : crée une copie du tableau en remplaçant un élément
+                      <code>with</code> : copie le tableau en remplaçant un élément.
                     </li>
                   </ul>
                 </section>
@@ -334,8 +334,8 @@ lat; //45.56</code></pre>
 Equivalent à :
 <pre><code class="javascript">let coord = [0.25, 45.56];
 
-let lon = tab[0];
-let lat = tab[1];</code></pre>
+let lon = coord[0];
+let lat = coord[1];</code></pre>
           </section>
           <section>
               <h2>Syntaxe de décomposition</h2>
