@@ -1,13 +1,13 @@
-let ul = document.querySelector("#listeDesInstructions");
+let ul = document.querySelector("#listeDesEmplois");
 let ex = document.querySelector("#exemple");
 
 ex.remove();
 
-function ajoutInstruction(instruction) {
+function ajoutOffre(job) {
 
   let a = document.createElement("a");
-  a.href = "http://mpfc.meteo.fr/#/instructions/"+instruction.id;
-  a.textContent = instruction.action;
+  a.href = job.url;
+  a.textContent = job.jobTitle;
 
   let li = document.createElement("li");
   li.appendChild(a);
@@ -15,12 +15,12 @@ function ajoutInstruction(instruction) {
   ul.appendChild(li);
 }
 
-async function recupInstructions() {
+async function recupOffres() {
 
-  let res = await fetch('http://mpfc.meteo.fr/back/modeles/instruction/liste/?page=1&tri=id&sens=desc');
-  let instructions = await res.json();
+  let res = await fetch('https://jobicy.com/api/v2/remote-jobs?count=20&geo=france&industry=dev');
+  let { jobs } = await res.json();
 
-  instructions.forEach(ajoutInstruction);
+  jobs.forEach(ajoutOffre);
 }
 
-recupInstructions();
+recupOffres();
