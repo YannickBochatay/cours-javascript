@@ -66,3 +66,14 @@ code.flow {
   top:-75px;
   color:rgb(230, 217, 217);
 }
+.reveal section img[alt="bizareries javascript"] {
+  max-height:65vh;
+  border:1px solid gray;
+  background:none;
+}
+.reveal section img[alt="expression rationnelle"] {
+  height:400px;
+}
+.reveal section img[alt="javascript thinking vs doing"] {
+  height:500px;
+}
