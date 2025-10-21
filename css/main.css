@@ -32,6 +32,7 @@ h1 {
 
 body {
     padding:20px;
+    counter-reset:exoCounter;
 }
 
 legend {
@@ -40,6 +41,12 @@ legend {
 
 #exo label {
 	font-weight:bold;
+}
+span.exercice {
+  counter-increment: exoCounter;
+}
+span.exercice::after {
+  content: "Exercice " counter(exoCounter);
 }
 
 .author {
