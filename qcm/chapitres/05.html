@@ -153,7 +153,7 @@ monObjet.x; //?</code>
   console.log("coucou");
 }
 
-window.setTimeout( coucou() ,3000);
+setTimeout( coucou() ,3000);
           </code>
           <question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
           <choix>vrai</choix>
@@ -171,7 +171,7 @@ window.setTimeout( coucou() ,3000);
   console.log("coucou");
 }
 
-window.setTimeout(coucou, 3000);</code>
+setTimeout(coucou, 3000);</code>
           <question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
           <choix correct>vrai</choix>
           <choix>faux</choix>
@@ -181,7 +181,7 @@ window.setTimeout(coucou, 3000);</code>
         </qcm>
 
     		<qcm important>
-    			<code>window.setTimeout( console.log("coucou"), 3000);</code>
+    			<code>setTimeout( console.log("coucou"), 3000);</code>
     			<question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
     			<choix>vrai</choix>
     			<choix correct>faux</choix>
@@ -191,7 +191,7 @@ window.setTimeout(coucou, 3000);</code>
     		</qcm>
 
         <qcm important>
-          <code>window.setTimeout(() => console.log("coucou"), 3000);</code>
+          <code>setTimeout(() => console.log("coucou"), 3000);</code>
           <question>"coucou" sera écrit dans la console avec 3 secondes de délai</question>
           <choix correct>vrai</choix>
           <choix>faux</choix>
@@ -218,7 +218,7 @@ fct2();
 
     		<!--<qcm important>
     			<code>let i=0;
-window.setTimeout(function() { alert(i); },1000);
+setTimeout(function() { alert(i); },1000);
 i++;</code>
     			<question>Ce code affichera 0</question>
     			<choix>vrai</choix>
@@ -253,7 +253,7 @@ toto.age; // ?</code>
   disBonjour : function() { alert("bonjour"); }
 };
 
-window.setTimeout(toto.disBonjour, 1000 );</code>
+setTimeout(toto.disBonjour, 1000 );</code>
           <question>Le message "bonjour" s'affiche au bout d'une seconde : </question>
           <choix correct>vrai</choix>
           <choix>faux</choix>
@@ -269,7 +269,7 @@ window.setTimeout(toto.disBonjour, 1000 );</code>
   renaitre : function() { this.age = 0; }
 };
 
-window.setTimeout(toto.renaitre, 1000 );</code>
+setTimeout(toto.renaitre, 1000 );</code>
           <question><code>toto.age</code> passe à 0 au bout d'une seconde : </question>
           <choix>vrai</choix>
           <choix correct>faux</choix>
@@ -286,7 +286,7 @@ window.setTimeout(toto.renaitre, 1000 );</code>
   renaitre : function() { this.age = 0; }
 };
 
-window.setTimeout(function() { toto.renaitre(); }, 1000 );</code>
+setTimeout(function() { toto.renaitre(); }, 1000 );</code>
           <question><code>toto.age</code> passe à 0 au bout d'une seconde : </question>
           <choix correct>vrai</choix>
           <choix>faux</choix>
