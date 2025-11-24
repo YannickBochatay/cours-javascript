@@ -420,7 +420,7 @@ e; //Exception : e is not defined;
 					<h3>Exemple</h3>
 					<pre><code class="javascript">let i=0;
 
-window.setTimeout(() => i++, 1000);
+setTimeout(() => i++, 1000);
 
 console.log(i); //?</code></pre>
 				</section>
@@ -451,11 +451,11 @@ img.addEventListener("load", () => console.log(img.width) /* 71 */);
 let img = new Image();
 img.src = "http://monServeur/monImage1.png";
 img.addEventListener("load", () => {
-  window.setTimeout(() => {
+  setTimeout(() => {
     let img = new Image();
     img.src = "http://monServeur/monImage2.png";
     img.addEventListener("load", () => {
-      window.setTimeout(() => {
+      setTimeout(() => {
         let img = new Image();
         img.src = "http://monServeur/monImage3.png";
         img.addEventListener("load", () => {
@@ -473,7 +473,7 @@ img.addEventListener("load", () => {
 					<pre><code class="javascript" style="max-height:1000px">function chargerImage(src,callback) {
   let img = new Image();
   img.src = "http://monServeur/"+src;
-  img.addEventListener("load", () => window.setTimeout(callback, 5000));
+  img.addEventListener("load", () => setTimeout(callback, 5000));
 }
 
 chargerImage("monImage1.png", () => {
@@ -497,7 +497,7 @@ chargerImage("monImage1.png", () => {
 }
 
 function attendre(s) {
-  return new Promise(resolve => window.setTimeout(resolve,s*1000));
+  return new Promise(resolve => setTimeout(resolve,s*1000));
 }
 
 chargerImage("monImage1.png")

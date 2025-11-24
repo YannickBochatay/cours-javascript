@@ -32,6 +32,6 @@
 
     let dragNdrop = new maBiblio.DragNdrop(div,opt);
 
-    window.setTimeout(function() { dragNdrop.disable(); },5000);
+    setTimeout(function() { dragNdrop.disable(); },5000);
 
 }());

@@ -98,6 +98,6 @@
     dragNdrop.onend = checkPosition;
     dragNdrop.enable();
 
-    window.setTimeout(function() { dragNdrop.disable(); },5000);
+    setTimeout(function() { dragNdrop.disable(); },5000);
 
 }());

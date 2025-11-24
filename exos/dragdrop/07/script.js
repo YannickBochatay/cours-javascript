@@ -29,6 +29,6 @@
     	onend : checkPosition
     });
 
-    window.setTimeout(function() { div.dragNdrop("disable"); },5000);
+    setTimeout(function() { div.dragNdrop("disable"); },5000);
 
 }(jQuery));

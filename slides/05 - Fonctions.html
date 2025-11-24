@@ -381,7 +381,7 @@ changeStyle(div,{ font : { size :"12px", color : "black"});</code></pre>
   console.log("coucou");
 }
 
-window.setTimeout(logMessage,3000);
+setTimeout(logMessage,3000);
 //la fonction setTimeout attend en premier argument une fonction,
 //qui sera executée après 3000 millisecondes.
 
@@ -398,7 +398,7 @@ lien.addEventListener("click",logMessage);
   console.log("coucou");
 }
 
-window.setTimeout( logMessage() ,3000);</code></pre>
+setTimeout( logMessage() ,3000);</code></pre>
                                                 <p class="fragment">
                                                     La fonction <em>logMessage</em> est exécutée immédiatement et c'est la valeur renvoyée par la fonction (ici <em>undefined</em>) qui
 est passée en argument de la fonction setTimeout.</p>
@@ -408,7 +408,7 @@ est passée en argument de la fonction setTimeout.</p>
 				<section>
 					<h2>Fonctions anonymes</h2>
 					<p>L'exemple précédent peut s'écrire de la manière suivante :</p>
-<pre><code class="javascript">window.setTimeout(() => console.log("coucou"), 3000);
+<pre><code class="javascript">setTimeout(() => console.log("coucou"), 3000);
 
 let lien = document.getElementById("monLien");
 lien.addEventListener("click",() => console.log("hello"));
@@ -499,9 +499,9 @@ valideFormulaire();</code></pre>
   console.log("Voici le message :\n" + message);
 }
 
-window.setTimeout(log,3000); //la fonction sera appelée sans argument
+setTimeout(log,3000); //la fonction sera appelée sans argument
 
-window.setTimeout( log("coucou") , 3000);
+setTimeout( log("coucou") , 3000);
 //la fonction est exécutée immédiatemment et
 //le résultat (undefined) est passé en argument de setTimeout</code></pre>
 				</section>
@@ -513,7 +513,7 @@ window.setTimeout( log("coucou") , 3000);
   console.log("Voici le message :\n" + message);
 }
 
-window.setTimeout(() => log("coucou"),3000);</code></pre>
+setTimeout(() => log("coucou"),3000);</code></pre>
 				</section>
 
 				<!--<section>
@@ -703,7 +703,7 @@ toto.age; //27</code></pre>
 
 let anneeEnMs = 1000 * 3600 * 24 * 365;
 
-window.setInterval(toto.vieillir,anneeEnMs);
+setInterval(toto.vieillir,anneeEnMs);
 
 </code></pre>
 <p class="fragment">On passe à la fonction setInterval une référence vers la méthode vieillir, mais on perd le contexte de l 'objet.</p>
@@ -720,7 +720,7 @@ window.setInterval(toto.vieillir,anneeEnMs);
 
 let anneeEnMs = 1000 * 3600 * 24 * 365;
 
-window.setInterval(function() { toto.vieillir(); },anneeEnMs);</code></pre>
+setInterval(function() { toto.vieillir(); },anneeEnMs);</code></pre>
 				</section>
 
 				<section>
@@ -736,7 +736,7 @@ let anneeEnMs = 1000 * 3600 * 24 * 365;
 
 let totoVieillit = toto.vieillir.bind(toto);
 
-window.setInterval(totoVieillit,anneeEnMs);</code></pre>
+setInterval(totoVieillit,anneeEnMs);</code></pre>
 <p>Le 1er argument de la méthode <code>bind</code> force la valeur de <code>this</code>.</p>
 				</section>
                 </section>-->
